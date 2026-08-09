@@ -111,7 +111,7 @@ export function MobileNav() {
           <div className="flex items-center pr-8">
             <div className="relative h-12 w-60 shrink-0">
               <Image
-                src="/brnding-assets/nlogo.png"
+                src="/brnding-assets/logo.webp"
                 alt={STORE_NAME}
                 fill
                 className="object-contain object-left"

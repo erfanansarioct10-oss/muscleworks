@@ -6,7 +6,7 @@ export default function HomePage() {
       <div className="flex max-w-lg flex-col items-center gap-6 rounded-2xl border border-border bg-card p-8 shadow-2xl">
         <div className="relative h-16 w-72 sm:h-20 sm:w-96">
           <Image
-            src="/brnding-assets/nlogo.png"
+            src="/brnding-assets/logo.webp"
             alt="MuscleWorks Supplements Nepal"
             fill
             className="object-contain"

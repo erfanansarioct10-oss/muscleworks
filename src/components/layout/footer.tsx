@@ -59,7 +59,7 @@ export function Footer() {
             >
               <div className="relative h-14 w-72 shrink-0">
                 <Image
-                  src="/brnding-assets/nlogo.png"
+                  src="/brnding-assets/logo.webp"
                   alt={STORE_NAME}
                   fill
                   className="object-contain object-left transition-transform group-hover:scale-105"

@@ -60,6 +60,11 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
+  icons: {
+    icon: "/brnding-assets/favicon.webp",
+    shortcut: "/brnding-assets/favicon.webp",
+    apple: "/brnding-assets/favicon.webp",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",

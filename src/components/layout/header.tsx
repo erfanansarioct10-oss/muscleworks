@@ -23,7 +23,7 @@ export function Header() {
         >
           <div className="relative h-11 w-52 sm:h-14 sm:w-72 shrink-0">
             <Image
-              src="/brnding-assets/nlogo.png"
+              src="/brnding-assets/logo.webp"
               alt={STORE_NAME}
               fill
               className="object-contain object-left transition-transform group-hover:scale-105"
