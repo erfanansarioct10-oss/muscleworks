@@ -98,20 +98,20 @@ flowchart LR
   - [x] `npx tsc --noEmit` resolves path aliases without errors.
 
 #### Sub-Phase 0.2: Styling System & Tailwind CSS v4 Theme Engine
-- [ ] **Status:** Unchecked
+- [x] **Status:** Completed
 - **Target Files:**
   - `src/app/globals.css` [NEW]
   - `postcss.config.mjs` [NEW]
 - **Purpose & Scope:**
-  - Configure Tailwind CSS v4 `@theme` block in `src/app/globals.css` with canonical athletic palette (Obsidian `#0A0D14`, Crimson `#E11D48`, Gold `#F59E0B`, Emerald `#10B981`, Slate card surfaces).
-  - Define custom typography scale using `Inter` and `Outfit` font tokens.
+  - Configure Tailwind CSS v4 `@theme` block in `src/app/globals.css` with canonical athletic palette (Obsidian `#09090b`, Crimson `#dc2626`, Gold `#f59e0b`, Emerald `#10b981`, Slate card surfaces `#121216`).
+  - Define custom typography scale using `Inter` / `Plus Jakarta Sans` and `Outfit` font tokens.
   - Add smooth scrolling, accessible focus ring utility styles, custom scrollbar styling, and touch-callout resets.
 - **Verification Checklist:**
-  - [ ] Tailwind `@theme` variables compile without syntax warnings.
-  - [ ] Background and foreground CSS variables render expected dark athletic aesthetic.
+  - [x] Tailwind `@theme` variables compile without syntax warnings.
+  - [x] Background and foreground CSS variables render expected dark athletic aesthetic.
 
 #### Sub-Phase 0.3: Core Utility Layer & Type Foundations
-- [ ] **Status:** Unchecked
+- [x] **Status:** Completed
 - **Target Files:**
   - `src/lib/utils.ts` [NEW]
   - `src/lib/constants.ts` [NEW]
@@ -122,61 +122,61 @@ flowchart LR
   - Define brand constants: store phone, official WhatsApp order number, store physical address at Golfutar, Budha-Nilkantha, Kathmandu (44500), opening hours, and canonical social media links.
   - Define global shared TypeScript types and utility helpers (currency formatter `formatNprPrice`, discount calculator `calculateDiscountPercentage`).
 - **Verification Checklist:**
-  - [ ] `npx tsc --noEmit` passes with zero errors.
-  - [ ] `formatNprPrice(5500)` returns `"NPR 5,500"`.
+  - [x] `npx tsc --noEmit` passes with zero errors.
+  - [x] `formatNprPrice(5500)` returns `"NPR 5,500"`.
 
 #### Sub-Phase 0.4: Next.js 16 App Root Layout & Font Engine
-- [ ] **Status:** Unchecked
+- [x] **Status:** Completed
 - **Target Files:**
-  - `src/app/layout.tsx` [NEW]
+  - `src/app/layout.tsx` [MODIFY]
   - `src/app/not-found.tsx` [NEW]
   - `src/app/error.tsx` [NEW]
-  - `src/app/loading.tsx` [NEW]
+  - `src/app/global-error.tsx` [NEW]
 - **Purpose & Scope:**
-  - Setup Google Fonts `Inter` (body) and `Outfit` (display/headings) via `next/font/google` with variable font optimization and `display: swap`.
+  - Setup Google Fonts `Outfit` (headings) and `Plus Jakarta Sans` (body) via `next/font/google` with variable font optimization and `display: swap`.
   - Build root HTML layout structure with viewport meta, dark color scheme, and global toast container.
   - Build responsive 404 Not Found page with supplement-themed graphic and recovery CTA buttons.
-  - Build global Error Boundary (`error.tsx`) with reset trigger and fallback shell (`loading.tsx`).
+  - Build global Error Boundary (`error.tsx`) and root layout fallback (`global-error.tsx`) with reset trigger.
 - **Verification Checklist:**
-  - [ ] Root layout renders with fonts applied to `<html>` and `<body>`.
-  - [ ] `/not-found` route displays branded 404 shell and navigation back to catalog.
+  - [x] Root layout renders with fonts applied to `<html>` and `<body>`.
+  - [x] `/not-found` route displays branded 404 shell and navigation back to catalog.
 
 ---
 
 ### Phase 1: Core Design System & Shared UI Primitives
 
 #### Sub-Phase 1.1: Core Action & Feedback Primitives
-- [ ] **Status:** Unchecked
+- [x] **Status:** Completed
 - **Target Files:**
   - `src/components/ui/button.tsx` [NEW]
   - `src/components/ui/badge.tsx` [NEW]
   - `src/components/ui/separator.tsx` [NEW]
   - `src/components/ui/skeleton.tsx` [NEW]
 - **Purpose & Scope:**
-  - Build CVA-based Button component with variants (`primary` crimson, `secondary` outline, `ghost`, `gold` accent, `whatsapp` brand green) and sizes (`sm`, `md`, `lg`, `xl`). Enforce minimum touch target heights (`h-11` or `h-12` on mobile).
-  - Build Badge component with variants (`authentic` emerald, `discount` crimson, `stock` gold, `category` slate).
-  - Build Separator and Skeleton loader primitives.
+  - Build CVA-based Button component with variants (`default` crimson, `whatsapp` emerald green, `gold` accent, `secondary`, `outline`, `ghost`, `destructive`, `link`) and sizes (`sm`, `default` 44px, `lg` 48px, `xl` 56px, `icon` 44px). Enforce minimum touch target heights (`h-11` or `h-12` on mobile).
+  - Build Badge component with variants (`authentic` emerald, `discount` crimson, `stock` gold, `category` charcoal slate, `default`, `outline`).
+  - Build accessible Separator and Skeleton loader primitives.
 - **Verification Checklist:**
-  - [ ] `npx tsc --noEmit` passes cleanly.
-  - [ ] All button variants satisfy min touch target ≥44px (≥48px for CTA sizes).
+  - [x] `npx tsc --noEmit` passes cleanly.
+  - [x] All button variants satisfy min touch target ≥44px (≥48px for CTA sizes).
 
 #### Sub-Phase 1.2: Form Input & Text Primitives
-- [ ] **Status:** Unchecked
+- [x] **Status:** Completed
 - **Target Files:**
   - `src/components/ui/input.tsx` [NEW]
   - `src/components/ui/textarea.tsx` [NEW]
   - `src/components/ui/select.tsx` [NEW]
   - `src/components/ui/card.tsx` [NEW]
 - **Purpose & Scope:**
-  - Create accessible dark-themed Input and Textarea components with error states, focus-visible rings, and prefix/suffix icon slots.
-  - Build accessible Select dropdown wrapper.
+  - Create accessible dark-themed Input and Textarea components with error states and focus-visible rings.
+  - Build accessible Radix Select dropdown component family.
   - Build Card container family (`Card`, `CardHeader`, `CardTitle`, `CardDescription`, `CardContent`, `CardFooter`) with subtle obsidian border and hover elevation.
 - **Verification Checklist:**
-  - [ ] `npx tsc --noEmit` passes cleanly.
-  - [ ] Inputs have `16px` font size on mobile to prevent iOS Safari auto-zoom.
+  - [x] `npx tsc --noEmit` passes cleanly.
+  - [x] Inputs have `16px` (`text-base sm:text-sm`) font size on mobile to prevent iOS Safari auto-zoom.
 
 #### Sub-Phase 1.3: Overlay & Dialog Primitives (Radix Headless)
-- [ ] **Status:** Unchecked
+- [x] **Status:** Completed
 - **Target Files:**
   - `src/components/ui/dialog.tsx` [NEW]
   - `src/components/ui/sheet.tsx` [NEW]
@@ -188,11 +188,11 @@ flowchart LR
   - Wrap Sonner toast engine with branded styling (crimson error, emerald success, gold info).
   - Implement accessible Breadcrumb navigation list with Chevron separators.
 - **Verification Checklist:**
-  - [ ] `npx tsc --noEmit` passes cleanly.
-  - [ ] Dialog and Sheet animate smoothly and support `Escape` key close.
+  - [x] `npx tsc --noEmit` passes cleanly.
+  - [x] Dialog and Sheet animate smoothly and support `Escape` key close.
 
 #### Sub-Phase 1.4: Global Navigation Shell & Header
-- [ ] **Status:** Unchecked
+- [x] **Status:** Completed
 - **Target Files:**
   - `src/components/layout/header.tsx` [NEW]
   - `src/components/layout/navbar.tsx` [NEW]
@@ -202,8 +202,8 @@ flowchart LR
   - Build slide-over mobile drawer (`mobile-nav.tsx`) featuring categorized supplement links, physical store locations, phone contact triggers, and social links.
   - Include mobile hamburger toggle with accessible `aria-expanded` and `aria-label`.
 - **Verification Checklist:**
-  - [ ] Mobile hamburger toggle opens slide-over drawer smoothly on <768px viewports.
-  - [ ] Header remains sticky on scroll with backdrop blur styling.
+  - [x] Mobile hamburger toggle opens slide-over drawer smoothly on <768px viewports.
+  - [x] Header remains sticky on scroll with backdrop blur styling.
 
 #### Sub-Phase 1.5: Global Footer, Floating WhatsApp & Mobile Action Bar
 - [ ] **Status:** Unchecked
@@ -678,11 +678,11 @@ flowchart LR
 | Sub-Phase ID | Sub-Phase Name | Target Files | Prerequisite | Status |
 | :--- | :--- | :--- | :--- | :--- |
 | **0.1** | Project Scaffold & Dependency Manifest | `package.json`, `tsconfig.json`, `next.config.ts`, `.gitignore` | None | `[x]` |
-| **0.2** | Styling System & Tailwind v4 Theme Engine | `src/app/globals.css`, `postcss.config.mjs` | 0.1 | `[ ]` |
-| **0.3** | Core Utility Layer & Type Foundations | `src/lib/utils.ts`, `src/lib/constants.ts`, `src/types/index.ts`, `src/types/actions.ts` | 0.1, 0.2 | `[ ]` |
-| **0.4** | Next.js 16 Root Layout & Font Engine | `src/app/layout.tsx`, `src/app/not-found.tsx`, `src/app/error.tsx`, `src/app/loading.tsx` | 0.3 | `[ ]` |
-| **1.1** | Core Action & Feedback Primitives | `src/components/ui/button.tsx`, `badge.tsx`, `separator.tsx`, `skeleton.tsx` | 0.3 | `[ ]` |
-| **1.2** | Form Input & Text Primitives | `src/components/ui/input.tsx`, `textarea.tsx`, `select.tsx`, `card.tsx` | 1.1 | `[ ]` |
+| **0.2** | Styling System & Tailwind v4 Theme Engine | `src/app/globals.css`, `postcss.config.mjs` | 0.1 | `[x]` |
+| **0.3** | Core Utility Layer & Type Foundations | `src/lib/utils.ts`, `src/lib/constants.ts`, `src/types/index.ts`, `src/types/actions.ts` | 0.1, 0.2 | `[x]` |
+| **0.4** | Next.js 16 Root Layout & Font Engine | `src/app/layout.tsx`, `src/app/not-found.tsx`, `src/app/error.tsx`, `src/app/global-error.tsx` | 0.3 | `[x]` |
+| **1.1** | Core Action & Feedback Primitives | `src/components/ui/button.tsx`, `badge.tsx`, `separator.tsx`, `skeleton.tsx` | 0.3 | `[x]` |
+| **1.2** | Form Input & Text Primitives | `src/components/ui/input.tsx`, `textarea.tsx`, `select.tsx`, `card.tsx` | 1.1 | `[x]` |
 | **1.3** | Overlay & Dialog Primitives (Radix) | `src/components/ui/dialog.tsx`, `sheet.tsx`, `toast.tsx`, `breadcrumb.tsx` | 1.2 | `[ ]` |
 | **1.4** | Global Navigation Shell & Header | `src/components/layout/header.tsx`, `navbar.tsx`, `mobile-nav.tsx` | 1.3 | `[ ]` |
 | **1.5** | Global Footer & Sticky Mobile Bar | `src/components/layout/footer.tsx`, `sticky-cta-bar.tsx`, `whatsapp-floating-button.tsx` | 1.4 | `[ ]` |

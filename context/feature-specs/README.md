@@ -182,3 +182,10 @@ When writing or executing a feature spec:
 |:--- |:--- |:---: |:--- |:--- |
 | `01-coderabbit-review-resolutions` | [CodeRabbit Review Comments Resolution & Context Synchronization](01-coderabbit-review-resolutions.md) | **Approved** | Context Specs & Architecture | 2026-08-09 |
 | `02-subphase-0.1-project-scaffold-dependency-manifest` | [Sub-Phase 0.1 — Project Scaffold & Dependency Manifest](02-subphase-0.1-project-scaffold-dependency-manifest.md) | **Approved** | Tooling & Infrastructure | 2026-08-09 |
+| `03-subphase-0.2-styling-system-tailwind-theme-engine` | [Sub-Phase 0.2 — Styling System & Tailwind CSS v4 Theme Engine](03-subphase-0.2-styling-system-tailwind-theme-engine.md) | **Approved** | Styling & Theme Engine | 2026-08-09 |
+| `04-subphase-0.3-core-utility-layer-type-foundations` | [Sub-Phase 0.3 — Core Utility Layer & Type Foundations](04-subphase-0.3-core-utility-layer-type-foundations.md) | **Approved** | Core Utilities & Types | 2026-08-09 |
+| `05-subphase-0.4-root-layout-font-engine-metadata` | [Sub-Phase 0.4 — Root Layout Shell, Font Engine & Global Metadata](05-subphase-0.4-root-layout-font-engine-metadata.md) | **Approved** | Root Layout & SEO Metadata | 2026-08-09 |
+| `06-subphase-1.1-core-action-feedback-primitives` | [Sub-Phase 1.1 — Core Action & Feedback Primitives](06-subphase-1.1-core-action-feedback-primitives.md) | **Approved** | Design System & UI Primitives | 2026-08-09 |
+| `07-subphase-1.2-form-input-text-primitives` | [Sub-Phase 1.2 — Form Input & Text Primitives](07-subphase-1.2-form-input-text-primitives.md) | **Approved** | Design System & UI Primitives | 2026-08-09 |
+| `08-subphase-1.3-overlay-dialog-primitives` | [Sub-Phase 1.3 — Overlay & Dialog Primitives (Radix Headless)](08-subphase-1.3-overlay-dialog-primitives.md) | **Approved** | Design System & UI Primitives | 2026-08-09 |
+| `09-subphase-1.4-global-navigation-shell-header` | [Sub-Phase 1.4 — Global Navigation Shell & Header](09-subphase-1.4-global-navigation-shell-header.md) | **Approved** | Global Layout & Navigation | 2026-08-09 |
