@@ -22,7 +22,7 @@ export function Navbar({ className, ...props }: NavbarProps) {
         <Link
           key={item.href}
           href={item.href}
-          className="whitespace-nowrap rounded-lg px-3.5 py-2 text-sm font-medium text-muted-foreground transition-all hover:bg-muted hover:text-foreground active:scale-95"
+          className="inline-flex min-h-11 items-center whitespace-nowrap rounded-lg px-3.5 py-2 text-sm font-medium text-muted-foreground transition-all hover:bg-muted hover:text-foreground active:scale-95"
         >
           {item.label}
         </Link>

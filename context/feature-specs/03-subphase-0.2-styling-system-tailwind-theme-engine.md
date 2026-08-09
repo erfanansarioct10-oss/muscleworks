@@ -51,31 +51,31 @@ Define all athletic tokens within the CSS `@theme` directive:
   --font-sans: var(--font-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-heading: var(--font-heading), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
-  /* Approved Option 1: Stealth Crimson & Obsidian Palette */
-  --color-background: #09090b;       /* Zinc 950 Deep Obsidian Canvas */
-  --color-foreground: #f4f4f5;       /* Zinc 100 Crisp High-Contrast Text */
+  /* Minimal Premium Modern Luxury Palette */
+  --color-background: #fcfcfc;       /* Pure Off-White Canvas */
+  --color-foreground: #0b0b0b;       /* Jet Black Premium Text */
   
-  --color-card: #121216;             /* Elevated Slate Card Surface */
-  --color-card-foreground: #f4f4f5;  /* Card Text */
+  --color-card: #ffffff;             /* Pure White Surface */
+  --color-card-foreground: #0b0b0b;  /* Card Text */
   
-  --color-primary: #dc2626;          /* Red 600 Electric Gym Crimson */
-  --color-primary-hover: #b91c1c;    /* Red 700 Crimson Hover State */
+  --color-primary: #0b0b0b;          /* Jet Black Primary Action */
+  --color-primary-hover: #2c2c2c;    /* Neutral Gray Hover State */
   --color-primary-foreground: #ffffff;
   
-  --color-secondary: #27272a;        /* Zinc 800 Charcoal Secondary Surface */
-  --color-secondary-foreground: #fafafa;
+  --color-secondary: #f5f5f5;        /* Silver Gray Secondary Light Surface */
+  --color-secondary-foreground: #0b0b0b;
   
-  --color-accent: #f59e0b;           /* Amber 500 Performance Gold / Badges / Reviews */
-  --color-accent-foreground: #09090b;
+  --color-accent: #d4af37;           /* Metallic Luxury Gold */
+  --color-accent-foreground: #0b0b0b;
   
-  --color-success: #10b981;          /* Emerald 500 WhatsApp CTA / Verified Authentic */
+  --color-success: #0b0b0b;          /* Jet Black Conversion CTA */
   --color-success-foreground: #ffffff;
   
-  --color-muted: #18181b;            /* Zinc 900 Muted Element Fill */
-  --color-muted-foreground: #a1a1aa; /* Zinc 400 Muted Secondary Text */
+  --color-muted: #f5f5f5;            /* Silver Gray Muted Element Fill */
+  --color-muted-foreground: #666666; /* Neutral Gray Muted Secondary Text */
   
-  --color-border: #27272a;           /* Zinc 800 Subtle Divider */
-  --color-ring: #dc2626;             /* Primary Electric Crimson Focus Ring */
+  --color-border: #e5e5e5;           /* Crisp Silver Divider */
+  --color-ring: #d4af37;             /* Metallic Luxury Gold Focus Ring */
   
   /* Standardized Border Radii */
   --radius-sm: 0.375rem;

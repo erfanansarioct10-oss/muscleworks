@@ -40,7 +40,7 @@ export const SelectScrollUpButton = React.forwardRef<
   <SelectPrimitive.ScrollUpButton
     ref={ref}
     className={cn(
-      "flex cursor-default items-center justify-center py-1 text-muted-foreground",
+      "flex min-h-[44px] min-w-[44px] cursor-default items-center justify-center py-1 text-muted-foreground",
       className
     )}
     {...props}
@@ -57,7 +57,7 @@ export const SelectScrollDownButton = React.forwardRef<
   <SelectPrimitive.ScrollDownButton
     ref={ref}
     className={cn(
-      "flex cursor-default items-center justify-center py-1 text-muted-foreground",
+      "flex min-h-[44px] min-w-[44px] cursor-default items-center justify-center py-1 text-muted-foreground",
       className
     )}
     {...props}

@@ -103,12 +103,12 @@ flowchart LR
   - `src/app/globals.css` [NEW]
   - `postcss.config.mjs` [NEW]
 - **Purpose & Scope:**
-  - Configure Tailwind CSS v4 `@theme` block in `src/app/globals.css` with canonical athletic palette (Obsidian `#09090b`, Crimson `#dc2626`, Gold `#f59e0b`, Emerald `#10b981`, Slate card surfaces `#121216`).
+  - Configure Tailwind CSS v4 `@theme` block in `src/app/globals.css` with Minimal Premium Modern Luxury palette (Jet Black `#0B0B0B`, Pure White `#FFFFFF`, Metallic Gold `#D4AF37`, Silver Gray `#F5F5F5`, Neutral Gray `#2C2C2C`/`#E5E5E5`).
   - Define custom typography scale using `Inter` / `Plus Jakarta Sans` and `Outfit` font tokens.
   - Add smooth scrolling, accessible focus ring utility styles, custom scrollbar styling, and touch-callout resets.
 - **Verification Checklist:**
   - [x] Tailwind `@theme` variables compile without syntax warnings.
-  - [x] Background and foreground CSS variables render expected dark athletic aesthetic.
+  - [x] Background and foreground CSS variables render expected minimal premium luxury aesthetic.
 
 #### Sub-Phase 0.3: Core Utility Layer & Type Foundations
 - [x] **Status:** Completed
@@ -134,7 +134,7 @@ flowchart LR
   - `src/app/global-error.tsx` [NEW]
 - **Purpose & Scope:**
   - Setup Google Fonts `Outfit` (headings) and `Plus Jakarta Sans` (body) via `next/font/google` with variable font optimization and `display: swap`.
-  - Build root HTML layout structure with viewport meta, dark color scheme, and global toast container.
+  - Build root HTML layout structure with viewport meta, light color scheme, and global toast container.
   - Build responsive 404 Not Found page with supplement-themed graphic and recovery CTA buttons.
   - Build global Error Boundary (`error.tsx`) and root layout fallback (`global-error.tsx`) with reset trigger.
 - **Verification Checklist:**
@@ -153,8 +153,8 @@ flowchart LR
   - `src/components/ui/separator.tsx` [NEW]
   - `src/components/ui/skeleton.tsx` [NEW]
 - **Purpose & Scope:**
-  - Build CVA-based Button component with variants (`default` crimson, `whatsapp` emerald green, `gold` accent, `secondary`, `outline`, `ghost`, `destructive`, `link`) and sizes (`sm`, `default` 44px, `lg` 48px, `xl` 56px, `icon` 44px). Enforce minimum touch target heights (`h-11` or `h-12` on mobile).
-  - Build Badge component with variants (`authentic` emerald, `discount` crimson, `stock` gold, `category` charcoal slate, `default`, `outline`).
+  - Build CVA-based Button component with variants (`default` Jet Black, `whatsapp` Jet Black & Metallic Gold border, `gold` Metallic Gold, `secondary`, `outline`, `ghost`, `destructive`, `link`) and sizes (`sm`, `default` 44px, `lg` 48px, `xl` 56px, `icon` 44px). Enforce minimum touch target heights (`h-11` or `h-12` on mobile).
+  - Build Badge component with variants (`authentic` Metallic Gold tint, `discount` Jet Black, `stock` Metallic Gold, `category` Silver Gray, `default`, `outline`).
   - Build accessible Separator and Skeleton loader primitives.
 - **Verification Checklist:**
   - [x] `npx tsc --noEmit` passes cleanly.
@@ -197,6 +197,7 @@ flowchart LR
   - `src/components/layout/header.tsx` [NEW]
   - `src/components/layout/navbar.tsx` [NEW]
   - `src/components/layout/mobile-nav.tsx` [NEW]
+  - `src/app/layout.tsx` [MODIFY]
 - **Purpose & Scope:**
   - Build sticky top Header with MuscleWorks logo, desktop navigation links (Proteins, Creatine, Gainers, Brands, Stores, Authenticity, Guides), search trigger button, and WhatsApp fast-order CTA.
   - Build slide-over mobile drawer (`mobile-nav.tsx`) featuring categorized supplement links, physical store locations, phone contact triggers, and social links.
@@ -206,7 +207,7 @@ flowchart LR
   - [x] Header remains sticky on scroll with backdrop blur styling.
 
 #### Sub-Phase 1.5: Global Footer, Floating WhatsApp & Mobile Action Bar
-- [ ] **Status:** Unchecked
+- [x] **Status:** Complete
 - **Target Files:**
   - `src/components/layout/footer.tsx` [NEW]
   - `src/components/layout/sticky-cta-bar.tsx` [NEW]
@@ -216,8 +217,8 @@ flowchart LR
   - Build floating WhatsApp speed dial button (bottom-right desktop/mobile) with pulsing online badge.
   - Build sticky mobile bottom CTA bar (`sticky-cta-bar.tsx`) with conditional rendering (hides on desktop `md:hidden`, shows on product detail and catalog with conversion actions).
 - **Verification Checklist:**
-  - [ ] `npx tsc --noEmit` passes cleanly.
-  - [ ] Sticky CTA bar appears on mobile viewports (<768px) and hides on desktop (≥768px).
+  - [x] `npx tsc --noEmit` passes cleanly.
+  - [x] Sticky CTA bar appears on mobile viewports (<768px) and hides on desktop (≥768px).
 
 ---
 
@@ -683,9 +684,9 @@ flowchart LR
 | **0.4** | Next.js 16 Root Layout & Font Engine | `src/app/layout.tsx`, `src/app/not-found.tsx`, `src/app/error.tsx`, `src/app/global-error.tsx` | 0.3 | `[x]` |
 | **1.1** | Core Action & Feedback Primitives | `src/components/ui/button.tsx`, `badge.tsx`, `separator.tsx`, `skeleton.tsx` | 0.3 | `[x]` |
 | **1.2** | Form Input & Text Primitives | `src/components/ui/input.tsx`, `textarea.tsx`, `select.tsx`, `card.tsx` | 1.1 | `[x]` |
-| **1.3** | Overlay & Dialog Primitives (Radix) | `src/components/ui/dialog.tsx`, `sheet.tsx`, `toast.tsx`, `breadcrumb.tsx` | 1.2 | `[ ]` |
-| **1.4** | Global Navigation Shell & Header | `src/components/layout/header.tsx`, `navbar.tsx`, `mobile-nav.tsx` | 1.3 | `[ ]` |
-| **1.5** | Global Footer & Sticky Mobile Bar | `src/components/layout/footer.tsx`, `sticky-cta-bar.tsx`, `whatsapp-floating-button.tsx` | 1.4 | `[ ]` |
+| **1.3** | Overlay & Dialog Primitives (Radix) | `src/components/ui/dialog.tsx`, `sheet.tsx`, `toast.tsx`, `breadcrumb.tsx` | 1.2 | `[x]` |
+| **1.4** | Global Navigation Shell & Header | `src/components/layout/header.tsx`, `navbar.tsx`, `mobile-nav.tsx` | 1.3 | `[x]` |
+| **1.5** | Global Footer & Sticky Mobile Bar | `src/components/layout/footer.tsx`, `sticky-cta-bar.tsx`, `whatsapp-floating-button.tsx` | 1.4 | `[x]` |
 | **2.1** | Zod Schemas & Domain Type Definitions | `src/lib/validations/common.ts`, `product.ts`, `inquiry.ts`, `store.ts` | 0.3 | `[ ]` |
 | **2.2** | Canonical JSON Datasets (Products/Categories/Brands) | `data/products.json`, `categories.json`, `brands.json` | 2.1 | `[ ]` |
 | **2.3** | Supplementary Datasets (Store Info/FAQs) | `data/store-info.json`, `data/faqs.json` | 2.1 | `[ ]` |

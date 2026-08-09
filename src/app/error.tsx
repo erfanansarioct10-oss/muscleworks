@@ -22,22 +22,22 @@ export default function ErrorPage({ error, reset }: ErrorPageProps) {
   }, [error]);
 
   const reportWhatsAppUrl = `https://wa.me/${STORE_WHATSAPP.replace(/\+/g, "")}?text=${encodeURIComponent(
-    `Hi MuscleWorks Support, I encountered a technical issue on the website: "${error.message || "Unknown error"}" (Digest: ${error.digest || "N/A"})`
+    "Hi MuscleWorks Support, I encountered a technical issue on the website while browsing. Please assist."
   )}`;
 
   return (
     <div className="min-h-[80vh] w-full flex items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
       <div className="w-full max-w-lg text-center">
         {/* Warning Icon Badge */}
-        <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-2xl border border-destructive/30 bg-destructive/10 text-primary shadow-xl ring-1 ring-primary/30 sm:h-24 sm:w-24">
+        <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-2xl border border-amber-500/30 bg-amber-500/10 text-amber-600 shadow-sm ring-1 ring-amber-500/20 sm:h-24 sm:w-24">
           <AlertTriangle
-            className="h-10 w-10 text-primary sm:h-12 sm:w-12"
+            className="h-10 w-10 text-amber-600 sm:h-12 sm:w-12"
             aria-hidden="true"
           />
         </div>
 
         {/* Status Tag */}
-        <div className="inline-flex items-center gap-1.5 rounded-full border border-destructive/30 bg-destructive/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-primary">
+        <div className="inline-flex items-center gap-1.5 rounded-full border border-amber-500/30 bg-amber-500/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-amber-700">
           <span>System Alert</span>
           <span className="text-muted-foreground">•</span>
           <span>Application Error</span>
@@ -55,7 +55,7 @@ export default function ErrorPage({ error, reset }: ErrorPageProps) {
         {/* Development Error Diagnostics Box */}
         {process.env.NODE_ENV === "development" && (
           <div className="mt-6 rounded-xl border border-border bg-card p-4 text-left font-mono text-xs text-muted-foreground shadow-inner overflow-x-auto">
-            <p className="font-bold text-primary mb-1">Developer Diagnostics (Dev Mode Only):</p>
+            <p className="font-bold text-amber-600 mb-1">Developer Diagnostics (Dev Mode Only):</p>
             <p className="text-foreground break-words">{error.message || "No error message provided"}</p>
             {error.digest && (
               <p className="mt-1 text-muted-foreground">Error Digest: {error.digest}</p>
@@ -68,7 +68,7 @@ export default function ErrorPage({ error, reset }: ErrorPageProps) {
           <button
             type="button"
             onClick={() => reset()}
-            className="inline-flex h-12 min-h-[48px] w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-primary px-6 text-base font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition-all hover:bg-primary-hover active:scale-[0.98]"
+            className="inline-flex h-12 min-h-[48px] w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-primary px-6 text-base font-semibold text-primary-foreground shadow-sm transition-all hover:bg-primary-hover active:scale-[0.98]"
           >
             <RotateCcw className="h-5 w-5" aria-hidden="true" />
             <span>Try Again</span>
@@ -78,9 +78,9 @@ export default function ErrorPage({ error, reset }: ErrorPageProps) {
             href={reportWhatsAppUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex h-12 min-h-[48px] w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-success px-6 text-base font-semibold text-success-foreground shadow-lg shadow-success/20 transition-all hover:bg-emerald-600 active:scale-[0.98]"
+            className="inline-flex h-12 min-h-[48px] w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-primary px-6 text-base font-semibold text-primary-foreground border border-accent/40 shadow-sm transition-all hover:bg-primary-hover hover:border-accent active:scale-[0.98]"
           >
-            <MessageCircle className="h-5 w-5" aria-hidden="true" />
+            <MessageCircle className="h-5 w-5 text-accent" aria-hidden="true" />
             <span>WhatsApp Support</span>
           </a>
 

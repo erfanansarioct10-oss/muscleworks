@@ -604,6 +604,6 @@ flowchart TD
 - [x] Path aliases are standardized to `@/*` (for `src/`) and `@/data/*` (for `data/`).
 - [x] Every file path has an assigned execution boundary (Server Component, Client Component, Server Action, Edge/Node).
 - [x] Server Components are used by default; Client Components (`'use client'`) are strictly limited to interactive leaf nodes.
-- [x] Data layer enforces access via typed functions in `src/lib/data/` rather than raw JSON imports.
+- [ ] Data layer enforces access via typed functions in `src/lib/data/` rather than raw JSON imports.
 - [x] Server Actions isolate private credentials (`RESEND_API_KEY`, `TELEGRAM_BOT_TOKEN`, `UPSTASH_*`) completely from client bundles.
 - [x] Next.js 16 breaking conventions (`proxy.ts` instead of `middleware.ts`, native `generateMetadata`, App Router) are strictly respected.

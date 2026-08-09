@@ -53,8 +53,9 @@ export function slugify(text: string): string {
     .trim()
     .replace(/\s+/g, "-") // Replace spaces with -
     .replace(/&/g, "-and-") // Replace & with 'and'
-    .replace(/[^\w-]+/g, "") // Remove all non-word chars
-    .replace(/--+/g, "-"); // Replace multiple - with single -
+    .replace(/[^a-z0-9-]+/g, "") // Remove non-alphanumeric chars (excluding hyphens)
+    .replace(/--+/g, "-") // Replace multiple - with single -
+    .replace(/^-+|-+$/g, ""); // Trim leading and trailing hyphens
 }
 
 /**

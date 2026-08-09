@@ -5,9 +5,7 @@ import { cn } from "@/lib/utils";
 
 export const Breadcrumb = React.forwardRef<
   HTMLElement,
-  React.ComponentPropsWithoutRef<"nav"> & {
-    separator?: React.ReactNode;
-  }
+  React.ComponentPropsWithoutRef<"nav">
 >(({ ...props }, ref) => <nav ref={ref} aria-label="breadcrumb" {...props} />);
 Breadcrumb.displayName = "Breadcrumb";
 
@@ -49,7 +47,7 @@ export const BreadcrumbLink = React.forwardRef<
   return (
     <Comp
       ref={ref}
-      className={cn("transition-colors hover:text-foreground", className)}
+      className={cn("inline-flex min-h-11 min-w-11 items-center transition-colors hover:text-foreground", className)}
       {...props}
     />
   );

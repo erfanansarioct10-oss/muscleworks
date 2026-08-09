@@ -67,7 +67,7 @@ Every agent **MUST** inspect the context files below according to their responsi
 4. **Design & Mobile-First Standards:**
    - All styling must be mobile-first (base classes `<640px` with progressive `sm:`, `md:`, `lg:` enhancements).
    - Minimum touch target for standard buttons/links is **44x44px**; conversion CTAs (WhatsApp/Call) must be **≥48x48px**.
-   - Dark athletic theme tokens defined with Tailwind v4 `@theme` in `src/app/globals.css`.
+   - Minimal premium modern luxury theme tokens defined with Tailwind v4 `@theme` in `src/app/globals.css`.
 5. **Security & Secrets:**
    - Never prefix server secrets (`RESEND_API_KEY`, `TELEGRAM_BOT_TOKEN`, `UPSTASH_*`) with `NEXT_PUBLIC_`.
    - All public forms must enforce the `hp_field` honeypot and 2000ms timing trap in Server Actions.

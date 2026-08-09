@@ -108,23 +108,15 @@ export function MobileNav() {
       >
         {/* Drawer Header */}
         <SheetHeader className="border-b border-border p-5 text-left">
-          <div className="flex items-center gap-2.5 pr-8">
-            <div className="relative h-9 w-9 shrink-0 overflow-hidden">
+          <div className="flex items-center pr-8">
+            <div className="relative h-12 w-60 shrink-0">
               <Image
-                src="/brnding-assets/new-logo.png"
+                src="/brnding-assets/nlogo.png"
                 alt={STORE_NAME}
                 fill
-                className="object-contain invert"
+                className="object-contain object-left"
                 priority
               />
-            </div>
-            <div className="flex flex-col">
-              <span className="font-heading text-lg font-extrabold tracking-wider text-foreground leading-none">
-                MUSCLEWORKS
-              </span>
-              <span className="text-[10px] font-semibold tracking-widest text-muted-foreground uppercase leading-tight">
-                Supplements Nepal
-              </span>
             </div>
           </div>
           <SheetTitle className="sr-only">{STORE_NAME} Navigation</SheetTitle>
@@ -148,7 +140,7 @@ export function MobileNav() {
                     className="flex min-h-[44px] items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-muted active:scale-[0.98]"
                   >
                     <div className="flex items-center gap-3">
-                      <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-muted text-primary">
+                      <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-muted text-foreground">
                         <Icon className="h-4 w-4" />
                       </div>
                       <span>{item.label}</span>
@@ -226,7 +218,7 @@ export function MobileNav() {
             className="w-full justify-center gap-2"
           >
             <a href={`tel:${STORE_PHONE_RAW}`}>
-              <Phone className="h-4 w-4 text-primary" />
+              <Phone className="h-4 w-4 text-foreground" />
               <span>Call Store: {STORE_PHONE}</span>
             </a>
           </Button>

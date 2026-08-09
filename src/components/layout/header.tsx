@@ -18,25 +18,17 @@ export function Header() {
         {/* Brand Logo & Logotype */}
         <Link
           href="/"
-          className="group flex items-center gap-2.5 rounded-xl py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          className="group flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           aria-label={`${STORE_NAME} Home`}
         >
-          <div className="relative h-9 w-9 sm:h-10 sm:w-10 shrink-0 overflow-hidden">
+          <div className="relative h-11 w-52 sm:h-14 sm:w-72 shrink-0">
             <Image
-              src="/brnding-assets/new-logo.png"
+              src="/brnding-assets/nlogo.png"
               alt={STORE_NAME}
               fill
-              className="object-contain invert transition-transform group-hover:scale-105"
+              className="object-contain object-left transition-transform group-hover:scale-105"
               priority
             />
-          </div>
-          <div className="flex flex-col">
-            <span className="font-heading text-lg sm:text-xl font-extrabold tracking-wider text-foreground leading-none">
-              MUSCLEWORKS
-            </span>
-            <span className="text-[10px] font-semibold tracking-widest text-muted-foreground uppercase leading-tight">
-              Supplements Nepal
-            </span>
           </div>
         </Link>
 
@@ -50,7 +42,7 @@ export function Header() {
             asChild
             variant="ghost"
             size="icon"
-            className="h-10 w-10 text-muted-foreground hover:text-foreground"
+            className="text-muted-foreground hover:text-foreground"
           >
             <Link href="/products" aria-label="Search supplement catalog">
               <Search className="h-5 w-5" />
@@ -62,7 +54,7 @@ export function Header() {
             asChild
             variant="whatsapp"
             size="default"
-            className="hidden sm:inline-flex shadow-md shadow-success/20 gap-2 font-semibold"
+            className="hidden sm:inline-flex gap-2 font-semibold"
           >
             <a
               href={whatsappUrl}

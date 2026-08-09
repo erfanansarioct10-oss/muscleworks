@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Outfit, Plus_Jakarta_Sans } from "next/font/google";
 import { Toaster } from "sonner";
 import { Header } from "@/components/layout/header";
+import { Footer } from "@/components/layout/footer";
 import { cn } from "@/lib/utils";
 import {
   STORE_NAME,
@@ -103,7 +104,7 @@ export default function RootLayout({
     <html
       lang="en"
       className={cn(
-        "dark h-full scroll-smooth antialiased",
+        "h-full scroll-smooth antialiased",
         outfit.variable,
         plusJakartaSans.variable
       )}
@@ -119,12 +120,13 @@ export default function RootLayout({
         <main id="main-content" className="flex-1 flex flex-col">
           {children}
         </main>
+        <Footer />
         <Toaster
           richColors
-          theme="dark"
+          theme="light"
           position="top-right"
           toastOptions={{
-            className: "border border-border bg-card text-foreground font-sans",
+            className: "border border-border bg-card text-foreground font-sans shadow-md",
           }}
         />
       </body>

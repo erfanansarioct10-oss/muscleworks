@@ -31,17 +31,17 @@ export default function NotFound() {
     <div className="min-h-[80vh] w-full flex items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
       <div className="w-full max-w-2xl text-center">
         {/* Athletic Visual Icon Badge */}
-        <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-2xl border border-border bg-card shadow-xl ring-1 ring-primary/20 sm:h-24 sm:w-24">
+        <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-2xl border border-border bg-card shadow-sm ring-1 ring-accent/30 sm:h-24 sm:w-24">
           <div className="relative">
             <SearchX
-              className="h-10 w-10 text-primary animate-pulse sm:h-12 sm:w-12"
+              className="h-10 w-10 text-accent animate-pulse sm:h-12 sm:w-12"
               aria-hidden="true"
             />
           </div>
         </div>
 
         {/* Status Tag */}
-        <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-primary">
+        <div className="inline-flex items-center gap-1.5 rounded-full border border-amber-500/30 bg-amber-500/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-amber-700">
           <span>Error 404</span>
           <span className="text-muted-foreground">•</span>
           <span>Route Not Found</span>
@@ -60,7 +60,7 @@ export default function NotFound() {
         <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-center">
           <Link
             href="/products"
-            className="inline-flex h-12 min-h-[48px] w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-primary px-6 text-base font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition-all hover:bg-primary-hover active:scale-[0.98]"
+            className="inline-flex h-12 min-h-[48px] w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-primary px-6 text-base font-semibold text-primary-foreground shadow-sm transition-all hover:bg-primary-hover active:scale-[0.98]"
           >
             <span>Browse Supplement Catalog</span>
             <ArrowRight className="h-5 w-5" aria-hidden="true" />
@@ -70,9 +70,9 @@ export default function NotFound() {
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex h-12 min-h-[48px] w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-success px-6 text-base font-semibold text-success-foreground shadow-lg shadow-success/20 transition-all hover:bg-emerald-600 active:scale-[0.98]"
+            className="inline-flex h-12 min-h-[48px] w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-primary px-6 text-base font-semibold text-primary-foreground border border-accent/40 shadow-sm transition-all hover:bg-primary-hover hover:border-accent active:scale-[0.98]"
           >
-            <MessageCircle className="h-5 w-5" aria-hidden="true" />
+            <MessageCircle className="h-5 w-5 text-accent" aria-hidden="true" />
             <span>Ask Support on WhatsApp</span>
           </a>
 
@@ -97,7 +97,7 @@ export default function NotFound() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="inline-flex min-h-[44px] items-center gap-2 rounded-xl border border-border bg-card px-4 py-2.5 text-sm font-medium text-foreground transition-all hover:border-primary/40 hover:bg-muted hover:text-primary active:scale-95"
+                  className="inline-flex min-h-[44px] items-center gap-2 rounded-xl border border-border bg-card px-4 py-2.5 text-sm font-medium text-foreground transition-all hover:border-accent/40 hover:bg-secondary hover:text-accent active:scale-95"
                 >
                   <Icon className="h-4 w-4 text-muted-foreground" aria-hidden="true" />
                   <span>{item.label}</span>

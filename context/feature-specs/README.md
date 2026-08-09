@@ -189,3 +189,7 @@ When writing or executing a feature spec:
 | `07-subphase-1.2-form-input-text-primitives` | [Sub-Phase 1.2 — Form Input & Text Primitives](07-subphase-1.2-form-input-text-primitives.md) | **Approved** | Design System & UI Primitives | 2026-08-09 |
 | `08-subphase-1.3-overlay-dialog-primitives` | [Sub-Phase 1.3 — Overlay & Dialog Primitives (Radix Headless)](08-subphase-1.3-overlay-dialog-primitives.md) | **Approved** | Design System & UI Primitives | 2026-08-09 |
 | `09-subphase-1.4-global-navigation-shell-header` | [Sub-Phase 1.4 — Global Navigation Shell & Header](09-subphase-1.4-global-navigation-shell-header.md) | **Approved** | Global Layout & Navigation | 2026-08-09 |
+| `10-subphase-1.5-global-footer-floating-whatsapp-mobile-bar` | [Sub-Phase 1.5 — Global Footer, Floating WhatsApp & Mobile Action Bar](10-subphase-1.5-global-footer-floating-whatsapp-mobile-bar.md) | **Approved** | Global Layout & Conversions | 2026-08-09 |
+| `11-coderabbit-commit-8b6772d-resolutions` | [CodeRabbit Commit 8b6772d Review Resolutions & Technical Synchronization](11-coderabbit-commit-8b6772d-resolutions.md) | **Approved** | Quality & Technical Cleanup | 2026-08-09 |
+| `12-light-theme-design-system-migration` | [High-Performance Light Theme & Design System Migration](12-light-theme-design-system-migration.md) | **Approved** | Styling & Theme Engine | 2026-08-09 |
+| `13-minimal-premium-luxury-theme` | [Minimal Premium Modern Luxury Theme Migration](13-minimal-premium-luxury-theme.md) | **Approved** | Minimal Premium Design System | 2026-08-09 |

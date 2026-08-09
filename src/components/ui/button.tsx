@@ -9,25 +9,25 @@ export const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-primary text-primary-foreground shadow-md shadow-primary/20 hover:bg-primary-hover hover:shadow-lg",
+          "bg-primary text-primary-foreground shadow-sm hover:bg-primary-hover active:scale-[0.98]",
         whatsapp:
-          "bg-success text-success-foreground shadow-md shadow-success/20 hover:bg-emerald-600 hover:shadow-lg",
+          "min-h-12 min-w-12 bg-primary text-primary-foreground border border-accent/40 shadow-sm hover:bg-primary-hover hover:border-accent active:scale-[0.98]",
         gold:
-          "bg-accent text-accent-foreground shadow-md shadow-accent/20 hover:bg-amber-400 hover:shadow-lg",
+          "bg-accent text-accent-foreground shadow-sm hover:bg-amber-600 hover:text-white active:scale-[0.98]",
         secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+          "bg-secondary text-secondary-foreground hover:bg-secondary/80 border border-border/50",
         outline:
-          "border border-border bg-transparent text-foreground hover:bg-muted hover:text-foreground",
+          "border border-border bg-transparent text-foreground hover:bg-secondary hover:text-foreground",
         ghost:
-          "text-foreground hover:bg-muted hover:text-foreground",
+          "text-foreground hover:bg-secondary hover:text-foreground",
         destructive:
-          "bg-destructive text-destructive-foreground shadow-md hover:bg-destructive/90",
+          "bg-zinc-900 text-white shadow-sm hover:bg-zinc-800",
         link:
-          "text-primary underline-offset-4 hover:underline p-0 h-auto font-medium",
+          "text-foreground underline-offset-4 hover:underline p-0 h-auto font-medium",
       },
       size: {
         default: "h-11 px-5 py-2.5",
-        sm: "h-9 rounded-lg px-3.5 text-xs",
+        sm: "h-11 rounded-lg px-3.5 text-xs",
         lg: "h-12 rounded-xl px-6 text-base font-semibold",
         xl: "h-14 rounded-2xl px-8 text-lg font-bold",
         icon: "h-11 w-11 p-0",

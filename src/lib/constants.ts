@@ -44,12 +44,41 @@ export const STORE_LOCATION = {
 // Operating Hours
 export const STORE_HOURS = {
   weekdays: "Sunday – Friday: 10:00 AM – 8:00 PM",
-  saturday: "Saturday: 11:00 AM – 6:00 PM",
-  displayShort: "Sun – Fri: 10AM – 8PM | Sat: 11AM – 6PM",
+  saturday: "Saturday: Contact for store hours / delivery",
+  displayShort: "Sun – Fri: 10AM – 8PM | Sat: Contact Required",
   openingTime: "10:00",
   closingTime: "20:00",
-  isOpenToday: true,
 } as const;
+
+/**
+ * Dynamic calculation of whether the Golfutar store is open today at request time in Asia/Kathmandu.
+ */
+export function isStoreOpenToday(date: Date = new Date()): boolean {
+  try {
+    const formatter = new Intl.DateTimeFormat("en-US", {
+      timeZone: "Asia/Kathmandu",
+      weekday: "short",
+      hour: "numeric",
+      hour12: false,
+    });
+    const parts = formatter.formatToParts(date);
+    let weekday = "";
+    let hour = 0;
+    
+    for (const part of parts) {
+      if (part.type === "weekday") weekday = part.value;
+      if (part.type === "hour") hour = parseInt(part.value, 10);
+    }
+    
+    // Saturday: contact required / closed for regular retail walk-ins
+    if (weekday === "Sat") return false;
+    
+    // Sun - Fri: 10:00 AM (10) - 8:00 PM (20)
+    return hour >= 10 && hour < 20;
+  } catch {
+    return true;
+  }
+}
 
 // Delivery Promises & Rules for Nepal
 export const DELIVERY_PROMISES = {

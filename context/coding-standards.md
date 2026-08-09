@@ -353,9 +353,9 @@ const headingFont = Outfit({
 
 ## 5. STYLING, CSS TOKENS & DESIGN SYSTEM PATTERNS
 
-### 5.1 Athletic Brand Identity & Color Tokens
+### 5.1 Minimal Premium Brand Identity & Color Tokens
 
-MuscleWorks Supplements utilizes a high-energy, athletic design system with a dark-mode-first aesthetic (commanding charcoal/slate foundations accented by electric gym crimson, performance gold, and verified emerald).
+MuscleWorks Supplements utilizes a minimal premium, modern luxury design system (Jet Black, Pure White, Silver Gray, Neutral Gray, and Metallic Gold).
 
 Defined in `src/app/globals.css` using Tailwind CSS v4 `@theme`:
 
@@ -366,31 +366,31 @@ Defined in `src/app/globals.css` using Tailwind CSS v4 `@theme`:
   --font-sans: var(--font-sans), system-ui, -apple-system, sans-serif;
   --font-heading: var(--font-heading), system-ui, -apple-system, sans-serif;
 
-  /* Athletic Color Palette Tokens */
-  --color-background: #09090b;       /* Zinc 950 Deep Obsidian */
-  --color-foreground: #f4f4f5;       /* Zinc 100 Crisp White */
+  /* Minimal Premium Modern Luxury Palette Tokens */
+  --color-background: #fcfcfc;       /* Pure Off-White Canvas */
+  --color-foreground: #0b0b0b;       /* Jet Black Text */
   
-  --color-card: #121215;             /* Elevated Slate Card Surface */
-  --color-card-foreground: #f4f4f5;
+  --color-card: #ffffff;             /* Pure White Surface */
+  --color-card-foreground: #0b0b0b;
   
-  --color-primary: #dc2626;          /* Red 600 Electric Gym Crimson */
-  --color-primary-hover: #b91c1c;    /* Red 700 Crimson Hover */
+  --color-primary: #0b0b0b;          /* Jet Black Primary Action */
+  --color-primary-hover: #2c2c2c;    /* Neutral Gray Hover */
   --color-primary-foreground: #ffffff;
   
-  --color-secondary: #27272a;        /* Zinc 800 Charcoal Secondary */
-  --color-secondary-foreground: #fafafa;
+  --color-secondary: #f5f5f5;        /* Silver Gray Secondary Fill */
+  --color-secondary-foreground: #0b0b0b;
   
-  --color-accent: #f59e0b;           /* Amber 500 Performance Gold */
-  --color-accent-foreground: #09090b;
+  --color-accent: #d4af37;           /* Metallic Luxury Gold */
+  --color-accent-foreground: #0b0b0b;
   
-  --color-success: #10b981;          /* Emerald 500 WhatsApp / Verified */
+  --color-success: #0b0b0b;          /* Jet Black Conversion CTA */
   --color-success-foreground: #ffffff;
   
-  --color-muted: #18181b;            /* Zinc 900 Muted Background */
-  --color-muted-foreground: #a1a1aa; /* Zinc 400 Muted Text */
+  --color-muted: #f5f5f5;            /* Silver Gray Muted Fill */
+  --color-muted-foreground: #666666; /* Neutral Gray Text */
   
-  --color-border: #27272a;           /* Zinc 800 Subtle Divider */
-  --color-ring: #dc2626;             /* Primary Focus Ring */
+  --color-border: #e5e5e5;           /* Crisp Silver Divider */
+  --color-ring: #d4af37;             /* Metallic Luxury Gold Focus Ring */
   
   --radius-sm: 0.375rem;
   --radius-md: 0.5rem;

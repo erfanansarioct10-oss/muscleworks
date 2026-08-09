@@ -1,4 +1,5 @@
 import { toast as sonnerToast, type ExternalToast } from "sonner";
+import { cn } from "@/lib/utils";
 
 export const toast = sonnerToast;
 
@@ -8,7 +9,7 @@ export function showSuccessToast(
 ) {
   return sonnerToast.success(message, {
     ...options,
-    className: "border-success/30 text-foreground",
+    className: cn("border-success/30 text-foreground", options?.className),
   });
 }
 
@@ -18,7 +19,7 @@ export function showErrorToast(
 ) {
   return sonnerToast.error(message, {
     ...options,
-    className: "border-destructive/30 text-foreground",
+    className: cn("border-destructive/30 text-foreground", options?.className),
   });
 }
 
@@ -28,7 +29,7 @@ export function showInfoToast(
 ) {
   return sonnerToast.info(message, {
     ...options,
-    className: "border-accent/30 text-foreground",
+    className: cn("border-accent/30 text-foreground", options?.className),
   });
 }
 
@@ -38,7 +39,7 @@ export function showWarningToast(
 ) {
   return sonnerToast.warning(message, {
     ...options,
-    className: "border-amber-500/30 text-foreground",
+    className: cn("border-amber-500/30 text-foreground", options?.className),
   });
 }
 
@@ -48,6 +49,6 @@ export function showWhatsAppToast(
 ) {
   return sonnerToast(message, {
     ...options,
-    className: "border-success/40 text-foreground bg-card",
+    className: cn("border-success/40 text-foreground bg-card", options?.className),
   });
 }

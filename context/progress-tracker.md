@@ -1,28 +1,28 @@
 # Progress Tracker
  
-> **Active Phase:** Phase 1 — Core Design System & Shared UI Primitives  
-> **Next Sub-Phase:** `1.5` (Global Footer, Floating WhatsApp & Mobile Action Bar: `footer.tsx`, `sticky-cta-bar.tsx`, `whatsapp-floating-button.tsx`) — **[NEXT UP]**  
+> **Active Phase:** Phase 2 — Static Datasets & Typed Data Access Layer  
+> **Next Sub-Phase:** `2.1` (Zod Schemas & Domain Type Definitions: `src/lib/validations/common.ts`, `product.ts`, `inquiry.ts`, `store.ts`) — **[NEXT UP]**  
 > **Last Verified:** 2026-08-09 (`tsc --noEmit`, `eslint`, `next build` — 0 errors)
 
 ---
 
-## 1. Active Phase Status: Phase 1 (4/5)
+## 1. Active Phase Status: Phase 1 (5/5 Complete)
 
 - [x] **1.1** Core Action & Feedback Primitives (`src/components/ui/button.tsx`, `badge.tsx`, `separator.tsx`, `skeleton.tsx`)
 - [x] **1.2** Form Input & Text Primitives (`src/components/ui/input.tsx`, `textarea.tsx`, `select.tsx`, `card.tsx`)
 - [x] **1.3** Overlay & Dialog Primitives (`src/components/ui/dialog.tsx`, `sheet.tsx`, `toast.tsx`, `breadcrumb.tsx`)
 - [x] **1.4** Global Navigation Shell & Header (`src/components/layout/header.tsx`, `navbar.tsx`, `mobile-nav.tsx`)
-- [ ] **1.5** Global Footer & Sticky Mobile Bar (`src/components/layout/footer.tsx`, `sticky-cta-bar.tsx`, `whatsapp-floating-button.tsx`) — **[NEXT UP]**
+- [x] **1.5** Global Footer & Sticky Mobile Bar (`src/components/layout/footer.tsx`, `sticky-cta-bar.tsx`, `whatsapp-floating-button.tsx`)
 
 ---
 
-## 2. High-Level Phase Overview (1/8 Complete)
+## 2. High-Level Phase Overview (2/8 Complete)
 
 | Phase | Milestone | Sub-Phases | Status |
 |:---:|---|:---:|:---:|
 | **0** | Project Setup & Tooling | 4/4 | **Complete** |
-| **1** | Design System & UI Primitives | 4/5 | **In Progress** |
-| **2** | Static Datasets & Data Accessors | 0/5 | Pending |
+| **1** | Design System & UI Primitives | 5/5 | **Complete** |
+| **2** | Static Datasets & Data Accessors | 0/5 | **[NEXT UP]** |
 | **3** | Catalog, Search & Filtering | 0/6 | Pending |
 | **4** | Product Detail & WhatsApp Engine | 0/4 | Pending |
 | **5** | Lead Forms & Notifications | 0/5 | Pending |
@@ -33,6 +33,10 @@
 
 ## 3. Session Change Log
 
+- **2026-08-09 (Minimal Premium Luxury Theme Migration):** Migrated design system to a Minimal Premium Modern Luxury theme based on Jet Black (`#0B0B0B`), Pure White (`#FFFFFF`), Metallic Gold (`#D4AF37`), Silver Gray (`#F5F5F5`), and Neutral Gray (`#2C2C2C`). Updated `src/app/globals.css`, refactored `button.tsx` and `badge.tsx` variants to sleek black/gold/silver luxury styles, updated `page.tsx`, and froze minimal luxury theme standards across `AGENTS.md`, `coding-standards.md`, `project-tech-stacks.md`, `feature-roadmap.md`, and Spec 03. Authored [Spec 13](feature-specs/13-minimal-premium-luxury-theme.md). Verified with zero errors on `tsc`, `eslint`, and `npm run build`.
+- **2026-08-09 (Light Theme Migration):** Transformed entire design system from dark obsidian mode to a High-Performance Clean Light Athletic Theme. Updated `src/app/globals.css` with Slate 50 canvas (`#f8fafc`), pure white card surfaces (`#ffffff`), Slate 900 typography (`#0f172a`), Red 600 Electric Gym Crimson, and Emerald 600 WhatsApp CTAs (`#059669` with 4.52:1 WCAG AA text contrast). Removed dark-mode `invert` filters from logo `<Image>` tags across `header.tsx`, `footer.tsx`, `mobile-nav.tsx`, and `page.tsx`. Configured `<Toaster theme="light" />` in `layout.tsx`. Frozen light theme specifications across `AGENTS.md`, `coding-standards.md`, `project-tech-stacks.md`, `feature-roadmap.md`, and Spec 03. Authored [Spec 12](feature-specs/12-light-theme-design-system-migration.md). Verified with zero errors on `tsc`, `eslint`, and `npm run build`.
+- **2026-08-09 (CodeRabbit Audit Resolution):** Resolved all 34 Major and 15 Minor review comments from commit `8b6772d` (PR #2). Adjusted `--color-success-foreground` in `globals.css` to `#09090b` for WCAG AA 4.5:1+ contrast on WhatsApp CTAs; updated `button.tsx` `sm` size to `h-11` (44px) and enforced `min-h-12 min-w-12` (48px) for `whatsapp` conversion variant; stripped raw error messages from WhatsApp URL in `error.tsx`; updated `.gitignore` env rules; refactored `STORE_HOURS` in `constants.ts` with contact-required Saturday text and dynamic `isStoreOpenToday()` helper in `Asia/Kathmandu`; refined `slugify()` in `utils.ts`; merged toast classes with `cn()` in `toast.tsx`; removed unused prop in `breadcrumb.tsx`; synchronized `AGENTS.md`, `ai-workflow.md`, `file-map.md`, and `feature-roadmap.md`. Authored [Spec 11](feature-specs/11-coderabbit-commit-8b6772d-resolutions.md). Verified with zero errors on `tsc`, `eslint`, and `npm run build`.
+- **2026-08-09 (Sub-Phase 1.5):** Implemented `src/components/layout/footer.tsx` (streamlined 3-column semantic footer with brand manifesto, authorized importer partner seal, supplement categories, Golfutar flagship store location, opening hours, and clean copyright bar). Mounted `<Footer />` into `src/app/layout.tsx`. Authored [Spec 10](feature-specs/10-subphase-1.5-global-footer-floating-whatsapp-mobile-bar.md). Verified with zero errors on `tsc`, `eslint`, and `npm run build` (SSG prerendered).
 - **2026-08-09 (Sub-Phase 1.4):** Implemented `src/components/layout/header.tsx` (top announcement bar with Golfutar store hours, same-day delivery guarantee, and hotline link + sticky header container with brand logo and WhatsApp order CTA), `src/components/layout/navbar.tsx` (desktop navigation bar with curated supplement category links), and `src/components/layout/mobile-nav.tsx` (accessible slide-over mobile drawer built on `Sheet` primitive with categorized shortcuts and pinned WhatsApp/Call buttons). Mounted `<Header />` into `src/app/layout.tsx`. Authored [Spec 09](feature-specs/09-subphase-1.4-global-navigation-shell-header.md). Verified with zero errors on `tsc`, `eslint`, and `npm run build`.
 - **2026-08-09 (Sub-Phase 1.3):** Implemented `src/components/ui/dialog.tsx` (Radix UI modal primitive family with dark backdrop blur overlay, focus trap, and ≥44px close button touch targets), `src/components/ui/sheet.tsx` (accessible slide-over drawer with CVA directional side variants `top`, `bottom`, `left`, `right` for mobile nav & filter sheets), `src/components/ui/toast.tsx` (customized Sonner toast trigger helpers with dark athletic theme styling), and `src/components/ui/breadcrumb.tsx` (semantic `<nav aria-label="breadcrumb">` component family with `aria-current="page"` and `Slot` polymorphic links). Authored [Spec 08](feature-specs/08-subphase-1.3-overlay-dialog-primitives.md). Verified with zero errors on `tsc`, `eslint`, and `npm run build`.
 - **2026-08-09 (Sub-Phase 1.2):** Implemented `src/components/ui/input.tsx` (mobile-optimized 44px input with dark card fill, electric crimson focus ring, and `aria-invalid` error states), `src/components/ui/textarea.tsx` (`min-h-[100px]`), `src/components/ui/select.tsx` (full Radix UI `@radix-ui/react-select` primitive family with dark elevated popover), and `src/components/ui/card.tsx` (compound Card family with Outfit heading typography). Authored [Spec 07](feature-specs/07-subphase-1.2-form-input-text-primitives.md). Verified with zero errors on `tsc`, `eslint`, and `npm run build`.
