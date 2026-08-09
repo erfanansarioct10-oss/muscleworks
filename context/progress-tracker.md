@@ -1,18 +1,18 @@
 # Progress Tracker
  
 > **Active Phase:** Phase 2 — Static Datasets & Typed Data Access Layer  
-> **Next Sub-Phase:** `2.1` (Zod Schemas & Domain Type Definitions: `src/lib/validations/common.ts`, `product.ts`, `inquiry.ts`, `store.ts`) — **[NEXT UP]**  
-> **Last Verified:** 2026-08-09 (`tsc --noEmit`, `eslint`, `next build` — 0 errors)
+> **Next Sub-Phase:** `2.3` (Supplementary Datasets: `data/store-info.json`, `faqs.json`) — **[NEXT UP]**  
+> **Last Verified:** 2026-08-09 (`tsc --noEmit` — 0 errors)
 
 ---
 
-## 1. Active Phase Status: Phase 1 (5/5 Complete)
+## 1. Active Phase Status: Phase 2 (2/5 Complete)
 
-- [x] **1.1** Core Action & Feedback Primitives (`src/components/ui/button.tsx`, `badge.tsx`, `separator.tsx`, `skeleton.tsx`)
-- [x] **1.2** Form Input & Text Primitives (`src/components/ui/input.tsx`, `textarea.tsx`, `select.tsx`, `card.tsx`)
-- [x] **1.3** Overlay & Dialog Primitives (`src/components/ui/dialog.tsx`, `sheet.tsx`, `toast.tsx`, `breadcrumb.tsx`)
-- [x] **1.4** Global Navigation Shell & Header (`src/components/layout/header.tsx`, `navbar.tsx`, `mobile-nav.tsx`)
-- [x] **1.5** Global Footer & Sticky Mobile Bar (`src/components/layout/footer.tsx`, `sticky-cta-bar.tsx`, `whatsapp-floating-button.tsx`)
+- [x] **2.1** Zod Schemas & Domain Type Definitions (`src/lib/validations/common.ts`, `product.ts`, `inquiry.ts`, `store.ts`)
+- [x] **2.2** Canonical JSON Datasets (`data/products.json`, `categories.json`, `brands.json`)
+- [ ] **2.3** Supplementary Datasets (`data/store-info.json`, `faqs.json`)
+- [ ] **2.4** Catalog Data Accessor Layer (`src/lib/data/products.ts`, `categories.ts`, `brands.ts`)
+- [ ] **2.5** Store, FAQ & Content Accessor Layer (`src/lib/data/store.ts`, `faqs.ts`, `guides.ts`)
 
 ---
 
@@ -22,7 +22,7 @@
 |:---:|---|:---:|:---:|
 | **0** | Project Setup & Tooling | 4/4 | **Complete** |
 | **1** | Design System & UI Primitives | 5/5 | **Complete** |
-| **2** | Static Datasets & Data Accessors | 0/5 | **[NEXT UP]** |
+| **2** | Static Datasets & Data Accessors | 1/5 | **[IN PROGRESS]** |
 | **3** | Catalog, Search & Filtering | 0/6 | Pending |
 | **4** | Product Detail & WhatsApp Engine | 0/4 | Pending |
 | **5** | Lead Forms & Notifications | 0/5 | Pending |
@@ -32,6 +32,12 @@
 ---
 
 ## 3. Session Change Log
+
+- **2026-08-09 (Sub-Phase 2.2):** Authored canonical JSON datasets for `data/categories.json` (6 categories: proteins, creatine, mass-gainers, pre-workout, vitamins-health, amino-bcaa), `data/brands.json` (10 global supplement brands imported in Nepal: ON, MuscleTech, Dymatize, MyProtein, Kevin Levrone, Rule 1, Labrada, Cellucor, Universal, Scivation), and `data/products.json` (15 authentic supplements with variants, integer NPR prices, 4-state stock statuses, nutrition facts, authenticity metadata, and FAQs). Authored [Spec 16](feature-specs/16-subphase-2.2-canonical-json-datasets.md). Programmatically validated datasets against Zod schemas (`CategorySchema.array()`, `BrandSchema.array()`, `ProductSchema.array()`) with zero errors. Verified cleanly with `npx tsc --noEmit`.
+
+- **2026-08-09 (Sub-Phase 2.1):** Implemented canonical Zod schemas and TypeScript type foundations (`src/lib/validations/common.ts`, `product.ts`, `inquiry.ts`, `store.ts`). Enforced Nepal phone regex (`+977-98/97/01`), positive integer NPR prices, 4-state variant stock status enum, structured authenticity metadata with importer seal support, anti-bot honeypot (`hp_field`) and timing traps, Golfutar store schema, and FAQ schemas matching `data-models.md`. Authored [Spec 15](feature-specs/15-subphase-2.1-zod-schemas-domain-type-definitions.md). Verified cleanly with `npx tsc --noEmit`.
+
+- **2026-08-09 (CodeRabbit Commit 227be71 Resolutions):** Resolved all 9 CodeRabbit review comments from commit `227be71` (PR #2). Updated `isStoreOpenToday()` catch block in `src/lib/constants.ts` to return `false` (fail closed); added `min-h-11 min-w-11` (≥44px) touch targets to social, category, maps, email, and legal links and `min-h-12 min-w-12` (48px) to telephone CTA in `src/components/layout/footer.tsx`; synchronized store hours in `Spec 10` with `STORE_HOURS` contract; restructured `Spec 11` into 7 atomic sub-phases (11.1–11.7) and set status to Approved; marked `Spec 12` as Superseded by `Spec 13`; refined Metallic Gold contrast rules in `Spec 13`; synchronized `Spec 03` text with Minimal Premium Luxury theme; registered `Spec 14` in `README.md`. Authored [Spec 14](feature-specs/14-coderabbit-commit-227be71-resolutions.md). Verified with zero errors on `tsc` and `npm run build`.
 
 - **2026-08-09 (Logo WebP Compression & Favicon Update):** Compressed `new-logo.png` (440KB -> 39KB WebP) and `nlogo.png` (88KB -> 40KB WebP) using `sharp-cli`. Configured `new-logo.webp` as site favicon in `src/app/layout.tsx` metadata icons. Updated image references across `header.tsx`, `mobile-nav.tsx`, `footer.tsx`, and `page.tsx`. Deleted original PNG assets. Verified clean build with `npx tsc --noEmit` and `npm run build`.
 

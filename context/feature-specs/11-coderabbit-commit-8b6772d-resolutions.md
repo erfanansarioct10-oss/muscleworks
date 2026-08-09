@@ -2,7 +2,7 @@
 
 > **Spec ID:** `11-coderabbit-commit-8b6772d-resolutions`  
 > **Target Sub-Phase / Branch:** `Phase 1` Technical Cleanup & Context Synchronization  
-> **Status:** Draft  
+> **Status:** Approved  
 > **Created Date:** 2026-08-09  
 > **Author:** AI Coding Agent (Antigravity IDE)
 
@@ -21,28 +21,52 @@ This specification outlines the complete, atomic remediation plan to address all
 
 ---
 
-## 1. What We Are Going to Do
+## 1. What We Are Going to Do (Atomic Sub-Phases Plan)
 
+### Sub-Phase 11.1 — CSS Contrast Tokens & Core Action Touch Targets
 | # | Target File | Action | Summary of Remediation |
 |:---:|---|:---:|---|
 | 1 | `src/app/globals.css` | **[MODIFY]** | Update `--color-success-foreground` to `#09090b` for WCAG AA contrast (4.5:1+). |
-| 2 | `src/app/error.tsx` | **[MODIFY]** | Remove `error.message` / `error.digest` from `reportWhatsAppUrl` string interpolation. |
-| 3 | `src/components/ui/button.tsx` | **[MODIFY]** | Set `sm` size to `h-11` ($44\text{px}$) and enforce `min-h-12 min-w-12` ($48\text{px}$) for `whatsapp` variant. |
-| 4 | `src/components/layout/header.tsx` | **[MODIFY]** | Remove `h-10 w-10` class override on search button to preserve $44\times 44\text{px}$ touch target. |
-| 5 | `src/components/layout/navbar.tsx` | **[MODIFY]** | Add `inline-flex min-h-11 items-center` to desktop navigation links. |
-| 6 | `src/components/ui/select.tsx` | **[MODIFY]** | Add `min-h-[44px] min-w-[44px]` touch target classes to select scroll buttons. |
-| 7 | `src/components/ui/breadcrumb.tsx` | **[MODIFY]** | Remove unused `separator` prop from `<Breadcrumb>` nav element; add $44\text{px}$ target to `BreadcrumbLink`. |
-| 8 | `src/components/ui/toast.tsx` | **[MODIFY]** | Merge `options?.className` with default toast classes using `cn()` in all 5 helper functions. |
-| 9 | `src/lib/constants.ts` | **[MODIFY]** | Update Saturday hours to contact-required string; derive `isOpenToday` dynamically at request time in `Asia/Kathmandu`. |
-| 10 | `src/lib/utils.ts` | **[MODIFY]** | Update `slugify` regex to `/[^a-z0-9-]+/g` and trim leading/trailing hyphens. |
-| 11 | `src/app/not-found.tsx` | **[MODIFY]** | Align shortcut category links to canonical slug format. |
-| 12 | `.gitignore` | **[MODIFY]** | Use `.env.*` wildcard pattern while preserving `!.env.example`. |
-| 13 | `AGENTS.md` | **[MODIFY]** | Standardize document authority hierarchy with `context/progress-tracker.md` as primary state source. |
-| 14 | `context/ai-workflow.md` | **[MODIFY]** | Replace workstation-specific `file:///...` links with repository-relative links. |
-| 15 | `context/file-map.md` | **[MODIFY]** | Keep Phase 2 compliance checklist items unchecked until data accessors are built. |
-| 16 | `context/feature-roadmap.md` | **[MODIFY]** | Mark Sub-Phases 1.3 and 1.4 as complete `[x]` in high-level execution matrix; add `src/app/layout.tsx` to 1.4 target files. |
-| 17 | `context/progress-tracker.md` | **[MODIFY]** | Log Spec 11 and CodeRabbit remediation activities. |
-| 18 | `context/feature-specs/README.md` | **[MODIFY]** | Register Spec 11 in Specification Registry Index. |
+| 2 | `src/components/ui/button.tsx` | **[MODIFY]** | Set `sm` size to `h-11` ($44\text{px}$) and enforce `min-h-12 min-w-12` ($48\text{px}$) for `whatsapp` variant. |
+
+### Sub-Phase 11.2 — Layout Shell & Navigation Touch Targets
+| # | Target File | Action | Summary of Remediation |
+|:---:|---|:---:|---|
+| 1 | `src/components/layout/header.tsx` | **[MODIFY]** | Remove `h-10 w-10` class override on search button to preserve $44\times 44\text{px}$ touch target. |
+| 2 | `src/components/layout/navbar.tsx` | **[MODIFY]** | Add `inline-flex min-h-11 items-center` to desktop navigation links. |
+
+### Sub-Phase 11.3 — Form Primitives & Feedback Components
+| # | Target File | Action | Summary of Remediation |
+|:---:|---|:---:|---|
+| 1 | `src/components/ui/select.tsx` | **[MODIFY]** | Add `min-h-[44px] min-w-[44px]` touch target classes to select scroll buttons. |
+| 2 | `src/components/ui/breadcrumb.tsx` | **[MODIFY]** | Remove unused `separator` prop from `<Breadcrumb>` nav element; add $44\text{px}$ target to `BreadcrumbLink`. |
+| 3 | `src/components/ui/toast.tsx` | **[MODIFY]** | Merge `options?.className` with default toast classes using `cn()` in all 5 helper functions. |
+
+### Sub-Phase 11.4 — Routing & Privacy Hardening
+| # | Target File | Action | Summary of Remediation |
+|:---:|---|:---:|---|
+| 1 | `src/app/error.tsx` | **[MODIFY]** | Remove `error.message` / `error.digest` from `reportWhatsAppUrl` string interpolation. |
+| 2 | `src/app/not-found.tsx` | **[MODIFY]** | Align shortcut category links to canonical slug format. |
+
+### Sub-Phase 11.5 — Core Constants & Data Utilities
+| # | Target File | Action | Summary of Remediation |
+|:---:|---|:---:|---|
+| 1 | `src/lib/constants.ts` | **[MODIFY]** | Update Saturday hours to contact-required string; derive `isOpenToday` dynamically at request time in `Asia/Kathmandu`. |
+| 2 | `src/lib/utils.ts` | **[MODIFY]** | Update `slugify` regex to `/[^a-z0-9-]+/g` and trim leading/trailing hyphens. |
+
+### Sub-Phase 11.6 — Environment Security & Directives Hierarchy
+| # | Target File | Action | Summary of Remediation |
+|:---:|---|:---:|---|
+| 1 | `.gitignore` | **[MODIFY]** | Use `.env.*` wildcard pattern while preserving `!.env.example`. |
+| 2 | `AGENTS.md` | **[MODIFY]** | Standardize document authority hierarchy with `context/progress-tracker.md` as primary state source. |
+
+### Sub-Phase 11.7 — Context Documentation & Specification Alignment
+| # | Target File | Action | Summary of Remediation |
+|:---:|---|:---:|---|
+| 1 | `context/ai-workflow.md` | **[MODIFY]** | Replace workstation-specific `file:///...` links with repository-relative links. |
+| 2 | `context/file-map.md` | **[MODIFY]** | Keep Phase 2 compliance checklist items unchecked until data accessors are built. |
+| 3 | `context/feature-roadmap.md` | **[MODIFY]** | Mark Sub-Phases 1.3 and 1.4 as complete `[x]` in high-level execution matrix; add `src/app/layout.tsx` to 1.4 target files. |
+| 4 | `context/progress-tracker.md` & `context/feature-specs/README.md` | **[MODIFY]** | Log Spec 11 and register in Specification Registry Index as Approved. |
 
 ---
 

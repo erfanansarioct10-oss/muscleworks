@@ -10,7 +10,7 @@
 
 ## Executive Summary
 
-This specification defines the implementation of **Sub-Phase 0.2: Styling System & Tailwind CSS v4 Theme Engine** for MuscleWorks Supplements. It establishes the complete Tailwind CSS v4 design token engine, CSS custom properties, responsive typography scales, focus-visible states, athletic dark-mode foundations, and mobile touch reset utilities. The color system implements the approved **Option 1: Stealth Crimson & Obsidian** palette derived directly from the angular lightning "MW" brand logo.
+This specification defines the implementation of **Sub-Phase 0.2: Styling System & Tailwind CSS v4 Theme Engine** for MuscleWorks Supplements. It establishes the complete Tailwind CSS v4 design token engine, CSS custom properties, responsive typography scales, focus-visible states, minimalist athletic foundations, and mobile touch reset utilities. The color system implements the approved **Minimal Premium Modern Luxury** palette (Jet Black `#0B0B0B`, Pure White `#FFFFFF`, Metallic Gold `#D4AF37`, Silver Gray `#F5F5F5`, and Neutral Gray `#2C2C2C`).
 
 ---
 
@@ -18,7 +18,7 @@ This specification defines the implementation of **Sub-Phase 0.2: Styling System
 
 | # | Target File | Action Required | Responsibility Summary |
 |:---:|---|:---:|---|
-| 1 | `src/app/globals.css` | **[NEW]** | Implement Tailwind CSS v4 `@theme` block with Option 1 athletic color tokens, font variable bindings, custom scrollbar styling, accessible focus rings, and mobile touch callout resets. |
+| 1 | `src/app/globals.css` | **[NEW]** | Implement Tailwind CSS v4 `@theme` block with Minimal Premium Modern Luxury color tokens, font variable bindings, custom scrollbar styling, accessible focus rings, and mobile touch callout resets. |
 | 2 | `postcss.config.mjs` | **[VERIFY/MODIFY]** | Ensure `@tailwindcss/postcss` plugin is configured correctly for Tailwind CSS v4 compilation. |
 | 3 | `src/app/layout.tsx` & `src/app/page.tsx` | **[MIGRATE/NEW]** | Relocate root `app/` shell files into canonical `src/app/` directory according to [`context/file-map.md`](../file-map.md) and strict `@/*` path alias standards. |
 
@@ -26,11 +26,11 @@ This specification defines the implementation of **Sub-Phase 0.2: Styling System
 
 ## 2. Why We Are Doing This
 
-1. **Brand Identity & Logo Harmony:** Option 1 (*Stealth Crimson & Obsidian*) translates the high-energy, athletic geometry of the lightning-arrow MW logo into a commanding dark-mode gym theme:
-   - Deep Obsidian Canvas (`#09090b`) + Elevated Charcoal Card (`#121216`)
-   - Electric Gym Crimson (`#dc2626`) for primary brand power
-   - Dedicated WhatsApp & Trust Emerald (`#10b981`) for instant conversion in Nepal
-   - Performance Amber Gold (`#f59e0b`) for star ratings and genuine import badges
+1. **Brand Identity & Luxury Positioning:** The Minimal Premium Modern Luxury theme translates the authoritative, high-energy MW brand into a sleek luxury aesthetic:
+   - Off-White Canvas (`#FCFCFC`) + Elevated Pure White Card (`#FFFFFF`)
+   - Commandive Jet Black (`#0B0B0B`) for primary buttons and high-contrast typography
+   - Metallic Luxury Gold (`#D4AF37`) for authentic import seals and focus rings
+   - Silver Gray (`#F5F5F5`) and Neutral Gray (`#2C2C2C` / `#E5E5E5`) for subtle surfaces and dividers
 2. **Next.js 16 & `src/` Directory Architecture:** The project specification ([`context/file-map.md`](../file-map.md)) mandates the `src/` directory convention with `@/*` mapping to `./src/*`. Moving from root `app/` to `src/app/` ensures 100% path alias consistency.
 3. **Tailwind CSS v4 Engine:** Eliminates legacy `tailwind.config.js` in favor of native CSS `@theme` variables, ensuring zero runtime CSS overhead and optimal Turbopack build speeds.
 4. **Accessibility (WCAG 2.1 AA):** Enforces high-contrast text ratios (`#f4f4f5` on `#09090b` > 14:1) and visible focus rings (`ring-2 ring-primary focus-visible:outline-none`).

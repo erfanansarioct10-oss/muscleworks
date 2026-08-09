@@ -36,6 +36,7 @@ All neon green, bright blue, and loud red colors are replaced with an ultra-slee
 | 9 | `context/feature-specs/03-subphase-0.2-styling-system-tailwind-theme-engine.md` | **[MODIFY]** | Update CSS variables in Spec 03 to Minimal Premium palette. |
 | 10 | `context/feature-specs/README.md` | **[MODIFY]** | Register Spec 13 in Specification Registry Index. |
 | 11 | `context/progress-tracker.md` | **[MODIFY]** | Log Spec 13 in Session Change Log. |
+| 12 | `context/feature-specs/12-light-theme-design-system-migration.md` | **[MODIFY]** | Mark Spec 12 as Superseded and establish Spec 13 as active theme authority. |
 
 ---
 
@@ -46,7 +47,7 @@ All neon green, bright blue, and loud red colors are replaced with an ultra-slee
 3. **WCAG AA Accessibility:** High contrast is preserved across all elements:
    - Jet Black text (`#0B0B0B`) on Pure White (`#FFFFFF`) > 18:1 contrast.
    - White text (`#FFFFFF`) on Jet Black (`#0B0B0B`) > 18:1 contrast.
-   - Metallic Gold (`#D4AF37`) badge text on dark/light surfaces strictly satisfies contrast bounds.
+   - Metallic Gold (`#D4AF37`) background fills feature high-contrast Jet Black text (`#0B0B0B`) (>9:1 contrast). On light surfaces, Metallic Gold is strictly limited to borders, focus rings, and non-text decorative accents; gold text on light surfaces is prohibited.
 
 ---
 

@@ -76,7 +76,7 @@ export function isStoreOpenToday(date: Date = new Date()): boolean {
     // Sun - Fri: 10:00 AM (10) - 8:00 PM (20)
     return hour >= 10 && hour < 20;
   } catch {
-    return true;
+    return false;
   }
 }
 

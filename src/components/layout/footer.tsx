@@ -90,7 +90,7 @@ export function Footer() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex h-9 items-center justify-center rounded-lg border border-border bg-secondary/60 px-3 text-xs font-medium text-muted-foreground transition-colors hover:border-border-focus hover:bg-muted hover:text-foreground active:scale-95"
+                    className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg border border-border bg-secondary/60 px-3 text-xs font-medium text-muted-foreground transition-colors hover:border-border-focus hover:bg-muted hover:text-foreground active:scale-95"
                     aria-label={social.label}
                   >
                     {social.platform}
@@ -110,7 +110,7 @@ export function Footer() {
                 <li key={cat.href}>
                   <Link
                     href={cat.href}
-                    className="group inline-flex items-center gap-1.5 text-muted-foreground transition-colors hover:text-foreground"
+                    className="group inline-flex min-h-11 items-center gap-1.5 text-muted-foreground transition-colors hover:text-foreground"
                   >
                     <ChevronRight className="h-3 w-3 text-muted-foreground/60 transition-transform group-hover:translate-x-0.5 group-hover:text-foreground" />
                     <span>{cat.label}</span>
@@ -141,7 +141,7 @@ export function Footer() {
                     href={STORE_LOCATION.googleMapsUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 font-medium text-foreground hover:text-accent hover:underline mt-1"
+                    className="inline-flex min-h-11 items-center gap-1 font-medium text-foreground hover:text-accent hover:underline mt-1"
                   >
                     <span>Get Directions on Google Maps</span>
                     <ExternalLink className="h-3 w-3" />
@@ -163,14 +163,14 @@ export function Footer() {
               <div className="flex flex-col gap-1.5 pt-1">
                 <a
                   href={`tel:${STORE_PHONE_RAW}`}
-                  className="inline-flex items-center gap-2 font-medium text-foreground hover:text-accent"
+                  className="inline-flex min-h-12 min-w-12 items-center gap-2 font-medium text-foreground hover:text-accent"
                 >
                   <Phone className="h-3.5 w-3.5 text-accent" />
                   <span>{STORE_PHONE}</span>
                 </a>
                 <a
                   href={`mailto:${STORE_EMAIL}`}
-                  className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground"
+                  className="inline-flex min-h-11 items-center gap-2 text-muted-foreground hover:text-foreground"
                 >
                   <Mail className="h-3.5 w-3.5 text-muted-foreground" />
                   <span>{STORE_EMAIL}</span>
@@ -193,7 +193,7 @@ export function Footer() {
               <Link
                 key={legal.href}
                 href={legal.href}
-                className="transition-colors hover:text-foreground"
+                className="inline-flex min-h-11 items-center transition-colors hover:text-foreground"
               >
                 {legal.label}
               </Link>

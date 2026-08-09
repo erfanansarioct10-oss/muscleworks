@@ -2,9 +2,14 @@
 
 > **Spec ID:** `12-light-theme-design-system-migration`  
 > **Target Sub-Phase / Branch:** `Phase 1` Design System & Theme Transformation  
-> **Status:** Approved  
+> **Status:** Superseded  
 > **Created Date:** 2026-08-09  
 > **Author:** AI Coding Agent (Antigravity IDE)
+
+---
+
+> [!IMPORTANT]
+> **SUPERSEDED SPECIFICATION:** This specification has been superseded by [Spec 13: Minimal Premium Modern Luxury Theme Migration](13-minimal-premium-luxury-theme.md). This document is preserved for historical context and MUST NOT guide new implementations.
 
 ---
 

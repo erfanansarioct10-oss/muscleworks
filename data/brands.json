@@ -1,0 +1,254 @@
+[
+  {
+    "id": "brand_optimum_nutrition",
+    "slug": "optimum-nutrition",
+    "name": "Optimum Nutrition (ON)",
+    "logo": {
+      "url": "/images/brands/optimum-nutrition.webp",
+      "alt": "Optimum Nutrition Logo",
+      "isPrimary": true
+    },
+    "countryOfOrigin": "United States (USA)",
+    "officialDistributorInfo": "Imported by Muscle House Nepal & authorized national importers.",
+    "verificationGuide": "Authentic ON tubs in Nepal feature a scratch-off security sticker on the tub lid. Scratch to reveal the unique code and verify it on authentication portal or scan the QR code.",
+    "description": "Optimum Nutrition is the world leader in sports nutrition, famous for Gold Standard 100% Whey, Serious Mass, and Micronized Creatine. Trusted by world-class athletes for uncompromised quality and purity.",
+    "websiteUrl": "https://www.optimumnutrition.com",
+    "isFeatured": true,
+    "seo": {
+      "metaTitle": "Optimum Nutrition (ON) Nepal | Authentic Products at MuscleWorks",
+      "metaDescription": "Buy 100% genuine Optimum Nutrition Gold Standard Whey, Serious Mass & Creatine in Nepal. Verified importer scratch code stickers & fast Kathmandu delivery.",
+      "keywords": [
+        "optimum nutrition nepal",
+        "on whey gold standard kathmandu",
+        "on serious mass nepal",
+        "authentic on supplements nepal"
+      ]
+    }
+  },
+  {
+    "id": "brand_muscletech",
+    "slug": "muscletech",
+    "name": "MuscleTech",
+    "logo": {
+      "url": "/images/brands/muscletech.webp",
+      "alt": "MuscleTech Logo",
+      "isPrimary": true
+    },
+    "countryOfOrigin": "United States (USA)",
+    "officialDistributorInfo": "Imported by Radiant Traders & official Nepal supplement distributors.",
+    "verificationGuide": "Look for the metallic hologram seal from Radiant Traders on the neck band. Verify batch number and scan the security QR sticker.",
+    "description": "MuscleTech is a science-driven sports nutrition giant known for NitroTech, Cell-Tech, and Platinum Creatine. Engineered with research-backed formulas to maximize strength and muscle hypertrophy.",
+    "websiteUrl": "https://www.muscletech.com",
+    "isFeatured": true,
+    "seo": {
+      "metaTitle": "MuscleTech Supplements in Nepal | NitroTech & Platinum Creatine",
+      "metaDescription": "Shop genuine MuscleTech NitroTech, Platinum Creatine & Cell-Tech in Nepal with official importer hologram seals. Available at MuscleWorks Golfutar.",
+      "keywords": [
+        "muscletech nepal",
+        "nitrotech price in nepal",
+        "muscletech platinum creatine kathmandu",
+        "radiant traders muscletech"
+      ]
+    }
+  },
+  {
+    "id": "brand_dymatize",
+    "slug": "dymatize",
+    "name": "Dymatize",
+    "logo": {
+      "url": "/images/brands/dymatize.webp",
+      "alt": "Dymatize Logo",
+      "isPrimary": true
+    },
+    "countryOfOrigin": "United States (USA)",
+    "officialDistributorInfo": "Imported by Muscle House Nepal.",
+    "verificationGuide": "Dymatize ISO100 tubs feature the official importer hologram seal on the cap and Informed-Choice testing certification on the label.",
+    "description": "Dymatize is world-renowned for ISO100 100% Hydrolyzed Whey Protein Isolate. Clean, fast-absorbing, and virtually lactose-free for serious athletes.",
+    "websiteUrl": "https://www.dymatize.com",
+    "isFeatured": true,
+    "seo": {
+      "metaTitle": "Dymatize ISO 100 Protein in Nepal | MuscleWorks Store",
+      "metaDescription": "Buy authentic Dymatize ISO 100 hydrolyzed whey isolate in Nepal. Verified scratch code & hologram seals at MuscleWorks Golfutar.",
+      "keywords": [
+        "dymatize iso 100 nepal",
+        "dymatize iso 100 price kathmandu",
+        "buy dymatize nepal"
+      ]
+    }
+  },
+  {
+    "id": "brand_myprotein",
+    "slug": "myprotein",
+    "name": "MyProtein",
+    "logo": {
+      "url": "/images/brands/myprotein.webp",
+      "alt": "MyProtein Logo",
+      "isPrimary": true
+    },
+    "countryOfOrigin": "United Kingdom (UK)",
+    "officialDistributorInfo": "Imported via authorized UK-Nepal distribution channels.",
+    "verificationGuide": "Check for official importer batch code stickers and sealed pouch tamper-evident zip closures.",
+    "description": "Europe's #1 sports nutrition brand offering high-quality Impact Whey Protein, Creatine Monohydrate, and athletic essentials at exceptional value.",
+    "websiteUrl": "https://www.myprotein.com",
+    "isFeatured": true,
+    "seo": {
+      "metaTitle": "MyProtein Supplements in Nepal | Impact Whey & Creatine",
+      "metaDescription": "Shop genuine MyProtein Impact Whey & Creatine Monohydrate in Nepal. Direct UK imports available at MuscleWorks Golfutar.",
+      "keywords": [
+        "myprotein nepal",
+        "impact whey protein price nepal",
+        "myprotein kathmandu"
+      ]
+    }
+  },
+  {
+    "id": "brand_kevin_levrone",
+    "slug": "kevin-levrone",
+    "name": "Kevin Levrone Signature Series",
+    "logo": {
+      "url": "/images/brands/kevin-levrone.webp",
+      "alt": "Kevin Levrone Signature Series Logo",
+      "isPrimary": true
+    },
+    "countryOfOrigin": "United States / EU",
+    "officialDistributorInfo": "Imported exclusively by Radiant Traders Nepal.",
+    "verificationGuide": "Features Radiant Traders gold hologram security sticker with scratch-and-verify pin code on every container.",
+    "description": "Formulated by IFBB Pro legend Kevin Levrone. High-potency formulas including Gold Creatine, Anabolic PM Protein, and Shaaboom Pump pre-workout.",
+    "websiteUrl": "https://levronesupplements.com",
+    "isFeatured": true,
+    "seo": {
+      "metaTitle": "Kevin Levrone Gold Creatine in Nepal | MuscleWorks",
+      "metaDescription": "Buy 100% genuine Kevin Levrone Gold Creatine & supplements in Nepal. Exclusive Radiant Traders hologram verification at MuscleWorks Golfutar.",
+      "keywords": [
+        "kevin levrone gold creatine nepal",
+        "kevin levrone supplements kathmandu",
+        "radiant traders kevin levrone"
+      ]
+    }
+  },
+  {
+    "id": "brand_rule_1",
+    "slug": "rule-1",
+    "name": "Rule 1 Proteins",
+    "logo": {
+      "url": "/images/brands/rule-1.webp",
+      "alt": "Rule 1 Proteins Logo",
+      "isPrimary": true
+    },
+    "countryOfOrigin": "United States (USA)",
+    "officialDistributorInfo": "Imported by Muscle House Nepal.",
+    "verificationGuide": "Check for Muscle House Nepal security hologram seal and batch code label.",
+    "description": "Rule 1 Proteins is founded by the original creators of Optimum Nutrition. Premium ultra-pure WPI and WPC blends with zero sugar, zero lactose, and zero gluten fillers.",
+    "websiteUrl": "https://www.ruleoneproteins.com",
+    "isFeatured": false,
+    "seo": {
+      "metaTitle": "Rule 1 R1 Protein Isolate in Nepal | MuscleWorks",
+      "metaDescription": "Shop authentic Rule 1 R1 Protein Isolate & Whey Blend in Nepal. Premium USA imported supplements at MuscleWorks Golfutar.",
+      "keywords": [
+        "rule 1 protein nepal",
+        "r1 protein price kathmandu",
+        "rule 1 isolate nepal"
+      ]
+    }
+  },
+  {
+    "id": "brand_labrada",
+    "slug": "labrada",
+    "name": "Labrada Nutrition",
+    "logo": {
+      "url": "/images/brands/labrada.webp",
+      "alt": "Labrada Nutrition Logo",
+      "isPrimary": true
+    },
+    "countryOfOrigin": "United States (USA)",
+    "officialDistributorInfo": "Imported by Radiant Traders Nepal.",
+    "verificationGuide": "Features Radiant Traders holographic verification sticker and Lee Labrada stamp of authenticity.",
+    "description": "Founded by IFBB Hall of Famer Lee Labrada. Legendary Muscle Mass Gainer and Lean Body MRP products delivering award-winning taste and lab-tested nutrition.",
+    "websiteUrl": "https://www.labrada.com",
+    "isFeatured": true,
+    "seo": {
+      "metaTitle": "Labrada Muscle Mass Gainer in Nepal | MuscleWorks",
+      "metaDescription": "Buy genuine Labrada Muscle Mass Gainer & Lean Body in Nepal. Sourced via Radiant Traders with hologram verification.",
+      "keywords": [
+        "labrada mass gainer nepal",
+        "labrada muscle mass gainer price nepal",
+        "labrada kathmandu"
+      ]
+    }
+  },
+  {
+    "id": "brand_cellucor",
+    "slug": "cellucor",
+    "name": "Cellucor",
+    "logo": {
+      "url": "/images/brands/cellucor.webp",
+      "alt": "Cellucor Logo",
+      "isPrimary": true
+    },
+    "countryOfOrigin": "United States (USA)",
+    "officialDistributorInfo": "Imported via authorized Nepal supplement importers.",
+    "verificationGuide": "Includes official distributor seal and tamper-proof neck shrink wrap.",
+    "description": "America's #1 Pre-Workout brand, famous for C4 Original Pre-Workout and C4 Ultimate. Formulated for explosive energy, endurance, and mental focus.",
+    "websiteUrl": "https://cellucor.com",
+    "isFeatured": true,
+    "seo": {
+      "metaTitle": "Cellucor C4 Pre-Workout in Nepal | MuscleWorks",
+      "metaDescription": "Shop authentic Cellucor C4 Original Pre-Workout in Nepal. Maximum energy & endurance formulas available at MuscleWorks Golfutar.",
+      "keywords": [
+        "cellucor c4 nepal",
+        "c4 pre workout price kathmandu",
+        "cellucor nepal"
+      ]
+    }
+  },
+  {
+    "id": "brand_universal_nutrition",
+    "slug": "universal-nutrition",
+    "name": "Universal Nutrition",
+    "logo": {
+      "url": "/images/brands/universal-nutrition.webp",
+      "alt": "Universal Nutrition Logo",
+      "isPrimary": true
+    },
+    "countryOfOrigin": "United States (USA)",
+    "officialDistributorInfo": "Imported via authorized Nepal supplement channels.",
+    "verificationGuide": "Animal Pak tin cans feature embossed logo, lot batch numbers, and authorized importer stamp.",
+    "description": "Iconic hard-core bodybuilder brand famous since 1977 for Animal Pak, Animal Flex, and Animal Cut performance packs.",
+    "websiteUrl": "https://www.universalnutrition.com",
+    "isFeatured": false,
+    "seo": {
+      "metaTitle": "Universal Nutrition Animal Pak in Nepal | MuscleWorks",
+      "metaDescription": "Buy authentic Universal Nutrition Animal Pak multivitamin packs in Nepal. Hardcore athlete nutrition at MuscleWorks Golfutar.",
+      "keywords": [
+        "animal pak nepal",
+        "universal nutrition kathmandu",
+        "animal pak price in nepal"
+      ]
+    }
+  },
+  {
+    "id": "brand_scivation",
+    "slug": "scivation",
+    "name": "Scivation",
+    "logo": {
+      "url": "/images/brands/scivation.webp",
+      "alt": "Scivation Logo",
+      "isPrimary": true
+    },
+    "countryOfOrigin": "United States (USA)",
+    "officialDistributorInfo": "Imported via authorized Nepal supplement channels.",
+    "verificationGuide": "Authentic Xtend tubs feature holographic authenticity label and batch lot code verification.",
+    "description": "Creator of Xtend BCAA, the world's leading intra-workout amino acid formula engineered with 7g BCAAs and hydration electrolytes.",
+    "websiteUrl": "https://scivation.com",
+    "isFeatured": false,
+    "seo": {
+      "metaTitle": "Scivation Xtend BCAA in Nepal | MuscleWorks",
+      "metaDescription": "Buy 100% genuine Scivation Xtend BCAA powder in Nepal. Premier intra-workout recovery formula available at MuscleWorks Golfutar.",
+      "keywords": [
+        "scivation xtend bcaa nepal",
+        "xtend bcaa price kathmandu",
+        "scivation nepal"
+      ]
+    }
+  }
+]

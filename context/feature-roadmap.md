@@ -225,7 +225,7 @@ flowchart LR
 ### Phase 2: Static Datasets & Typed Data Access Layer
 
 #### Sub-Phase 2.1: Zod Schemas & Domain Type Definitions
-- [ ] **Status:** Unchecked
+- [x] **Status:** Completed
 - **Target Files:**
   - `src/lib/validations/common.ts` [NEW]
   - `src/lib/validations/product.ts` [NEW]
@@ -235,11 +235,11 @@ flowchart LR
   - Define Zod schemas and TypeScript types for `Product`, `ProductVariant`, `NutritionFacts`, `Category`, `Brand`, `StoreInfo`, `InquiryFormClientValues`, `InquiryServerPayload`, and `ActionResult` matching [data-models.md](context/data-models.md).
   - Include Nepal phone number regex validation (`/^(?:\+977[- ]?)?(?:98\d{8}|97\d{8}|01\d{6,7})$/`).
 - **Verification Checklist:**
-  - [ ] `npx tsc --noEmit` passes cleanly.
-  - [ ] Zod schema `.parse()` tests validate mock data objects correctly.
+  - [x] `npx tsc --noEmit` passes cleanly.
+  - [x] Zod schema `.parse()` tests validate mock data objects correctly.
 
 #### Sub-Phase 2.2: Canonical JSON Datasets (Products, Categories & Brands)
-- [ ] **Status:** Unchecked
+- [x] **Status:** Completed
 - **Target Files:**
   - `data/products.json` [NEW]
   - `data/categories.json` [NEW]
@@ -249,8 +249,8 @@ flowchart LR
   - Provide complete variants (flavors: Double Rich Chocolate, Vanilla Ice Cream, Strawberry, Unflavored; sizes: 2 lbs, 5 lbs, 250g, 300g, 60 servings), NPR pricing with genuine market values, in-stock status, nutrition facts, and authentic importer sticker verification details.
   - Author categories (`proteins`, `creatine`, `mass-gainers`, `pre-workout`, `vitamins-health`, `amino-bcaa`) and brands.
 - **Verification Checklist:**
-  - [ ] JSON files parse without syntax errors.
-  - [ ] All products pass `ProductSchema.array().parse(data)` validation without errors.
+  - [x] JSON files parse without syntax errors.
+  - [x] All products pass `ProductSchema.array().parse(data)` validation without errors.
 
 #### Sub-Phase 2.3: Supplementary Datasets (Store Info & Comprehensive FAQs)
 - [ ] **Status:** Unchecked
@@ -687,8 +687,8 @@ flowchart LR
 | **1.3** | Overlay & Dialog Primitives (Radix) | `src/components/ui/dialog.tsx`, `sheet.tsx`, `toast.tsx`, `breadcrumb.tsx` | 1.2 | `[x]` |
 | **1.4** | Global Navigation Shell & Header | `src/components/layout/header.tsx`, `navbar.tsx`, `mobile-nav.tsx` | 1.3 | `[x]` |
 | **1.5** | Global Footer & Sticky Mobile Bar | `src/components/layout/footer.tsx`, `sticky-cta-bar.tsx`, `whatsapp-floating-button.tsx` | 1.4 | `[x]` |
-| **2.1** | Zod Schemas & Domain Type Definitions | `src/lib/validations/common.ts`, `product.ts`, `inquiry.ts`, `store.ts` | 0.3 | `[ ]` |
-| **2.2** | Canonical JSON Datasets (Products/Categories/Brands) | `data/products.json`, `categories.json`, `brands.json` | 2.1 | `[ ]` |
+| **2.1** | Zod Schemas & Domain Type Definitions | `src/lib/validations/common.ts`, `product.ts`, `inquiry.ts`, `store.ts` | 0.3 | `[x]` |
+| **2.2** | Canonical JSON Datasets (Products/Categories/Brands) | `data/products.json`, `categories.json`, `brands.json` | 2.1 | `[x]` |
 | **2.3** | Supplementary Datasets (Store Info/FAQs) | `data/store-info.json`, `data/faqs.json` | 2.1 | `[ ]` |
 | **2.4** | Catalog Data Accessor Layer | `src/lib/data/products.ts`, `categories.ts`, `brands.ts` | 2.2, 2.3 | `[ ]` |
 | **2.5** | Store, FAQ & Content Accessor Layer | `src/lib/data/store.ts`, `faqs.ts`, `guides.ts` | 2.2, 2.3 | `[ ]` |

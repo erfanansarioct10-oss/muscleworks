@@ -48,7 +48,7 @@ This specification governs the implementation of **Sub-Phase 1.5: Global Footer*
   - **Column 3: Golfutar Flagship Store & Operating Hours**
     - Address: `Golfutar Main Road, Budha-Nilkantha, Kathmandu (44500), Nepal`
     - Landmark: `Near Golfutar Basketball Court / Budha-Nilkantha Highway`
-    - Store Hours: `Sun – Fri: 10:00 AM – 8:00 PM` • `Sat: 11:00 AM – 6:00 PM`
+    - Store Hours: Derived from `STORE_HOURS` (`Sun – Fri: 10:00 AM – 8:00 PM` • `Saturday: Contact Required`)
     - Store Hotline: `+977 980-0000000` (clickable `tel:` link)
     - Store Email: `orders@muscleworksnepal.com`
     - Google Maps link (`STORE_LOCATION.googleMapsUrl`)

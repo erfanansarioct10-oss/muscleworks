@@ -1,0 +1,1199 @@
+[
+  {
+    "id": "prod_on_gold_standard_whey",
+    "slug": "optimum-nutrition-gold-standard-100-whey",
+    "name": "ON Gold Standard 100% Whey Protein",
+    "brandId": "brand_optimum_nutrition",
+    "categoryId": "cat_proteins",
+    "shortDescription": "The world's benchmark for whey protein quality. Delivers 24g of pure whey protein isolate and concentrate per serving for fast muscle recovery in Nepal.",
+    "fullDescription": "Optimum Nutrition Gold Standard 100% Whey Protein is the world's best-selling whey protein powder. Each serving packs 24 grams of premium whey protein isolate primary source, 5.5 grams of naturally occurring BCAAs, and 4 grams of glutamine. Instantized for smooth mixing with a spoon in water or milk. Imported directly via Muscle House Nepal with scratch-and-verify security codes on every tub.",
+    "highlights": [
+      "24g Premium Whey Protein Blend (WPI Primary)",
+      "5.5g Naturally Occurring BCAAs Per Serving",
+      "Gluten Free & Informed-Choice Tested",
+      "Instantized for Fast & Easy Mixing",
+      "Official Importer Scratch-to-Verify Security Code"
+    ],
+    "ingredients": "Protein Blend (Whey Protein Isolates, Whey Protein Concentrate, Whey Peptides), Cocoa Powder, Natural and Artificial Flavors, Lecithin, Salt, Sucralose, Lactase.",
+    "directions": "Mix 1 scoop with 180-240ml of cold water, milk, or your favorite beverage. Consume within 30 minutes post-workout or between meals.",
+    "nutritionFacts": {
+      "servingSize": "1 Scoop (30.4g)",
+      "servingsPerContainer": 74,
+      "caloriesPerServing": 120,
+      "proteinGrams": 24,
+      "carbsGrams": 3,
+      "fatGrams": 1.5,
+      "bcaaGrams": 5.5,
+      "items": [
+        { "name": "Total Fat", "amountPerServing": "1.5g", "dailyValuePercentage": "2%" },
+        { "name": "Sodium", "amountPerServing": "130mg", "dailyValuePercentage": "6%" },
+        { "name": "Total Carbohydrate", "amountPerServing": "3g", "dailyValuePercentage": "1%" },
+        { "name": "Protein", "amountPerServing": "24g", "dailyValuePercentage": "48%" },
+        { "name": "Calcium", "amountPerServing": "130mg", "dailyValuePercentage": "10%" }
+      ]
+    },
+    "authenticity": {
+      "isAuthenticGuarantee": true,
+      "importerOrSource": "Muscle House Nepal (Official Authorized Importer)",
+      "verificationMethod": "Scratch-off Security Sticker + QR Authentication Code",
+      "hologramDescription": "Gold tamper-evident security seal on cap with unique 6-digit scratch verification code.",
+      "batchTestingNote": "Informed-Choice certified for banned substance testing.",
+      "trustBadgeLabel": "100% Genuine Importer Seal"
+    },
+    "images": [
+      {
+        "url": "/images/products/on-gold-standard-whey-choc.webp",
+        "alt": "ON Gold Standard 100% Whey Double Rich Chocolate 5lbs Tub Nepal",
+        "isPrimary": true
+      },
+      {
+        "url": "/images/products/on-gold-standard-whey-vanilla.webp",
+        "alt": "ON Gold Standard 100% Whey Vanilla Ice Cream",
+        "isPrimary": false
+      }
+    ],
+    "defaultVariantId": "var_on_whey_5lb_choc",
+    "variants": [
+      {
+        "id": "var_on_whey_5lb_choc",
+        "sku": "ON-WHEY-5LB-CHOC",
+        "sizeOrWeight": "5 lbs (2.27 kg)",
+        "flavor": "Double Rich Chocolate",
+        "priceNpr": 12500,
+        "discountPriceNpr": 11200,
+        "stockStatus": "in_stock",
+        "inStockQuantity": 25,
+        "image": {
+          "url": "/images/products/on-gold-standard-whey-choc.webp",
+          "alt": "ON Gold Standard Whey 5lbs Double Rich Chocolate",
+          "isPrimary": true
+        }
+      },
+      {
+        "id": "var_on_whey_5lb_vanilla",
+        "sku": "ON-WHEY-5LB-VAN",
+        "sizeOrWeight": "5 lbs (2.27 kg)",
+        "flavor": "Vanilla Ice Cream",
+        "priceNpr": 12500,
+        "discountPriceNpr": 11200,
+        "stockStatus": "in_stock",
+        "inStockQuantity": 12
+      },
+      {
+        "id": "var_on_whey_2lb_choc",
+        "sku": "ON-WHEY-2LB-CHOC",
+        "sizeOrWeight": "2 lbs (907g)",
+        "flavor": "Double Rich Chocolate",
+        "priceNpr": 6500,
+        "discountPriceNpr": 5900,
+        "stockStatus": "in_stock",
+        "inStockQuantity": 18
+      }
+    ],
+    "tags": ["whey-protein", "post-workout", "bestseller", "muscle-recovery"],
+    "badges": ["bestseller", "authenticity_guaranteed", "featured"],
+    "isFeatured": true,
+    "faqs": [
+      {
+        "question": "Is this ON Gold Standard Whey 100% genuine in Nepal?",
+        "answer": "Yes! All ON tubs at MuscleWorks are imported through MuscleHouse Nepal with a scratch-off security sticker that can be verified on the official authentication portal."
+      }
+    ],
+    "seo": {
+      "metaTitle": "ON Gold Standard 100% Whey Protein 5lbs Price in Nepal | MuscleWorks",
+      "metaDescription": "Buy genuine ON Gold Standard 100% Whey Protein in Nepal (5lbs & 2lbs). Official importer scratch code verification. Golfutar store & fast delivery.",
+      "keywords": [
+        "on gold standard whey nepal",
+        "optimum nutrition whey price nepal",
+        "buy whey protein kathmandu",
+        "authentic ON protein nepal"
+      ]
+    }
+  },
+  {
+    "id": "prod_muscletech_nitrotech",
+    "slug": "muscletech-nitro-tech-performance-series",
+    "name": "MuscleTech NitroTech Performance Series",
+    "brandId": "brand_muscletech",
+    "categoryId": "cat_proteins",
+    "shortDescription": "Advanced whey isolate + creatine lean musclebuilder delivering 30g protein and 3g creatine monohydrate per scoop.",
+    "fullDescription": "MuscleTech NitroTech is a scientifically engineered whey isolate + lean muscle building formula designed for athletes looking to build more muscle, increase strength, and enhance performance. Contains 30g of protein (primarily whey isolate and peptides), 3g of HPLC-tested creatine monohydrate, and 6.8g of BCAAs per scoop.",
+    "highlights": [
+      "30g Pure Whey Isolate & Peptides Per Scoop",
+      "3g HPLC-Tested Creatine Monohydrate Built-In",
+      "6.8g BCAAs & 5g Glutamine Precursor",
+      "Builds 70% More Lean Muscle Than Regular Whey",
+      "Radiant Traders Official Importer Hologram Seal"
+    ],
+    "ingredients": "Isolate Protein & Peptide Blend (Whey Peptides, Whey Protein Isolate, Whey Protein Isolate 97%), Maltodextrin, Creatine Monohydrate, Cocoa Powder, Natural Flavors, Gum Blend, Soy or Sunflower Lecithin.",
+    "directions": "Mix 1 scoop with 180ml of cold water or skim milk. Consume post-workout or between major meals.",
+    "nutritionFacts": {
+      "servingSize": "1 Scoop (46g)",
+      "servingsPerContainer": 40,
+      "caloriesPerServing": 160,
+      "proteinGrams": 30,
+      "carbsGrams": 4,
+      "fatGrams": 2.5,
+      "bcaaGrams": 6.8,
+      "items": [
+        { "name": "Creatine Monohydrate", "amountPerServing": "3g" },
+        { "name": "Total Fat", "amountPerServing": "2.5g" },
+        { "name": "Total Carbohydrate", "amountPerServing": "4g" },
+        { "name": "Protein", "amountPerServing": "30g" }
+      ]
+    },
+    "authenticity": {
+      "isAuthenticGuarantee": true,
+      "importerOrSource": "Radiant Traders Nepal",
+      "verificationMethod": "Holographic Neck Seal & QR Authentication Sticker",
+      "hologramDescription": "Radiant Traders metallic hologram security band on tub neck.",
+      "trustBadgeLabel": "Radiant Traders Importer Guarantee"
+    },
+    "images": [
+      {
+        "url": "/images/products/muscletech-nitrotech-milk-choc.webp",
+        "alt": "MuscleTech NitroTech Milk Chocolate 4lbs Tub Nepal",
+        "isPrimary": true
+      }
+    ],
+    "defaultVariantId": "var_nitrotech_4lb_choc",
+    "variants": [
+      {
+        "id": "var_nitrotech_4lb_choc",
+        "sku": "MT-NITRO-4LB-CHOC",
+        "sizeOrWeight": "4 lbs (1.81 kg)",
+        "flavor": "Milk Chocolate",
+        "priceNpr": 11500,
+        "discountPriceNpr": 10200,
+        "stockStatus": "in_stock",
+        "inStockQuantity": 15
+      },
+      {
+        "id": "var_nitrotech_4lb_vanilla",
+        "sku": "MT-NITRO-4LB-VAN",
+        "sizeOrWeight": "4 lbs (1.81 kg)",
+        "flavor": "Vanilla Birthday Cake",
+        "priceNpr": 11500,
+        "discountPriceNpr": 10200,
+        "stockStatus": "low_stock",
+        "inStockQuantity": 4
+      }
+    ],
+    "tags": ["whey-isolate", "creatine-blend", "muscle-gainer", "muscletech"],
+    "badges": ["trending", "authenticity_guaranteed"],
+    "isFeatured": true,
+    "faqs": [
+      {
+        "question": "Does NitroTech already contain creatine?",
+        "answer": "Yes! NitroTech provides 3g of pure creatine monohydrate per scoop, eliminating the need to buy a separate creatine supplement."
+      }
+    ],
+    "seo": {
+      "metaTitle": "MuscleTech NitroTech 4lbs Price in Nepal | MuscleWorks",
+      "metaDescription": "Buy authentic MuscleTech NitroTech in Nepal. 30g protein + 3g creatine per scoop with Radiant Traders hologram verification.",
+      "keywords": [
+        "muscletech nitrotech nepal",
+        "nitrotech price in nepal",
+        "muscletech protein kathmandu"
+      ]
+    }
+  },
+  {
+    "id": "prod_dymatize_iso100",
+    "slug": "dymatize-iso-100-hydrolyzed-protein",
+    "name": "Dymatize ISO 100 Hydrolyzed Protein",
+    "brandId": "brand_dymatize",
+    "categoryId": "cat_proteins",
+    "shortDescription": "100% Hydrolyzed Whey Isolate delivering 25g protein, less than 1g sugar, and zero lactose for ultra-fast digestion.",
+    "fullDescription": "Dymatize ISO 100 is formulated using cross-flow microfiltration and pre-hydrolyzed whey isolate for instant digestion and absorption. Ideal for lean muscle goals, contest prep, and lactose-intolerant athletes in Nepal.",
+    "highlights": [
+      "25g 100% Hydrolyzed Whey Isolate Per Serving",
+      "5.5g BCAAs including 2.6g Leucine",
+      "Less Than 1g Sugar & 1g Fat",
+      "Gluten Free & Virtually Lactose Free",
+      "Informed-Choice Certified & Authenticity Verified"
+    ],
+    "ingredients": "Hydrolyzed Whey Protein Isolate, Whey Protein Isolate, Natural and Artificial Flavors, Salt, Soy Lecithin, Sucralose, Stevia Leaf Extract.",
+    "directions": "Add 1 scoop to 150-180ml of cold water or almond milk. Mix thoroughly and drink immediately after training.",
+    "nutritionFacts": {
+      "servingSize": "1 Scoop (30g)",
+      "servingsPerContainer": 76,
+      "caloriesPerServing": 110,
+      "proteinGrams": 25,
+      "carbsGrams": 1,
+      "fatGrams": 0.5,
+      "bcaaGrams": 5.5,
+      "items": [
+        { "name": "Total Fat", "amountPerServing": "0.5g" },
+        { "name": "Sugars", "amountPerServing": "<1g" },
+        { "name": "Protein", "amountPerServing": "25g" }
+      ]
+    },
+    "authenticity": {
+      "isAuthenticGuarantee": true,
+      "importerOrSource": "Muscle House Nepal",
+      "verificationMethod": "Scratch Code Sticker & Official Cap Seal",
+      "hologramDescription": "Official Dymatize cap seal with Muscle House Nepal security code.",
+      "trustBadgeLabel": "100% Genuine Importer Seal"
+    },
+    "images": [
+      {
+        "url": "/images/products/dymatize-iso100-gourmet-choc.webp",
+        "alt": "Dymatize ISO 100 Gourmet Chocolate 5lbs Tub Nepal",
+        "isPrimary": true
+      }
+    ],
+    "defaultVariantId": "var_iso100_5lb_choc",
+    "variants": [
+      {
+        "id": "var_iso100_5lb_choc",
+        "sku": "DYM-ISO100-5LB-CHOC",
+        "sizeOrWeight": "5 lbs (2.3 kg)",
+        "flavor": "Gourmet Chocolate",
+        "priceNpr": 16500,
+        "discountPriceNpr": 14900,
+        "stockStatus": "in_stock",
+        "inStockQuantity": 8
+      },
+      {
+        "id": "var_iso100_5lb_vanilla",
+        "sku": "DYM-ISO100-5LB-VAN",
+        "sizeOrWeight": "5 lbs (2.3 kg)",
+        "flavor": "Gourmet Vanilla",
+        "priceNpr": 16500,
+        "discountPriceNpr": 14900,
+        "stockStatus": "in_stock",
+        "inStockQuantity": 6
+      }
+    ],
+    "tags": ["hydrolyzed-isolate", "zero-lactose", "premium-protein"],
+    "badges": ["bestseller", "authenticity_guaranteed"],
+    "isFeatured": true,
+    "faqs": [
+      {
+        "question": "Is ISO 100 suitable for lactose sensitive individuals?",
+        "answer": "Yes! Hydrolyzed whey isolate removes virtually all lactose and fat, making it extremely easy on the stomach."
+      }
+    ],
+    "seo": {
+      "metaTitle": "Dymatize ISO 100 Hydrolyzed Whey 5lbs Price in Nepal | MuscleWorks",
+      "metaDescription": "Buy 100% genuine Dymatize ISO 100 Hydrolyzed Whey Isolate in Nepal. Authentic cap seal & scratch code verification.",
+      "keywords": [
+        "dymatize iso 100 nepal",
+        "iso100 price in nepal",
+        "hydrolyzed whey isolate kathmandu"
+      ]
+    }
+  },
+  {
+    "id": "prod_myprotein_impact_whey",
+    "slug": "myprotein-impact-whey-protein",
+    "name": "MyProtein Impact Whey Protein",
+    "brandId": "brand_myprotein",
+    "categoryId": "cat_proteins",
+    "shortDescription": "Europe's bestseller delivering 21g premium whey protein per serving at incredible value for everyday fitness.",
+    "fullDescription": "MyProtein Impact Whey Protein provides premium grass-fed whey protein concentrate packing 21g of protein per serving, 4.5g of BCAAs, and only 1.9g of fat. Perfect for daily protein replenishment in Nepal.",
+    "highlights": [
+      "21g Premium Whey Protein Per Serving",
+      "4.5g BCAAs & 3.6g Glutamine",
+      "Grade A Labdoor Certified Quality",
+      "High Value & Exceptional Taste Profiles",
+      "Tamper-Evident UK Importer Seal"
+    ],
+    "ingredients": "Whey Protein Concentrate (Milk), Emulsifier (Soy Lecithin), Flavoring, Sweetener (Sucralose).",
+    "directions": "Add 1 large scoop (25g) to 150-250ml of water or milk 30-60 minutes post-workout.",
+    "nutritionFacts": {
+      "servingSize": "1 Scoop (25g)",
+      "servingsPerContainer": 100,
+      "caloriesPerServing": 103,
+      "proteinGrams": 21,
+      "carbsGrams": 1,
+      "fatGrams": 1.9,
+      "bcaaGrams": 4.5,
+      "items": [
+        { "name": "Total Fat", "amountPerServing": "1.9g" },
+        { "name": "Total Carbohydrate", "amountPerServing": "1g" },
+        { "name": "Protein", "amountPerServing": "21g" }
+      ]
+    },
+    "authenticity": {
+      "isAuthenticGuarantee": true,
+      "importerOrSource": "Authorized UK Importer Nepal",
+      "verificationMethod": "Batch Code Verification & Sealed Pouch Stamp",
+      "hologramDescription": "Official batch lot code printed on rear pouch panel.",
+      "trustBadgeLabel": "UK Genuine Import"
+    },
+    "images": [
+      {
+        "url": "/images/products/myprotein-impact-whey-2.5kg.webp",
+        "alt": "MyProtein Impact Whey Protein 2.5kg Pouch Nepal",
+        "isPrimary": true
+      }
+    ],
+    "defaultVariantId": "var_mp_whey_2.5kg_choc",
+    "variants": [
+      {
+        "id": "var_mp_whey_2.5kg_choc",
+        "sku": "MP-WHEY-2-5KG-CHOC",
+        "sizeOrWeight": "2.5 kg (5.5 lbs)",
+        "flavor": "Chocolate Smooth",
+        "priceNpr": 10500,
+        "discountPriceNpr": 9400,
+        "stockStatus": "in_stock",
+        "inStockQuantity": 20
+      }
+    ],
+    "tags": ["whey-concentrate", "budget-friendly", "myprotein"],
+    "badges": ["featured"],
+    "isFeatured": false,
+    "faqs": [
+      {
+        "question": "How many servings are in the 2.5kg pouch?",
+        "answer": "The 2.5kg pouch provides 100 full servings of 21g protein each."
+      }
+    ],
+    "seo": {
+      "metaTitle": "MyProtein Impact Whey 2.5kg Price in Nepal | MuscleWorks",
+      "metaDescription": "Buy genuine MyProtein Impact Whey 2.5kg pouch in Nepal. 100 servings of UK premium whey at MuscleWorks Golfutar.",
+      "keywords": [
+        "myprotein impact whey nepal",
+        "myprotein 2.5kg price nepal",
+        "uk protein powder kathmandu"
+      ]
+    }
+  },
+  {
+    "id": "prod_rule_1_r1_protein",
+    "slug": "rule-1-r1-protein-isolate",
+    "name": "Rule 1 R1 Protein WPI Isolate",
+    "brandId": "brand_rule_1",
+    "categoryId": "cat_proteins",
+    "shortDescription": "Flagship 100% Whey Isolate & Hydrolysate formulation supplying 25g pure protein with zero sugar and zero lactose fillers.",
+    "fullDescription": "R1 Protein by Rule 1 Proteins is crafted with pure Whey Protein Isolate and Hydrolyzed Whey Isolate. Contains zero whey concentrates, zero gums, zero creamers, and zero amino spiking.",
+    "highlights": [
+      "25g Pure WPI & Hydrolyzed WPI Blend",
+      "6g+ Naturally Occurring BCAAs",
+      "Zero Sugar, Zero Fat, Zero Lactose Fillers",
+      "Ultra-Clean Microfiltered Processing",
+      "Muscle House Nepal Authentic Import Seal"
+    ],
+    "ingredients": "Protein Blend (Whey Protein Isolate, Hydrolyzed Whey Protein Isolate), Cocoa, Natural and Artificial Flavors, Lecithin, Sucralose.",
+    "directions": "Mix 1 scoop with 180-240ml of cold water or beverage post-workout.",
+    "nutritionFacts": {
+      "servingSize": "1 Scoop (29g)",
+      "servingsPerContainer": 76,
+      "caloriesPerServing": 110,
+      "proteinGrams": 25,
+      "carbsGrams": 1,
+      "fatGrams": 0,
+      "bcaaGrams": 6,
+      "items": [
+        { "name": "Total Fat", "amountPerServing": "0g" },
+        { "name": "Total Sugars", "amountPerServing": "0g" },
+        { "name": "Protein", "amountPerServing": "25g" }
+      ]
+    },
+    "authenticity": {
+      "isAuthenticGuarantee": true,
+      "importerOrSource": "Muscle House Nepal",
+      "verificationMethod": "Scratch Code Sticker + Cap Seal",
+      "trustBadgeLabel": "100% Genuine Importer Seal"
+    },
+    "images": [
+      {
+        "url": "/images/products/rule1-r1-protein-choc.webp",
+        "alt": "Rule 1 R1 Protein Isolate 5lbs Tub Nepal",
+        "isPrimary": true
+      }
+    ],
+    "defaultVariantId": "var_r1_5lb_choc",
+    "variants": [
+      {
+        "id": "var_r1_5lb_choc",
+        "sku": "R1-PROT-5LB-CHOC",
+        "sizeOrWeight": "5 lbs (2.27 kg)",
+        "flavor": "Chocolate Fudge",
+        "priceNpr": 13500,
+        "discountPriceNpr": 12200,
+        "stockStatus": "in_stock",
+        "inStockQuantity": 10
+      }
+    ],
+    "tags": ["wpi-isolate", "zero-sugar", "rule-1"],
+    "badges": ["authenticity_guaranteed"],
+    "isFeatured": false,
+    "faqs": [
+      {
+        "question": "Is Rule 1 protein amino spiked?",
+        "answer": "No. Rule 1 enforces a strict 0 amino spiking policy. All 25g protein comes 100% from intact whey protein isolate."
+      }
+    ],
+    "seo": {
+      "metaTitle": "Rule 1 R1 Protein Isolate 5lbs Price in Nepal | MuscleWorks",
+      "metaDescription": "Shop Rule 1 R1 Whey Isolate in Nepal. 25g pure WPI with zero sugar & zero fat. Authentic Muscle House import.",
+      "keywords": [
+        "rule 1 protein nepal",
+        "r1 protein isolate price nepal",
+        "buy rule 1 protein kathmandu"
+      ]
+    }
+  },
+  {
+    "id": "prod_kevin_levrone_gold_creatine",
+    "slug": "kevin-levrone-gold-creatine",
+    "name": "Kevin Levrone Gold Creatine Monohydrate",
+    "brandId": "brand_kevin_levrone",
+    "categoryId": "cat_creatine",
+    "shortDescription": "100% Pure micronized creatine monohydrate enriched with vitamin B6 for explosive muscle power and strength.",
+    "fullDescription": "Kevin Levrone Gold Creatine is a ultra-pure micronized creatine monohydrate powder designed to boost muscle strength, explosive training output, and muscle cell volume. Infused with Vitamin B6 to support energy metabolism and reduce tiredness during intense workouts.",
+    "highlights": [
+      "5g Pure Micronized Creatine Monohydrate Per Serving",
+      "Enriched with Vitamin B6 for Energy Metabolism",
+      "Unflavored for Easy Stacking with Protein or Pre-Workout",
+      "60 Servings (300g Container)",
+      "Exclusive Radiant Traders Hologram Security Seal"
+    ],
+    "ingredients": "Creatine Monohydrate, Vitamin B6 (Pyridoxine Hydrochloride).",
+    "directions": "Mix 1 scoop (5g) with 150-250ml of cold water or your favorite post-workout shake. Take daily.",
+    "nutritionFacts": {
+      "servingSize": "1 Scoop (5g)",
+      "servingsPerContainer": 60,
+      "caloriesPerServing": 0,
+      "proteinGrams": 0,
+      "carbsGrams": 0,
+      "fatGrams": 0,
+      "items": [
+        { "name": "Creatine Monohydrate", "amountPerServing": "5g" },
+        { "name": "Vitamin B6", "amountPerServing": "1.4mg", "dailyValuePercentage": "100%" }
+      ]
+    },
+    "authenticity": {
+      "isAuthenticGuarantee": true,
+      "importerOrSource": "Radiant Traders Nepal (Exclusive Importer)",
+      "verificationMethod": "Scratch-off Hologram Security Sticker",
+      "hologramDescription": "Gold Radiant Traders security seal with scratch pin code.",
+      "trustBadgeLabel": "Radiant Traders Official Importer Seal"
+    },
+    "images": [
+      {
+        "url": "/images/products/kevin-levrone-gold-creatine-300g.webp",
+        "alt": "Kevin Levrone Gold Creatine 300g Container Nepal",
+        "isPrimary": true
+      }
+    ],
+    "defaultVariantId": "var_kl_gold_creatine_300g",
+    "variants": [
+      {
+        "id": "var_kl_gold_creatine_300g",
+        "sku": "KL-GOLD-CREAT-300G",
+        "sizeOrWeight": "300g (60 Servings)",
+        "flavor": "Unflavored",
+        "priceNpr": 3800,
+        "discountPriceNpr": 3350,
+        "stockStatus": "in_stock",
+        "inStockQuantity": 40
+      }
+    ],
+    "tags": ["creatine", "kevin-levrone", "strength", "bestseller"],
+    "badges": ["bestseller", "authenticity_guaranteed", "featured"],
+    "isFeatured": true,
+    "faqs": [
+      {
+        "question": "How do I verify my Kevin Levrone Gold Creatine tub?",
+        "answer": "Scratch the gold sticker on the tub lid to reveal the secret code, then verify it at the official Radiant Traders online portal."
+      }
+    ],
+    "seo": {
+      "metaTitle": "Kevin Levrone Gold Creatine 300g Price in Nepal | MuscleWorks",
+      "metaDescription": "Buy 100% genuine Kevin Levrone Gold Creatine (300g) in Nepal. Sourced exclusively via Radiant Traders with hologram verification.",
+      "keywords": [
+        "kevin levrone gold creatine nepal",
+        "gold creatine price in nepal",
+        "buy creatine kathmandu",
+        "radiant traders creatine"
+      ]
+    }
+  },
+  {
+    "id": "prod_muscletech_platinum_creatine",
+    "slug": "muscletech-platinum-100-creatine",
+    "name": "MuscleTech Platinum 100% Creatine",
+    "brandId": "brand_muscletech",
+    "categoryId": "cat_creatine",
+    "shortDescription": "Ultra-pure HPLC-tested micronized creatine powder engineered to increase lean muscle, strength, and power.",
+    "fullDescription": "MuscleTech Platinum 100% Creatine provides your muscles with the world's highest quality and most clinically researched form of micronized creatine. Increases muscle lean mass, enhances power output, and speeds intra-set recovery.",
+    "highlights": [
+      "5g HPLC-Tested Pure Creatine Monohydrate",
+      "Micronized for Easy Suspension in Liquid",
+      "Increases Muscle Strength & Cell Hydration",
+      "Radiant Traders Official Importer Verification"
+    ],
+    "ingredients": "Creatine Monohydrate (100% Pure HPLC-Tested).",
+    "directions": "Mix 1 scoop (5g) with 200ml water or juice daily.",
+    "nutritionFacts": {
+      "servingSize": "1 Scoop (5g)",
+      "servingsPerContainer": 80,
+      "caloriesPerServing": 0,
+      "items": [
+        { "name": "Creatine Monohydrate", "amountPerServing": "5g" }
+      ]
+    },
+    "authenticity": {
+      "isAuthenticGuarantee": true,
+      "importerOrSource": "Radiant Traders Nepal",
+      "verificationMethod": "Neck Hologram & Batch Stamp",
+      "trustBadgeLabel": "100% Genuine Importer Seal"
+    },
+    "images": [
+      {
+        "url": "/images/products/muscletech-platinum-creatine.webp",
+        "alt": "MuscleTech Platinum 100% Creatine Tub Nepal",
+        "isPrimary": true
+      }
+    ],
+    "defaultVariantId": "var_mt_plat_creatine_400g",
+    "variants": [
+      {
+        "id": "var_mt_plat_creatine_400g",
+        "sku": "MT-PLAT-CREAT-400G",
+        "sizeOrWeight": "400g (80 Servings)",
+        "flavor": "Unflavored",
+        "priceNpr": 4500,
+        "discountPriceNpr": 3950,
+        "stockStatus": "in_stock",
+        "inStockQuantity": 22
+      }
+    ],
+    "tags": ["creatine-monohydrate", "muscletech", "power"],
+    "badges": ["trending"],
+    "isFeatured": false,
+    "faqs": [
+      {
+        "question": "Is MuscleTech Platinum Creatine unflavored?",
+        "answer": "Yes, it is 100% unflavored and mixes easily into protein shakes, pre-workouts, or water without changing the flavor."
+      }
+    ],
+    "seo": {
+      "metaTitle": "MuscleTech Platinum Creatine 400g Price in Nepal | MuscleWorks",
+      "metaDescription": "Shop genuine MuscleTech Platinum 100% Creatine in Nepal. HPLC tested 5g creatine monohydrate per serving at Golfutar store.",
+      "keywords": [
+        "muscletech platinum creatine nepal",
+        "muscletech creatine price kathmandu",
+        "creatine 400g nepal"
+      ]
+    }
+  },
+  {
+    "id": "prod_on_micronized_creatine",
+    "slug": "optimum-nutrition-micronized-creatine-powder",
+    "name": "ON Micronized Creatine Powder",
+    "brandId": "brand_optimum_nutrition",
+    "categoryId": "cat_creatine",
+    "shortDescription": "99.9% pure Creapure/Micronized Creatine monohydrate to support muscle power and recovery.",
+    "fullDescription": "Optimum Nutrition Micronized Creatine Powder is made with Creapure or 99.9% pure micronized creatine monohydrate. Easy to mix and absorbs rapidly into muscle cells to fuel ATP re-synthesis during heavy lifts.",
+    "highlights": [
+      "5g Pure Micronized Creatine Monohydrate",
+      "99.9% Pure Creapure Grade Standard",
+      "Zero Sugar, Calories or Artificial Additives",
+      "Official Muscle House Scratch Code Verification"
+    ],
+    "ingredients": "Creatine Monohydrate.",
+    "directions": "Take 1 scoop (5g) mixed in 240ml of cold water or fruit juice.",
+    "nutritionFacts": {
+      "servingSize": "1 Scoop (5g)",
+      "servingsPerContainer": 60,
+      "caloriesPerServing": 0,
+      "items": [
+        { "name": "Creatine Monohydrate", "amountPerServing": "5g" }
+      ]
+    },
+    "authenticity": {
+      "isAuthenticGuarantee": true,
+      "importerOrSource": "Muscle House Nepal",
+      "verificationMethod": "Scratch Code Sticker",
+      "trustBadgeLabel": "100% Genuine Importer Seal"
+    },
+    "images": [
+      {
+        "url": "/images/products/on-creatine-300g.webp",
+        "alt": "ON Micronized Creatine Powder 300g Nepal",
+        "isPrimary": true
+      }
+    ],
+    "defaultVariantId": "var_on_creatine_300g",
+    "variants": [
+      {
+        "id": "var_on_creatine_300g",
+        "sku": "ON-CREAT-300G",
+        "sizeOrWeight": "300g (60 Servings)",
+        "flavor": "Unflavored",
+        "priceNpr": 4200,
+        "discountPriceNpr": 3750,
+        "stockStatus": "in_stock",
+        "inStockQuantity": 15
+      }
+    ],
+    "tags": ["creatine", "optimum-nutrition", "strength"],
+    "badges": ["bestseller"],
+    "isFeatured": false,
+    "faqs": [
+      {
+        "question": "Can I mix ON Creatine with Gold Standard Whey?",
+        "answer": "Yes! Adding 5g ON Creatine directly to your post-workout Gold Standard Whey shake is a convenient and effective routine."
+      }
+    ],
+    "seo": {
+      "metaTitle": "ON Micronized Creatine Powder 300g Price in Nepal | MuscleWorks",
+      "metaDescription": "Buy genuine Optimum Nutrition Micronized Creatine Powder in Nepal. Scratch code verified at MuscleWorks Golfutar.",
+      "keywords": [
+        "on creatine powder nepal",
+        "optimum nutrition creatine price nepal",
+        "creatine kathmandu"
+      ]
+    }
+  },
+  {
+    "id": "prod_on_serious_mass",
+    "slug": "optimum-nutrition-serious-mass",
+    "name": "ON Serious Mass High-Calorie Gainer",
+    "brandId": "brand_optimum_nutrition",
+    "categoryId": "cat_mass_gainers",
+    "shortDescription": "The ultimate mass gaining formula packing 1,250 calories and 50g protein per serving for serious weight gain.",
+    "fullDescription": "Optimum Nutrition Serious Mass is the ultimate weight gain formula. With 1,250 calories per serving (mixed with water) and 50 grams of protein, plus 25 vitamins and minerals, glutamine, and creatine, Serious Mass provides everything you need to pack on muscle mass and size.",
+    "highlights": [
+      "1,250 Calories & 50g Protein Per Serving",
+      "252g Carbohydrates to Fuel Heavy Workouts",
+      "Enhanced with Creatine Monohydrate & Glutamine",
+      "25 Essential Vitamins & Minerals",
+      "Muscle House Nepal Official Importer Scratch Code"
+    ],
+    "ingredients": "Maltodextrin, Protein Blend (Whey Protein Concentrate, Calcium Caseinate, Egg Creatine), Cocoa, Natural and Artificial Flavors, Vitamin and Mineral Blend.",
+    "directions": "Mix 2 scoops with 700ml of water or whole milk in a blender. Sip between meals or post-workout.",
+    "nutritionFacts": {
+      "servingSize": "2 Scoops (336g)",
+      "servingsPerContainer": 16,
+      "caloriesPerServing": 1250,
+      "proteinGrams": 50,
+      "carbsGrams": 252,
+      "fatGrams": 4.5,
+      "items": [
+        { "name": "Total Fat", "amountPerServing": "4.5g" },
+        { "name": "Total Carbohydrate", "amountPerServing": "252g" },
+        { "name": "Protein", "amountPerServing": "50g" },
+        { "name": "Creatine Monohydrate", "amountPerServing": "3g" }
+      ]
+    },
+    "authenticity": {
+      "isAuthenticGuarantee": true,
+      "importerOrSource": "Muscle House Nepal",
+      "verificationMethod": "Scratch Code Sticker on Lid",
+      "trustBadgeLabel": "100% Genuine Importer Seal"
+    },
+    "images": [
+      {
+        "url": "/images/products/on-serious-mass-12lb.webp",
+        "alt": "ON Serious Mass 12lbs Bag Chocolate Nepal",
+        "isPrimary": true
+      }
+    ],
+    "defaultVariantId": "var_serious_mass_12lb_choc",
+    "variants": [
+      {
+        "id": "var_serious_mass_12lb_choc",
+        "sku": "ON-SMASS-12LB-CHOC",
+        "sizeOrWeight": "12 lbs (5.44 kg)",
+        "flavor": "Chocolate",
+        "priceNpr": 11500,
+        "discountPriceNpr": 10400,
+        "stockStatus": "in_stock",
+        "inStockQuantity": 10
+      },
+      {
+        "id": "var_serious_mass_6lb_choc",
+        "sku": "ON-SMASS-6LB-CHOC",
+        "sizeOrWeight": "6 lbs (2.72 kg)",
+        "flavor": "Chocolate",
+        "priceNpr": 7200,
+        "discountPriceNpr": 6500,
+        "stockStatus": "in_stock",
+        "inStockQuantity": 8
+      }
+    ],
+    "tags": ["mass-gainer", "weight-gain", "high-calorie"],
+    "badges": ["bestseller", "authenticity_guaranteed"],
+    "isFeatured": true,
+    "faqs": [
+      {
+        "question": "Can beginners take 2 full scoops of Serious Mass?",
+        "answer": "Beginners are recommended to start with 1 half-scoop daily for the first week to assess tolerance before building up to a full 2-scoop serving."
+      }
+    ],
+    "seo": {
+      "metaTitle": "ON Serious Mass 12lbs Price in Nepal | MuscleWorks",
+      "metaDescription": "Buy authentic ON Serious Mass high calorie weight gainer in Nepal (12lbs & 6lbs). Verified Muscle House import at Golfutar.",
+      "keywords": [
+        "on serious mass nepal",
+        "serious mass price in nepal",
+        "weight gainer kathmandu",
+        "buy serious mass 12lb nepal"
+      ]
+    }
+  },
+  {
+    "id": "prod_labrada_muscle_mass_gainer",
+    "slug": "labrada-muscle-mass-gainer",
+    "name": "Labrada Muscle Mass Gainer",
+    "brandId": "brand_labrada",
+    "categoryId": "cat_mass_gainers",
+    "shortDescription": "High-calorie anabolic mass gainer packed with 52g protein and 1,260 calories for massive size gains.",
+    "fullDescription": "Labrada Muscle Mass Gainer is a delicious, high-calorie shake fortified with muscle-building protein, carbohydrates, creatine monohydrate, and essential glutamine. Designed for hardgainers who struggle to put on weight.",
+    "highlights": [
+      "1,260 Calories & 52g Musclebuilding Protein",
+      "17g BCAAs & Glutamine Complex",
+      "Zero Dextrose or Corn Syrup Solids",
+      "Lee Labrada Quality Seal & Radiant Traders Importer Hologram"
+    ],
+    "ingredients": "Maltodextrin, Muscle Mass Gainer Protein Blend (Whey Protein Concentrate, Milk Protein Isolate, Whey Protein Isolate, Micellar Casein), Cocoa, Natural and Artificial Flavors.",
+    "directions": "Mix 9 scoops (341g) with 900ml of cold water or milk in a blender.",
+    "nutritionFacts": {
+      "servingSize": "9 Scoops (341g)",
+      "servingsPerContainer": 16,
+      "caloriesPerServing": 1260,
+      "proteinGrams": 52,
+      "carbsGrams": 250,
+      "fatGrams": 4,
+      "items": [
+        { "name": "Total Carbohydrate", "amountPerServing": "250g" },
+        { "name": "Protein", "amountPerServing": "52g" }
+      ]
+    },
+    "authenticity": {
+      "isAuthenticGuarantee": true,
+      "importerOrSource": "Radiant Traders Nepal",
+      "verificationMethod": "Radiant Traders Hologram Seal",
+      "trustBadgeLabel": "100% Genuine Importer Seal"
+    },
+    "images": [
+      {
+        "url": "/images/products/labrada-mass-gainer-12lb.webp",
+        "alt": "Labrada Muscle Mass Gainer 12lbs Bag Nepal",
+        "isPrimary": true
+      }
+    ],
+    "defaultVariantId": "var_labrada_gainer_12lb_choc",
+    "variants": [
+      {
+        "id": "var_labrada_gainer_12lb_choc",
+        "sku": "LAB-MASS-12LB-CHOC",
+        "sizeOrWeight": "12 lbs (5.44 kg)",
+        "flavor": "Chocolate",
+        "priceNpr": 10800,
+        "discountPriceNpr": 9600,
+        "stockStatus": "in_stock",
+        "inStockQuantity": 12
+      }
+    ],
+    "tags": ["mass-gainer", "labrada", "weight-gain"],
+    "badges": ["trending"],
+    "isFeatured": false,
+    "faqs": [
+      {
+        "question": "How often should I take Labrada Mass Gainer?",
+        "answer": "Take 1 serving daily, divided post-workout or between meals, to meet target daily caloric surplus."
+      }
+    ],
+    "seo": {
+      "metaTitle": "Labrada Muscle Mass Gainer 12lbs Price in Nepal | MuscleWorks",
+      "metaDescription": "Buy genuine Labrada Muscle Mass Gainer 12lbs in Nepal. 1260 calories & 52g protein. Radiant Traders verified at Golfutar.",
+      "keywords": [
+        "labrada muscle mass gainer nepal",
+        "labrada mass gainer price nepal",
+        "mass gainer kathmandu"
+      ]
+    }
+  },
+  {
+    "id": "prod_cellucor_c4_original",
+    "slug": "cellucor-c4-original-pre-workout",
+    "name": "Cellucor C4 Original Pre-Workout",
+    "brandId": "brand_cellucor",
+    "categoryId": "cat_pre_workout",
+    "shortDescription": "America's #1 pre-workout powering explosive energy, heightened focus, and muscular endurance with CarnoSyn Beta-Alanine.",
+    "fullDescription": "Cellucor C4 Original is engineered to take your training to the next level. Powered by 150mg of anhydrous caffeine for energy, 1.6g of patented CarnoSyn Beta-Alanine for endurance, and 1g of Creatine Nitrate for pumps.",
+    "highlights": [
+      "150mg Anhydrous Caffeine for Explosive Energy",
+      "1.6g CarnoSyn Beta-Alanine for Muscle Endurance",
+      "1g Creatine Nitrate & Arginine Alpha Ketoglutarate (AAKG)",
+      "Zero Sugar, Zero Calories",
+      "Authentic Authorized Importer Seal"
+    ],
+    "ingredients": "CarnoSyn Beta-Alanine, Creatine Nitrate, Arginine AKG, Caffeine Anhydrous, N-Acetyl L-Tyrosine, Natural & Artificial Flavors, Citric Acid, Malic Acid, Sucralose.",
+    "directions": "Take 1 scoop mixed with 180-240ml of water 20-30 minutes before training.",
+    "nutritionFacts": {
+      "servingSize": "1 Scoop (6.5g)",
+      "servingsPerContainer": 30,
+      "caloriesPerServing": 0,
+      "items": [
+        { "name": "Caffeine Anhydrous", "amountPerServing": "150mg" },
+        { "name": "CarnoSyn Beta-Alanine", "amountPerServing": "1.6g" },
+        { "name": "Creatine Nitrate", "amountPerServing": "1g" }
+      ]
+    },
+    "authenticity": {
+      "isAuthenticGuarantee": true,
+      "importerOrSource": "Authorized Nepal Importer",
+      "verificationMethod": "Tamper-Proof Cap Wrap & Batch Code Verification",
+      "trustBadgeLabel": "100% Genuine Import Seal"
+    },
+    "images": [
+      {
+        "url": "/images/products/cellucor-c4-fruit-punch.webp",
+        "alt": "Cellucor C4 Original Pre-Workout Fruit Punch 30 Servings Nepal",
+        "isPrimary": true
+      }
+    ],
+    "defaultVariantId": "var_c4_orig_30serv_fp",
+    "variants": [
+      {
+        "id": "var_c4_orig_30serv_fp",
+        "sku": "CELL-C4-30SERV-FP",
+        "sizeOrWeight": "195g (30 Servings)",
+        "flavor": "Fruit Punch",
+        "priceNpr": 4600,
+        "discountPriceNpr": 4100,
+        "stockStatus": "in_stock",
+        "inStockQuantity": 15
+      },
+      {
+        "id": "var_c4_orig_30serv_icy",
+        "sku": "CELL-C4-30SERV-ICY",
+        "sizeOrWeight": "195g (30 Servings)",
+        "flavor": "Icy Blue Razz",
+        "priceNpr": 4600,
+        "discountPriceNpr": 4100,
+        "stockStatus": "in_stock",
+        "inStockQuantity": 8
+      }
+    ],
+    "tags": ["pre-workout", "c4", "energy", "beta-alanine"],
+    "badges": ["bestseller", "authenticity_guaranteed"],
+    "isFeatured": true,
+    "faqs": [
+      {
+        "question": "Why does C4 cause a tingling sensation on skin?",
+        "answer": "The tingling sensation is caused by CarnoSyn Beta-Alanine. It is completely safe and indicates the compound is increasing muscle carnosine stores."
+      }
+    ],
+    "seo": {
+      "metaTitle": "Cellucor C4 Original Pre-Workout Price in Nepal | MuscleWorks",
+      "metaDescription": "Buy authentic Cellucor C4 Original Pre-Workout in Nepal (30 servings). Explosive energy & endurance formula at MuscleWorks Golfutar.",
+      "keywords": [
+        "c4 pre workout nepal",
+        "cellucor c4 price in nepal",
+        "pre workout kathmandu"
+      ]
+    }
+  },
+  {
+    "id": "prod_psychotic_gold_pre_workout",
+    "slug": "psychotic-gold-pre-workout",
+    "name": "Insane Labz Psychotic Gold Pre-Workout",
+    "brandId": "brand_kevin_levrone",
+    "categoryId": "cat_pre_workout",
+    "shortDescription": "High-stimulant extreme pre-workout formulated for advanced lifters seeking hardcore energy, vascularity, and laser focus.",
+    "fullDescription": "Psychotic Gold is formulated for advanced athletes requiring maximum stimulant energy, extreme mental focus, and enhanced nitric oxide blood flow. Features AMPiberry, Caffeine Anhydrous, L-Citrulline Malate, and Agmatine Sulfate.",
+    "highlights": [
+      "High Stimulant Extreme Energy Matrix",
+      "L-Citrulline Malate & Agmatine Sulfate for Muscle Pumps",
+      "AMPiberry Infused for Extended Focus Duration",
+      "30 Ultra Concentrated Servings",
+      "Verified Nepal Importer Guarantee"
+    ],
+    "ingredients": "Psychotic Gold Blend (L-Citrulline Malate, Agmatine Sulfate, Caffeine Anhydrous, AMPiberry, OxyGold, Rauwolfia Vomitoria), Natural & Artificial Flavors.",
+    "directions": "Begin with 1/2 scoop to test tolerance. Do not exceed 1 scoop in a 24-hour period. Drink 30 mins before workout.",
+    "nutritionFacts": {
+      "servingSize": "1 Scoop (6g)",
+      "servingsPerContainer": 30,
+      "caloriesPerServing": 0,
+      "items": [
+        { "name": "Psychotic Gold Proprietary Matrix", "amountPerServing": "4.2g" }
+      ]
+    },
+    "authenticity": {
+      "isAuthenticGuarantee": true,
+      "importerOrSource": "Authorized Nepal Importer",
+      "verificationMethod": "Security Hologram Seal & Lot Number Verification",
+      "trustBadgeLabel": "100% Genuine Import Seal"
+    },
+    "images": [
+      {
+        "url": "/images/products/psychotic-gold.webp",
+        "alt": "Psychotic Gold Pre-Workout 30 Servings Nepal",
+        "isPrimary": true
+      }
+    ],
+    "defaultVariantId": "var_psychotic_gold_30serv",
+    "variants": [
+      {
+        "id": "var_psychotic_gold_30serv",
+        "sku": "PSY-GOLD-30SERV",
+        "sizeOrWeight": "200g (30 Servings)",
+        "flavor": "Gummy Candy",
+        "priceNpr": 4900,
+        "discountPriceNpr": 4350,
+        "stockStatus": "in_stock",
+        "inStockQuantity": 10
+      }
+    ],
+    "tags": ["pre-workout", "high-stim", "psychotic"],
+    "badges": ["trending"],
+    "isFeatured": false,
+    "faqs": [
+      {
+        "question": "Is Psychotic Gold recommended for beginners?",
+        "answer": "No. Psychotic Gold is a high-stimulant formula meant strictly for experienced pre-workout users."
+      }
+    ],
+    "seo": {
+      "metaTitle": "Psychotic Gold Pre-Workout Price in Nepal | MuscleWorks",
+      "metaDescription": "Buy authentic Psychotic Gold Pre-Workout in Nepal. Extreme energy & vascularity formula available at MuscleWorks Golfutar.",
+      "keywords": [
+        "psychotic gold nepal",
+        "psychotic pre workout price nepal",
+        "high stim preworkout kathmandu"
+      ]
+    }
+  },
+  {
+    "id": "prod_universal_animal_pak",
+    "slug": "universal-nutrition-animal-pak",
+    "name": "Universal Nutrition Animal Pak Multivitamin",
+    "brandId": "brand_universal_nutrition",
+    "categoryId": "cat_vitamins_health",
+    "shortDescription": "The legendary #1 training pack since 1983. Complete multivitamin, mineral, amino acid, and performance complex for hard-training athletes.",
+    "fullDescription": "Universal Nutrition Animal Pak is the founding father of athletic performance packs. Designed to eliminate nutritional gaps, boost immunity, support liver function, and optimize metabolic enzyme activity under heavy lifting demands.",
+    "highlights": [
+      "Complete 85+ Vitamin, Mineral & Antioxidant Blend",
+      "Full Spectrum Amino Acid & Performance Complex",
+      "Digestive Enzyme & Liver Support Ingredients",
+      "44 Individual Convenient Packs",
+      "Authentic US Tin Can with Importer Verification Code"
+    ],
+    "ingredients": "Dicalcium Phosphate, Whey Protein Concentrate, Microcrystalline Cellulose, Stearic Acid, Magnesium Stearate, Digestive Enzymes, Milk, Soy.",
+    "directions": "Take 1 pack daily with breakfast or any meal. Advanced competitive athletes may take 2 packs daily.",
+    "nutritionFacts": {
+      "servingSize": "1 Pack (11 Tablets)",
+      "servingsPerContainer": 44,
+      "caloriesPerServing": 40,
+      "proteinGrams": 6,
+      "carbsGrams": 4,
+      "fatGrams": 1,
+      "items": [
+        { "name": "Vitamin C", "amountPerServing": "1000mg", "dailyValuePercentage": "1111%" },
+        { "name": "Vitamin D", "amountPerServing": "100mcg", "dailyValuePercentage": "500%" },
+        { "name": "Zinc", "amountPerServing": "30mg", "dailyValuePercentage": "273%" }
+      ]
+    },
+    "authenticity": {
+      "isAuthenticGuarantee": true,
+      "importerOrSource": "Authorized US-Nepal Importer",
+      "verificationMethod": "Canister Lot Emboss & Importer Hologram",
+      "trustBadgeLabel": "100% Genuine Tin Can Seal"
+    },
+    "images": [
+      {
+        "url": "/images/products/animal-pak-44packs.webp",
+        "alt": "Universal Nutrition Animal Pak 44 Packs Tin Can Nepal",
+        "isPrimary": true
+      }
+    ],
+    "defaultVariantId": "var_animal_pak_44pack",
+    "variants": [
+      {
+        "id": "var_animal_pak_44pack",
+        "sku": "UNI-PAK-44PK",
+        "sizeOrWeight": "44 Packs",
+        "flavor": "Unflavored Tablets",
+        "priceNpr": 6800,
+        "discountPriceNpr": 5990,
+        "stockStatus": "in_stock",
+        "inStockQuantity": 7
+      }
+    ],
+    "tags": ["multivitamin", "animal-pak", "health", "immunity"],
+    "badges": ["bestseller", "authenticity_guaranteed"],
+    "isFeatured": true,
+    "faqs": [
+      {
+        "question": "Can I take Animal Pak every single day?",
+        "answer": "Yes. 1 pack taken daily with food provides complete nutritional insurance for intense strength and endurance training."
+      }
+    ],
+    "seo": {
+      "metaTitle": "Universal Nutrition Animal Pak 44 Packs Price in Nepal | MuscleWorks",
+      "metaDescription": "Buy genuine Animal Pak Multivitamin 44 Packs in Nepal. Complete performance & immunity pack at MuscleWorks Golfutar.",
+      "keywords": [
+        "animal pak nepal",
+        "animal pak price in nepal",
+        "multivitamin for bodybuilding kathmandu"
+      ]
+    }
+  },
+  {
+    "id": "prod_musclepharm_fish_oil",
+    "slug": "musclepharm-essentials-fish-oil",
+    "name": "MusclePharm Essentials Fish Oil Softgels",
+    "brandId": "brand_labrada",
+    "categoryId": "cat_vitamins_health",
+    "shortDescription": "High-potency 1000mg purified Fish Oil softgels providing essential Omega-3 EPA & DHA for joint recovery and heart health.",
+    "fullDescription": "MusclePharm Essentials Fish Oil contains 1,000mg of purified fish oil per softgel with 400mg EPA and 300mg DHA. Formulated with enteric coating to prevent fishy burps and support healthy joints, brain function, and cardiovascular recovery.",
+    "highlights": [
+      "1,000mg Purified Fish Oil Per Softgel",
+      "High Potency 400mg EPA & 300mg DHA",
+      "Enteric Coated - Zero Fishy Aftertaste",
+      "Supports Joint Flexibility & Heart Recovery",
+      "100 Softgel Containers"
+    ],
+    "ingredients": "Fish Oil Concentrate, Gelatin, Glycerin, Purified Water, Enteric Coating, Mixed Tocopherols.",
+    "directions": "Take 1 softgel 1 to 3 times daily with meals.",
+    "nutritionFacts": {
+      "servingSize": "1 Softgel",
+      "servingsPerContainer": 100,
+      "caloriesPerServing": 10,
+      "fatGrams": 1,
+      "items": [
+        { "name": "Total Fish Oil", "amountPerServing": "1000mg" },
+        { "name": "EPA (Eicosapentaenoic Acid)", "amountPerServing": "400mg" },
+        { "name": "DHA (Docosahexaenoic Acid)", "amountPerServing": "300mg" }
+      ]
+    },
+    "authenticity": {
+      "isAuthenticGuarantee": true,
+      "importerOrSource": "Authorized Nepal Importer",
+      "verificationMethod": "Bottle Neck Seal & Batch Stamp",
+      "trustBadgeLabel": "100% Genuine Import Seal"
+    },
+    "images": [
+      {
+        "url": "/images/products/musclepharm-fish-oil.webp",
+        "alt": "MusclePharm Fish Oil 100 Softgels Nepal",
+        "isPrimary": true
+      }
+    ],
+    "defaultVariantId": "var_mp_fishoil_100sg",
+    "variants": [
+      {
+        "id": "var_mp_fishoil_100sg",
+        "sku": "MP-FISH-100SG",
+        "sizeOrWeight": "100 Softgels",
+        "flavor": "Citrus Coated",
+        "priceNpr": 2800,
+        "discountPriceNpr": 2450,
+        "stockStatus": "in_stock",
+        "inStockQuantity": 20
+      }
+    ],
+    "tags": ["fish-oil", "omega-3", "joint-health"],
+    "badges": ["featured"],
+    "isFeatured": false,
+    "faqs": [
+      {
+        "question": "Will these fish oil softgels cause fishy burps?",
+        "answer": "No. MusclePharm Fish Oil features a citrus enteric coating designed to digest in the intestine, eliminating fishy burps."
+      }
+    ],
+    "seo": {
+      "metaTitle": "MusclePharm Fish Oil 100 Softgels Price in Nepal | MuscleWorks",
+      "metaDescription": "Shop authentic MusclePharm Omega-3 Fish Oil Softgels in Nepal. High potency EPA/DHA for joints & heart at MuscleWorks Golfutar.",
+      "keywords": [
+        "fish oil softgels nepal",
+        "musclepharm fish oil price nepal",
+        "omega 3 capsules kathmandu"
+      ]
+    }
+  },
+  {
+    "id": "prod_scivation_xtend_bcaa",
+    "slug": "scivation-xtend-original-bcaa",
+    "name": "Scivation Xtend Original BCAA 30 Servings",
+    "brandId": "brand_scivation",
+    "categoryId": "cat_amino_bcaa",
+    "shortDescription": "The world's #1 intra-workout BCAA powder featuring 7g BCAAs in a 2:1:1 ratio plus hydration electrolytes.",
+    "fullDescription": "Scivation Xtend Original BCAA is clinically proven to support muscle recovery and hydration. Formulated with 7g of 2:1:1 BCAAs, 2.5g L-Glutamine, 1g Citrulline Malate, and a blend of hydrating electrolytes with zero sugar and zero carbs.",
+    "highlights": [
+      "7g Fermented BCAAs in 2:1:1 Research-Proven Ratio",
+      "2.5g L-Glutamine & 1g Citrulline Malate",
+      "Electrolyte Hydration Complex (Potassium, Sodium)",
+      "Zero Sugar, Zero Calories, Zero Carbs",
+      "Authentic Holographic Sticker Verified"
+    ],
+    "ingredients": "L-Leucine, L-Isoleucine, L-Valine, L-Glutamine, Citrulline Malate, Sodium Citrate, Potassium Chloride, Natural & Artificial Flavors, Sucralose, Acesulfame Potassium.",
+    "directions": "Mix 1 scoop with 300-450ml of cold water. Sip throughout your workout or throughout non-training days.",
+    "nutritionFacts": {
+      "servingSize": "1 Scoop (14g)",
+      "servingsPerContainer": 30,
+      "caloriesPerServing": 0,
+      "items": [
+        { "name": "BCAAs (L-Leucine, L-Isoleucine, L-Valine)", "amountPerServing": "7g" },
+        { "name": "L-Glutamine", "amountPerServing": "2.5g" },
+        { "name": "Citrulline Malate", "amountPerServing": "1g" },
+        { "name": "Sodium", "amountPerServing": "220mg" },
+        { "name": "Potassium", "amountPerServing": "170mg" }
+      ]
+    },
+    "authenticity": {
+      "isAuthenticGuarantee": true,
+      "importerOrSource": "Authorized Nepal Importer",
+      "verificationMethod": "Scratch-off QR Code & Cap Seal",
+      "trustBadgeLabel": "100% Genuine Importer Seal"
+    },
+    "images": [
+      {
+        "url": "/images/products/scivation-xtend-blue-raspberry.webp",
+        "alt": "Scivation Xtend Original BCAA Blue Raspberry Ice 30 Servings Nepal",
+        "isPrimary": true
+      }
+    ],
+    "defaultVariantId": "var_xtend_30serv_blue_razz",
+    "variants": [
+      {
+        "id": "var_xtend_30serv_blue_razz",
+        "sku": "SCI-XTEND-30SERV-BLU",
+        "sizeOrWeight": "420g (30 Servings)",
+        "flavor": "Blue Raspberry Ice",
+        "priceNpr": 4500,
+        "discountPriceNpr": 3950,
+        "stockStatus": "in_stock",
+        "inStockQuantity": 25
+      },
+      {
+        "id": "var_xtend_30serv_mango",
+        "sku": "SCI-XTEND-30SERV-MNG",
+        "sizeOrWeight": "420g (30 Servings)",
+        "flavor": "Mango Madness",
+        "priceNpr": 4500,
+        "discountPriceNpr": 3950,
+        "stockStatus": "in_stock",
+        "inStockQuantity": 14
+      }
+    ],
+    "tags": ["bcaa", "xtend", "intra-workout", "hydration"],
+    "badges": ["bestseller", "authenticity_guaranteed"],
+    "isFeatured": true,
+    "faqs": [
+      {
+        "question": "Can I drink Xtend BCAA during non-workout days?",
+        "answer": "Yes! Xtend BCAA is great to sip throughout the day to support ongoing muscle hydration and amino acid recovery."
+      }
+    ],
+    "seo": {
+      "metaTitle": "Scivation Xtend BCAA 30 Servings Price in Nepal | MuscleWorks",
+      "metaDescription": "Buy 100% genuine Scivation Xtend BCAA powder in Nepal (30 servings). 7g BCAAs + hydration electrolytes at MuscleWorks Golfutar.",
+      "keywords": [
+        "scivation xtend bcaa nepal",
+        "xtend bcaa price in nepal",
+        "intra workout amino kathmandu"
+      ]
+    }
+  }
+]
