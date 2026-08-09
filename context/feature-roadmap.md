@@ -83,7 +83,7 @@ flowchart LR
 ### Phase 0: Project Setup, Tooling & Package Infrastructure
 
 #### Sub-Phase 0.1: Project Scaffold & Dependency Manifest
-- [ ] **Status:** Unchecked
+- [x] **Status:** Completed
 - **Target Files:**
   - `package.json` [MODIFY]
   - `tsconfig.json` [MODIFY]
@@ -94,8 +94,8 @@ flowchart LR
   - Configure strict TypeScript compilation with standardized path aliases (`@/*`, `@/data/*`, `@/content/*`).
   - Configure `next.config.ts` with image optimization domains (Unsplash, Cloudinary, local assets), SVG support, and React compiler optimizations.
 - **Verification Checklist:**
-  - [ ] `npm install` executes cleanly with zero peer dependency conflicts.
-  - [ ] `npx tsc --noEmit` resolves path aliases without errors.
+  - [x] `npm install` executes cleanly with zero peer dependency conflicts.
+  - [x] `npx tsc --noEmit` resolves path aliases without errors.
 
 #### Sub-Phase 0.2: Styling System & Tailwind CSS v4 Theme Engine
 - [ ] **Status:** Unchecked
@@ -116,13 +116,14 @@ flowchart LR
   - `src/lib/utils.ts` [NEW]
   - `src/lib/constants.ts` [NEW]
   - `src/types/index.ts` [NEW]
+  - `src/types/actions.ts` [NEW]
 - **Purpose & Scope:**
   - Implement standard `cn()` helper combining `clsx` and `tailwind-merge`.
-  - Define brand constants: store phone numbers (`+977-9801234567`), official WhatsApp order number, store physical addresses, delivery rates, and social links.
-  - Define global shared TypeScript types and utility helpers (currency formatter `formatNPR`, discount calculator `calculateDiscountPercentage`).
+  - Define brand constants: store phone, official WhatsApp order number, store physical address at Golfutar, Budha-Nilkantha, Kathmandu (44500), opening hours, and canonical social media links.
+  - Define global shared TypeScript types and utility helpers (currency formatter `formatNprPrice`, discount calculator `calculateDiscountPercentage`).
 - **Verification Checklist:**
   - [ ] `npx tsc --noEmit` passes with zero errors.
-  - [ ] `formatNPR(5500)` returns `"NPR 5,500"`.
+  - [ ] `formatNprPrice(5500)` returns `"NPR 5,500"`.
 
 #### Sub-Phase 0.4: Next.js 16 App Root Layout & Font Engine
 - [ ] **Status:** Unchecked
@@ -211,7 +212,7 @@ flowchart LR
   - `src/components/layout/sticky-cta-bar.tsx` [NEW]
   - `src/components/layout/whatsapp-floating-button.tsx` [NEW]
 - **Purpose & Scope:**
-  - Build rich Footer featuring brand manifesto, category quick-links, store addresses (New Baneshwor & Jhamsikhel), opening hours, WhatsApp direct order link, authentic import guarantee badge, payment/delivery notices, and copyright.
+  - Build rich Footer featuring brand manifesto, category quick-links, store address (Golfutar, Budha-Nilkantha, Kathmandu), opening hours, WhatsApp direct order link, authentic import guarantee badge, payment/delivery notices, and copyright.
   - Build floating WhatsApp speed dial button (bottom-right desktop/mobile) with pulsing online badge.
   - Build sticky mobile bottom CTA bar (`sticky-cta-bar.tsx`) with conditional rendering (hides on desktop `md:hidden`, shows on product detail and catalog with conversion actions).
 - **Verification Checklist:**
@@ -225,12 +226,12 @@ flowchart LR
 #### Sub-Phase 2.1: Zod Schemas & Domain Type Definitions
 - [ ] **Status:** Unchecked
 - **Target Files:**
-  - `src/lib/validators/product.ts` [NEW]
-  - `src/lib/validators/inquiry.ts` [NEW]
-  - `src/lib/validators/store.ts` [NEW]
-  - `src/lib/validators/guide.ts` [NEW]
+  - `src/lib/validations/common.ts` [NEW]
+  - `src/lib/validations/product.ts` [NEW]
+  - `src/lib/validations/inquiry.ts` [NEW]
+  - `src/lib/validations/store.ts` [NEW]
 - **Purpose & Scope:**
-  - Define Zod schemas and TypeScript types for `Product`, `ProductVariant`, `NutritionFacts`, `Category`, `Brand`, `StoreLocation`, `InquiryPayload`, `ContactPayload`, `NewsletterPayload`, and `GuideFrontmatter` matching [data-models.md](file:///c:/nooridigital_assets/my-projects/muscleworks/context/data-models.md).
+  - Define Zod schemas and TypeScript types for `Product`, `ProductVariant`, `NutritionFacts`, `Category`, `Brand`, `StoreInfo`, `InquiryFormClientValues`, `InquiryServerPayload`, and `ActionResult` matching [data-models.md](context/data-models.md).
   - Include Nepal phone number regex validation (`/^(?:\+977[- ]?)?(?:98\d{8}|97\d{8}|01\d{6,7})$/`).
 - **Verification Checklist:**
   - [ ] `npx tsc --noEmit` passes cleanly.
@@ -250,33 +251,41 @@ flowchart LR
   - [ ] JSON files parse without syntax errors.
   - [ ] All products pass `ProductSchema.array().parse(data)` validation without errors.
 
-#### Sub-Phase 2.3: Supplementary Datasets (Stores, FAQs & Testimonials)
+#### Sub-Phase 2.3: Supplementary Datasets (Store Info & Comprehensive FAQs)
 - [ ] **Status:** Unchecked
 - **Target Files:**
-  - `data/stores.json` [NEW]
+  - `data/store-info.json` [NEW]
   - `data/faqs.json` [NEW]
-  - `data/testimonials.json` [NEW]
 - **Purpose & Scope:**
-  - Author store data for 2 physical Kathmandu outlets: New Baneshwor (Main Flagship) and Jhamsikhel (Lalitpur Branch) with coordinates, phone, opening hours, landmarks, and parking availability.
-  - Author comprehensive supplement FAQ database covering authenticity checks in Nepal, delivery timelines across Kathmandu Valley and outside-valley cities, payment methods (Cash/Fonepay on delivery), and dosage instructions.
-  - Author verified athlete testimonials from Kathmandu gym-goers.
+  - Author store data for the single physical retail outlet in Golfutar, Budha-Nilkantha, Kathmandu (44500) with coordinates, phone, opening hours (Sun-Fri 10AM-9PM), landmarks, and parking availability.
+  - Author comprehensive supplement FAQ database covering authenticity checks in Nepal, delivery timelines across Kathmandu Valley and outside-valley cities, and payment methods (Cash/Fonepay on delivery).
 - **Verification Checklist:**
-  - [ ] Datasets validate against `StoreLocationSchema`, `FAQItemSchema`, and `TestimonialItemSchema`.
+  - [ ] Datasets validate against `StoreInfoSchema` and `FAQItemSchema`.
 
-#### Sub-Phase 2.4: Typed Data Accessor Layer (SSG Helpers & Filtering Logic)
+#### Sub-Phase 2.4: Catalog Data Accessor Layer (Products, Categories & Brands)
 - [ ] **Status:** Unchecked
 - **Target Files:**
   - `src/lib/data/products.ts` [NEW]
   - `src/lib/data/categories.ts` [NEW]
   - `src/lib/data/brands.ts` [NEW]
-  - `src/lib/data/stores.ts` [NEW]
-  - `src/lib/data/content.ts` [NEW]
 - **Purpose & Scope:**
-  - Build typed accessor functions (`getAllProducts()`, `getProductBySlug(slug)`, `getProductsByCategory(categorySlug)`, `getProductsByBrand(brandSlug)`, `getFeaturedProducts()`, `getRelatedProducts(product, limit)`, `getAllCategories()`, `getCategoryBySlug(slug)`, `getAllBrands()`, `getBrandBySlug(slug)`, `getAllStores()`, `getFAQs()`, `getTestimonials()`).
+  - Build typed accessor functions (`getProducts()`, `getProductBySlug(slug)`, `getProductsByCategory(categorySlug)`, `getProductsByBrand(brandSlug)`, `getFeaturedProducts()`, `getRelatedProducts(product, limit)`, `getCategories()`, `getCategoryBySlug(slug)`, `getBrands()`, `getBrandBySlug(slug)`).
   - Implement static data caching and in-memory sort/filter operations.
 - **Verification Checklist:**
   - [ ] `npx tsc --noEmit` passes cleanly.
   - [ ] `getProductBySlug('optimum-nutrition-gold-standard-100-whey')` returns expected product object.
+
+#### Sub-Phase 2.5: Store, FAQ & Content Accessor Layer
+- [ ] **Status:** Unchecked
+- **Target Files:**
+  - `src/lib/data/store.ts` [NEW]
+  - `src/lib/data/faqs.ts` [NEW]
+  - `src/lib/data/guides.ts` [NEW]
+- **Purpose & Scope:**
+  - Build typed accessors for store metadata (`getStoreInfo()`, `getOpeningHours()`, `getDeliveryPolicy()`), FAQ entries (`getFAQs()`, `getFAQsByCategory()`), and MDX educational guide accessors (`getAllGuides()`, `getGuideBySlug()`).
+- **Verification Checklist:**
+  - [ ] `npx tsc --noEmit` passes cleanly.
+  - [ ] `getStoreInfo()` returns valid store metadata for Golfutar location.
 
 ---
 
@@ -310,36 +319,53 @@ flowchart LR
   - [ ] `npx tsc --noEmit` passes cleanly.
   - [ ] Typing `"whey"` or `"creatine"` in search bar instantly returns matching products.
 
-#### Sub-Phase 3.3: Catalog Filter Sidebar & Mobile Drawer
+#### Sub-Phase 3.3: Desktop Filter Components & Active State
 - [ ] **Status:** Unchecked
 - **Target Files:**
   - `src/components/catalog/catalog-filters.tsx` [NEW]
-  - `src/components/catalog/mobile-filter-drawer.tsx` [NEW]
   - `src/components/catalog/active-filters.tsx` [NEW]
   - `src/components/catalog/category-chips.tsx` [NEW]
+- **Purpose & Scope:**
+  - Build multi-facet desktop filter sidebar (Category checkboxes, Goal selectors, Price range slider, In-stock toggle).
+  - Implement `ActiveFilters` component with individual removable filter pills and "Clear All" action.
+  - Implement `CategoryChips` horizontal quick-filter scroll for catalog headers.
+- **Verification Checklist:**
+  - [ ] `npx tsc --noEmit` passes cleanly.
+
+#### Sub-Phase 3.4: Mobile Filter Drawer & Brand Facets
+- [ ] **Status:** Unchecked
+- **Target Files:**
+  - `src/components/catalog/mobile-filter-drawer.tsx` [NEW]
   - `src/components/catalog/brand-filter.tsx` [NEW]
 - **Purpose & Scope:**
-  - Build multi-facet desktop filter sidebar (Category checkboxes, Brand checkboxes, Goal selectors, Price range slider, In-stock toggle).
-  - Build slide-over `MobileFilterDrawer` using `Sheet` primitive with active filter count indicator and sticky "Show X Results" CTA button.
-  - Implement `ActiveFilters` component with individual removable pills and "Clear All" action.
+  - Build slide-over `MobileFilterDrawer` using `Sheet` primitive with active filter count badge and sticky "Apply Filters" CTA button.
+  - Build `BrandFilter` facet component with search input for quick brand filtering.
   - Sync filter state seamlessly with URL query parameters (`?category=proteins&brand=optimum-nutrition&sort=price-asc`).
 - **Verification Checklist:**
   - [ ] `npx tsc --noEmit` passes cleanly.
   - [ ] Mobile filter drawer opens, allows selecting facets, updates URL params, and closes cleanly.
 
-#### Sub-Phase 3.4: Main Catalog Route & Category/Brand Dynamic Hubs
+#### Sub-Phase 3.5: Products Catalog Hub Route
 - [ ] **Status:** Unchecked
 - **Target Files:**
   - `src/app/products/page.tsx` [NEW]
+- **Purpose & Scope:**
+  - Implement `/products` catalog page with sorting dropdown (Price Low-to-High, Price High-to-Low, Popularity, Newest), responsive sidebar layout, and empty state with reset button.
+  - Configure `generateMetadata` for dynamic SEO titles and meta descriptions for the catalog hub.
+- **Verification Checklist:**
+  - [ ] `npx tsc --noEmit` passes cleanly.
+  - [ ] Catalog route renders grid with live URL query filtering.
+
+#### Sub-Phase 3.6: Category & Brand Dynamic Archive Routes
+- [ ] **Status:** Unchecked
+- **Target Files:**
   - `src/app/categories/page.tsx` [NEW]
   - `src/app/categories/[slug]/page.tsx` [NEW]
   - `src/app/brands/page.tsx` [NEW]
   - `src/app/brands/[slug]/page.tsx` [NEW]
 - **Purpose & Scope:**
-  - Implement `/products` catalog page with sorting dropdown (Price Low-to-High, Price High-to-Low, Popularity, Newest), responsive sidebar layout, and empty state with reset button.
-  - Implement `/categories` and `/categories/[slug]` routes with `generateStaticParams` for all categories.
-  - Implement `/brands` and `/brands/[slug]` routes with `generateStaticParams` for all brands.
-  - Configure `generateMetadata` for dynamic SEO titles and meta descriptions across all archive routes.
+  - Implement `/categories` index and `/categories/[slug]` landing pages with `generateStaticParams` and SEO metadata.
+  - Implement `/brands` index and `/brands/[slug]` landing pages with `generateStaticParams` and SEO metadata.
 - **Verification Checklist:**
   - [ ] `npx tsc --noEmit` passes cleanly.
   - [ ] `generateStaticParams` pre-renders all category and brand slugs at build time.
@@ -422,25 +448,25 @@ flowchart LR
 #### Sub-Phase 5.1: Anti-Spam Security & Rate Limiting Infrastructure
 - [ ] **Status:** Unchecked
 - **Target Files:**
-  - `src/lib/rate-limit.ts` [NEW]
-  - `src/lib/security.ts` [NEW]
+  - `src/lib/services/ratelimit.ts` [NEW]
+  - `src/lib/services/security.ts` [NEW]
 - **Purpose & Scope:**
-  - Implement `@upstash/ratelimit` rate limiting engine with automatic graceful in-memory fallback for local development or missing Redis credentials.
-  - Implement Honeypot field validation helper (`website_url_hp` check) to block automated bot submissions.
-  - Implement client IP extraction and string sanitization helpers.
+  - Implement `@upstash/ratelimit` rate limiting engine (sliding window, max 5 inquiries per 60 mins per IP). In local development (`NODE_ENV === 'development'`), gracefully falls back to an in-memory cache if credentials are missing; in production, requires valid Upstash credentials and fails closed.
+  - Implement Honeypot field validation helper (`hp_field` check) to silently block automated bot submissions.
+  - Implement submission time trap (`_form_loaded_at`, minimum 2000ms duration) and HTML input sanitization helpers.
 - **Verification Checklist:**
   - [ ] `npx tsc --noEmit` passes cleanly.
-  - [ ] Rate limiter permits 5 requests per 10 minutes and rejects spam bursts.
+  - [ ] Rate limiter permits 5 requests per 60 minutes and rejects spam bursts.
 
 #### Sub-Phase 5.2: Multi-Channel Notification Dispatchers (Telegram & Resend)
 - [ ] **Status:** Unchecked
 - **Target Files:**
-  - `src/lib/telegram.ts` [NEW]
-  - `src/lib/resend.ts` [NEW]
-  - `src/components/emails/inquiry-confirmation.tsx` [NEW]
-  - `src/components/emails/admin-inquiry-alert.tsx` [NEW]
+  - `src/lib/services/telegram.ts` [NEW]
+  - `src/lib/services/resend.ts` [NEW]
+  - `src/emails/CustomerInquiryConfirmation.tsx` [NEW]
+  - `src/emails/AdminInquiryAlert.tsx` [NEW]
 - **Purpose & Scope:**
-  - Build direct Telegram Bot API `sendTelegramAlert()` dispatcher formatting instant Markdown notification for store admins (Customer Name, Phone, Delivery City, Product/Message, Timestamp).
+  - Build direct Telegram Bot API `sendTelegramAlert()` dispatcher formatting instant MarkdownV2 notification for store admins (Customer Name, Phone, Delivery City, Product/Message, Timestamp).
   - Build React Email templates for customer inquiry receipt and admin notification emails.
   - Configure Resend SDK email dispatcher with graceful error handling and dev environment logging.
 - **Verification Checklist:**
@@ -452,16 +478,15 @@ flowchart LR
 - **Target Files:**
   - `src/actions/inquiry.ts` [NEW]
   - `src/actions/contact.ts` [NEW]
-  - `src/actions/newsletter.ts` [NEW]
 - **Purpose & Scope:**
-  - Implement `'use server'` Server Actions following the canonical 7-step defensive pipeline:
-    1. Honeypot anti-spam check (silent drop if filled)
-    2. Upstash rate limit verification
-    3. Zod schema validation
-    4. Input sanitization
-    5. Parallel dispatch to Telegram Bot and Resend Email
-    6. Audit logging
-    7. Return standardized `{ success: true, message: string }` or `{ success: false, error: string }`
+  - Implement `'use server'` Server Actions following the canonical defensive pipeline:
+    1. Honeypot anti-spam check on `hp_field` (silent drop if filled)
+    2. Minimum submission duration check on `_form_loaded_at` (≥ 2.0s)
+    3. Upstash rate limit verification (5 per 60 min per IP)
+    4. Zod schema validation using `InquiryFormClientSchema`
+    5. Input sanitization (HTML stripping)
+    6. Parallel dispatch to Telegram Bot and Resend Email
+    7. Return standardized `ActionResult<{ inquiryId: string }>`
 - **Verification Checklist:**
   - [ ] `npx tsc --noEmit` passes cleanly.
   - [ ] Honeypot submission triggers silent success without triggering alerts.
@@ -471,11 +496,10 @@ flowchart LR
 - **Target Files:**
   - `src/components/forms/inquiry-form.tsx` [NEW]
   - `src/components/forms/contact-form.tsx` [NEW]
-  - `src/components/forms/newsletter-form.tsx` [NEW]
   - `src/components/forms/consultation-modal.tsx` [NEW]
 - **Purpose & Scope:**
   - Build `InquiryForm` and `ContactForm` using React Hook Form + `@hookform/resolvers/zod`.
-  - Include Nepal phone input validation, delivery city selector (Kathmandu, Lalitpur, Bhaktapur, Pokhara, Butwal, Biratnagar, Chitwan, Other), and hidden honeypot trap.
+  - Include Nepal phone input validation, delivery city selector (Kathmandu, Lalitpur, Bhaktapur, Pokhara, Butwal, Biratnagar, Chitwan, Other), and hidden honeypot trap (`hp_field`).
   - Build `ConsultationModal` for free expert supplement stacks advice.
   - Integrate Sonner success/error toasts on action response.
 - **Verification Checklist:**
@@ -485,13 +509,13 @@ flowchart LR
 #### Sub-Phase 5.5: Contact & Store Locations Experience
 - [ ] **Status:** Unchecked
 - **Target Files:**
-  - `src/app/contact/page.tsx` [NEW]
-  - `src/app/stores/page.tsx` [NEW]
-  - `src/components/stores/store-card.tsx` [NEW]
-  - `src/components/stores/store-map-embed.tsx` [NEW]
+  - `src/app/(marketing)/contact/page.tsx` [NEW]
+  - `src/app/(marketing)/location/page.tsx` [NEW]
+  - `src/components/location/store-map-embed.tsx` [NEW]
+  - `src/components/location/store-hours-card.tsx` [NEW]
 - **Purpose & Scope:**
-  - Build `/contact` route featuring inquiry form, direct WhatsApp buttons, emergency store hotline, and customer support hours.
-  - Build `/stores` route showcasing New Baneshwor and Jhamsikhel retail outlets with Google Maps embed, photo gallery, landmark directions, parking details, and Schema.org `LocalBusiness` JSON-LD structured data.
+  - Build `/contact` route featuring inquiry form, direct WhatsApp buttons, emergency store phone, and customer support hours.
+  - Build `/location` route showcasing Golfutar, Budha-Nilkantha retail outlet with Google Maps embed, landmark directions, parking details, opening hours (Sun-Fri 10AM-9PM), and Schema.org `LocalBusiness` JSON-LD structured data.
 - **Verification Checklist:**
   - [ ] `npx tsc --noEmit` passes cleanly.
   - [ ] Direct phone call links (`tel:+977...`) and Google Maps directions triggers function correctly.
@@ -509,7 +533,7 @@ flowchart LR
   - `src/components/home/featured-products-section.tsx` [NEW]
 - **Purpose & Scope:**
   - Build high-impact dark athletic Hero with animated headline, WhatsApp instant order CTA, catalog browse CTA, and athlete background visual.
-  - Build Trust Badges Bar (100% Genuine Importer Guarantee, Fast Kathmandu Delivery, 2 Physical Retail Stores, Free Nutrition Consultation).
+  - Build Trust Badges Bar (100% Genuine Importer Guarantee, Fast Kathmandu Delivery, Physical Store in Golfutar, Free Nutrition Consultation).
   - Build Category Showcase grid with high-resolution visual cards.
   - Build Featured Products section with tabbed switching (Best Sellers, Whey Protein, Creatine).
 - **Verification Checklist:**
@@ -521,12 +545,10 @@ flowchart LR
 - **Target Files:**
   - `src/components/home/why-choose-us.tsx` [NEW]
   - `src/components/home/store-locator-preview.tsx` [NEW]
-  - `src/components/home/testimonial-slider.tsx` [NEW]
-  - `src/app/page.tsx` [NEW]
+  - `src/app/(marketing)/page.tsx` [NEW]
 - **Purpose & Scope:**
   - Build "Why MuscleWorks" value propositions (official importer hologram stickers, lab tested batches, expert advice).
-  - Build Store Locator Preview highlighting New Baneshwor and Jhamsikhel outlets.
-  - Build Testimonials Slider with verified athlete reviews.
+  - Build Store Locator Preview highlighting the Golfutar flagship outlet.
   - Assemble complete `/` homepage route with dynamic metadata and Schema.org `Organization` JSON-LD.
 - **Verification Checklist:**
   - [ ] `npx tsc --noEmit` passes cleanly.
@@ -535,8 +557,8 @@ flowchart LR
 #### Sub-Phase 6.3: Brand Trust, Authenticity Verification & About Pages
 - [ ] **Status:** Unchecked
 - **Target Files:**
-  - `src/app/about/page.tsx` [NEW]
-  - `src/app/authenticity/page.tsx` [NEW]
+  - `src/app/(marketing)/about/page.tsx` [NEW]
+  - `src/app/(marketing)/authenticity/page.tsx` [NEW]
   - `src/components/authenticity/verification-steps.tsx` [NEW]
   - `src/components/authenticity/importer-seal-guide.tsx` [NEW]
 - **Purpose & Scope:**
@@ -546,35 +568,46 @@ flowchart LR
   - [ ] `npx tsc --noEmit` passes cleanly.
   - [ ] Step-by-step authenticity verification guide renders with clear illustrative cards.
 
-#### Sub-Phase 6.4: Educational MDX Knowledge Base & Blog Hub
+#### Sub-Phase 6.4: Educational MDX Core & Buying Guides
 - [ ] **Status:** Unchecked
 - **Target Files:**
   - `src/lib/mdx.ts` [NEW]
   - `content/guides/creatine-guide-nepal.mdx` [NEW]
   - `content/guides/whey-protein-beginners.mdx` [NEW]
-  - `src/app/guides/page.tsx` [NEW]
-  - `src/app/guides/[slug]/page.tsx` [NEW]
-  - `src/components/guides/guide-card.tsx` [NEW]
 - **Purpose & Scope:**
   - Build MDX reader loading local markdown files with frontmatter parser and reading time calculator.
   - Author 2 in-depth educational supplement guides tailored to Nepal fitness enthusiasts:
     1. *The Ultimate Guide to Creatine Monohydrate in Nepal (Dosage, Myths & Results)*
     2. *Whey Protein for Beginners in Nepal: Types, Timing & Choosing the Right Brand*
+- **Verification Checklist:**
+  - [ ] `npx tsc --noEmit` passes cleanly.
+  - [ ] MDX parser correctly parses frontmatter, headings, and reading times.
+
+#### Sub-Phase 6.5: Educational Hub Routes
+- [ ] **Status:** Unchecked
+- **Target Files:**
+  - `src/app/guides/page.tsx` [NEW]
+  - `src/app/guides/[slug]/page.tsx` [NEW]
+  - `src/components/guides/guide-card.tsx` [NEW]
+- **Purpose & Scope:**
   - Build `/guides` archive and `/guides/[slug]` article reader with Schema.org `Article` JSON-LD.
+  - Build `GuideCard` component for grid views.
 - **Verification Checklist:**
   - [ ] `npx tsc --noEmit` passes cleanly.
   - [ ] MDX pages render formatted typography, callout alerts, and related product embeds.
 
-#### Sub-Phase 6.5: Legal, Privacy & FAQ Hub
+#### Sub-Phase 6.6: Legal, Privacy & FAQ Hub
 - [ ] **Status:** Unchecked
 - **Target Files:**
-  - `src/app/privacy/page.tsx` [NEW]
-  - `src/app/terms/page.tsx` [NEW]
-  - `src/app/faqs/page.tsx` [NEW]
+  - `src/app/(marketing)/privacy-policy/page.tsx` [NEW]
+  - `src/app/(marketing)/terms/page.tsx` [NEW]
+  - `src/app/(marketing)/delivery-policy/page.tsx` [NEW]
+  - `src/app/(marketing)/faq/page.tsx` [NEW]
 - **Purpose & Scope:**
   - Build Privacy Policy page covering data handling and anti-spam standards.
   - Build Terms of Service page covering Nepal e-commerce terms, return/exchange policies, authenticity warranty, and delivery conditions.
-  - Build comprehensive `/faqs` accordion page categorized by Ordering, Delivery, Authenticity, and Nutrition with Schema.org `FAQPage` JSON-LD.
+  - Build Delivery Policy page covering Kathmandu Valley and nationwide delivery timelines and rates.
+  - Build comprehensive `/faq` accordion page categorized by Ordering, Delivery, Authenticity, and Nutrition with Schema.org `FAQPage` JSON-LD.
 - **Verification Checklist:**
   - [ ] `npx tsc --noEmit` passes cleanly.
   - [ ] FAQ accordion expands/collapses smoothly and supports keyboard navigation.
@@ -644,38 +677,42 @@ flowchart LR
 
 | Sub-Phase ID | Sub-Phase Name | Target Files | Prerequisite | Status |
 | :--- | :--- | :--- | :--- | :--- |
-| **0.1** | Project Scaffold & Dependency Manifest | `package.json`, `tsconfig.json`, `next.config.ts`, `.gitignore` | None | `[ ]` |
+| **0.1** | Project Scaffold & Dependency Manifest | `package.json`, `tsconfig.json`, `next.config.ts`, `.gitignore` | None | `[x]` |
 | **0.2** | Styling System & Tailwind v4 Theme Engine | `src/app/globals.css`, `postcss.config.mjs` | 0.1 | `[ ]` |
-| **0.3** | Core Utility Layer & Type Foundations | `src/lib/utils.ts`, `src/lib/constants.ts`, `src/types/index.ts` | 0.1, 0.2 | `[ ]` |
+| **0.3** | Core Utility Layer & Type Foundations | `src/lib/utils.ts`, `src/lib/constants.ts`, `src/types/index.ts`, `src/types/actions.ts` | 0.1, 0.2 | `[ ]` |
 | **0.4** | Next.js 16 Root Layout & Font Engine | `src/app/layout.tsx`, `src/app/not-found.tsx`, `src/app/error.tsx`, `src/app/loading.tsx` | 0.3 | `[ ]` |
 | **1.1** | Core Action & Feedback Primitives | `src/components/ui/button.tsx`, `badge.tsx`, `separator.tsx`, `skeleton.tsx` | 0.3 | `[ ]` |
 | **1.2** | Form Input & Text Primitives | `src/components/ui/input.tsx`, `textarea.tsx`, `select.tsx`, `card.tsx` | 1.1 | `[ ]` |
 | **1.3** | Overlay & Dialog Primitives (Radix) | `src/components/ui/dialog.tsx`, `sheet.tsx`, `toast.tsx`, `breadcrumb.tsx` | 1.2 | `[ ]` |
 | **1.4** | Global Navigation Shell & Header | `src/components/layout/header.tsx`, `navbar.tsx`, `mobile-nav.tsx` | 1.3 | `[ ]` |
 | **1.5** | Global Footer & Sticky Mobile Bar | `src/components/layout/footer.tsx`, `sticky-cta-bar.tsx`, `whatsapp-floating-button.tsx` | 1.4 | `[ ]` |
-| **2.1** | Zod Schemas & Domain Type Definitions | `src/lib/validators/product.ts`, `inquiry.ts`, `store.ts`, `guide.ts` | 0.3 | `[ ]` |
+| **2.1** | Zod Schemas & Domain Type Definitions | `src/lib/validations/common.ts`, `product.ts`, `inquiry.ts`, `store.ts` | 0.3 | `[ ]` |
 | **2.2** | Canonical JSON Datasets (Products/Categories/Brands) | `data/products.json`, `categories.json`, `brands.json` | 2.1 | `[ ]` |
-| **2.3** | Supplementary Datasets (Stores/FAQs/Testimonials) | `data/stores.json`, `faqs.json`, `testimonials.json` | 2.1 | `[ ]` |
-| **2.4** | Typed Data Accessor Layer (SSG Helpers) | `src/lib/data/products.ts`, `categories.ts`, `brands.ts`, `stores.ts`, `content.ts` | 2.2, 2.3 | `[ ]` |
+| **2.3** | Supplementary Datasets (Store Info/FAQs) | `data/store-info.json`, `data/faqs.json` | 2.1 | `[ ]` |
+| **2.4** | Catalog Data Accessor Layer | `src/lib/data/products.ts`, `categories.ts`, `brands.ts` | 2.2, 2.3 | `[ ]` |
+| **2.5** | Store, FAQ & Content Accessor Layer | `src/lib/data/store.ts`, `faqs.ts`, `guides.ts` | 2.2, 2.3 | `[ ]` |
 | **3.1** | Product Display Components (Card/Grid/Badges) | `src/components/product/product-card.tsx`, `product-grid.tsx`, `product-authenticity-badge.tsx` | 1.1, 2.4 | `[ ]` |
 | **3.2** | In-Memory Fuzzy Search Engine (Fuse.js) | `src/lib/search.ts`, `src/components/catalog/search-bar.tsx`, `search-modal.tsx` | 2.4 | `[ ]` |
-| **3.3** | Catalog Filter Sidebar & Mobile Drawer | `src/components/catalog/catalog-filters.tsx`, `mobile-filter-drawer.tsx`, `active-filters.tsx`, `category-chips.tsx`, `brand-filter.tsx` | 1.3, 3.1 | `[ ]` |
-| **3.4** | Catalog Route & Category/Brand Hubs | `src/app/products/page.tsx`, `categories/page.tsx`, `categories/[slug]/page.tsx`, `brands/page.tsx`, `brands/[slug]/page.tsx` | 3.3 | `[ ]` |
+| **3.3** | Desktop Filter Components & Active State | `src/components/catalog/catalog-filters.tsx`, `active-filters.tsx`, `category-chips.tsx` | 1.3, 3.1 | `[ ]` |
+| **3.4** | Mobile Filter Drawer & Brand Facets | `src/components/catalog/mobile-filter-drawer.tsx`, `brand-filter.tsx` | 3.3 | `[ ]` |
+| **3.5** | Products Catalog Hub Route | `src/app/products/page.tsx` | 3.4 | `[ ]` |
+| **3.6** | Category & Brand Dynamic Archive Routes | `src/app/categories/page.tsx`, `categories/[slug]/page.tsx`, `brands/page.tsx`, `brands/[slug]/page.tsx` | 3.5 | `[ ]` |
 | **4.1** | WhatsApp URL Engine & Analytics Tracker | `src/lib/whatsapp.ts`, `src/lib/analytics.ts` | 2.1 | `[ ]` |
 | **4.2** | Product Gallery & Interactive Selectors | `src/components/product/product-gallery.tsx`, `product-variant-selector.tsx`, `product-stock-status.tsx` | 1.1, 4.1 | `[ ]` |
 | **4.3** | Product Specs, Nutrition & Trust Elements | `src/components/product/product-specs.tsx`, `nutrition-table.tsx`, `authenticity-guarantee-box.tsx`, `related-products.tsx` | 4.2 | `[ ]` |
 | **4.4** | Product Detail Route & Mobile Sticky Action Bar | `src/app/products/[slug]/page.tsx`, `src/components/product/product-sticky-bar.tsx` | 4.3 | `[ ]` |
-| **5.1** | Anti-Spam Security & Rate Limiting | `src/lib/rate-limit.ts`, `src/lib/security.ts` | 0.3 | `[ ]` |
-| **5.2** | Notification Dispatchers (Telegram & Resend) | `src/lib/telegram.ts`, `resend.ts`, `src/components/emails/inquiry-confirmation.tsx`, `admin-inquiry-alert.tsx` | 2.1 | `[ ]` |
-| **5.3** | Server Actions Pipeline | `src/actions/inquiry.ts`, `contact.ts`, `newsletter.ts` | 5.1, 5.2 | `[ ]` |
-| **5.4** | Interactive Form Components & Modal | `src/components/forms/inquiry-form.tsx`, `contact-form.tsx`, `newsletter-form.tsx`, `consultation-modal.tsx` | 1.2, 5.3 | `[ ]` |
-| **5.5** | Contact & Store Locations Experience | `src/app/contact/page.tsx`, `stores/page.tsx`, `src/components/stores/store-card.tsx`, `store-map-embed.tsx` | 2.4, 5.4 | `[ ]` |
+| **5.1** | Anti-Spam Security & Rate Limiting | `src/lib/services/ratelimit.ts`, `src/lib/services/security.ts` | 0.3 | `[ ]` |
+| **5.2** | Notification Dispatchers (Telegram & Resend) | `src/lib/services/telegram.ts`, `resend.ts`, `src/emails/CustomerInquiryConfirmation.tsx`, `AdminInquiryAlert.tsx` | 2.1 | `[ ]` |
+| **5.3** | Server Actions Pipeline | `src/actions/inquiry.ts`, `contact.ts` | 5.1, 5.2 | `[ ]` |
+| **5.4** | Interactive Form Components & Modal | `src/components/forms/inquiry-form.tsx`, `contact-form.tsx`, `consultation-modal.tsx` | 1.2, 5.3 | `[ ]` |
+| **5.5** | Contact & Store Locations Experience | `src/app/(marketing)/contact/page.tsx`, `location/page.tsx`, `src/components/location/store-map-embed.tsx`, `store-hours-card.tsx` | 2.4, 5.4 | `[ ]` |
 | **6.1** | Homepage Hero, Trust Banners & Category Grid | `src/components/home/hero-section.tsx`, `trust-badges-bar.tsx`, `category-grid.tsx`, `featured-products-section.tsx` | 1.1, 3.1 | `[ ]` |
-| **6.2** | Homepage Social Proof & Full Page Assembly | `src/components/home/why-choose-us.tsx`, `store-locator-preview.tsx`, `testimonial-slider.tsx`, `src/app/page.tsx` | 6.1 | `[ ]` |
-| **6.3** | Brand Trust, Authenticity & About Pages | `src/app/about/page.tsx`, `authenticity/page.tsx`, `src/components/authenticity/verification-steps.tsx`, `importer-seal-guide.tsx` | 1.1, 2.4 | `[ ]` |
-| **6.4** | Educational MDX Knowledge Base & Blog Hub | `src/lib/mdx.ts`, `content/guides/*.mdx`, `src/app/guides/page.tsx`, `guides/[slug]/page.tsx`, `src/components/guides/guide-card.tsx` | 2.4 | `[ ]` |
-| **6.5** | Legal, Privacy & FAQ Hub | `src/app/privacy/page.tsx`, `terms/page.tsx`, `faqs/page.tsx` | 1.1, 2.4 | `[ ]` |
-| **7.1** | Programmatic SEO Engine & Schema Architecture | `src/app/sitemap.ts`, `robots.ts`, `src/lib/seo.ts`, `src/components/seo/json-ld.tsx` | 3.4, 4.4, 6.4 | `[ ]` |
+| **6.2** | Homepage Social Proof & Full Page Assembly | `src/components/home/why-choose-us.tsx`, `store-locator-preview.tsx`, `src/app/(marketing)/page.tsx` | 6.1 | `[ ]` |
+| **6.3** | Brand Trust, Authenticity & About Pages | `src/app/(marketing)/about/page.tsx`, `authenticity/page.tsx`, `src/components/authenticity/verification-steps.tsx`, `importer-seal-guide.tsx` | 1.1, 2.4 | `[ ]` |
+| **6.4** | Educational MDX Core & Buying Guides | `src/lib/mdx.ts`, `content/guides/creatine-guide-nepal.mdx`, `content/guides/whey-protein-beginners.mdx` | 2.4 | `[ ]` |
+| **6.5** | Educational Hub Routes | `src/app/guides/page.tsx`, `guides/[slug]/page.tsx`, `src/components/guides/guide-card.tsx` | 6.4 | `[ ]` |
+| **6.6** | Legal, Privacy & FAQ Hub | `src/app/(marketing)/privacy-policy/page.tsx`, `terms/page.tsx`, `delivery-policy/page.tsx`, `faq/page.tsx` | 1.1, 2.4 | `[ ]` |
+| **7.1** | Programmatic SEO Engine & Schema Architecture | `src/app/sitemap.ts`, `robots.ts`, `src/lib/seo.ts`, `src/components/seo/json-ld.tsx` | 3.6, 4.4, 6.5 | `[ ]` |
 | **7.2** | Security Headers, CSP & Network Proxy | `src/proxy.ts`, `next.config.ts` | 0.1 | `[ ]` |
 | **7.3** | Mobile Performance & Web App Manifest | `src/app/icon.tsx`, `apple-icon.tsx`, `manifest.ts` | 0.2 | `[ ]` |
 | **7.4** | Production Build Gate & Final Verification | Full codebase build & audit | 0.1–7.3 | `[ ]` |
@@ -692,3 +729,5 @@ Before declaring the MuscleWorks Nepal application ready for public launch, the 
 4. **Resilient Server Actions & Anti-Spam:** Lead forms validate input, silently drop honeypot bots, rate-limit excessive requests, and dispatch Telegram & Resend notifications in production.
 5. **Complete SEO & Structured Data:** Programmatic `sitemap.xml`, `robots.txt`, dynamic metadata, and Schema.org JSON-LD schemas (`Product`, `LocalBusiness`, `FAQPage`, `Article`, `Organization`) validate with zero warnings on Google Rich Results Test.
 6. **Core Web Vitals Performance:** LCP < 2.0s on 4G mobile, INP < 150ms, CLS < 0.05, and TTFB < 100ms.
+
+

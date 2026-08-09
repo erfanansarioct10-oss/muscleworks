@@ -49,7 +49,7 @@ To eliminate agent confusion from minor naming variations across documents, adhe
    - *Ignore mentions of "New Baneshwor & Jhamsikhel" in roadmap descriptions; the real store is in Golfutar.*
 
 3. **Server Action Result Envelope:**
-   - **Canonical Type:** Use `ActionResult<T = unknown>` exported from `src/types/common.ts` (or `src/types/index.ts`):
+   - **Canonical Type:** Use `ActionResult<T = unknown>` exported from `src/types/actions.ts` (re-exported via `src/types/index.ts`):
      ```typescript
      export interface ActionResult<T = unknown> {
        success: boolean;
@@ -129,7 +129,7 @@ Do not modify or violate the following unless explicitly instructed:
 
 Every AI agent turn must follow this exact execution cycle:
 
-```
+```text
 ┌─────────────────────────────────────────────────────────────┐
 │ 1. PRE-FLIGHT CHECK                                         │
 │    • Read progress-tracker.md & feature-roadmap.md          │

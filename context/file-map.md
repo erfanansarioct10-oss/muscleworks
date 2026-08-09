@@ -27,7 +27,7 @@
 
 ## 2. COMPLETE PROJECT TREE OVERVIEW
 
-```
+```text
 muscleworks/
 ├── .agents/                               # Antigravity IDE workspace agent customizations
 ├── .git/                                  # Git version control repository
@@ -228,6 +228,7 @@ muscleworks/
     │   │   ├── categories.ts              # `getCategories()`, `getCategoryBySlug()`, `getFeaturedCategories()`
     │   │   ├── brands.ts                  # `getBrands()`, `getBrandBySlug()`, `getFeaturedBrands()`
     │   │   ├── store.ts                   # `getStoreInfo()`, `getOpeningHours()`, `getDeliveryPolicy()`
+    │   │   ├── faqs.ts                    # `getFAQs()`, `getFAQsByCategory()`
     │   │   └── guides.ts                  # `getAllGuides()`, `getGuideBySlug()`, `getFeaturedGuides()`
     │   │
     │   ├── services/                      # BACKEND SERVICE INTEGRATIONS (Server-Only Execution)
@@ -246,7 +247,8 @@ muscleworks/
     │
     └── types/                             # CANONICAL TYPESCRIPT TYPE DEFINITIONS (Inferred from Zod)
         ├── index.ts                       # Central re-export barrel for all types
-        ├── common.ts                      # SEOMetadata, FAQItem, ImageAsset, ActionResponse
+        ├── actions.ts                     # ActionResult interface and server response envelopes
+        ├── common.ts                      # SEOMetadata, FAQItem, ImageAsset
         ├── product.ts                     # Product, ProductVariant, NutritionFacts, StockStatus, ProductBadge
         ├── taxonomy.ts                    # Category, Brand
         ├── inquiry.ts                     # InquiryFormClientValues, InquiryServerPayload, InquiryType
@@ -289,7 +291,7 @@ muscleworks/
 | `src/app/(marketing)/about/page.tsx` | Server Component | About Us: MUSCLEWORKS founding story (2026), product philosophy, authenticity pledge, quality standards. | `getStoreInfo()` |
 | `src/app/(marketing)/contact/page.tsx` | Server Component | Contact Us: Store contact matrix, direct WhatsApp CTAs, interactive `InquiryForm`, Google Maps embed. | `getStoreInfo()`, `InquiryForm` |
 | `src/app/(marketing)/location/page.tsx` | Server Component | Store Location: Golfutar, Budha-Nilkantha address, opening hours, landmarks, interactive map, driving directions. | `getStoreInfo()` |
-| `src/app/(marketing)/faq/page.tsx` | Server Component | Comprehensive FAQ: Searchable FAQ categories (authenticity, ordering, delivery, product usage) + `FAQPage` JSON-LD. | `faqs.json`, `FAQJsonLd` |
+| `src/app/(marketing)/faq/page.tsx` | Server Component | Comprehensive FAQ: Searchable FAQ categories (authenticity, ordering, delivery, product usage) + `FAQPage` JSON-LD. | `getFAQs()`, `FAQJsonLd` |
 | `src/app/(marketing)/privacy-policy/page.tsx` | Server Component | Privacy Policy: Data collection, inquiry storage, customer contact usage rules. | Static Legal Content |
 | `src/app/(marketing)/terms/page.tsx` | Server Component | Terms & Conditions: Product disclaimer, pricing, nationwide delivery terms. | Static Legal Content |
 | `src/app/(marketing)/delivery-policy/page.tsx` | Server Component | Delivery Policy: Kathmandu Valley same-day/next-day terms, nationwide Nepal courier timeline, fees. | `getDeliveryPolicy()` |

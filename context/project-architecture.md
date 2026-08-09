@@ -94,7 +94,7 @@ To guarantee minimal JavaScript bundle sizes and optimal mobile performance:
 
 The application enforces a clean, flat, search-engine-friendly URL structure:
 
-```
+```text
 app/
 ├── (marketing)/
 │   ├── page.tsx                           # / (Homepage)
@@ -175,7 +175,7 @@ I would like to order / inquire about:
 🍫 Flavor: {selected_flavor}
 💰 Price: NPR {variant_price}
 🆔 SKU: {sku}
-🔗 Link: https://muscleworksnepal.com/products/{slug}
+🔗 Link: {siteUrl}/products/{slug}
 
 Please confirm availability and delivery to my location.
 ```
@@ -228,13 +228,13 @@ flowchart TD
 2. **Anti-Bot Layer (Honeypot + Time Trap):**
    - Hidden field `hp_field` (hidden via CSS and `aria-hidden="true"`). If filled, execution silently aborts.
    - `_form_loaded_at` hidden timestamp. If submitted in under 2000ms, execution silently aborts.
-3. **Rate Limiting Layer:** `@upstash/ratelimit` sliding window (max 5 submissions per IP per 60 minutes). If Upstash is not configured in local development, it gracefully falls back to an in-memory sliding window cache.
+3. **Rate Limiting Layer:** `@upstash/ratelimit` sliding window (max 5 submissions per IP per 60 minutes). In local development (`NODE_ENV === 'development'`), it gracefully falls back to an in-memory cache if Upstash credentials are not configured; in production, Upstash credentials are required and requests fail closed.
 4. **Server Validation & Sanitization Layer:** Strict Server Zod parsing; all strings sanitized using HTML tag stripping to prevent XSS and formatting injections.
 5. **Parallel Notification Dispatch Layer:** `Promise.allSettled` runs:
    - **Customer Email:** Responsive HTML confirmation template via `resend` + `@react-email/components`.
    - **Admin Alert Email:** Instant notification with customer phone, email, and inquiry details to store manager.
    - **Telegram Push Alert:** Direct HTTP POST to Telegram Bot API with MarkdownV2 formatted message.
-6. **Client Feedback:** Returns `{ success: true, message: string }` or structured error map to display a toast via Sonner.
+6. **Client Feedback:** Returns typed `ActionResult<T>` (`{ success: boolean, message?: string, error?: string, fieldErrors?: Record<string, string[]>, data?: T }`) to display a toast via Sonner.
 
 ---
 
@@ -264,7 +264,7 @@ Using `schema-dts`, type-safe JSON-LD schemas are embedded directly into Server 
 | Schema Type | Applied Pages | Included Data |
 |---|---|---|
 | `LocalBusiness` / `Store` | Root Layout & `/location`, `/contact` | Store Name, Golfutar Address, Geo-coordinates, Opening Hours (Sun-Fri 10AM-9PM), Phone, WhatsApp, SameAs Social links. |
-| `Product` + `Offer` | `/products/[slug]` | Product Name, Brand, Images, Description, SKU, ItemCondition (`NewCondition`), Offers (`price`, `priceCurrency: NPR`, `availability: InStock | OutOfStock`, `seller`). |
+| `Product` + `Offer` | `/products/[slug]` | Product Name, Brand, Images, Description, SKU, ItemCondition (`NewCondition`), Offers (`price`, `priceCurrency: NPR`, `availability: InStock \| OutOfStock`, `seller`). |
 | `FAQPage` | `/faq`, `/products/[slug]`, `/categories/[slug]` | Question & Answer pairs for Google Rich Snippets in SERPs. |
 | `BreadcrumbList` | All sub-pages | Hierarchical navigation paths (`Home > Products > Category > Product`). |
 | `Article` | `/guides/[slug]` | Article headline, datePublished, dateModified, author, publisher. |
@@ -280,7 +280,7 @@ Using `schema-dts`, type-safe JSON-LD schemas are embedded directly into Server 
 ### 7.1 Next.js 16 Proxy & HTTP Security Headers
 In accordance with Next.js 16 breaking conventions, request-level proxying and security headers are handled via `proxy.ts` (the modern successor to `middleware.ts`) and `next.config.ts`:
 
-```
+```text
 ┌─────────────────────────────────────────────────────────────┐
 │                      Client Request                         │
 └──────────────────────────────┬──────────────────────────────┘

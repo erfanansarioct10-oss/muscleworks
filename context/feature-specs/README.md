@@ -14,7 +14,7 @@ Every AI coding agent **MUST** follow the guidelines and specification template 
 
 Feature specifications serve as technical design blueprints before code execution. They ensure that:
 
-- Every proposed change strictly adheres to project architecture ([`context/project-architecture.md`](file:///c:/nooridigital_assets/my-projects/muscleworks/context/project-architecture.md)), data models ([`context/data-models.md`](file:///c:/nooridigital_assets/my-projects/muscleworks/context/data-models.md)), coding standards ([`context/coding-standards.md`](file:///c:/nooridigital_assets/my-projects/muscleworks/context/coding-standards.md)), file layout ([`context/file-map.md`](file:///c:/nooridigital_assets/my-projects/muscleworks/context/file-map.md)), and operating workflow ([`context/ai-workflow.md`](file:///c:/nooridigital_assets/my-projects/muscleworks/context/ai-workflow.md)).
+- Every proposed change strictly adheres to project architecture ([`context/project-architecture.md`](../project-architecture.md)), data models ([`context/data-models.md`](../data-models.md)), coding standards ([`context/coding-standards.md`](../coding-standards.md)), file layout ([`context/file-map.md`](../file-map.md)), and operating workflow ([`context/ai-workflow.md`](../ai-workflow.md)).
 - Architectural risks, edge cases, mobile touch requirements, and data sources are identified before mutating code.
 - Human reviewers and future agents can evaluate the technical approach, rationale, and scope prior to implementation.
 
@@ -180,4 +180,5 @@ When writing or executing a feature spec:
 
 | Spec ID | Title | Status | Target Area | Created Date |
 |:--- |:--- |:---: |:--- |:--- |
-| *No feature specs authored yet. New specs will be registered here sequentially.* | | | | |
+| `01-coderabbit-review-resolutions` | [CodeRabbit Review Comments Resolution & Context Synchronization](01-coderabbit-review-resolutions.md) | **Approved** | Context Specs & Architecture | 2026-08-09 |
+| `02-subphase-0.1-project-scaffold-dependency-manifest` | [Sub-Phase 0.1 — Project Scaffold & Dependency Manifest](02-subphase-0.1-project-scaffold-dependency-manifest.md) | **Approved** | Tooling & Infrastructure | 2026-08-09 |

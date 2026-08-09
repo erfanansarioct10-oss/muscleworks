@@ -173,9 +173,9 @@ export const NutritionFactsSchema = z.object({
 export type NutritionFacts = z.infer<typeof NutritionFactsSchema>;
 
 export const AuthenticityMetadataSchema = z.object({
-  isAuthenticGuarantee: z.boolean().default(true),
-  importerOrSource: z.string().min(2), // e.g. "Official Authorized Nepal Importer"
-  verificationMethod: z.string().min(5), // e.g. "Scratch-off QR Code / Hologram Seal"
+  isAuthenticGuarantee: z.boolean(),
+  importerOrSource: z.string().min(2).optional(), // e.g. "Official Authorized Nepal Importer"
+  verificationMethod: z.string().min(5).optional(), // e.g. "Scratch-off QR Code / Hologram Seal"
   hologramDescription: z.string().optional(), // e.g. "Look for the gold tamper-evident security seal on the tub cap."
   batchTestingNote: z.string().optional(), // e.g. "Informed-Choice certified / Third-party lab tested."
 });
@@ -186,16 +186,24 @@ export type AuthenticityMetadata = z.infer<typeof AuthenticityMetadataSchema>;
 ### 3.3 Product Variant Schema
 
 ```typescript
-export const ProductVariantSchema = z.object({
-  id: z.string().min(1), // e.g. "var_on_whey_5lb_choc"
-  sku: z.string().regex(/^[A-Z0-9_-]{3,30}$/, 'Invalid SKU format'), // e.g. "ON-WHEY-5LB-CHOC"
-  sizeOrWeight: z.string().min(1), // e.g. "5 lbs (2.27 kg)", "60 Capsules", "300g"
-  flavor: z.string().default('Unflavored'), // e.g. "Double Rich Chocolate", "Vanilla Ice Cream", "Unflavored"
-  priceNpr: z.number().int().positive('Price must be a positive integer in NPR'),
-  discountPriceNpr: z.number().int().positive().optional(),
-  stockStatus: StockStatusEnum.default('in_stock'),
-  image: ImageAssetSchema.optional(), // Optional variant-specific packshot
-});
+export const ProductVariantSchema = z
+  .object({
+    id: z.string().min(1), // e.g. "var_on_whey_5lb_choc"
+    sku: z.string().regex(/^[A-Z0-9_-]{3,30}$/, 'Invalid SKU format'), // e.g. "ON-WHEY-5LB-CHOC"
+    sizeOrWeight: z.string().min(1), // e.g. "5 lbs (2.27 kg)", "60 Capsules", "300g"
+    flavor: z.string().default('Unflavored'), // e.g. "Double Rich Chocolate", "Vanilla Ice Cream", "Unflavored"
+    priceNpr: z.number().int().positive('Price must be a positive integer in NPR'),
+    discountPriceNpr: z.number().int().positive().optional(),
+    stockStatus: StockStatusEnum.default('in_stock'),
+    image: ImageAssetSchema.optional(), // Optional variant-specific packshot
+  })
+  .refine(
+    (data) => !data.discountPriceNpr || data.discountPriceNpr < data.priceNpr,
+    {
+      message: 'discountPriceNpr must be strictly less than priceNpr',
+      path: ['discountPriceNpr'],
+    }
+  );
 
 export type ProductVariant = z.infer<typeof ProductVariantSchema>;
 ```
@@ -350,14 +358,22 @@ export const InquiryServerPayloadSchema = InquiryFormClientSchema.extend({
 
 export type InquiryServerPayload = z.infer<typeof InquiryServerPayloadSchema>;
 
-// Server Action Response Schema
-export const ActionResponseSchema = z.object({
+// Server Action Result Schema & Envelope (Canonical Contract)
+export const ActionResultSchema = z.object({
   success: z.boolean(),
-  message: z.string(),
-  errors: z.record(z.array(z.string())).optional(),
+  message: z.string().optional(),
+  error: z.string().optional(),
+  fieldErrors: z.record(z.array(z.string())).optional(),
+  data: z.unknown().optional(),
 });
 
-export type ActionResponse = z.infer<typeof ActionResponseSchema>;
+export interface ActionResult<T = unknown> {
+  success: boolean;
+  message?: string;
+  error?: string;
+  fieldErrors?: Record<string, string[]>;
+  data?: T;
+}
 ```
 
 ---

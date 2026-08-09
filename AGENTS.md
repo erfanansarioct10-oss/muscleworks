@@ -37,29 +37,29 @@ Every agent **MUST** inspect the context files below according to their responsi
 
 | # | Context Document | Purpose & When to Read |
 | :---: | :--- | :--- |
-| **1** | [`context/progress-tracker.md`](file:///c:/nooridigital_assets/my-projects/muscleworks/context/progress-tracker.md) | **READ FIRST ON EVERY TURN.** Real-time project state, active sub-phase, next-up goals, and session notes. Update after completing any unit of work. |
-| **2** | [`context/ai-workflow.md`](file:///c:/nooridigital_assets/my-projects/muscleworks/context/ai-workflow.md) | **Operating Workflow Manual.** Document authority hierarchy, discrepancy resolutions, protected invariants, and the 4-step progress synchronization protocol. |
-| **3** | [`context/feature-roadmap.md`](file:///c:/nooridigital_assets/my-projects/muscleworks/context/feature-roadmap.md) | **Implementation Blueprint.** 8-Phase sequential milestone architecture broken down into 31 atomic, bite-sized sub-phases (0.1–7.4) with file targets and verification checklists. |
-| **4** | [`context/project-overview.md`](file:///c:/nooridigital_assets/my-projects/muscleworks/context/project-overview.md) | **Business Context & Non-Goals.** Brand identity, single physical store at **Golfutar, Budha-Nilkantha, Kathmandu (44500)**, customer concerns, authenticity guarantees, and V1 non-goals. |
-| **5** | [`context/project-tech-stacks.md`](file:///c:/nooridigital_assets/my-projects/muscleworks/context/project-tech-stacks.md) | **Locked Tech Stack.** Next.js 16.3.0, React 19.2.8, Tailwind CSS v4, Radix UI primitives, Lucide React, Zod, Resend, Telegram Bot API, Upstash rate limiting, and banned packages. |
-| **6** | [`context/project-architecture.md`](file:///c:/nooridigital_assets/my-projects/muscleworks/context/project-architecture.md) | **System Architecture.** Full Static Site Generation (SSG, 0ms TTFB), Server vs. Client component boundaries, WhatsApp URL engine, Server Action pipeline, SEO schemas, and `src/proxy.ts`. |
-| **7** | [`context/data-models.md`](file:///c:/nooridigital_assets/my-projects/muscleworks/context/data-models.md) | **Canonical Data Schemas.** Zod validation schemas, TypeScript interfaces, Nepal phone number regex (`+977-98...`), integer NPR pricing, authenticity metadata, and honeypot field (`hp_field`). |
-| **8** | [`context/file-map.md`](file:///c:/nooridigital_assets/my-projects/muscleworks/context/file-map.md) | **Canonical Directory Layout.** File locations, module responsibilities, strict `src/` directory convention, path aliases (`@/*`, `@/data/*`, `@/content/*`), and import rules. |
-| **9** | [`context/coding-standards.md`](file:///c:/nooridigital_assets/my-projects/muscleworks/context/coding-standards.md) | **Engineering Standards.** Mobile-first Tailwind v4 classes, CVA component variants, touch targets (≥44px, ≥48px for conversion CTAs), zero `any` policy, Next.js 16 async params, and WCAG AA accessibility. |
-| **10** | [`context/feature-specs/README.md`](file:///c:/nooridigital_assets/my-projects/muscleworks/context/feature-specs/README.md) | **Feature Specifications Guide.** Mandatory template and approval workflow for authoring technical implementation specs for complex features before writing code. |
+| **1** | [`context/progress-tracker.md`](context/progress-tracker.md) | **READ FIRST ON EVERY TURN.** Real-time project state, active sub-phase, next-up goals, and session notes. Update after completing any unit of work. |
+| **2** | [`context/ai-workflow.md`](context/ai-workflow.md) | **Operating Workflow Manual.** Document authority hierarchy, discrepancy resolutions, protected invariants, and the 4-step progress synchronization protocol. |
+| **3** | [`context/feature-roadmap.md`](context/feature-roadmap.md) | **Implementation Blueprint.** 8-Phase sequential milestone architecture broken down into 31 atomic, bite-sized sub-phases (0.1–7.4) with file targets and verification checklists. |
+| **4** | [`context/project-overview.md`](context/project-overview.md) | **Business Context & Non-Goals.** Brand identity, single physical store at **Golfutar, Budha-Nilkantha, Kathmandu (44500)**, customer concerns, authenticity guarantees, and V1 non-goals. |
+| **5** | [`context/project-tech-stacks.md`](context/project-tech-stacks.md) | **Locked Tech Stack.** Next.js 16.3.0, React 19.2.8, Tailwind CSS v4, Radix UI primitives, Lucide React, Zod, Resend, Telegram Bot API, Upstash rate limiting, and banned packages. |
+| **6** | [`context/project-architecture.md`](context/project-architecture.md) | **System Architecture.** Full Static Site Generation (SSG, 0ms TTFB), Server vs. Client component boundaries, WhatsApp URL engine, Server Action pipeline, SEO schemas, and `src/proxy.ts`. |
+| **7** | [`context/data-models.md`](context/data-models.md) | **Canonical Data Schemas.** Zod validation schemas, TypeScript interfaces, Nepal phone number regex (`+977-98...`), integer NPR pricing, authenticity metadata, and honeypot field (`hp_field`). |
+| **8** | [`context/file-map.md`](context/file-map.md) | **Canonical Directory Layout.** File locations, module responsibilities, strict `src/` directory convention, path aliases (`@/*`, `@/data/*`, `@/content/*`), and import rules. |
+| **9** | [`context/coding-standards.md`](context/coding-standards.md) | **Engineering Standards.** Mobile-first Tailwind v4 classes, CVA component variants, touch targets (≥44px, ≥48px for conversion CTAs), zero `any` policy, Next.js 16 async params, and WCAG AA accessibility. |
+| **10** | [`context/feature-specs/README.md`](context/feature-specs/README.md) | **Feature Specifications Guide.** Mandatory template and approval workflow for authoring technical implementation specs for complex features before writing code. |
 
 ---
 
 ## Core Execution Rules for AI Agents
 
 1. **Strict Sub-Phase Scoping:**
-   - Work on **strictly ONE atomic sub-phase at a time** as defined in [`context/feature-roadmap.md`](file:///c:/nooridigital_assets/my-projects/muscleworks/context/feature-roadmap.md).
+   - Work on **strictly ONE atomic sub-phase at a time** as defined in [`context/feature-roadmap.md`](context/feature-roadmap.md).
    - Touch only the 2–4 target files declared in that sub-phase.
 2. **Mandatory 4-Step Progress Protocol:**
-   - **Pre-Flight:** Read [`context/progress-tracker.md`](file:///c:/nooridigital_assets/my-projects/muscleworks/context/progress-tracker.md), mark active sub-phase as `[IN PROGRESS]`, and announce targets to user.
-   - **Scoped Implementation:** Implement files adhering to [`context/file-map.md`](file:///c:/nooridigital_assets/my-projects/muscleworks/context/file-map.md) and [`context/coding-standards.md`](file:///c:/nooridigital_assets/my-projects/muscleworks/context/coding-standards.md).
+   - **Pre-Flight:** Read [`context/progress-tracker.md`](context/progress-tracker.md), mark active sub-phase as `[IN PROGRESS]`, and announce targets to user.
+   - **Scoped Implementation:** Implement files adhering to [`context/file-map.md`](context/file-map.md) and [`context/coding-standards.md`](context/coding-standards.md).
    - **Verification Gate:** Run `npx tsc --noEmit`, verify mobile touch targets (≥44px/48px), and fix any lints.
-   - **Post-Flight Hand-off:** Mark `[x]` in [`context/progress-tracker.md`](file:///c:/nooridigital_assets/my-projects/muscleworks/context/progress-tracker.md) and [`context/feature-roadmap.md`](file:///c:/nooridigital_assets/my-projects/muscleworks/context/feature-roadmap.md), log notes, promote next sub-phase to `[NEXT UP]`, and stop.
+   - **Post-Flight Hand-off:** Mark `[x]` in [`context/progress-tracker.md`](context/progress-tracker.md) and [`context/feature-roadmap.md`](context/feature-roadmap.md), log notes, promote next sub-phase to `[NEXT UP]`, and stop.
 3. **Next.js 16 Breaking Invariants:**
    - In all pages and layouts, `params` and `searchParams` are Promises: **must `await params`**.
    - Network proxying and headers use `src/proxy.ts` (not `middleware.ts`).

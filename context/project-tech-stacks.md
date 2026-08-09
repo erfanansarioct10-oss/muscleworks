@@ -68,7 +68,7 @@
 | **Client/Server Form Validation** | `@hookform/resolvers/zod` + `zod` | Identical Zod schema applied on both client form submission and Server Action execution. |
 | **Server Actions** | Next.js Native Server Actions | Direct server execution for inquiry submissions, rate limiting, and notification dispatch without public REST endpoint exposure. |
 | **Spam Protection (Honeypot)** | Custom Honeypot Field + Timestamp Validation | Hidden anti-bot trap fields and minimum submission time checks to stop automated bot submissions without annoying user CAPTCHAs. |
-| **Rate Limiting** | `@upstash/ratelimit: ^2.x` + `@upstash/redis: ^1.x` | IP-based sliding window rate limiter (e.g., max 5 inquiries per hour per IP) to prevent spam attacks and email flood. Graceful in-memory fallback if Redis credentials are not configured. |
+| **Rate Limiting** | `@upstash/ratelimit: ^2.x` + `@upstash/redis: ^1.x` | IP-based sliding window rate limiter (max 5 inquiries per 60 minutes per IP) to prevent spam attacks and email flood. In local development (`NODE_ENV === 'development'`), falls back to an in-memory cache if Redis credentials are not configured; in production, requires valid Upstash credentials and fails closed. |
 | **Input Sanitization** | `validator: ^13.x` / custom sanitizers | Strict sanitization of all inquiry inputs before email and Telegram dispatch to prevent HTML/XSS injection. |
 
 ---

@@ -12,7 +12,7 @@
 
 Every line of code written in the MuscleWorks Supplements codebase must strictly adhere to these five foundational pillars:
 
-```
+```text
 ┌─────────────────────────────────────────────────────────────────────────┐
 │                    FIVE CORE ENGINEERING PILLARS                        │
 ├───────────────────┬───────────────────┬─────────────────────────────────┤
@@ -132,7 +132,7 @@ function handleData(payload: any) {
 }
 
 // ✅ MANDATORY STANDARD
-import { ProductSchema, type Product } from '@/lib/schemas/product.schema';
+import { ProductSchema, type Product } from '@/lib/validations/product';
 
 function handleData(rawPayload: unknown): Product {
   const result = ProductSchema.safeParse(rawPayload);
@@ -145,28 +145,51 @@ function handleData(rawPayload: unknown): Product {
 
 ### 3.3 Single Source of Truth via `z.infer`
 
-Never write manual TypeScript interfaces for entities that have Zod schemas. Always infer types directly:
+Never write manual TypeScript interfaces for entities that have Zod schemas. Always infer types directly from canonical Zod validation schemas:
 
 ```typescript
-// src/lib/schemas/product.schema.ts
+// src/lib/validations/product.ts
 import { z } from 'zod';
+import {
+  NutritionFactsSchema,
+  AuthenticityMetadataSchema,
+  ImageAssetSchema,
+  ProductVariantSchema,
+  ProductBadgeEnum,
+  FAQItemSchema,
+  SEOMetadataSchema,
+} from './common';
 
 export const ProductSchema = z.object({
   id: z.string().min(1),
-  name: z.string().min(1),
-  slug: z.string().min(1),
+  slug: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, 'Invalid URL slug format'),
+  name: z.string().min(2).max(120),
   brandId: z.string().min(1),
   categoryId: z.string().min(1),
-  shortDescription: z.string(),
-  fullDescription: z.string(),
-  images: z.array(z.string().url()).min(1),
+  shortDescription: z.string().min(20).max(300),
+  fullDescription: z.string().min(50),
+  highlights: z.array(z.string().min(3)).min(1).max(10),
+  ingredients: z.string().min(5),
+  directions: z.string().min(5),
+  nutritionFacts: NutritionFactsSchema,
+  authenticity: AuthenticityMetadataSchema,
+  images: z.array(ImageAssetSchema).min(1),
+  defaultVariantId: z.string().min(1),
   variants: z.array(ProductVariantSchema).min(1),
-  featured: z.boolean().default(false),
-  inStock: z.boolean().default(true),
-  tags: z.array(z.string()),
-  nutritionHighlights: z.array(z.string()).optional(),
-  authenticityGuaranteed: z.boolean().default(true),
-});
+  tags: z.array(z.string()).default([]),
+  badges: z.array(ProductBadgeEnum).default([]),
+  isFeatured: z.boolean().default(false),
+  faqs: z.array(FAQItemSchema).default([]),
+  seo: SEOMetadataSchema,
+  createdAt: z.string().datetime().optional(),
+  updatedAt: z.string().datetime().optional(),
+}).refine(
+  (data) => data.variants.some((v) => v.id === data.defaultVariantId),
+  {
+    message: 'defaultVariantId must match an existing variant id in the variants array',
+    path: ['defaultVariantId'],
+  }
+);
 
 // ✅ Inferred Canonical TypeScript Type
 export type Product = z.infer<typeof ProductSchema>;
@@ -260,7 +283,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
 - Never place `'use client'` at the top of a page route or layout file.
 - Keep Client Component bundles minimal: only import the state, event listeners, and hooks necessary for that specific widget.
 
-```
+```text
 Component Tree Architecture:
 ┌─────────────────────────────────────────────────────────┐
 │ Page (Server Component)                                 │
@@ -334,7 +357,7 @@ const headingFont = Outfit({
 
 MuscleWorks Supplements utilizes a high-energy, athletic design system with a dark-mode-first aesthetic (commanding charcoal/slate foundations accented by electric gym crimson, performance gold, and verified emerald).
 
-Defined in `src/styles/globals.css` using Tailwind CSS v4 `@theme`:
+Defined in `src/app/globals.css` using Tailwind CSS v4 `@theme`:
 
 ```css
 @import "tailwindcss";
@@ -458,27 +481,28 @@ All Next.js Server Actions must return a typed, predictable result object. Never
 
 ```typescript
 // src/types/actions.ts
-export type ActionResult<T = unknown> = {
+export interface ActionResult<T = unknown> {
   success: boolean;
-  data?: T;
+  message?: string;
   error?: string;
   fieldErrors?: Record<string, string[]>;
-};
+  data?: T;
+}
 ```
 
 ### 6.2 Server Action Defense-in-Depth Pipeline
 
 Every mutating Server Action (such as inquiry submission or contact request) must execute this sequential defense pipeline:
 
-```
+```text
 ┌────────────────────────────────────────────────────────┐
 │             SERVER ACTION DEFENSE PIPELINE             │
 ├────────────────────────────────────────────────────────┤
 │ 1. Rate Limiting Check (Upstash Redis / In-Memory)     │
-│    └── Rejects IP if >5 requests / hour                │
+│    └── Rejects IP if >5 requests / 60 minutes          │
 ├────────────────────────────────────────────────────────┤
 │ 2. Anti-Bot Honeypot & Timestamp Check                 │
-│    ├── Hidden field (_hp_company) must be EMPTY        │
+│    ├── Hidden field (hp_field) must be EMPTY           │
 │    └── Form completion time must be >= 2.0 seconds     │
 ├────────────────────────────────────────────────────────┤
 │ 3. Zod Input Schema Validation                         │
@@ -496,16 +520,16 @@ Every mutating Server Action (such as inquiry submission or contact request) mus
 ### 6.3 Canonical Server Action Implementation
 
 ```typescript
-// src/app/actions/inquiry-actions.ts
+// src/actions/inquiry.ts
 'use server';
 
 import { headers } from 'next/headers';
-import { InquiryFormSchema, type InquiryFormValues } from '@/lib/schemas/inquiry.schema';
+import { InquiryFormClientSchema, type InquiryFormClientValues } from '@/lib/validations/inquiry';
 import { checkRateLimit } from '@/lib/security/rate-limiter';
 import { verifyHoneypot } from '@/lib/security/honeypot';
 import { sendCustomerInquiryEmail, sendAdminInquiryAlert } from '@/lib/email/resend-service';
 import { sendTelegramAlert } from '@/lib/telegram/bot';
-import { ActionResult } from '@/types/actions';
+import type { ActionResult } from '@/types/actions';
 
 export async function submitInquiryAction(
   formData: unknown
@@ -531,7 +555,7 @@ export async function submitInquiryAction(
     }
 
     // 3. Zod Schema Validation
-    const validationResult = InquiryFormSchema.safeParse(formData);
+    const validationResult = InquiryFormClientSchema.safeParse(formData);
     if (!validationResult.success) {
       const fieldErrors = validationResult.error.flatten().fieldErrors;
       return {
@@ -569,7 +593,7 @@ export async function submitInquiryAction(
 
 ### 6.4 Error Boundaries & Not-Found Standards
 
-- **`src/app/not-found.tsx`**: Renders an athletic branded 404 page with direct links to `/catalog`, `/categories`, and home.
+- **`src/app/not-found.tsx`**: Renders an athletic branded 404 page with direct links to `/products`, `/categories`, and home.
 - **`src/app/error.tsx`**: Client Component error boundary catching unhandled rendering crashes with a "Try Again" recovery trigger.
 - **`src/app/global-error.tsx`**: Minimal HTML fallback for root layout failures.
 
