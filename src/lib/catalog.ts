@@ -147,17 +147,23 @@ export function filterAndSortProducts(
   // 7. Text Search Query Filter
   if (options.search && options.search.trim()) {
     const query = options.search.trim().toLowerCase();
+    const queryTokens = query.split(/\s+/).filter(Boolean);
+
     result = result.filter((p) => {
       const brandObj = brands.find((b) => b.id === p.brandId);
       const brandName = brandObj ? brandObj.name.toLowerCase() : p.brandId.toLowerCase();
       const catObj = categories.find((c) => c.id === p.categoryId);
       const catName = catObj ? catObj.name.toLowerCase() : p.categoryId.toLowerCase();
+      const flavors = p.variants.map((v) => v.flavor || '').join(' ').toLowerCase();
 
-      const targetText = `${p.name} ${brandName} ${catName} ${p.shortDescription} ${p.tags.join(
+      const targetText = `${p.name} ${brandName} ${catName} ${flavors} ${p.shortDescription} ${p.tags.join(
         ' '
       )}`.toLowerCase();
 
-      return targetText.includes(query);
+      return (
+        targetText.includes(query) ||
+        queryTokens.every((token) => targetText.includes(token))
+      );
     });
   }
 

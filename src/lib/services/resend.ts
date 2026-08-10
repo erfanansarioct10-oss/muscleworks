@@ -81,7 +81,7 @@ export async function sendInquiryEmails(
       const adminHtml = await render(adminEmailComponent);
 
       console.log('\n--- [RESEND DEV LOG: CUSTOMER CONFIRMATION EMAIL] ---');
-      console.log(`To: ${payload.email || 'No email provided'}`);
+      console.log(`Customer Email Supplied: ${payload.email ? 'Yes' : 'No'}`);
       console.log(`Length: ${customerHtml.length} chars rendered`);
       console.log('-----------------------------------------------------\n');
 

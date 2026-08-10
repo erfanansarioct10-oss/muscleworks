@@ -103,17 +103,23 @@ export function BrandFilter({
             return (
               <label
                 key={brand.id}
-                onClick={() => onToggleBrand?.(brand.slug)}
                 className="flex items-center justify-between py-1.5 px-2 rounded-md hover:bg-neutral-50 cursor-pointer min-h-11 touch-manipulation group"
               >
                 <div className="flex items-center gap-2.5 min-w-0 pr-2">
+                  <input
+                    type="checkbox"
+                    checked={isChecked}
+                    onChange={() => onToggleBrand?.(brand.slug)}
+                    className="sr-only"
+                  />
                   <div
                     className={cn(
-                      'flex h-4 w-4 shrink-0 items-center justify-center rounded-sm border transition-colors',
+                      'flex h-4 w-4 shrink-0 items-center justify-center rounded-sm border transition-colors group-focus-within:ring-2 group-focus-within:ring-neutral-900 group-focus-within:ring-offset-1',
                       isChecked
                         ? 'border-neutral-900 bg-neutral-900 text-white'
                         : 'border-neutral-300 bg-white group-hover:border-neutral-400'
                     )}
+                    aria-hidden="true"
                   >
                     {isChecked && <Check className="h-3 w-3" />}
                   </div>

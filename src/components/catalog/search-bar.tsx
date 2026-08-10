@@ -34,33 +34,45 @@ export function SearchBar({
 
   // Debounced search effect
   React.useEffect(() => {
+    let cancelled = false;
     const trimmed = query.trim();
     if (!trimmed) {
       const timer = setTimeout(() => {
+        if (cancelled) return;
         setResults([]);
         setIsLoading(false);
         setIsOpen(false);
       }, 0);
-      return () => clearTimeout(timer);
+      return () => {
+        cancelled = true;
+        clearTimeout(timer);
+      };
     }
 
     const timer = setTimeout(async () => {
       setIsLoading(true);
       try {
         const searchRes = await searchProducts(trimmed, 6);
+        if (cancelled) return;
         setResults(searchRes);
         setSelectedIndex(-1);
         setIsOpen(true);
       } catch (err) {
+        if (cancelled) return;
         console.error("Search error:", err);
         setResults([]);
         setSelectedIndex(-1);
       } finally {
-        setIsLoading(false);
+        if (!cancelled) {
+          setIsLoading(false);
+        }
       }
     }, 150);
 
-    return () => clearTimeout(timer);
+    return () => {
+      cancelled = true;
+      clearTimeout(timer);
+    };
   }, [query]);
 
   // Close dropdown on click outside

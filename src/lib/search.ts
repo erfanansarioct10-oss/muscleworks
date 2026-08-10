@@ -70,8 +70,8 @@ export async function getSearchIndex(): Promise<Fuse<SearchableProductItem>> {
       flavorList,
       tags: product.tags,
       highlights: product.highlights,
-      priceNpr: defaultVariant.priceNpr,
-      discountPriceNpr: defaultVariant.discountPriceNpr,
+      priceNpr: defaultVariant?.priceNpr ?? 0,
+      discountPriceNpr: defaultVariant?.discountPriceNpr,
       product,
     };
   });

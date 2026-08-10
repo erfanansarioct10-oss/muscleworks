@@ -104,31 +104,43 @@ export function SearchModal({
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isOpen, handleOpenChange]);
 
-  // Debounced search query
+  // 3. Perform Fuse.js search query whenever input changes
   React.useEffect(() => {
+    let cancelled = false;
     const trimmed = query.trim();
     if (!trimmed) {
       const timer = setTimeout(() => {
+        if (cancelled) return;
         setResults([]);
         setIsLoading(false);
       }, 0);
-      return () => clearTimeout(timer);
+      return () => {
+        cancelled = true;
+        clearTimeout(timer);
+      };
     }
 
     const timer = setTimeout(async () => {
       setIsLoading(true);
       try {
         const res = await searchProducts(trimmed, 8);
+        if (cancelled) return;
         setResults(res);
       } catch (err) {
+        if (cancelled) return;
         console.error("Search modal query error:", err);
         setResults([]);
       } finally {
-        setIsLoading(false);
+        if (!cancelled) {
+          setIsLoading(false);
+        }
       }
     }, 150);
 
-    return () => clearTimeout(timer);
+    return () => {
+      cancelled = true;
+      clearTimeout(timer);
+    };
   }, [query]);
 
   const handleSelectRecentSearch = (term: string) => {

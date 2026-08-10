@@ -255,7 +255,7 @@ export default async function LocationPage() {
                   <div className="flex items-start gap-2">
                     <CheckCircle2 className="h-4 w-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
                     <span>
-                      <strong className="text-foreground">Free Valley Delivery:</strong> On all orders above NPR 10,000 within Kathmandu Valley.
+                      <strong className="text-foreground">Free Valley Delivery:</strong> On all orders above NPR 5,000 within Kathmandu Valley.
                     </span>
                   </div>
                 </div>

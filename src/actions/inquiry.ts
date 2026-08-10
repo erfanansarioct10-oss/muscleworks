@@ -109,16 +109,36 @@ export async function submitInquiryAction(
       sendInquiryEmails(emailPayload),
     ]);
 
+    const telegramSuccess =
+      telegramResult.status === 'fulfilled' && telegramResult.value.success;
+    const emailSuccess =
+      emailResult.status === 'fulfilled' &&
+      (emailResult.value.customerEmailSent || emailResult.value.adminEmailSent);
+
     // Log dispatch diagnostics on server if any channel failed
-    if (telegramResult.status === 'rejected' || (telegramResult.status === 'fulfilled' && !telegramResult.value.success)) {
-      const errReason = telegramResult.status === 'rejected' ? telegramResult.reason : telegramResult.value.error;
+    if (!telegramSuccess) {
+      const errReason =
+        telegramResult.status === 'rejected'
+          ? telegramResult.reason
+          : telegramResult.value.error;
       console.warn(`[Inquiry Action Warning] Telegram dispatch issue for ${inquiryId}:`, errReason);
     }
 
-    if (emailResult.status === 'rejected') {
-      console.warn(`[Inquiry Action Warning] Email dispatch rejected for ${inquiryId}:`, emailResult.reason);
-    } else if (emailResult.status === 'fulfilled' && emailResult.value.errors.length > 0) {
-      console.warn(`[Inquiry Action Warning] Email dispatch errors for ${inquiryId}:`, emailResult.value.errors);
+    if (!emailSuccess) {
+      if (emailResult.status === 'rejected') {
+        console.warn(`[Inquiry Action Warning] Email dispatch rejected for ${inquiryId}:`, emailResult.reason);
+      } else if (emailResult.status === 'fulfilled' && emailResult.value.errors.length > 0) {
+        console.warn(`[Inquiry Action Warning] Email dispatch errors for ${inquiryId}:`, emailResult.value.errors);
+      }
+    }
+
+    // If both notification channels failed, notify user to retry or use WhatsApp
+    if (!telegramSuccess && !emailSuccess) {
+      return {
+        success: false,
+        error:
+          'We could not transmit your inquiry at this moment due to a network delivery issue. Please try again or contact us directly on WhatsApp.',
+      };
     }
 
     // 7. Standardized ActionResult Return Envelope

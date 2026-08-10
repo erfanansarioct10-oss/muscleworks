@@ -36,7 +36,10 @@ async function runValidation() {
     escaped.includes('\\*World\\*') && escaped.includes('\\[Link\\]') && escaped.includes('\\_test\\_'),
     'Escapes asterisks, brackets, and underscores'
   );
-  assert(escaped.includes('\\.') && escaped.includes('\\!') && escaped.includes('\\+1'), 'Escapes dots, exclamations, and plus signs');
+  assert(
+    escaped.includes('\\.') && escaped.includes('\\!') && escaped.includes('\\+1') && escaped.includes('\\-2'),
+    'Escapes dots, exclamations, plus signs, and hyphens'
+  );
 
   // TEST GROUP 2: Telegram Message Formatting
   console.log('\n▶ Test Group 2: Telegram Message Payload Formatting');

@@ -32,9 +32,9 @@ export interface ProductAuthenticityBadgeProps
 export function ProductAuthenticityBadge({
   className,
   variant = 'default',
-  importerName = 'Authorized Importer Nepal',
-  trustLabel = '100% Genuine Importer Seal',
-  verificationMethod = 'Scratch Code & Official Importer Sticker',
+  importerName,
+  trustLabel = '100% Genuine Seal',
+  verificationMethod,
   ...props
 }: ProductAuthenticityBadgeProps) {
   if (variant === 'card') {
@@ -52,9 +52,11 @@ export function ProductAuthenticityBadge({
               {trustLabel}
               <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
             </h4>
-            <p className="text-xs text-amber-400/90 font-medium">
-              Verified Source • {importerName}
-            </p>
+            {importerName && (
+              <p className="text-xs text-amber-400/90 font-medium">
+                Verified Source • {importerName}
+              </p>
+            )}
           </div>
         </div>
 
@@ -63,9 +65,11 @@ export function ProductAuthenticityBadge({
             <Award className="w-3.5 h-3.5 text-amber-400 shrink-0" />
             <span>Official MRP sticker with batch testing certificate</span>
           </div>
-          <p className="text-[11px] text-neutral-400 pl-5 leading-relaxed">
-            Method: {verificationMethod}
-          </p>
+          {verificationMethod && (
+            <p className="text-[11px] text-neutral-400 pl-5 leading-relaxed">
+              Method: {verificationMethod}
+            </p>
+          )}
         </div>
       </div>
     );

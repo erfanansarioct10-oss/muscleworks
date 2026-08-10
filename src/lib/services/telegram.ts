@@ -26,7 +26,7 @@ export interface TelegramInquiryAlertPayload {
  */
 export function escapeMarkdownV2(text: string): string {
   if (!text) return '';
-  return text.replace(/[_*[\]()~`>#+=|{}.!\\]/g, '\\$&');
+  return text.replace(/[-_*[\]()~`>#+=|{}.!\\]/g, '\\$&');
 }
 
 /**
@@ -100,6 +100,7 @@ export async function sendTelegramAlert(
       headers: {
         'Content-Type': 'application/json',
       },
+      signal: AbortSignal.timeout(8000),
       body: JSON.stringify({
         chat_id: chatId,
         text: markdownMsg,

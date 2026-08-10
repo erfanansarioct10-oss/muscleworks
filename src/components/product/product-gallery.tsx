@@ -100,13 +100,15 @@ export function ProductGallery({
         />
 
         {/* Top-Left Authentic Importer Hologram Seal Badge */}
-        <div className="absolute left-3 top-3 z-10">
-          <ProductAuthenticityBadge
-            variant="compact"
-            trustLabel={authenticity?.trustBadgeLabel || '100% Genuine Seal'}
-            importerName={authenticity?.importerOrSource}
-          />
-        </div>
+        {authenticity?.isAuthenticGuarantee && (
+          <div className="absolute left-3 top-3 z-10">
+            <ProductAuthenticityBadge
+              variant="compact"
+              trustLabel={authenticity?.trustBadgeLabel || '100% Genuine Seal'}
+              importerName={authenticity?.importerOrSource}
+            />
+          </div>
+        )}
 
         {/* Top-Right Lightbox Zoom Trigger Button */}
         <button

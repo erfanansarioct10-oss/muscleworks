@@ -112,6 +112,26 @@ async function runValidation() {
   if (searchResults.length === 0) throw new Error('searchProductsInMemory("creatine") failed');
   console.log(`✅ searchProductsInMemory("creatine"): ${searchResults.length} matches found.`);
 
+  // Uniqueness Validation Check
+  function assertUnique<T>(items: T[], keyFn: (item: T) => string, label: string) {
+    const seen = new Set<string>();
+    for (const item of items) {
+      const key = keyFn(item);
+      if (seen.has(key)) {
+        throw new Error(`Duplicate ${label} found: ${key}`);
+      }
+      seen.add(key);
+    }
+  }
+
+  assertUnique(categories, (c) => c.id, 'category ID');
+  assertUnique(categories, (c) => c.slug, 'category slug');
+  assertUnique(brands, (b) => b.id, 'brand ID');
+  assertUnique(brands, (b) => b.slug, 'brand slug');
+  assertUnique(products, (p) => p.id, 'product ID');
+  assertUnique(products, (p) => p.slug, 'product slug');
+  console.log('✅ Uniqueness check: All category, brand, and product IDs and slugs are 100% unique.');
+
   console.log('\n🎉 ALL CATALOG DATA ACCESSOR TESTS PASSED CLEANLY!\n');
 }
 

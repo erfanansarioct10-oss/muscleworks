@@ -42,15 +42,13 @@ export function Header() {
           {/* Catalog Search Trigger Button */}
           <SearchModal>
             <Button
-              asChild
+              type="button"
               variant="ghost"
               size="icon"
               className="text-muted-foreground hover:text-foreground min-h-11 min-w-11"
               aria-label="Search supplement catalog"
             >
-              <Link href="/products">
-                <Search className="h-5 w-5" />
-              </Link>
+              <Search className="h-5 w-5" />
             </Button>
           </SearchModal>
 

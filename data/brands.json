@@ -250,5 +250,55 @@
         "scivation nepal"
       ]
     }
+  },
+  {
+    "id": "brand_insane_labz",
+    "slug": "insane-labz",
+    "name": "Insane Labz",
+    "logo": {
+      "url": "/images/brands/insane-labz.webp",
+      "alt": "Insane Labz Logo",
+      "isPrimary": true
+    },
+    "countryOfOrigin": "United States (USA)",
+    "officialDistributorInfo": "Imported by authorized Nepal sports nutrition importers.",
+    "verificationGuide": "Features manufacturer batch code, authentic neck seal, and importer security verification sticker.",
+    "description": "Insane Labz is renowned worldwide for high-potency, extreme pre-workout formulas like Psychotic Gold, engineered for intense energy and focus.",
+    "websiteUrl": "https://insanelabz.com",
+    "isFeatured": false,
+    "seo": {
+      "metaTitle": "Insane Labz Psychotic Gold in Nepal | MuscleWorks",
+      "metaDescription": "Buy authentic Insane Labz Psychotic Gold Pre-Workout in Nepal. High-energy formulas at MuscleWorks Golfutar.",
+      "keywords": [
+        "insane labz nepal",
+        "psychotic gold price kathmandu",
+        "insane labz pre workout nepal"
+      ]
+    }
+  },
+  {
+    "id": "brand_musclepharm",
+    "slug": "musclepharm",
+    "name": "MusclePharm",
+    "logo": {
+      "url": "/images/brands/musclepharm.webp",
+      "alt": "MusclePharm Logo",
+      "isPrimary": true
+    },
+    "countryOfOrigin": "United States (USA)",
+    "officialDistributorInfo": "Imported by authorized Nepal supplement distributors.",
+    "verificationGuide": "Features official importer sticker and sealed bottle security band.",
+    "description": "MusclePharm creates award-winning, athlete-tested wellness and sports nutrition products including Combat Protein and Essentials Fish Oil.",
+    "websiteUrl": "https://musclepharm.com",
+    "isFeatured": false,
+    "seo": {
+      "metaTitle": "MusclePharm Supplements in Nepal | MuscleWorks",
+      "metaDescription": "Shop genuine MusclePharm Essentials Fish Oil & Combat Protein in Nepal. Direct USA imports at MuscleWorks Golfutar.",
+      "keywords": [
+        "musclepharm nepal",
+        "musclepharm fish oil price kathmandu",
+        "musclepharm kathmandu"
+      ]
+    }
   }
 ]
