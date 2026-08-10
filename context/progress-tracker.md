@@ -1,37 +1,66 @@
 # Progress Tracker
  
-> **Active Phase:** Phase 2 — Static Datasets & Typed Data Access Layer  
-> **Next Sub-Phase:** `2.3` (Supplementary Datasets: `data/store-info.json`, `faqs.json`) — **[NEXT UP]**  
-> **Last Verified:** 2026-08-09 (`tsc --noEmit` — 0 errors)
+> **Active Phase:** Phase 5 — Lead Forms, Server Actions & Notifications Pipeline  
+> **Next Sub-Phase:** `5.1` (Anti-Spam Security & Rate Limiting Infrastructure: `src/lib/services/ratelimit.ts`, `src/lib/services/security.ts`) — **[NEXT UP]**  
+> **Last Verified:** 2026-08-10 (`tsc --noEmit` — 0 errors, `npm run build` — 0 errors)
 
 ---
 
-## 1. Active Phase Status: Phase 2 (2/5 Complete)
+## 1. Active Phase Status: Phase 4 (4/4 Complete — Phase 4 Complete!)
 
-- [x] **2.1** Zod Schemas & Domain Type Definitions (`src/lib/validations/common.ts`, `product.ts`, `inquiry.ts`, `store.ts`)
-- [x] **2.2** Canonical JSON Datasets (`data/products.json`, `categories.json`, `brands.json`)
-- [ ] **2.3** Supplementary Datasets (`data/store-info.json`, `faqs.json`)
-- [ ] **2.4** Catalog Data Accessor Layer (`src/lib/data/products.ts`, `categories.ts`, `brands.ts`)
-- [ ] **2.5** Store, FAQ & Content Accessor Layer (`src/lib/data/store.ts`, `faqs.ts`, `guides.ts`)
+- [x] **4.1** WhatsApp URL Engine & Analytics Tracker (`src/lib/whatsapp.ts`, `src/lib/analytics.ts`)
+- [x] **4.2** Product Gallery & Interactive Variant Selectors (`src/components/product/product-gallery.tsx`, `product-variant-selector.tsx`, `product-stock-status.tsx`)
+- [x] **4.3** Product Specifications, Nutrition Facts & Trust Elements (`src/components/product/product-specs.tsx`, `nutrition-table.tsx`, `authenticity-guarantee-box.tsx`, `related-products.tsx`)
+- [x] **4.4** Product Detail Route & Mobile Sticky Action Bar (`src/app/products/[slug]/page.tsx`, `src/components/product/product-sticky-bar.tsx`)
 
 ---
 
-## 2. High-Level Phase Overview (2/8 Complete)
+## 2. High-Level Phase Overview (5/8 Complete)
 
 | Phase | Milestone | Sub-Phases | Status |
 |:---:|---|:---:|:---:|
 | **0** | Project Setup & Tooling | 4/4 | **Complete** |
 | **1** | Design System & UI Primitives | 5/5 | **Complete** |
-| **2** | Static Datasets & Data Accessors | 1/5 | **[IN PROGRESS]** |
-| **3** | Catalog, Search & Filtering | 0/6 | Pending |
-| **4** | Product Detail & WhatsApp Engine | 0/4 | Pending |
-| **5** | Lead Forms & Notifications | 0/5 | Pending |
+| **2** | Static Datasets & Data Accessors | 5/5 | **Complete** |
+| **3** | Catalog, Search & Filtering | 6/6 | **Complete** |
+| **4** | Product Detail & WhatsApp Engine | 4/4 | **Complete** |
+| **5** | Lead Forms & Notifications | 0/5 | **[IN PROGRESS]** |
 | **6** | Trust, Educational & Legal Pages | 0/5 | Pending |
 | **7** | SEO, Performance & Launch Hardening | 0/4 | Pending |
 
 ---
 
 ## 3. Session Change Log
+
+- **2026-08-10 (Sub-Phase 4.4):** Implemented Product Detail Page SSG Route (`src/app/products/[slug]/page.tsx`), Interactive State Orchestrator Client Shell (`src/components/product/product-detail-view.tsx`), and Mobile Sticky Action Bar (`src/components/product/product-sticky-bar.tsx`). Implemented `generateStaticParams()` SSG pre-rendering across all 15 product slugs. Implemented dynamic SEO metadata generator (`generateMetadata`) with OpenGraph tags, product images, and NPR pricing. Injected Schema.org `Product` & `Offer` JSON-LD structured data with physical Golfutar Kathmandu store location metadata. Built `ProductDetailView` managing flavor/size variant state with 100% real-time synchronization across gallery previews, pricing, stock badges, hero WhatsApp CTA, tabbed specifications, and sticky bar. Built `ProductStickyBar` pinned to bottom on mobile (`md:hidden`) with variant preview, active NPR price, and full-width WhatsApp CTA button (≥48px touch height). Authored [Spec 29](feature-specs/29-subphase-4.4-product-detail-route-sticky-bar.md). Verified cleanly with `npx tsc --noEmit` (0 errors) and `npm run build` (0 errors — 15 SSG product routes compiled). Phase 4 is 100% complete!
+
+- **2026-08-10 (Sub-Phase 4.3):** Implemented Product Specifications, Nutrition Facts & Trust Elements (`src/components/product/nutrition-table.tsx`, `src/components/product/authenticity-guarantee-box.tsx`, `src/components/product/product-specs.tsx`, `src/components/product/related-products.tsx`). Built `NutritionTable` with top macronutrient callout metric cards (Protein, Servings, Calories, BCAAs) and detailed micro-nutrients & daily values table. Built `AuthenticityGuaranteeBox` with 100% genuine importer hologram seal metadata, 3-step security scratch-code guide, money-back guarantee, and direct "Verify Authenticity via WhatsApp" CTA button. Built accessible tabbed container `ProductSpecs` organizing Nutrition & Highlights, Usage & Ingredients, and Authenticity Trust panels. Built `RelatedProducts` cross-selling recommendation engine rendering matching category/brand products with `ProductCard` previews and direct WhatsApp quick order actions. Authored [Spec 28](feature-specs/28-subphase-4.3-product-specs-nutrition-trust.md). Programmatically validated via `src/scripts/validate-pdp-specs-components.ts`. Verified cleanly with `npx tsc --noEmit` (0 errors) and `npm run build` (0 errors).
+
+- **2026-08-10 (Sub-Phase 4.2):** Implemented Product Display & Variant Component Suite (`src/components/product/product-stock-status.tsx`, `src/components/product/product-variant-selector.tsx`, `src/components/product/product-gallery.tsx`). Built multi-state inventory badge (`in_stock`, `low_stock`, `out_of_stock`, `pre_order`) with animated pulse indicators and Golfutar store availability messaging. Built interactive flavor chip pills and size/weight option cards displaying formatted NPR pricing, discount percentage badges, SKU, and out-of-stock disabled states with ≥44px touch targets. Built responsive product gallery with aspect-square main preview, authentic importer hologram badge overlay, horizontal thumbnail carousel, and Radix Dialog full-screen zoom Lightbox modal with image counter and navigation. Authored [Spec 27](feature-specs/27-subphase-4.2-product-gallery-variant-selector.md). Programmatically validated via `src/scripts/validate-pdp-components.ts`. Verified cleanly with `npx tsc --noEmit` (0 errors) and `npm run build` (0 errors).
+
+- **2026-08-10 (Sub-Phase 4.1):** Implemented WhatsApp URL Engine (`src/lib/whatsapp.ts`) and Client Analytics Tracker (`src/lib/analytics.ts`). Built `buildProductWhatsAppUrl` generating pre-filled, context-rich WhatsApp order links with product name, brand, flavor, size/weight, formatted NPR price, Kathmandu delivery target, and authenticity seal request. Built specialized WhatsApp helpers for general store inquiries, authenticity checks, stack consultations, and store visit directions (`buildGeneralWhatsAppUrl`, `buildAuthenticityInquiryWhatsAppUrl`, `buildStackConsultationWhatsAppUrl`, `buildStoreLocationWhatsAppUrl`). Built client-side analytics event tracker (`trackWhatsAppClick`, `trackProductView`, `trackSearchQuery`, `trackCategoryView`, `trackLeadSubmission`) supporting GA4 (`gtag`), Meta Pixel (`fbq`), and development console fallbacks. Authored [Spec 26](feature-specs/26-subphase-4.1-whatsapp-url-engine-analytics-tracker.md). Programmatically validated via `src/scripts/validate-whatsapp-analytics.ts` with 100% pass rate. Verified cleanly with `npx tsc --noEmit` (0 errors) and `npm run build` (0 errors).
+
+- **2026-08-10 (Sub-Phase 3.6):** Implemented Category & Brand Dynamic Archive Routes (`src/app/categories/page.tsx`, `src/app/categories/[slug]/page.tsx`, `src/app/brands/page.tsx`, `src/app/brands/[slug]/page.tsx`). Implemented `generateStaticParams()` SSG pre-rendering across 6 category slugs and 10 authorized brand slugs (25 static pages compiled at build time). Built category index cards grid, category hero header with trust pills, category FAQs, brand index cards grid with country flags (USA, UK) and official distributor info, brand hero banner, pre-filtered catalog containers, and `notFound()` 404 fallbacks. Authored [Spec 25](feature-specs/25-subphase-3.6-category-brand-archive-routes.md). Verified cleanly with `npx tsc --noEmit` (0 errors) and `npm run build` (0 errors). Phase 3 is 100% complete!
+
+
+- **2026-08-10 (Sub-Phase 3.5):** Implemented Products Catalog Hub Route (`src/app/products/page.tsx`), catalog filtering & sorting engine (`src/lib/catalog.ts`), catalog sort dropdown (`src/components/catalog/sort-select.tsx`), and responsive catalog layout container (`src/components/catalog/catalog-container.tsx`). Built Next.js 16 async Server Component page awaiting `searchParams`, dynamic SEO metadata generator (`generateMetadata`), breadcrumb navigation (`Home > Supplements Catalog`), category chips, sticky desktop filter sidebar (`lg:w-64`), mobile filter drawer trigger, active filter summary pills, and responsive product display grid with zero-match recovery UI. Authored [Spec 24](feature-specs/24-subphase-3.5-products-catalog-hub-route.md). Verified cleanly with `npx tsc --noEmit` (0 errors) and `npm run build` (0 errors).
+
+
+- **2026-08-10 (Sub-Phase 3.4):** Implemented mobile filter drawer and searchable brand facet suite (`src/components/catalog/brand-filter.tsx`, `src/components/catalog/mobile-filter-drawer.tsx`). Built `BrandFilter` component featuring instant text search filtering across authorized brands, country of origin badges (USA, UK), multi-select checkboxes, and product count pills. Built `MobileFilterDrawer` using Radix `Sheet` (`side="bottom"`, `max-h-[85vh]`) with staged filter local state, active filter counter badge, and sticky bottom "Apply Filters" CTA button (≥48px height) committing staged state to URL query parameters via `router.push(..., { scroll: false })`. Authored [Spec 23](feature-specs/23-subphase-3.4-mobile-filter-drawer-brand-facets.md). Verified cleanly with `npx tsc --noEmit`.
+
+- **2026-08-10 (Sub-Phase 3.3):** Implemented desktop multi-facet filtering UI and active filter state management suite (`src/components/catalog/catalog-filters.tsx`, `src/components/catalog/active-filters.tsx`, `src/components/catalog/category-chips.tsx`). Built multi-select category and fitness goal facets, dual NPR price range inputs (`minPrice`, `maxPrice`) with preset range pills (*Under 5k*, *5k-10k*, *10k-20k*, *Above 20k*), and in-stock toggle. Integrated URL query parameter synchronization using `useSearchParams` and `useRouter` with `{ scroll: false }`. Built `ActiveFilters` summary bar with removable badge pills (≥44px touch target) and "Clear All" action. Built `CategoryChips` horizontal scrollable quick-filter bar. Authored [Spec 22](feature-specs/22-subphase-3.3-desktop-filter-components-active-state.md). Verified cleanly with `npx tsc --noEmit`.
+
+
+
+- **2026-08-10 (Sub-Phase 3.2):** Implemented client-side Fuse.js fuzzy search engine and command palette UI (`src/lib/search.ts`, `src/components/catalog/search-bar.tsx`, `src/components/catalog/search-modal.tsx`). Configured multi-field index across product name (0.4), brand (0.25), category (0.2), flavor variants (0.1), and tags (0.05) with fuzzy threshold 0.3. Built debounced `SearchBar` dropdown preview and accessible `SearchModal` bound to global `Cmd+K` / `Ctrl+K` keypresses, storing up to 5 recent search terms in `localStorage`, popular category shortcuts when empty, and zero-match recovery UI. Integrated interactive `SearchModal` trigger into global `<Header />`. Authored [Spec 21](feature-specs/21-subphase-3.2-in-memory-fuzzy-search-engine.md). Verified cleanly with `npx tsc --noEmit`.
+
+- **2026-08-10 (Sub-Phase 3.1):** Implemented core product display component suite (`src/components/product/product-authenticity-badge.tsx`, `product-card.tsx`, `product-grid.tsx`). Built polymorphic CVA `ProductAuthenticityBadge` (`compact` overlay pill, `default` inline badge, `card` PDP trust box). Built interactive `ProductCard` with Next.js image optimization, brand tag, title, NPR price formatting with strikethrough original price & discount %, variant count chip (`4 Flavors • 2 Sizes`), stock status pill, full-card navigation link to `/products/[slug]`, and direct stop-propagation WhatsApp quick-order CTA button (≥48px touch target). Built responsive `ProductGrid` (2-col mobile, 3-col tablet, 4-col desktop) with `ProductGridSkeleton` loader and `ProductGridEmpty` zero-match state. Authored [Spec 20](feature-specs/20-subphase-3.1-product-display-components.md). Verified cleanly with `npx tsc --noEmit`.
+
+- **2026-08-10 (Sub-Phase 2.5):** Implemented typed store, FAQ, and educational guide accessor gateway layer (`src/lib/data/store.ts`, `faqs.ts`, `guides.ts`). Defined `GuideFrontmatterSchema` (`src/lib/validations/guide.ts`) and canonical guide dataset (`data/guides.json`). Built async accessors for store metadata (`getStoreInfo`, `getOpeningHours`, `getDeliveryPolicy`, `getTodayOpeningHours`, `isStoreOpenNow` in `Asia/Kathmandu`), FAQ query engine (`getFAQs`, `getFAQsByCategory`, `getFAQById`, `searchFAQs`, `getFeaturedFAQs`), and educational guide accessors (`getAllGuides`, `getGuideBySlug`, `getFeaturedGuides`, `getGuidesByCategory`, `getRelatedGuides`). Authored [Spec 19](feature-specs/19-subphase-2.5-store-faq-content-accessor-layer.md). Programmatically validated accessors via `src/scripts/validate-store-faq-guide-accessors.ts` with 100% pass rate. Verified cleanly with `npx tsc --noEmit`. Phase 2 is 100% complete.
+
+- **2026-08-10 (Sub-Phase 2.4):** Implemented typed catalog data accessor gateway layer (`src/lib/data/products.ts`, `categories.ts`, `brands.ts`). Validated runtime static datasets on module execution using Zod schemas (`ProductSchema`, `CategorySchema`, `BrandSchema`). Built async accessor functions for product retrieval (`getProducts`, `getProductBySlug`, `getFeaturedProducts`, `getProductsByCategory`, `getProductsByBrand`, `getRelatedProducts`, `searchProductsInMemory`), category taxonomy (`getCategories`, `getCategoryBySlug`, `getCategoryById`, `getFeaturedCategories`), and authorized brand profiles (`getBrands`, `getBrandBySlug`, `getBrandById`, `getFeaturedBrands`). Authored [Spec 18](feature-specs/18-subphase-2.4-catalog-data-accessor-layer.md). Programmatically validated accessors via `src/scripts/validate-catalog-accessors.ts` with 100% pass rate. Verified cleanly with `npx tsc --noEmit`.
+
+- **2026-08-10 (Sub-Phase 2.3):** Authored supplementary JSON datasets for `data/store-info.json` (Golfutar, Budha-Nilkantha, Kathmandu flagship outlet with exact coordinates, contact matrix, Saturday unspecified hours handling, and delivery policies) and `data/faqs.json` (12 structured FAQs covering authenticity verification, authorized importer holographic seals, WhatsApp ordering, Kathmandu/nationwide delivery, payment options, and supplement usage). Authored [Spec 17](feature-specs/17-subphase-2.3-supplementary-datasets.md). Programmatically validated datasets against Zod schemas (`StoreInfoSchema`, `FAQItemSchema.array()`) with zero errors. Verified cleanly with `npx tsc --noEmit`.
 
 - **2026-08-09 (Sub-Phase 2.2):** Authored canonical JSON datasets for `data/categories.json` (6 categories: proteins, creatine, mass-gainers, pre-workout, vitamins-health, amino-bcaa), `data/brands.json` (10 global supplement brands imported in Nepal: ON, MuscleTech, Dymatize, MyProtein, Kevin Levrone, Rule 1, Labrada, Cellucor, Universal, Scivation), and `data/products.json` (15 authentic supplements with variants, integer NPR prices, 4-state stock statuses, nutrition facts, authenticity metadata, and FAQs). Authored [Spec 16](feature-specs/16-subphase-2.2-canonical-json-datasets.md). Programmatically validated datasets against Zod schemas (`CategorySchema.array()`, `BrandSchema.array()`, `ProductSchema.array()`) with zero errors. Verified cleanly with `npx tsc --noEmit`.
 

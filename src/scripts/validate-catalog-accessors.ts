@@ -1,0 +1,104 @@
+import {
+  getProducts,
+  getProductBySlug,
+  getProductById,
+  getFeaturedProducts,
+  getProductsByCategory,
+  getProductsByBrand,
+  getRelatedProducts,
+  searchProductsInMemory,
+} from '../lib/data/products';
+import {
+  getCategories,
+  getCategoryBySlug,
+  getCategoryById,
+  getFeaturedCategories,
+} from '../lib/data/categories';
+import {
+  getBrands,
+  getBrandBySlug,
+  getBrandById,
+  getFeaturedBrands,
+} from '../lib/data/brands';
+
+async function runValidation() {
+  console.log('🧪 Starting Catalog Data Accessor Gateways Validation...');
+
+  // 1. Categories Accessors
+  const categories = await getCategories();
+  console.log(`✅ getCategories(): returned ${categories.length} categories.`);
+  if (categories.length === 0) throw new Error('getCategories returned empty list');
+
+  const firstCat = categories[0];
+  const catBySlug = await getCategoryBySlug(firstCat.slug);
+  if (!catBySlug || catBySlug.id !== firstCat.id) {
+    throw new Error(`getCategoryBySlug failed for ${firstCat.slug}`);
+  }
+  console.log(`✅ getCategoryBySlug("${firstCat.slug}"): "${catBySlug.name}"`);
+
+  const catById = await getCategoryById(firstCat.id);
+  if (!catById || catById.slug !== firstCat.slug) {
+    throw new Error(`getCategoryById failed for ${firstCat.id}`);
+  }
+  console.log(`✅ getCategoryById("${firstCat.id}"): "${catById.name}"`);
+
+  const featuredCats = await getFeaturedCategories();
+  console.log(`✅ getFeaturedCategories(): ${featuredCats.length} featured categories.`);
+
+  // 2. Brands Accessors
+  const brands = await getBrands();
+  console.log(`✅ getBrands(): returned ${brands.length} brands.`);
+  if (brands.length === 0) throw new Error('getBrands returned empty list');
+
+  const firstBrand = brands[0];
+  const brandBySlug = await getBrandBySlug(firstBrand.slug);
+  if (!brandBySlug || brandBySlug.id !== firstBrand.id) {
+    throw new Error(`getBrandBySlug failed for ${firstBrand.slug}`);
+  }
+  console.log(`✅ getBrandBySlug("${firstBrand.slug}"): "${brandBySlug.name}"`);
+
+  const brandById = await getBrandById(firstBrand.id);
+  if (!brandById || brandById.slug !== firstBrand.slug) {
+    throw new Error(`getBrandById failed for ${firstBrand.id}`);
+  }
+  console.log(`✅ getBrandById("${firstBrand.id}"): "${brandById.name}"`);
+
+  const featuredBrands = await getFeaturedBrands();
+  console.log(`✅ getFeaturedBrands(): ${featuredBrands.length} featured brands.`);
+
+  // 3. Products Accessors
+  const products = await getProducts();
+  console.log(`✅ getProducts(): returned ${products.length} products.`);
+  if (products.length === 0) throw new Error('getProducts returned empty list');
+
+  const sampleSlug = 'optimum-nutrition-gold-standard-100-whey';
+  const productBySlug = await getProductBySlug(sampleSlug);
+  if (!productBySlug) throw new Error(`getProductBySlug failed for ${sampleSlug}`);
+  console.log(`✅ getProductBySlug("${sampleSlug}"): "${productBySlug.name}"`);
+
+  const productById = await getProductById(productBySlug.id);
+  if (!productById) throw new Error(`getProductById failed for ${productBySlug.id}`);
+  console.log(`✅ getProductById("${productBySlug.id}"): "${productById.name}"`);
+
+  const featuredProducts = await getFeaturedProducts(4);
+  console.log(`✅ getFeaturedProducts(4): ${featuredProducts.length} featured products.`);
+
+  const catProducts = await getProductsByCategory('proteins');
+  console.log(`✅ getProductsByCategory("proteins"): ${catProducts.length} products.`);
+
+  const brandProducts = await getProductsByBrand('optimum-nutrition');
+  console.log(`✅ getProductsByBrand("optimum-nutrition"): ${brandProducts.length} products.`);
+
+  const related = await getRelatedProducts(productBySlug, 3);
+  console.log(`✅ getRelatedProducts("${productBySlug.name}", 3): ${related.length} related products.`);
+
+  const searchResults = await searchProductsInMemory('creatine');
+  console.log(`✅ searchProductsInMemory("creatine"): ${searchResults.length} matches found.`);
+
+  console.log('\n🎉 ALL CATALOG DATA ACCESSOR TESTS PASSED CLEANLY!\n');
+}
+
+runValidation().catch((err) => {
+  console.error('❌ Accessor Validation Error:', err);
+  process.exit(1);
+});

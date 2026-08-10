@@ -253,7 +253,7 @@ flowchart LR
   - [x] All products pass `ProductSchema.array().parse(data)` validation without errors.
 
 #### Sub-Phase 2.3: Supplementary Datasets (Store Info & Comprehensive FAQs)
-- [ ] **Status:** Unchecked
+- [x] **Status:** Completed
 - **Target Files:**
   - `data/store-info.json` [NEW]
   - `data/faqs.json` [NEW]
@@ -261,10 +261,10 @@ flowchart LR
   - Author store data for the single physical retail outlet in Golfutar, Budha-Nilkantha, Kathmandu (44500) with coordinates, phone, opening hours (Sun-Fri 10AM-9PM), landmarks, and parking availability.
   - Author comprehensive supplement FAQ database covering authenticity checks in Nepal, delivery timelines across Kathmandu Valley and outside-valley cities, and payment methods (Cash/Fonepay on delivery).
 - **Verification Checklist:**
-  - [ ] Datasets validate against `StoreInfoSchema` and `FAQItemSchema`.
+  - [x] Datasets validate against `StoreInfoSchema` and `FAQItemSchema`.
 
 #### Sub-Phase 2.4: Catalog Data Accessor Layer (Products, Categories & Brands)
-- [ ] **Status:** Unchecked
+- [x] **Status:** Completed
 - **Target Files:**
   - `src/lib/data/products.ts` [NEW]
   - `src/lib/data/categories.ts` [NEW]
@@ -273,11 +273,11 @@ flowchart LR
   - Build typed accessor functions (`getProducts()`, `getProductBySlug(slug)`, `getProductsByCategory(categorySlug)`, `getProductsByBrand(brandSlug)`, `getFeaturedProducts()`, `getRelatedProducts(product, limit)`, `getCategories()`, `getCategoryBySlug(slug)`, `getBrands()`, `getBrandBySlug(slug)`).
   - Implement static data caching and in-memory sort/filter operations.
 - **Verification Checklist:**
-  - [ ] `npx tsc --noEmit` passes cleanly.
-  - [ ] `getProductBySlug('optimum-nutrition-gold-standard-100-whey')` returns expected product object.
+  - [x] `npx tsc --noEmit` passes cleanly.
+  - [x] `getProductBySlug('optimum-nutrition-gold-standard-100-whey')` returns expected product object.
 
 #### Sub-Phase 2.5: Store, FAQ & Content Accessor Layer
-- [ ] **Status:** Unchecked
+- [x] **Status:** Completed
 - **Target Files:**
   - `src/lib/data/store.ts` [NEW]
   - `src/lib/data/faqs.ts` [NEW]
@@ -285,15 +285,15 @@ flowchart LR
 - **Purpose & Scope:**
   - Build typed accessors for store metadata (`getStoreInfo()`, `getOpeningHours()`, `getDeliveryPolicy()`), FAQ entries (`getFAQs()`, `getFAQsByCategory()`), and MDX educational guide accessors (`getAllGuides()`, `getGuideBySlug()`).
 - **Verification Checklist:**
-  - [ ] `npx tsc --noEmit` passes cleanly.
-  - [ ] `getStoreInfo()` returns valid store metadata for Golfutar location.
+  - [x] `npx tsc --noEmit` passes cleanly.
+  - [x] `getStoreInfo()` returns valid store metadata for Golfutar location.
 
 ---
 
 ### Phase 3: Catalog, Filtering & In-Memory Fuzzy Search
 
 #### Sub-Phase 3.1: Product Display Components (Card, Grid & Badges)
-- [ ] **Status:** Unchecked
+- [x] **Status:** Completed
 - **Target Files:**
   - `src/components/product/product-card.tsx` [NEW]
   - `src/components/product/product-grid.tsx` [NEW]
@@ -303,8 +303,8 @@ flowchart LR
   - Build responsive `ProductGrid` component (2 columns on mobile `<640px`, 3 columns on tablet, 4 columns on desktop).
   - Build 100% Genuine Importer Hologram Badge component.
 - **Verification Checklist:**
-  - [ ] `npx tsc --noEmit` passes cleanly.
-  - [ ] Product card maintains clean layout with no content overflow on 360px viewport.
+  - [x] `npx tsc --noEmit` passes cleanly.
+  - [x] Product card maintains clean layout with no content overflow on 360px viewport.
 
 #### Sub-Phase 3.2: In-Memory Fuzzy Search Engine (Fuse.js)
 - [ ] **Status:** Unchecked
@@ -321,7 +321,7 @@ flowchart LR
   - [ ] Typing `"whey"` or `"creatine"` in search bar instantly returns matching products.
 
 #### Sub-Phase 3.3: Desktop Filter Components & Active State
-- [ ] **Status:** Unchecked
+- [x] **Status:** Completed
 - **Target Files:**
   - `src/components/catalog/catalog-filters.tsx` [NEW]
   - `src/components/catalog/active-filters.tsx` [NEW]
@@ -331,10 +331,11 @@ flowchart LR
   - Implement `ActiveFilters` component with individual removable filter pills and "Clear All" action.
   - Implement `CategoryChips` horizontal quick-filter scroll for catalog headers.
 - **Verification Checklist:**
-  - [ ] `npx tsc --noEmit` passes cleanly.
+  - [x] `npx tsc --noEmit` passes cleanly.
+
 
 #### Sub-Phase 3.4: Mobile Filter Drawer & Brand Facets
-- [ ] **Status:** Unchecked
+- [x] **Status:** Completed
 - **Target Files:**
   - `src/components/catalog/mobile-filter-drawer.tsx` [NEW]
   - `src/components/catalog/brand-filter.tsx` [NEW]
@@ -343,8 +344,9 @@ flowchart LR
   - Build `BrandFilter` facet component with search input for quick brand filtering.
   - Sync filter state seamlessly with URL query parameters (`?category=proteins&brand=optimum-nutrition&sort=price-asc`).
 - **Verification Checklist:**
-  - [ ] `npx tsc --noEmit` passes cleanly.
-  - [ ] Mobile filter drawer opens, allows selecting facets, updates URL params, and closes cleanly.
+  - [x] `npx tsc --noEmit` passes cleanly.
+  - [x] Mobile filter drawer opens, allows selecting facets, updates URL params, and closes cleanly.
+
 
 #### Sub-Phase 3.5: Products Catalog Hub Route
 - [ ] **Status:** Unchecked
@@ -412,7 +414,7 @@ flowchart LR
   - [ ] Selecting a different flavor/size dynamically updates displayed price and WhatsApp payload.
 
 #### Sub-Phase 4.3: Product Specifications, Nutrition Facts & Trust Elements
-- [ ] **Status:** Unchecked
+- [x] **Status:** Completed
 - **Target Files:**
   - `src/components/product/product-specs.tsx` [NEW]
   - `src/components/product/nutrition-table.tsx` [NEW]
@@ -424,8 +426,8 @@ flowchart LR
   - Build `AuthenticityGuaranteeBox` detailing official importer sticker verification, scratch code checking, and 100% money-back guarantee.
   - Build `RelatedProducts` carousel featuring products from the same category or complementary supplements (e.g. Whey + Creatine stack).
 - **Verification Checklist:**
-  - [ ] `npx tsc --noEmit` passes cleanly.
-  - [ ] Nutrition table displays cleanly and responsively on mobile viewports.
+  - [x] `npx tsc --noEmit` passes cleanly.
+  - [x] Nutrition table displays cleanly and responsively on mobile viewports.
 
 #### Sub-Phase 4.4: Product Detail Route & Mobile Sticky Action Bar
 - [ ] **Status:** Unchecked
@@ -689,13 +691,14 @@ flowchart LR
 | **1.5** | Global Footer & Sticky Mobile Bar | `src/components/layout/footer.tsx`, `sticky-cta-bar.tsx`, `whatsapp-floating-button.tsx` | 1.4 | `[x]` |
 | **2.1** | Zod Schemas & Domain Type Definitions | `src/lib/validations/common.ts`, `product.ts`, `inquiry.ts`, `store.ts` | 0.3 | `[x]` |
 | **2.2** | Canonical JSON Datasets (Products/Categories/Brands) | `data/products.json`, `categories.json`, `brands.json` | 2.1 | `[x]` |
-| **2.3** | Supplementary Datasets (Store Info/FAQs) | `data/store-info.json`, `data/faqs.json` | 2.1 | `[ ]` |
-| **2.4** | Catalog Data Accessor Layer | `src/lib/data/products.ts`, `categories.ts`, `brands.ts` | 2.2, 2.3 | `[ ]` |
-| **2.5** | Store, FAQ & Content Accessor Layer | `src/lib/data/store.ts`, `faqs.ts`, `guides.ts` | 2.2, 2.3 | `[ ]` |
-| **3.1** | Product Display Components (Card/Grid/Badges) | `src/components/product/product-card.tsx`, `product-grid.tsx`, `product-authenticity-badge.tsx` | 1.1, 2.4 | `[ ]` |
-| **3.2** | In-Memory Fuzzy Search Engine (Fuse.js) | `src/lib/search.ts`, `src/components/catalog/search-bar.tsx`, `search-modal.tsx` | 2.4 | `[ ]` |
-| **3.3** | Desktop Filter Components & Active State | `src/components/catalog/catalog-filters.tsx`, `active-filters.tsx`, `category-chips.tsx` | 1.3, 3.1 | `[ ]` |
-| **3.4** | Mobile Filter Drawer & Brand Facets | `src/components/catalog/mobile-filter-drawer.tsx`, `brand-filter.tsx` | 3.3 | `[ ]` |
+| **2.3** | Supplementary Datasets (Store Info/FAQs) | `data/store-info.json`, `data/faqs.json` | 2.1 | `[x]` |
+| **2.4** | Catalog Data Accessor Layer | `src/lib/data/products.ts`, `categories.ts`, `brands.ts` | 2.2, 2.3 | `[x]` |
+| **2.5** | Store, FAQ & Content Accessor Layer | `src/lib/data/store.ts`, `faqs.ts`, `guides.ts` | 2.2, 2.3 | `[x]` |
+| **3.1** | Product Display Components (Card/Grid/Badges) | `src/components/product/product-card.tsx`, `product-grid.tsx`, `product-authenticity-badge.tsx` | 1.1, 2.4 | `[x]` |
+| **3.2** | In-Memory Fuzzy Search Engine (Fuse.js) | `src/lib/search.ts`, `src/components/catalog/search-bar.tsx`, `search-modal.tsx` | 2.4 | `[x]` |
+| **3.3** | Desktop Filter Components & Active State | `src/components/catalog/catalog-filters.tsx`, `active-filters.tsx`, `category-chips.tsx` | 1.3, 3.1 | `[x]` |
+| **3.4** | Mobile Filter Drawer & Brand Facets | `src/components/catalog/mobile-filter-drawer.tsx`, `brand-filter.tsx` | 3.3 | `[x]` |
+
 | **3.5** | Products Catalog Hub Route | `src/app/products/page.tsx` | 3.4 | `[ ]` |
 | **3.6** | Category & Brand Dynamic Archive Routes | `src/app/categories/page.tsx`, `categories/[slug]/page.tsx`, `brands/page.tsx`, `brands/[slug]/page.tsx` | 3.5 | `[ ]` |
 | **4.1** | WhatsApp URL Engine & Analytics Tracker | `src/lib/whatsapp.ts`, `src/lib/analytics.ts` | 2.1 | `[ ]` |

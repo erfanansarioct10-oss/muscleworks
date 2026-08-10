@@ -7,6 +7,8 @@ import { MobileNav } from "@/components/layout/mobile-nav";
 import { Button } from "@/components/ui/button";
 import { STORE_NAME, STORE_WHATSAPP } from "@/lib/constants";
 
+import { SearchModal } from "@/components/catalog/search-modal";
+
 export function Header() {
   const whatsappUrl = `https://wa.me/${STORE_WHATSAPP.replace(/\+/g, "")}?text=${encodeURIComponent(
     "Hello MuscleWorks Nepal! I'd like to order authentic supplements / check product stock."
@@ -37,17 +39,17 @@ export function Header() {
 
         {/* Right Actions Cluster */}
         <div className="flex items-center gap-2 sm:gap-3">
-          {/* Catalog Search Button */}
-          <Button
-            asChild
-            variant="ghost"
-            size="icon"
-            className="text-muted-foreground hover:text-foreground"
-          >
-            <Link href="/products" aria-label="Search supplement catalog">
+          {/* Catalog Search Trigger Button */}
+          <SearchModal>
+            <Button
+              variant="ghost"
+              size="icon"
+              className="text-muted-foreground hover:text-foreground"
+              aria-label="Search supplement catalog"
+            >
               <Search className="h-5 w-5" />
-            </Link>
-          </Button>
+            </Button>
+          </SearchModal>
 
           {/* High-Conversion WhatsApp CTA Button */}
           <Button

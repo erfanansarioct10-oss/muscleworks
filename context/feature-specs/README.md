@@ -196,3 +196,21 @@ When writing or executing a feature spec:
 | `14-coderabbit-commit-227be71-resolutions` | [CodeRabbit Commit 227be71 Review Resolutions & Technical Synchronization](14-coderabbit-commit-227be71-resolutions.md) | **Approved** | Quality & Technical Cleanup | 2026-08-09 |
 | `15-subphase-2.1-zod-schemas-domain-type-definitions` | [Sub-Phase 2.1 — Zod Schemas & Domain Type Definitions](15-subphase-2.1-zod-schemas-domain-type-definitions.md) | **Approved** | Static Datasets & Data Layer | 2026-08-09 |
 | `16-subphase-2.2-canonical-json-datasets` | [Sub-Phase 2.2 — Canonical JSON Datasets (Products, Categories & Brands)](16-subphase-2.2-canonical-json-datasets.md) | **Approved** | Static Datasets & Data Layer | 2026-08-09 |
+| `17-subphase-2.3-supplementary-datasets` | [Sub-Phase 2.3 — Supplementary Datasets (Store Info & Comprehensive FAQs)](17-subphase-2.3-supplementary-datasets.md) | **Approved** | Static Datasets & Data Layer | 2026-08-10 |
+| `18-subphase-2.4-catalog-data-accessor-layer` | [Sub-Phase 2.4 — Catalog Data Accessor Layer (Products, Categories & Brands)](18-subphase-2.4-catalog-data-accessor-layer.md) | **Approved** | Static Datasets & Data Layer | 2026-08-10 |
+| `19-subphase-2.5-store-faq-content-accessor-layer` | [Sub-Phase 2.5 — Store, FAQ & Content Accessor Layer](19-subphase-2.5-store-faq-content-accessor-layer.md) | **Approved** | Static Datasets & Data Layer | 2026-08-10 |
+| `20-subphase-3.1-product-display-components` | [Sub-Phase 3.1 — Product Display Components (Card, Grid & Badges)](20-subphase-3.1-product-display-components.md) | **Approved** | Catalog, Search & Filtering | 2026-08-10 |
+| `21-subphase-3.2-in-memory-fuzzy-search-engine` | [Sub-Phase 3.2 — In-Memory Fuzzy Search Engine](21-subphase-3.2-in-memory-fuzzy-search-engine.md) | **Approved** | Catalog, Search & Filtering | 2026-08-10 |
+| `22-subphase-3.3-desktop-filter-components-active-state` | [Sub-Phase 3.3 — Desktop Filter Components & Active State](22-subphase-3.3-desktop-filter-components-active-state.md) | **Approved** | Catalog, Search & Filtering | 2026-08-10 |
+| `23-subphase-3.4-mobile-filter-drawer-brand-facets` | [Sub-Phase 3.4 — Mobile Filter Drawer & Brand Facets](23-subphase-3.4-mobile-filter-drawer-brand-facets.md) | **Approved** | Catalog, Search & Filtering | 2026-08-10 |
+| `24-subphase-3.5-products-catalog-hub-route` | [Sub-Phase 3.5 — Products Catalog Hub Route](24-subphase-3.5-products-catalog-hub-route.md) | **Approved** | Catalog, Search & Filtering | 2026-08-10 |
+| `25-subphase-3.6-category-brand-archive-routes` | [Sub-Phase 3.6 — Category & Brand Dynamic Archive Routes](25-subphase-3.6-category-brand-archive-routes.md) | **Approved** | Catalog, Search & Filtering | 2026-08-10 |
+| `26-subphase-4.1-whatsapp-url-engine-analytics-tracker` | [Sub-Phase 4.1 — WhatsApp URL Engine & Analytics Tracker](26-subphase-4.1-whatsapp-url-engine-analytics-tracker.md) | **Approved** | Product Detail & WhatsApp Engine | 2026-08-10 |
+| `27-subphase-4.2-product-gallery-variant-selector` | [Sub-Phase 4.2 — Product Gallery & Interactive Variant Selectors](27-subphase-4.2-product-gallery-variant-selector.md) | **Approved** | Product Detail & WhatsApp Engine | 2026-08-10 |
+| `28-subphase-4.3-product-specs-nutrition-trust` | [Sub-Phase 4.3 — Product Specifications, Nutrition Facts & Trust Elements](28-subphase-4.3-product-specs-nutrition-trust.md) | **Approved** | Product Detail & WhatsApp Engine | 2026-08-10 |
+| `29-subphase-4.4-product-detail-route-sticky-bar` | [Sub-Phase 4.4 — Product Detail Route & Mobile Sticky Action Bar](29-subphase-4.4-product-detail-route-sticky-bar.md) | **Approved** | Product Detail & WhatsApp Engine | 2026-08-10 |
+
+
+
+
+

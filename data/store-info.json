@@ -1,0 +1,97 @@
+{
+  "name": "MUSCLEWORKS SUPPLEMENTS",
+  "legalName": "MUSCLEWORKS SUPPLEMENTS",
+  "tagline": "Nepal's Premier Destination for 100% Authentic Sports Nutrition & Fitness Supplements",
+  "establishedYear": 2026,
+  "address": {
+    "streetAddress": "Golfutar Main Road",
+    "area": "Golfutar",
+    "municipality": "Budha-Nilkantha",
+    "city": "Kathmandu",
+    "district": "Kathmandu",
+    "province": "Bagmati Province",
+    "postalCode": "44500",
+    "country": "Nepal",
+    "landmark": "Near Golfutar Basketball Court & Main Chowk"
+  },
+  "coordinates": {
+    "latitude": 27.7478,
+    "longitude": 85.3533,
+    "googleMapsPlaceUrl": "https://maps.google.com/?q=27.7478,85.3533",
+    "googleMapsEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3531.321!2d85.3533!3d27.7478!2m3!1f0!0f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjd8NDQnNTIuMSJOIDg1wrAyMShxMS45IkU!5e0!3m2!1sen!2snp!4v1600000000000"
+  },
+  "openingHours": [
+    {
+      "day": "sunday",
+      "label": "Sunday",
+      "opens": "10:00 AM",
+      "closes": "09:00 PM",
+      "isClosed": false
+    },
+    {
+      "day": "monday",
+      "label": "Monday",
+      "opens": "10:00 AM",
+      "closes": "09:00 PM",
+      "isClosed": false
+    },
+    {
+      "day": "tuesday",
+      "label": "Tuesday",
+      "opens": "10:00 AM",
+      "closes": "09:00 PM",
+      "isClosed": false
+    },
+    {
+      "day": "wednesday",
+      "label": "Wednesday",
+      "opens": "10:00 AM",
+      "closes": "09:00 PM",
+      "isClosed": false
+    },
+    {
+      "day": "thursday",
+      "label": "Thursday",
+      "opens": "10:00 AM",
+      "closes": "09:00 PM",
+      "isClosed": false
+    },
+    {
+      "day": "friday",
+      "label": "Friday",
+      "opens": "10:00 AM",
+      "closes": "09:00 PM",
+      "isClosed": false
+    },
+    {
+      "day": "saturday",
+      "label": "Saturday",
+      "opens": "Contact Store",
+      "closes": "Contact Store",
+      "isClosed": false,
+      "note": "Not yet specified — please contact store before visiting."
+    }
+  ],
+  "contacts": {
+    "primaryPhone": "+977-9800000000",
+    "secondaryPhone": "+977-01-4450000",
+    "whatsappNumber": "9779800000000",
+    "whatsappDisplay": "+977 9800000000",
+    "storeEmail": "info@muscleworks.com.np",
+    "supportEmail": "support@muscleworks.com.np"
+  },
+  "deliveryPolicy": {
+    "coverage": "Nationwide Nepal",
+    "primaryZones": [
+      "Kathmandu Valley (Same-Day / Next-Day)",
+      "Outside Valley Major Cities (2-4 Business Days)"
+    ],
+    "deliveryFeeNotes": "Free delivery on orders over NPR 10,000 within Kathmandu Valley. Standard rates apply otherwise.",
+    "freeDeliveryThresholdNpr": 10000
+  },
+  "socialLinks": {
+    "instagram": "https://instagram.com/muscleworksnepal",
+    "tiktok": "https://tiktok.com/@muscleworksnepal",
+    "facebook": "https://facebook.com/muscleworksnepal"
+  }
+}
