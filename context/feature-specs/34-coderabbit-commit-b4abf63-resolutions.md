@@ -3,7 +3,6 @@
 > **Spec ID:** `34-coderabbit-commit-b4abf63-resolutions`  
 > **Target Sub-Phase / Branch:** `Phase 5` Technical Cleanup & Context Synchronization (`Phase-5` branch)  
 > **Status:** Approved  
-
 > **Created Date:** 2026-08-10  
 > **Author:** AI Coding Agent (Antigravity IDE)
 
@@ -62,7 +61,7 @@ This specification details the complete technical remediation plan for all 42 fi
 ### Step 1: Telegram MarkdownV2 Fix & Accessor Engine Hardening
 
 - **`src/lib/services/telegram.ts`:**
-  Replace `productDetails = \n*--- Product Context ---\n${lines.join('\n')};` with `productDetails = \n*Product Context*\n${lines.join('\n')};`. This eliminates unescaped hyphens (`-`) which trigger Telegram API HTTP 400 Bad Request errors.
+  Replace `productDetails = "\n*--- Product Context ---\n" + lines.join("\n");` with `productDetails = "\n*Product Context*\n" + lines.join("\n");`. This eliminates unescaped hyphens (`-`) which trigger Telegram API HTTP 400 Bad Request errors.
 - **`src/lib/data/products.ts`:**
   Update `searchProductsInMemory(query)`:
   ```ts
@@ -119,7 +118,7 @@ This specification details the complete technical remediation plan for all 42 fi
   ```
 - **`data/products.json`:**
   - Replace `"Egg Creatine"` with `"Egg Albumin"` in ON Serious Mass ingredients string (line 670).
-  - Update Psychotic Gold `nutritionFacts.servingSize` to `"1 Scoop (6.67g)"` so $6.67\text{g} \times 30 = 200\text{g}$ matches `sizeOrWeight: "200g (30 Servings)"`.
+  - Update Psychotic Gold `nutritionFacts.servingSize` to `"1 Scoop (6.67g)"` so $6.67\text{g}$ serving size (rounded representation of $200\text{g} / 30 = 6.666...\text{g}$) aligns with `sizeOrWeight: "200g (30 Servings)"`.
 - **`data/faqs.json`:**
   - Remove hardcoded `+977 9800000000` text from `faq_payment_store_3` answer.
 
@@ -174,8 +173,8 @@ This specification details the complete technical remediation plan for all 42 fi
 ## 4. Verification Plan
 
 1. **Type Check:** `npx tsc --noEmit` returns 0 errors.
-2. **Validation Suite:** Run all validation scripts:
-   - `npx tsx src/scripts/validate-datasets.ts`
+2. **Validation Suite:** Run project validation scripts:
+   - `npx tsx src/scripts/validate-supplementary-datasets.ts`
    - `npx tsx src/scripts/validate-catalog-accessors.ts`
    - `npx tsx src/scripts/validate-notification-services.ts`
    - `npx tsx src/scripts/validate-server-actions.ts`

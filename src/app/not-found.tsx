@@ -6,7 +6,7 @@ import {
   Home,
   Dumbbell,
   ShieldCheck,
-  MapPin,
+  Package,
   Flame,
 } from "lucide-react";
 import {
@@ -19,7 +19,7 @@ const CATEGORY_SHORTCUTS = [
   { label: "Creatine Monohydrate", href: "/categories/creatine", icon: Flame },
   { label: "Mass Gainers", href: "/categories/mass-gainers", icon: ShieldCheck },
   { label: "Pre-Workouts", href: "/categories/pre-workout", icon: Flame },
-  { label: "All Supplements", href: "/products", icon: MapPin },
+  { label: "All Supplements", href: "/products", icon: Package },
 ] as const;
 
 

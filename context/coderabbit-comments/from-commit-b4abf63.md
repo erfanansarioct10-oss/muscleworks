@@ -117,7 +117,7 @@ The homepage states “Sub-Phase 0.2 Active,” but this PR is Phase 5. Do not s
 <details>
 <summary>🤖 Prompt for AI Agents</summary>
 
-```
+```text
 Verify each finding against current code. Fix only still-valid issues, skip the
 rest with a brief reason, keep changes minimal, and validate.
 
@@ -144,7 +144,7 @@ preserving the other public badges.
 <details>
 <summary>🤖 Prompt for AI Agents</summary>
 
-```
+```text
 Verify each finding against current code. Fix only still-valid issues, skip the
 rest with a brief reason, keep changes minimal, and validate.
 
@@ -171,7 +171,7 @@ Rename the variables in `src/app/layout.tsx`, then use `@theme inline` to map th
 <details>
 <summary>🤖 Prompt for AI Agents</summary>
 
-```
+```text
 Verify each finding against current code. Fix only still-valid issues, skip the
 rest with a brief reason, keep changes minimal, and validate.
 
@@ -199,7 +199,7 @@ Line [1108] closes `<summary>` with `</parameter>`. Replace it with `</summary>`
 <details>
 <summary>🤖 Prompt for AI Agents</summary>
 
-```
+```text
 Verify each finding against current code. Fix only still-valid issues, skip the
 rest with a brief reason, keep changes minimal, and validate.
 
@@ -229,7 +229,7 @@ structure.
 <details>
 <summary>🤖 Prompt for AI Agents</summary>
 
-```
+```text
 Verify each finding against current code. Fix only still-valid issues, skip the
 rest with a brief reason, keep changes minimal, and validate.
 
@@ -263,7 +263,7 @@ _Source: Linters/SAST tools_
 <details>
 <summary>🤖 Prompt for AI Agents</summary>
 
-```
+```text
 Verify each finding against current code. Fix only still-valid issues, skip the
 rest with a brief reason, keep changes minimal, and validate.
 
@@ -290,7 +290,7 @@ The hyphens in `*--- Product Context ---*` are reserved MarkdownV2 characters. T
 <details>
 <summary>🤖 Prompt for AI Agents</summary>
 
-```
+```text
 Verify each finding against current code. Fix only still-valid issues, skip the
 rest with a brief reason, keep changes minimal, and validate.
 
@@ -317,7 +317,7 @@ The canonical contract requires an ISO datetime. Replace `z.string()` with `z.st
 <details>
 <summary>🤖 Prompt for AI Agents</summary>
 
-```
+```text
 Verify each finding against current code. Fix only still-valid issues, skip the
 rest with a brief reason, keep changes minimal, and validate.
 
@@ -346,7 +346,7 @@ As per coding guidelines, `src/app/globals.css` must define the project’s mini
 <details>
 <summary>🤖 Prompt for AI Agents</summary>
 
-```
+```text
 Verify each finding against current code. Fix only still-valid issues, skip the
 rest with a brief reason, keep changes minimal, and validate.
 
@@ -381,7 +381,7 @@ The milestone table and state matrix no longer match the detailed phase sections
 <details>
 <summary>🤖 Prompt for AI Agents</summary>
 
-```
+```text
 Verify each finding against current code. Fix only still-valid issues, skip the
 rest with a brief reason, keep changes minimal, and validate.
 
@@ -410,7 +410,7 @@ to match their corresponding detailed status sections.
 <details>
 <summary>🤖 Prompt for AI Agents</summary>
 
-```
+```text
 Verify each finding against current code. Fix only still-valid issues, skip the
 rest with a brief reason, keep changes minimal, and validate.
 
@@ -445,7 +445,7 @@ Markdownlint reports MD058 for every sub-phase table. Add one blank line between
 <details>
 <summary>🤖 Prompt for AI Agents</summary>
 
-```
+```text
 Verify each finding against current code. Fix only still-valid issues, skip the
 rest with a brief reason, keep changes minimal, and validate.
 
@@ -479,7 +479,7 @@ A completed build cannot verify zero TTFB. TTFB includes response processing and
 <details>
 <summary>🤖 Prompt for AI Agents</summary>
 
-```
+```text
 Verify each finding against current code. Fix only still-valid issues, skip the
 rest with a brief reason, keep changes minimal, and validate.
 
@@ -510,7 +510,7 @@ Invalid strings pass validation, then `parseTimeToMinutes` treats them as contac
 <details>
 <summary>🤖 Prompt for AI Agents</summary>
 
-```
+```text
 Verify each finding against current code. Fix only still-valid issues, skip the
 rest with a brief reason, keep changes minimal, and validate.
 
@@ -542,7 +542,7 @@ As per coding guidelines, “Before writing or modifying code, read the relevant
 <details>
 <summary>🤖 Prompt for AI Agents</summary>
 
-```
+```text
 Verify each finding against current code. Fix only still-valid issues, skip the
 rest with a brief reason, keep changes minimal, and validate.
 
@@ -576,7 +576,7 @@ Add assertions for returned identities and each documented filter invariant.
 <details>
 <summary>🤖 Prompt for AI Agents</summary>
 
-```
+```text
 Verify each finding against current code. Fix only still-valid issues, skip the
 rest with a brief reason, keep changes minimal, and validate.
 
@@ -606,7 +606,7 @@ descriptive errors when any assertion fails.
 <details>
 <summary>🤖 Prompt for AI Agents</summary>
 
-```
+```text
 Verify each finding against current code. Fix only still-valid issues, skip the
 rest with a brief reason, keep changes minimal, and validate.
 
@@ -643,7 +643,7 @@ As per coding guidelines, “Standard buttons and links must have touch targets 
 <details>
 <summary>🤖 Prompt for AI Agents</summary>
 
-```
+```text
 Verify each finding against current code. Fix only still-valid issues, skip the
 rest with a brief reason, keep changes minimal, and validate.
 
@@ -684,7 +684,7 @@ Also applies to: 97-120
 <details>
 <summary>🤖 Prompt for AI Agents</summary>
 
-```
+```text
 Verify each finding against current code. Fix only still-valid issues, skip the
 rest with a brief reason, keep changes minimal, and validate.
 
@@ -723,7 +723,7 @@ Also applies to: 194-197
 <details>
 <summary>🤖 Prompt for AI Agents</summary>
 
-```
+```text
 Verify each finding against current code. Fix only still-valid issues, skip the
 rest with a brief reason, keep changes minimal, and validate.
 
@@ -752,7 +752,7 @@ without allowing stale indices to grow or remain invalid.
 <details>
 <summary>🤖 Prompt for AI Agents</summary>
 
-```
+```text
 Verify each finding against current code. Fix only still-valid issues, skip the
 rest with a brief reason, keep changes minimal, and validate.
 
@@ -782,7 +782,7 @@ The canonical routing hierarchy does not define `/authenticity`. Both desktop an
 <details>
 <summary>🤖 Prompt for AI Agents</summary>
 
-```
+```text
 Verify each finding against current code. Fix only still-valid issues, skip the
 rest with a brief reason, keep changes minimal, and validate.
 
@@ -810,7 +810,7 @@ The canonical route map defines `/privacy-policy` and `/delivery-policy`. It doe
 <details>
 <summary>🤖 Prompt for AI Agents</summary>
 
-```
+```text
 Verify each finding against current code. Fix only still-valid issues, skip the
 rest with a brief reason, keep changes minimal, and validate.
 
@@ -840,7 +840,7 @@ As per coding guidelines, read `context/progress-tracker.md` first on every turn
 <details>
 <summary>🤖 Prompt for AI Agents</summary>
 
-```
+```text
 Verify each finding against current code. Fix only still-valid issues, skip the
 rest with a brief reason, keep changes minimal, and validate.
 
@@ -877,7 +877,7 @@ Also applies to: 940-940
 <details>
 <summary>🤖 Prompt for AI Agents</summary>
 
-```
+```text
 Verify each finding against current code. Fix only still-valid issues, skip the
 rest with a brief reason, keep changes minimal, and validate.
 
@@ -922,7 +922,7 @@ As per coding guidelines: "Use strict TypeScript with zero `any` usage, CVA comp
 <details>
 <summary>🤖 Prompt for AI Agents</summary>
 
-```
+```text
 Verify each finding against current code. Fix only still-valid issues, skip the
 rest with a brief reason, keep changes minimal, and validate.
 
@@ -961,7 +961,7 @@ The answer embeds `+977 9800000000`. This looks like a placeholder, and it is us
 <details>
 <summary>🤖 Prompt for AI Agents</summary>
 
-```
+```text
 Verify each finding against current code. Fix only still-valid issues, skip the
 rest with a brief reason, keep changes minimal, and validate.
 
@@ -998,7 +998,7 @@ The link uses an absolute local Windows path (`file:///c:/...`). This path does 
 <details>
 <summary>🤖 Prompt for AI Agents</summary>
 
-```
+```text
 Verify each finding against current code. Fix only still-valid issues, skip the
 rest with a brief reason, keep changes minimal, and validate.
 
@@ -1033,7 +1033,7 @@ The ON Serious Mass protein blend lists "Egg Creatine". The actual blend compone
 <details>
 <summary>🤖 Prompt for AI Agents</summary>
 
-```
+```text
 Verify each finding against current code. Fix only still-valid issues, skip the
 rest with a brief reason, keep changes minimal, and validate.
 
@@ -1059,7 +1059,7 @@ preserving the rest of the ingredient text unchanged.
 <details>
 <summary>🤖 Prompt for AI Agents</summary>
 
-```
+```text
 Verify each finding against current code. Fix only still-valid issues, skip the
 rest with a brief reason, keep changes minimal, and validate.
 
@@ -1117,7 +1117,7 @@ Also applies to: 144-148
 <details>
 <summary>🤖 Prompt for AI Agents</summary>
 
-```
+```text
 Verify each finding against current code. Fix only still-valid issues, skip the
 rest with a brief reason, keep changes minimal, and validate.
 
@@ -1147,7 +1147,7 @@ Reserve space for the close button with right padding on the input row, or add a
 <details>
 <summary>🤖 Prompt for AI Agents</summary>
 
-```
+```text
 Verify each finding against current code. Fix only still-valid issues, skip the
 rest with a brief reason, keep changes minimal, and validate.
 
@@ -1177,7 +1177,7 @@ Define one placeholder constant in `src/lib/constants.ts` and import it in all t
 <details>
 <summary>🤖 Prompt for AI Agents</summary>
 
-```
+```text
 Verify each finding against current code. Fix only still-valid issues, skip the
 rest with a brief reason, keep changes minimal, and validate.
 
@@ -1244,7 +1244,7 @@ PY
 <details>
 <summary>🤖 Prompt for AI Agents</summary>
 
-```
+```text
 Verify each finding against current code. Fix only still-valid issues, skip the
 rest with a brief reason, keep changes minimal, and validate.
 
@@ -1277,7 +1277,7 @@ Parse and clamp the values here, and swap them when the minimum exceeds the maxi
 <details>
 <summary>🤖 Prompt for AI Agents</summary>
 
-```
+```text
 Verify each finding against current code. Fix only still-valid issues, skip the
 rest with a brief reason, keep changes minimal, and validate.
 
@@ -1317,7 +1317,7 @@ As per coding guidelines: "Standard buttons and links must have touch targets of
 <details>
 <summary>🤖 Prompt for AI Agents</summary>
 
-```
+```text
 Verify each finding against current code. Fix only still-valid issues, skip the
 rest with a brief reason, keep changes minimal, and validate.
 
@@ -1364,7 +1364,7 @@ Add a size that carries no box metrics, and require it for the `link` variant, o
 <details>
 <summary>🤖 Prompt for AI Agents</summary>
 
-```
+```text
 Verify each finding against current code. Fix only still-valid issues, skip the
 rest with a brief reason, keep changes minimal, and validate.
 
@@ -1411,7 +1411,7 @@ Discard non-finite values before building the update.
 <details>
 <summary>🤖 Prompt for AI Agents</summary>
 
-```
+```text
 Verify each finding against current code. Fix only still-valid issues, skip the
 rest with a brief reason, keep changes minimal, and validate.
 
@@ -1437,7 +1437,7 @@ parameters. Treat non-finite values as null so updateUrlParams never receives
 <details>
 <summary>🤖 Prompt for AI Agents</summary>
 
-```
+```text
 Verify each finding against current code. Fix only still-valid issues, skip the
 rest with a brief reason, keep changes minimal, and validate.
 
@@ -1470,7 +1470,7 @@ When `item.dailyValuePercentage` is `0`, Line 148 renders `†`. Use nullish coa
 <details>
 <summary>🤖 Prompt for AI Agents</summary>
 
-```
+```text
 Verify each finding against current code. Fix only still-valid issues, skip the
 rest with a brief reason, keep changes minimal, and validate.
 

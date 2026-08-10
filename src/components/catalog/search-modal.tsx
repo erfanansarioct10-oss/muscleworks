@@ -177,7 +177,7 @@ export function SearchModal({
               <button
                 type="button"
                 onClick={() => setQuery("")}
-                className="h-8 w-8 min-h-[44px] min-w-[44px] sm:min-h-0 sm:min-w-0 flex items-center justify-center text-muted-foreground hover:text-foreground rounded-lg mr-2"
+                className="h-11 w-11 min-h-[44px] min-w-[44px] flex items-center justify-center text-muted-foreground hover:text-foreground rounded-lg mr-2"
                 aria-label="Clear search query"
               >
                 <X className="h-4 w-4" />
@@ -216,7 +216,7 @@ export function SearchModal({
                           key={`${term}-${i}`}
                           type="button"
                           onClick={() => handleSelectRecentSearch(term)}
-                          className="flex items-center gap-1.5 px-3 py-1.5 min-h-[44px] sm:min-h-0 text-xs font-medium rounded-full border border-border bg-muted/60 text-foreground hover:bg-accent hover:border-accent transition-colors"
+                          className="flex items-center gap-1.5 px-3 py-1.5 min-h-[44px] min-w-[44px] text-xs font-medium rounded-full border border-border bg-muted/60 text-foreground hover:bg-accent hover:border-accent transition-colors"
                         >
                           <Search className="h-3 w-3 text-muted-foreground" />
                           <span>{term}</span>
@@ -238,7 +238,7 @@ export function SearchModal({
                         key={cat.slug}
                         href={`/categories/${cat.slug}`}
                         onClick={() => setOpen(false)}
-                        className="flex items-center justify-between p-2.5 rounded-xl border border-border/80 bg-card hover:bg-accent/60 transition-colors group"
+                        className="flex items-center justify-between p-2.5 min-h-[44px] min-w-[44px] rounded-xl border border-border/80 bg-card hover:bg-accent/60 transition-colors group"
                       >
                         <span className="text-xs font-medium text-foreground group-hover:text-primary">
                           {cat.name}
@@ -359,7 +359,7 @@ export function SearchModal({
                         key={cat.slug}
                         href={`/categories/${cat.slug}`}
                         onClick={() => setOpen(false)}
-                        className="px-3 py-1.5 text-xs font-medium rounded-lg border border-border bg-card hover:bg-accent transition-colors"
+                        className="flex items-center justify-center px-3 py-1.5 min-h-[44px] min-w-[44px] text-xs font-medium rounded-lg border border-border bg-card hover:bg-accent transition-colors"
                       >
                         {cat.name}
                       </Link>
@@ -373,7 +373,6 @@ export function SearchModal({
           {/* Modal Footer Bar */}
           <div className="flex items-center justify-between border-t border-border bg-muted/30 px-4 py-2.5 text-[11px] text-muted-foreground">
             <div className="flex items-center gap-3">
-              <span><kbd className="font-semibold border rounded px-1 bg-card">↑↓</kbd> navigate</span>
               <span><kbd className="font-semibold border rounded px-1 bg-card">↵</kbd> select</span>
               <span><kbd className="font-semibold border rounded px-1 bg-card">ESC</kbd> close</span>
             </div>
