@@ -3,6 +3,7 @@
  */
 
 import React from 'react';
+import ReactDOMServer from 'react-dom/server';
 import { getProducts } from '../lib/data/products';
 import { ProductStockStatus } from '../components/product/product-stock-status';
 import { ProductVariantSelector } from '../components/product/product-variant-selector';
@@ -16,34 +17,41 @@ async function runValidation() {
 
   console.log(`✓ Fetched sample product: ${sampleProduct.name} (${sampleProduct.variants.length} variants)`);
 
-  // 1. Verify ProductStockStatus component import and props
+  // 1. Verify ProductStockStatus component static rendering
   console.log('✓ Testing ProductStockStatus prop structures...');
   const stockStatuses = ['in_stock', 'low_stock', 'out_of_stock', 'pre_order'] as const;
   for (const status of stockStatuses) {
-    const el = React.createElement(ProductStockStatus, { stockStatus: status, inStockQuantity: 3 });
-    if (!el) throw new Error(`Failed to instantiate ProductStockStatus for status ${status}`);
+    const html = ReactDOMServer.renderToString(
+      React.createElement(ProductStockStatus, { stockStatus: status, inStockQuantity: 3 })
+    );
+    if (!html) throw new Error(`Failed to render ProductStockStatus for status ${status}`);
   }
 
-  // 2. Verify ProductVariantSelector component import and props
+  // 2. Verify ProductVariantSelector component static rendering
   console.log('✓ Testing ProductVariantSelector prop structures...');
-  const selectorEl = React.createElement(ProductVariantSelector, {
-    variants: sampleProduct.variants,
-    selectedVariantId: sampleProduct.defaultVariantId,
-    onVariantChange: () => {},
-  });
-  if (!selectorEl) throw new Error('Failed to instantiate ProductVariantSelector!');
+  const selectorHtml = ReactDOMServer.renderToString(
+    React.createElement(ProductVariantSelector, {
+      variants: sampleProduct.variants,
+      selectedVariantId: sampleProduct.defaultVariantId,
+      onVariantChange: () => {},
+    })
+  );
+  if (!selectorHtml) throw new Error('Failed to render ProductVariantSelector!');
 
-  // 3. Verify ProductGallery component import and props
+  // 3. Verify ProductGallery component static rendering
   console.log('✓ Testing ProductGallery prop structures...');
-  const galleryEl = React.createElement(ProductGallery, {
-    images: sampleProduct.images,
-    productName: sampleProduct.name,
-    authenticity: sampleProduct.authenticity,
-  });
-  if (!galleryEl) throw new Error('Failed to instantiate ProductGallery!');
+  const galleryHtml = ReactDOMServer.renderToString(
+    React.createElement(ProductGallery, {
+      images: sampleProduct.images,
+      productName: sampleProduct.name,
+      authenticity: sampleProduct.authenticity,
+    })
+  );
+  if (!galleryHtml) throw new Error('Failed to render ProductGallery!');
 
   console.log('✅ ALL SUB-PHASE 4.2 PDP COMPONENT VALIDATION CHECKS PASSED SUCCESSFULLY!');
 }
+
 
 runValidation().catch((err) => {
   console.error('❌ Validation failed:', err);

@@ -18,9 +18,10 @@ const CATEGORY_SHORTCUTS = [
   { label: "Whey Proteins", href: "/categories/proteins", icon: Dumbbell },
   { label: "Creatine Monohydrate", href: "/categories/creatine", icon: Flame },
   { label: "Mass Gainers", href: "/categories/mass-gainers", icon: ShieldCheck },
-  { label: "Pre-Workouts", href: "/categories/pre-workouts", icon: Flame },
-  { label: "Golfutar Store", href: "/location", icon: MapPin },
+  { label: "Pre-Workouts", href: "/categories/pre-workout", icon: Flame },
+  { label: "All Supplements", href: "/products", icon: MapPin },
 ] as const;
+
 
 export default function NotFound() {
   const whatsappUrl = `https://wa.me/${STORE_WHATSAPP.replace(/\+/g, "")}?text=${encodeURIComponent(

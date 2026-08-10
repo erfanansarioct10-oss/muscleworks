@@ -11,6 +11,7 @@ import Image from 'next/image';
 import { cn, formatNprPrice, calculateDiscountPercentage } from '@/lib/utils';
 import type { Product, ProductVariant } from '@/lib/validations/product';
 import { trackWhatsAppClick } from '@/lib/analytics';
+import { DEFAULT_PRODUCT_PLACEHOLDER } from '@/lib/constants';
 import { Button } from '@/components/ui/button';
 import { MessageSquare } from 'lucide-react';
 
@@ -45,7 +46,7 @@ export function ProductStickyBar({
   const thumbnail =
     selectedVariant.image?.url ||
     product.images[0]?.url ||
-    '/images/products/placeholder.webp';
+    DEFAULT_PRODUCT_PLACEHOLDER;
 
   const handleClick = () => {
     trackWhatsAppClick({
@@ -70,12 +71,13 @@ export function ProductStickyBar({
           <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-lg border border-border bg-muted">
             <Image
               src={thumbnail}
-              alt={product.name}
+              alt=""
               fill
               sizes="44px"
               className="object-contain p-1"
             />
           </div>
+
 
           <div className="min-w-0 flex-1">
             <div className="flex items-center gap-1">

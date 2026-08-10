@@ -14,6 +14,9 @@ export const STORE_DESCRIPTION =
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL || "https://muscleworksnepal.com";
 
+export const DEFAULT_PRODUCT_PLACEHOLDER = "/brnding-assets/logo.webp";
+
+
 // Contact & Ordering Details
 export const STORE_PHONE = "+977 980-0000000";
 export const STORE_PHONE_RAW = "+9779800000000";

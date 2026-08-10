@@ -37,7 +37,8 @@ async function validatePdpSpecsComponents() {
 
   // 3. Verify Related Products matching logic via production accessor
   const testProduct = products[0];
-  const relatedCandidates = await getRelatedProducts(testProduct, 4);
+  const relatedCandidates = await getRelatedProducts(testProduct.id, 4);
+
   if (relatedCandidates.some((p) => p.id === testProduct.id)) {
     throw new Error(`❌ getRelatedProducts returned the current product ${testProduct.id}`);
   }

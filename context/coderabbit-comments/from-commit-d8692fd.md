@@ -1105,8 +1105,8 @@ _Source: Coding guidelines_
 Line 88 assigns `window.location.href`, which forces a full document reload and discards the client cache. Every other navigation in this component uses `next/link`. Use `useRouter().push` for the Enter key path.
 
 <details>
-<summary>♻️ Proposed refactor</parameter>
-</summary>
+<summary>♻️ Proposed refactor</summary>
+
 
 ```diff
 +import { useRouter } from "next/navigation";

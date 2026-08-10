@@ -145,7 +145,7 @@ export function NutritionTable({ nutritionFacts, className }: NutritionTableProp
                 <td className="px-4 py-2.5 font-medium">{item.name}</td>
                 <td className="px-4 py-2.5 text-right font-medium">{item.amountPerServing}</td>
                 <td className="px-4 py-2.5 text-right text-neutral-500 dark:text-neutral-400">
-                  {item.dailyValuePercentage ? item.dailyValuePercentage : '†'}
+                  {item.dailyValuePercentage ?? '†'}
                 </td>
               </tr>
             ))}

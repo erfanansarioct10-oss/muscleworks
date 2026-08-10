@@ -13,7 +13,7 @@ interface RelatedProductsProps {
 
 export async function RelatedProducts({ currentProduct, className }: RelatedProductsProps) {
   const [relatedProducts, brands] = await Promise.all([
-    getRelatedProducts(currentProduct, 4),
+    getRelatedProducts(currentProduct.id, 4),
     getBrands(),
   ]);
 

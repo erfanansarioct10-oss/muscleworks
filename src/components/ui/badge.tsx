@@ -10,11 +10,12 @@ export const badgeVariants = cva(
         default:
           "border-transparent bg-primary text-primary-foreground shadow-sm hover:bg-primary-hover",
         authentic:
-          "border-amber-500/30 bg-amber-500/10 text-amber-700 font-bold",
+          "border-amber-600/30 bg-amber-50 text-amber-800 dark:border-amber-500/40 dark:bg-amber-950/90 dark:text-amber-300 font-bold",
         discount:
           "border-primary/20 bg-primary text-primary-foreground font-bold",
         stock:
-          "border-amber-500/30 bg-amber-500/10 text-amber-700",
+          "border-amber-600/30 bg-amber-50 text-amber-800 dark:border-amber-500/40 dark:bg-amber-950/90 dark:text-amber-300",
+
         category:
           "border-border bg-secondary text-foreground",
         secondary:

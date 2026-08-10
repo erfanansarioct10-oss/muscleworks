@@ -24,9 +24,9 @@ import {
 } from "@/lib/constants";
 
 const SUPPLEMENT_CATEGORIES = [
-  { label: "Whey Protein", href: "/products?category=whey-protein" },
+  { label: "Whey Protein", href: "/products?category=proteins" },
   { label: "Creatine Monohydrate", href: "/products?category=creatine" },
-  { label: "Mass Gainers", href: "/products?category=mass-gainer" },
+  { label: "Mass Gainers", href: "/products?category=mass-gainers" },
   { label: "Pre-Workout & Energy", href: "/products?category=pre-workout" },
   { label: "BCAA & Essential Aminos", href: "/products?category=amino-bcaa" },
   { label: "Vitamins & Fish Oil", href: "/products?category=vitamins-health" },
@@ -34,11 +34,12 @@ const SUPPLEMENT_CATEGORIES = [
 ] as const;
 
 const LEGAL_LINKS = [
-  { label: "Privacy Policy", href: "/privacy" },
+  { label: "Privacy Policy", href: "/privacy-policy" },
   { label: "Terms of Service", href: "/terms" },
-  { label: "Delivery & Returns", href: "/delivery-returns" },
+  { label: "Delivery & Returns", href: "/delivery-policy" },
   { label: "Authenticity Disclaimer", href: "/disclaimer" },
 ] as const;
+
 
 export function Footer() {
   return (

@@ -160,7 +160,8 @@ export function SearchModal({
           </DialogHeader>
 
           {/* Top Search Input Bar */}
-          <div className="flex items-center border-b border-border px-4 py-3 bg-card">
+          <div className="flex items-center border-b border-border px-4 py-3 pr-14 bg-card">
+
             <Search className="h-5 w-5 shrink-0 text-muted-foreground mr-3" />
             <input
               ref={inputRef}

@@ -18,14 +18,21 @@ export type DayOfWeek = z.infer<typeof DayOfWeekEnum>;
 /**
  * Opening Hours Item Schema
  */
+const timeFormatRegex = /^(?:1[0-2]|0?[1-9]):[0-5][0-9]\s*(?:AM|PM)$|^(?:[01]?[0-9]|2[0-3]):[0-5][0-9]$/i;
+
 export const OpeningHourItemSchema = z.object({
   day: DayOfWeekEnum,
   label: z.string(),
-  opens: z.string(),
-  closes: z.string(),
+  opens: z.string().refine((val) => val === 'Contact Store' || timeFormatRegex.test(val), {
+    message: 'opens must be a valid 12-hour/24-hour time format or "Contact Store"',
+  }),
+  closes: z.string().refine((val) => val === 'Contact Store' || timeFormatRegex.test(val), {
+    message: 'closes must be a valid 12-hour/24-hour time format or "Contact Store"',
+  }),
   isClosed: z.boolean().default(false),
   note: z.string().optional(),
 });
+
 
 export type OpeningHourItem = z.infer<typeof OpeningHourItemSchema>;
 

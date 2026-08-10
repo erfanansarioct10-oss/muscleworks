@@ -1108,19 +1108,13 @@ The website should be **fast, secure, mobile-first, SEO-friendly, maintainable, 
 
 ## 35. CURRENT PROJECT STATUS
 
-**Discovery:** Substantially complete.
+**Discovery & Architecture:** 100% Frozen & Complete.
 
-**Current phase:** Requirements validation → Information architecture → UX strategy → Technical architecture.
+**Current Active Phase:** **Phase 5 — Lead Forms, Server Actions & Notifications Pipeline** (Sub-Phases 5.1–5.3 Complete; Sub-Phase 5.4 Next Up). See [`context/progress-tracker.md`](progress-tracker.md) for real-time tracking.
 
-Before full development begins, freeze:
-
-1. Sitemap.
-2. Product data model.
-3. Category taxonomy.
-4. Brand taxonomy.
-5. Conversion flows.
-6. Content requirements.
-7. SEO architecture.
-8. Third-party integrations.
-9. Technical stack.
-10. V1 scope.
+All core foundations are frozen and implemented:
+1. Product catalog data models & Zod schemas.
+2. Category and brand taxonomy accessors.
+3. SSG Product Detail Pages & WhatsApp URL Engine.
+4. Minimal Premium Luxury design system.
+5. Anti-spam security, Upstash rate limiting & Server Actions pipeline.

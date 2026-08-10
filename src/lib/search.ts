@@ -2,7 +2,7 @@ import Fuse, { type IFuseOptions } from 'fuse.js';
 import { getProducts } from '@/lib/data/products';
 import { getBrands } from '@/lib/data/brands';
 import { getCategories } from '@/lib/data/categories';
-import type { Product } from '@/lib/validations/product';
+import type { Product, ProductVariant } from '@/lib/validations/product';
 
 export interface SearchableProductItem {
   id: string;
@@ -52,10 +52,10 @@ export async function getSearchIndex(): Promise<Fuse<SearchableProductItem>> {
     const brandName = brandMap.get(product.brandId) ?? product.brandId;
     const categoryName = categoryMap.get(product.categoryId) ?? product.categoryId;
     const defaultVariant =
-      product.variants.find((v) => v.id === product.defaultVariantId) ?? product.variants[0];
+      product.variants.find((v: ProductVariant) => v.id === product.defaultVariantId) ?? product.variants[0];
 
     const flavorList = Array.from(
-      new Set(product.variants.map((v) => v.flavor).filter((f) => f && f !== 'Unflavored'))
+      new Set(product.variants.map((v: ProductVariant) => v.flavor).filter((f: string): f is string => Boolean(f) && f !== 'Unflavored'))
     );
 
     return {
@@ -91,7 +91,7 @@ export async function getSearchIndex(): Promise<Fuse<SearchableProductItem>> {
     ],
   };
 
-  fuseInstance = new Fuse(searchableItemsCache, fuseOptions);
+  fuseInstance = new Fuse(searchableItemsCache ?? [], fuseOptions);
   return fuseInstance;
 }
 

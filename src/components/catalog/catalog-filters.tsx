@@ -117,8 +117,14 @@ export function CatalogFilters({ categories, className }: CatalogFiltersProps) {
   const handleApplyPriceInputs = (e: React.FormEvent) => {
     e.preventDefault();
 
-    const minVal = minPriceInput ? Math.max(0, parseInt(minPriceInput, 10)) : null;
-    const maxVal = maxPriceInput ? Math.max(0, parseInt(maxPriceInput, 10)) : null;
+    const parsePrice = (raw: string): number | null => {
+      if (!raw || !raw.trim()) return null;
+      const parsed = Number.parseInt(raw.trim(), 10);
+      return Number.isFinite(parsed) ? Math.max(0, parsed) : null;
+    };
+
+    const minVal = parsePrice(minPriceInput);
+    const maxVal = parsePrice(maxPriceInput);
 
     // Basic min <= max check
     if (minVal !== null && maxVal !== null && minVal > maxVal) {
@@ -133,6 +139,7 @@ export function CatalogFilters({ categories, className }: CatalogFiltersProps) {
       });
     }
   };
+
 
   // Apply preset price pill
   const handleApplyPricePreset = (min?: number, max?: number) => {

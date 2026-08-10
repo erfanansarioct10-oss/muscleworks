@@ -77,26 +77,44 @@ async function runValidation() {
   console.log(`✅ getProductBySlug("${sampleSlug}"): "${productBySlug.name}"`);
 
   const productById = await getProductById(productBySlug.id);
-  if (!productById) throw new Error(`getProductById failed for ${productBySlug.id}`);
+  if (!productById || productById.id !== productBySlug.id) {
+    throw new Error(`getProductById failed or returned wrong ID for ${productBySlug.id}`);
+  }
   console.log(`✅ getProductById("${productBySlug.id}"): "${productById.name}"`);
 
-  const featuredProducts = await getFeaturedProducts(4);
-  console.log(`✅ getFeaturedProducts(4): ${featuredProducts.length} featured products.`);
+  const featuredProducts = await getFeaturedProducts();
+  if (featuredProducts.length === 0) throw new Error('getFeaturedProducts returned 0 items');
+  console.log(`✅ getFeaturedProducts(): ${featuredProducts.length} featured products.`);
 
   const catProducts = await getProductsByCategory('proteins');
+  if (catProducts.length === 0) throw new Error('getProductsByCategory("proteins") returned 0 items');
   console.log(`✅ getProductsByCategory("proteins"): ${catProducts.length} products.`);
 
   const brandProducts = await getProductsByBrand('optimum-nutrition');
+  if (brandProducts.length === 0) throw new Error('getProductsByBrand("optimum-nutrition") returned 0 items');
   console.log(`✅ getProductsByBrand("optimum-nutrition"): ${brandProducts.length} products.`);
 
-  const related = await getRelatedProducts(productBySlug, 3);
+  const related = await getRelatedProducts(productBySlug.id, 3);
+  if (related.some((p) => p.id === productBySlug.id)) {
+    throw new Error('getRelatedProducts returned source product');
+  }
   console.log(`✅ getRelatedProducts("${productBySlug.name}", 3): ${related.length} related products.`);
 
+  const emptySearch = await searchProductsInMemory('');
+  if (emptySearch.length === 0) throw new Error('searchProductsInMemory("") failed to return full catalog');
+  console.log(`✅ searchProductsInMemory(""): ${emptySearch.length} full catalog items returned.`);
+
+  const brandSearch = await searchProductsInMemory('Optimum Nutrition');
+  if (brandSearch.length === 0) throw new Error('searchProductsInMemory("Optimum Nutrition") display brand search failed');
+  console.log(`✅ searchProductsInMemory("Optimum Nutrition"): ${brandSearch.length} matches found.`);
+
   const searchResults = await searchProductsInMemory('creatine');
+  if (searchResults.length === 0) throw new Error('searchProductsInMemory("creatine") failed');
   console.log(`✅ searchProductsInMemory("creatine"): ${searchResults.length} matches found.`);
 
   console.log('\n🎉 ALL CATALOG DATA ACCESSOR TESTS PASSED CLEANLY!\n');
 }
+
 
 runValidation().catch((err) => {
   console.error('❌ Accessor Validation Error:', err);

@@ -213,6 +213,9 @@ When writing or executing a feature spec:
 | `31-subphase-5.1-anti-spam-rate-limiting` | [Sub-Phase 5.1 — Anti-Spam Security & Rate Limiting Infrastructure](31-subphase-5.1-anti-spam-rate-limiting.md) | **Approved** | Lead Forms & Notifications | 2026-08-10 |
 | `32-subphase-5.2-notification-dispatchers` | [Sub-Phase 5.2 — Multi-Channel Notification Dispatchers](32-subphase-5.2-notification-dispatchers.md) | **Approved** | Lead Forms & Notifications | 2026-08-10 |
 | `33-subphase-5.3-server-actions-pipeline` | [Sub-Phase 5.3 — Server Actions Pipeline](33-subphase-5.3-server-actions-pipeline.md) | **Approved** | Lead Forms & Notifications | 2026-08-10 |
+| `34-coderabbit-commit-b4abf63-resolutions` | [CodeRabbit Commit b4abf63 Review Resolutions & Technical Synchronization](34-coderabbit-commit-b4abf63-resolutions.md) | **Approved** | Quality & Technical Cleanup | 2026-08-10 |
+
+
 
 
 

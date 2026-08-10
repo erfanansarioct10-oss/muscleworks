@@ -20,15 +20,16 @@ export default function HomePage() {
         </div>
         <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
           <span className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
-            Sub-Phase 0.2 Active
+            Kathmandu Delivery Guarantee
           </span>
           <span className="inline-flex items-center rounded-full bg-success/10 px-3 py-1 text-xs font-semibold text-success">
-            Tailwind v4 Theme Loaded
+            100% Genuine Importer Holograms
           </span>
           <span className="inline-flex items-center rounded-full bg-accent/10 px-3 py-1 text-xs font-semibold text-amber-700">
-            Minimal Premium Modern Luxury
+            Golfutar Flagship Outlet
           </span>
         </div>
+
       </div>
     </main>
   );

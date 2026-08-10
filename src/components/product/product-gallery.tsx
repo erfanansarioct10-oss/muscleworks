@@ -65,17 +65,26 @@ export function ProductGallery({
     });
   }, [images, productName]);
 
-  const activeImage = normalizedImages[selectedIndex] || normalizedImages[0];
+  const safeIndex = selectedIndex >= normalizedImages.length ? Math.max(0, normalizedImages.length - 1) : selectedIndex;
+  const activeImage = normalizedImages[safeIndex] || normalizedImages[0];
+
 
   const handlePrev = (e?: React.MouseEvent) => {
     e?.stopPropagation();
-    setSelectedIndex((prev) => (prev === 0 ? normalizedImages.length - 1 : prev - 1));
+    setSelectedIndex((prev) => {
+      const current = prev >= normalizedImages.length ? 0 : prev;
+      return current === 0 ? normalizedImages.length - 1 : current - 1;
+    });
   };
 
   const handleNext = (e?: React.MouseEvent) => {
     e?.stopPropagation();
-    setSelectedIndex((prev) => (prev === normalizedImages.length - 1 ? 0 : prev + 1));
+    setSelectedIndex((prev) => {
+      const current = prev >= normalizedImages.length ? 0 : prev;
+      return current === normalizedImages.length - 1 ? 0 : current + 1;
+    });
   };
+
 
   return (
     <div className={cn('space-y-4', className)}>

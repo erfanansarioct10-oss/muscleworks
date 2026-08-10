@@ -140,4 +140,5 @@
 1. **No Out-of-Scope Dependencies:** Do not install heavy state libraries (Redux, MobX), client-side database libraries, payment SDKs (Stripe, eSewa, Khalti), or heavy UI kits (MUI, Chakra, AntD).
 2. **Zero Credentials in Client Code:** `RESEND_API_KEY`, `TELEGRAM_BOT_TOKEN`, `TELEGRAM_ADMIN_CHAT_ID`, and Upstash keys must **NEVER** be prefixed with `NEXT_PUBLIC_` or imported into `'use client'` files.
 3. **Keep Client Bundles Minimal:** Maximize use of React Server Components. Client components (`'use client'`) are strictly restricted to interactive leaf nodes (e.g. search input, variant selectors, mobile menu drawer, inquiry form, toast triggers).
-4. **Adhere to Next.js 16 Rules:** Follow all Next.js 16 breaking conventions and rules as outlined in [AGENTS.md](file:///c:/nooridigital_assets/my-projects/muscleworks/AGENTS.md).
+4. **Adhere to Next.js 16 Rules:** Follow all Next.js 16 breaking conventions and rules as outlined in [AGENTS.md](../AGENTS.md).
+

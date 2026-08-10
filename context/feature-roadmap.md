@@ -67,8 +67,9 @@ flowchart LR
 | :--- | :--- | :--- | :--- | :--- |
 | **Phase 0** | Project Setup, Tooling & Infrastructure | 4 Sub-Phases (0.1–0.4) | None | Next.js 16 setup, TS config, Tailwind v4 theme, root layout |
 | **Phase 1** | Core Design System & Shared UI Primitives | 5 Sub-Phases (1.1–1.5) | Phase 0 | Radix primitives, buttons, navigation, header, footer, mobile bar |
-| **Phase 2** | Static Datasets & Typed Data Access Layer | 4 Sub-Phases (2.1–2.4) | Phase 0 | Zod schemas, JSON datasets (products/stores/faqs), data accessors |
-| **Phase 3** | Catalog, Filtering & In-Memory Fuzzy Search | 4 Sub-Phases (3.1–3.4) | Phase 1, Phase 2 | Product cards, Fuse.js search, filter sheet, `/products`, archive hubs |
+| **Phase 2** | Static Datasets & Typed Data Access Layer | 5 Sub-Phases (2.1–2.5) | Phase 0 | Zod schemas, JSON datasets (products/stores/faqs), data accessors |
+| **Phase 3** | Catalog, Filtering & In-Memory Fuzzy Search | 6 Sub-Phases (3.1–3.6) | Phase 1, Phase 2 | Product cards, Fuse.js search, filter sheet, `/products`, archive hubs |
+
 | **Phase 4** | Product Detail & Dynamic WhatsApp Engine | 4 Sub-Phases (4.1–4.4) | Phase 2, Phase 3 | Gallery, variant selectors, WhatsApp URL generator, `/products/[slug]` |
 | **Phase 5** | Lead Forms, Server Actions & Notifications | 5 Sub-Phases (5.1–5.5) | Phase 1, Phase 2 | Upstash rate limit, Resend emails, Telegram bot, `/contact`, `/stores` |
 | **Phase 6** | Informational, Trust, Education & Legal Pages | 5 Sub-Phases (6.1–6.5) | Phase 1, Phase 3, Phase 4 | Homepage `/`, `/about`, `/authenticity`, MDX `/guides`, legal pages |

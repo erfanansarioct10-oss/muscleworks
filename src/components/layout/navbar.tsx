@@ -4,10 +4,11 @@ import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
   { label: "Products", href: "/products" },
-  { label: "Authenticity", href: "/authenticity" },
-  { label: "Store Location", href: "/location" },
+  { label: "Categories", href: "/categories" },
+  { label: "Brands", href: "/brands" },
   { label: "Guides", href: "/guides" },
 ] as const;
+
 
 export type NavbarProps = React.HTMLAttributes<HTMLElement>;
 

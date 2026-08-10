@@ -158,17 +158,33 @@ export function MobileFilterDrawer({
       params.delete('goal');
     }
 
-    if (stagedMinPrice) {
-      params.set('minPrice', stagedMinPrice);
+    const parsePrice = (raw: string): number | null => {
+      if (!raw || !raw.trim()) return null;
+      const parsed = Number.parseInt(raw.trim(), 10);
+      return Number.isFinite(parsed) ? Math.max(0, parsed) : null;
+    };
+
+    let minVal = parsePrice(stagedMinPrice);
+    let maxVal = parsePrice(stagedMaxPrice);
+
+    if (minVal !== null && maxVal !== null && minVal > maxVal) {
+      const temp = minVal;
+      minVal = maxVal;
+      maxVal = temp;
+    }
+
+    if (minVal !== null) {
+      params.set('minPrice', minVal.toString());
     } else {
       params.delete('minPrice');
     }
 
-    if (stagedMaxPrice) {
-      params.set('maxPrice', stagedMaxPrice);
+    if (maxVal !== null) {
+      params.set('maxPrice', maxVal.toString());
     } else {
       params.delete('maxPrice');
     }
+
 
     if (stagedInStock) {
       params.set('inStock', 'true');

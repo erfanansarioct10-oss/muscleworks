@@ -31,14 +31,22 @@ export const buttonVariants = cva(
         lg: "h-12 rounded-xl px-6 text-base font-semibold",
         xl: "h-14 rounded-2xl px-8 text-lg font-bold",
         icon: "h-11 w-11 p-0",
+        inline: "h-auto p-0",
       },
     },
     defaultVariants: {
       variant: "default",
       size: "default",
     },
+    compoundVariants: [
+      {
+        variant: "link",
+        className: "h-auto p-0",
+      },
+    ],
   }
 );
+
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,

@@ -4,8 +4,11 @@ import { getProducts, getProductBySlug } from '@/lib/data/products';
 import { getCategoryById } from '@/lib/data/categories';
 import { getBrandById } from '@/lib/data/brands';
 import { formatNprPrice } from '@/lib/utils';
+import type { ProductVariant } from '@/lib/validations/product';
+import type { ImageAsset } from '@/lib/validations/common';
 import { ProductDetailView } from '@/components/product/product-detail-view';
 import { RelatedProducts } from '@/components/product/related-products';
+
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -25,14 +28,14 @@ export async function generateMetadata(props: PageProps): Promise<Metadata> {
 
   if (!product) {
     return {
-      title: 'Product Not Found | MuscleWorks Nepal',
-      description: 'The requested supplement product could not be found in our Kathmandu catalog.',
+      title: 'Product Not Found | MuscleWorks Supplements',
+      description: 'The requested supplement product could not be found.',
     };
   }
 
   const brand = await getBrandById(product.brandId);
   const defaultVariant =
-    product.variants.find((v) => v.id === product.defaultVariantId) ||
+    product.variants.find((v: ProductVariant) => v.id === product.defaultVariantId) ||
     product.variants[0];
   const activePrice = defaultVariant.discountPriceNpr || defaultVariant.priceNpr;
   const priceFormatted = formatNprPrice(activePrice);
@@ -45,7 +48,7 @@ export async function generateMetadata(props: PageProps): Promise<Metadata> {
       description: product.shortDescription,
       type: 'website',
       url: `https://muscleworks.com.np/products/${product.slug}`,
-      images: product.images.map((img) => ({
+      images: product.images.map((img: ImageAsset) => ({
         url: img.url,
         alt: img.alt || product.name,
       })),
@@ -69,7 +72,7 @@ export default async function ProductDetailPage(props: PageProps) {
   ]);
 
   const defaultVariant =
-    product.variants.find((v) => v.id === product.defaultVariantId) ||
+    product.variants.find((v: ProductVariant) => v.id === product.defaultVariantId) ||
     product.variants[0];
 
   // Schema.org Product + Offer JSON-LD structured data
@@ -77,7 +80,8 @@ export default async function ProductDetailPage(props: PageProps) {
     '@context': 'https://schema.org',
     '@type': 'Product',
     name: product.name,
-    image: product.images.map((img) => img.url),
+    image: product.images.map((img: ImageAsset) => img.url),
+
     description: product.shortDescription,
     sku: defaultVariant.sku || product.id,
     brand: {

@@ -33,11 +33,8 @@ export function ActiveFilters({
   const minPriceParam = searchParams.get('minPrice');
   const maxPriceParam = searchParams.get('maxPrice');
   const inStockParam = searchParams.get('inStock');
-  const searchParam =
-    searchParams.get('search') ??
-    searchParams.get('q') ??
-    searchParams.get('searchQuery') ??
-    '';
+  const searchParam = searchParams.get('search') ?? '';
+
 
   const activeCategories = React.useMemo(
     () => (categoryParam ? categoryParam.split(',').filter(Boolean) : []),
@@ -141,11 +138,8 @@ export function ActiveFilters({
               <span>Search: &ldquo;{searchParam}&rdquo;</span>
               <button
                 type="button"
-                onClick={() => {
-                  removeFilter('search');
-                  removeFilter('q');
-                  removeFilter('searchQuery');
-                }}
+                onClick={() => removeFilter('search')}
+
                 className="inline-flex items-center justify-center min-h-[32px] min-w-[32px] sm:min-h-11 sm:min-w-11 rounded-full text-neutral-500 hover:text-neutral-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold-500"
                 aria-label={`Remove search query ${searchParam}`}
               >

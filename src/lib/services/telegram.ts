@@ -58,7 +58,7 @@ export function buildTelegramMarkdownMessage(payload: TelegramInquiryAlertPayloa
       pc.priceNpr ? `💰 *Price:* ${escapeMarkdownV2(formatNprPrice(pc.priceNpr))}` : null,
     ].filter(Boolean);
 
-    productDetails = `\n*--- Product Context ---*\n${lines.join('\n')}`;
+    productDetails = `\n*Product Context*\n${lines.join('\n')}`;
   }
 
   const messageSection = `\n📝 *Customer Message:*\n"${escapeMarkdownV2(payload.message)}"`;

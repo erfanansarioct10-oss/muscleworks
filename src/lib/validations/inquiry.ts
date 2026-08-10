@@ -82,7 +82,7 @@ export type InquiryFormClientValues = z.infer<typeof InquiryFormClientSchema>;
 export const InquiryServerPayloadSchema = InquiryFormClientSchema.extend({
   clientIp: z.string().optional(),
   userAgent: z.string().optional(),
-  submittedAt: z.string(),
+  submittedAt: z.string().datetime(),
 });
 
 export type InquiryServerPayload = z.infer<typeof InquiryServerPayloadSchema>;
