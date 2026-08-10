@@ -44,8 +44,8 @@ export function SearchBar({
       return () => clearTimeout(timer);
     }
 
-    setIsLoading(true);
     const timer = setTimeout(async () => {
+      setIsLoading(true);
       try {
         const searchRes = await searchProducts(trimmed, 6);
         setResults(searchRes);

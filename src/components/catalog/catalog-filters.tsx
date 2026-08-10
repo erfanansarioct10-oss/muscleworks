@@ -30,7 +30,7 @@ const PRESET_PRICE_RANGES = [
   { label: 'Above 20k', min: 20000, max: undefined },
 ];
 
-export function CatalogFilters({ categories, brands, className }: CatalogFiltersProps) {
+export function CatalogFilters({ categories, brands: _brands, className }: CatalogFiltersProps) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -56,14 +56,18 @@ export function CatalogFilters({ categories, brands, className }: CatalogFilters
   const [minPriceInput, setMinPriceInput] = React.useState(activeMinPrice);
   const [maxPriceInput, setMaxPriceInput] = React.useState(activeMaxPrice);
 
-  // Synchronize local input state with URL changes
-  React.useEffect(() => {
+  const [prevMinPrice, setPrevMinPrice] = React.useState(activeMinPrice);
+  if (prevMinPrice !== activeMinPrice) {
+    setPrevMinPrice(activeMinPrice);
     setMinPriceInput(activeMinPrice);
-  }, [activeMinPrice]);
+  }
 
-  React.useEffect(() => {
+  const [prevMaxPrice, setPrevMaxPrice] = React.useState(activeMaxPrice);
+  if (prevMaxPrice !== activeMaxPrice) {
+    setPrevMaxPrice(activeMaxPrice);
     setMaxPriceInput(activeMaxPrice);
-  }, [activeMaxPrice]);
+  }
+
 
   // Helper to push URL updates cleanly
   const updateUrlParams = React.useCallback(

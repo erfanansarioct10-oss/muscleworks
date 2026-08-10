@@ -58,16 +58,19 @@ export function SearchModal({
 
   const inputRef = React.useRef<HTMLInputElement>(null);
 
-  const handleOpenChange = (open: boolean) => {
-    if (open) {
-      setRecentSearches(getRecentSearches());
-      setTimeout(() => inputRef.current?.focus(), 100);
-    } else {
-      setQuery("");
-      setResults([]);
-    }
-    setOpen(open);
-  };
+  const handleOpenChange = React.useCallback(
+    (open: boolean) => {
+      if (open) {
+        setRecentSearches(getRecentSearches());
+        setTimeout(() => inputRef.current?.focus(), 100);
+      } else {
+        setQuery("");
+        setResults([]);
+      }
+      setOpen(open);
+    },
+    [setOpen]
+  );
 
   // Global Cmd+K / Ctrl+K keyboard shortcut listener
   React.useEffect(() => {
@@ -79,7 +82,7 @@ export function SearchModal({
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isOpen]);
+  }, [isOpen, handleOpenChange]);
 
   // Debounced search query
   React.useEffect(() => {
@@ -92,8 +95,8 @@ export function SearchModal({
       return () => clearTimeout(timer);
     }
 
-    setIsLoading(true);
     const timer = setTimeout(async () => {
+      setIsLoading(true);
       try {
         const res = await searchProducts(trimmed, 8);
         setResults(res);
@@ -117,13 +120,14 @@ export function SearchModal({
     setRecentSearches([]);
   };
 
-  const handleSelectProduct = (productSlug: string, searchTerm: string) => {
+  const handleResultClick = (searchTerm: string) => {
     if (searchTerm.trim()) {
       const updated = addRecentSearch(searchTerm);
       setRecentSearches(updated);
     }
     handleOpenChange(false);
   };
+
 
   return (
     <>

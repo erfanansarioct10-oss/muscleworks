@@ -14,7 +14,6 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-  SheetClose,
 } from '@/components/ui/sheet';
 import { BrandFilter } from '@/components/catalog/brand-filter';
 import type { Category, Brand, Product } from '@/lib/validations/product';
