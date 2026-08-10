@@ -217,6 +217,7 @@ When writing or executing a feature spec:
 | `35-coderabbit-commit-27de917-resolutions` | [CodeRabbit Commit 27de917 Review Resolutions & Technical Synchronization](35-coderabbit-commit-27de917-resolutions.md) | **Approved** | Quality & Technical Cleanup | 2026-08-10 |
 | `36-subphase-5.4-interactive-form-components-consultation-modal` | [Sub-Phase 5.4 — Interactive Form Components & Consultation Modal](36-subphase-5.4-interactive-form-components-consultation-modal.md) | **Approved** | Lead Forms & Notifications | 2026-08-10 |
 | `37-subphase-5.5-contact-store-locations-experience` | [Sub-Phase 5.5 — Contact & Store Locations Experience](37-subphase-5.5-contact-store-locations-experience.md) | **Approved** | Lead Forms & Notifications | 2026-08-10 |
+| `38-coderabbit-commit-82dc2d2-resolutions` | [CodeRabbit Commit 82dc2d2 Review Resolutions & Technical Synchronization](38-coderabbit-commit-82dc2d2-resolutions.md) | **Approved** | Quality & Technical Cleanup | 2026-08-10 |
 
 
 

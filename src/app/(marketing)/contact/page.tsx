@@ -11,7 +11,7 @@ import {
   ChevronRight,
 } from 'lucide-react';
 
-import rawStoreData from '@/data/store-info.json';
+import { getStoreInfo } from '@/lib/data/store';
 import { buildGeneralWhatsAppUrl } from '@/lib/whatsapp';
 import { ContactForm } from '@/components/forms/contact-form';
 import { StoreHoursCard } from '@/components/location/store-hours-card';
@@ -31,8 +31,9 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ContactPage() {
-  const { address, contacts } = rawStoreData;
+export default async function ContactPage() {
+  const storeInfo = await getStoreInfo();
+  const { address, contacts } = storeInfo;
   const whatsappUrl = buildGeneralWhatsAppUrl(
     'Namaste MuscleWorks! I have an inquiry regarding supplement products, stock availability, or store visit.'
   );
@@ -45,7 +46,7 @@ export default function ContactPage() {
           <nav aria-label="Breadcrumb" className="mb-4">
             <ol className="flex items-center space-x-2 text-xs font-medium text-muted-foreground">
               <li>
-                <Link href="/" className="hover:text-foreground transition-colors">
+                <Link href="/" className="inline-flex min-h-[44px] items-center hover:text-foreground transition-colors">
                   Home
                 </Link>
               </li>
@@ -169,7 +170,7 @@ export default function ContactPage() {
                   <span className="text-xs text-muted-foreground">Need map directions?</span>
                   <Link
                     href="/location"
-                    className="inline-flex items-center gap-1 text-xs font-bold text-primary hover:underline"
+                    className="inline-flex min-h-[44px] items-center gap-1 text-xs font-bold text-primary hover:underline"
                   >
                     <span>View Store Location Page</span>
                     <ChevronRight className="h-3.5 w-3.5" />
@@ -187,7 +188,7 @@ export default function ContactPage() {
                 </div>
                 <div className="min-w-0 flex-1 text-xs">
                   <span className="font-bold text-foreground block">Email Support</span>
-                  <a href={`mailto:${contacts.storeEmail}`} className="text-muted-foreground hover:text-primary transition-colors truncate block">
+                  <a href={`mailto:${contacts.storeEmail}`} className="inline-flex min-h-[44px] items-center text-muted-foreground hover:text-primary transition-colors truncate">
                     {contacts.storeEmail}
                   </a>
                 </div>

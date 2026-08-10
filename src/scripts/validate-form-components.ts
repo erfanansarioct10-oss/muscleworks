@@ -5,10 +5,6 @@
 
 Object.assign(process.env, { NODE_ENV: 'test' });
 
-import { InquiryForm } from '../components/forms/inquiry-form';
-import { ContactForm } from '../components/forms/contact-form';
-import { ConsultationModal } from '../components/forms/consultation-modal';
-
 let passed = 0;
 let failed = 0;
 
@@ -23,7 +19,11 @@ function assert(condition: boolean, testName: string, detail?: string): void {
   }
 }
 
-function runFormComponentsValidation(): void {
+async function runFormComponentsValidation(): Promise<void> {
+  const { InquiryForm } = await import('../components/forms/inquiry-form');
+  const { ContactForm } = await import('../components/forms/contact-form');
+  const { ConsultationModal } = await import('../components/forms/consultation-modal');
+
   console.log('\n======================================================');
   console.log('  MUSCLEWORKS SUPPLEMENTS — FORM COMPONENTS VALIDATOR');
   console.log('======================================================\n');
@@ -48,3 +48,5 @@ function runFormComponentsValidation(): void {
 }
 
 runFormComponentsValidation();
+
+export {};

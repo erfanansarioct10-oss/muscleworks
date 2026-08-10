@@ -91,6 +91,18 @@ export function ContactForm({ className, onSuccess }: ContactFormProps) {
 
   const onSubmit = async (values: InquiryFormClientValues) => {
     try {
+      // Validate cross-field email requirement when 'email' contact method is chosen
+      if (values.preferredContactMethod === 'email' && !values.email?.trim()) {
+        toast.error('Please enter your email address so we can respond to your request.');
+        return;
+      }
+
+      // If user selected 'Other' for city, require a non-empty custom city
+      if (values.deliveryCity === 'Other' && !customCity.trim()) {
+        toast.error('Please specify your city or location.');
+        return;
+      }
+
       const finalPayload: InquiryFormClientValues = {
         ...values,
         deliveryCity:
@@ -211,65 +223,74 @@ export function ContactForm({ className, onSuccess }: ContactFormProps) {
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         {/* Full Name */}
         <div className="space-y-1.5">
-          <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
+          <label htmlFor="contact-fullName" className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
             Full Name <span className="text-destructive">*</span>
           </label>
           <Input
+            id="contact-fullName"
             placeholder="e.g. Samir Thapa"
             {...register('fullName')}
             aria-invalid={!!errors.fullName}
+            aria-describedby={errors.fullName ? 'contact-fullName-error' : undefined}
             className="min-h-[44px]"
           />
           {errors.fullName && (
-            <p className="text-xs font-medium text-destructive">{errors.fullName.message}</p>
+            <p id="contact-fullName-error" className="text-xs font-medium text-destructive">{errors.fullName.message}</p>
           )}
         </div>
 
         {/* Nepal Phone Number */}
         <div className="space-y-1.5">
-          <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
+          <label htmlFor="contact-phoneNumber" className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
             Phone Number (Nepal) <span className="text-destructive">*</span>
           </label>
           <Input
+            id="contact-phoneNumber"
             placeholder="e.g. 9841XXXXXX"
             {...register('phoneNumber')}
             aria-invalid={!!errors.phoneNumber}
+            aria-describedby={errors.phoneNumber ? 'contact-phoneNumber-error' : undefined}
             className="min-h-[44px]"
           />
           {errors.phoneNumber && (
-            <p className="text-xs font-medium text-destructive">{errors.phoneNumber.message}</p>
+            <p id="contact-phoneNumber-error" className="text-xs font-medium text-destructive">{errors.phoneNumber.message}</p>
           )}
         </div>
       </div>
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-        {/* Email Address (Optional) */}
+        {/* Email Address (Optional unless Email contact method chosen) */}
         <div className="space-y-1.5">
-          <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
-            Email Address <span className="text-xs text-muted-foreground font-normal">(Optional)</span>
+          <label htmlFor="contact-email" className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
+            Email Address {selectedContactMethod === 'email' ? <span className="text-destructive">*</span> : <span className="text-xs text-muted-foreground font-normal">(Optional)</span>}
           </label>
           <Input
+            id="contact-email"
             type="email"
             placeholder="name@example.com"
             {...register('email')}
             aria-invalid={!!errors.email}
+            aria-describedby={errors.email ? 'contact-email-error' : undefined}
             className="min-h-[44px]"
           />
           {errors.email && (
-            <p className="text-xs font-medium text-destructive">{errors.email.message}</p>
+            <p id="contact-email-error" className="text-xs font-medium text-destructive">{errors.email.message}</p>
           )}
         </div>
 
         {/* Delivery / Location City */}
         <div className="space-y-1.5">
-          <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
+          <label htmlFor="contact-deliveryCity" className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
             Your City / Location
           </label>
           <Select
             value={selectedDeliveryCity || 'Kathmandu'}
-            onValueChange={(val) => setValue('deliveryCity', val)}
+            onValueChange={(val) => {
+              setValue('deliveryCity', val, { shouldValidate: true });
+              if (val !== 'Other') setCustomCity('');
+            }}
           >
-            <SelectTrigger className="min-h-[44px]">
+            <SelectTrigger id="contact-deliveryCity" className="min-h-[44px]">
               <SelectValue placeholder="Select Location" />
             </SelectTrigger>
             <SelectContent>
@@ -285,13 +306,18 @@ export function ContactForm({ className, onSuccess }: ContactFormProps) {
         {/* Custom City Text Input (when 'Other' selected) */}
         {selectedDeliveryCity === 'Other' && (
           <div className="space-y-1.5 sm:col-span-2">
-            <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
-              Specify City / Location
+            <label htmlFor="contact-customCity" className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
+              Specify City / Location <span className="text-destructive">*</span>
             </label>
             <Input
+              id="contact-customCity"
               placeholder="e.g. Dharan, Hetauda, Nepalgunj"
               value={customCity}
-              onChange={(e) => setCustomCity(e.target.value)}
+              onChange={(e) => {
+                const val = e.target.value;
+                setCustomCity(val);
+                setValue('deliveryCity', val ? val : 'Other', { shouldValidate: true });
+              }}
               className="min-h-[44px]"
             />
           </div>
@@ -300,10 +326,10 @@ export function ContactForm({ className, onSuccess }: ContactFormProps) {
 
       {/* Preferred Contact Method Selection */}
       <div className="space-y-1.5">
-        <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground block">
+        <label id="contact-method-label" className="text-xs font-bold uppercase tracking-wider text-muted-foreground block">
           How Should We Contact You?
         </label>
-        <div className="grid grid-cols-3 gap-2">
+        <div role="radiogroup" aria-labelledby="contact-method-label" className="grid grid-cols-3 gap-2">
           {[
             { id: 'whatsapp', label: 'WhatsApp', icon: MessageSquare },
             { id: 'phone', label: 'Phone Call', icon: Phone },
@@ -312,6 +338,8 @@ export function ContactForm({ className, onSuccess }: ContactFormProps) {
             <button
               key={id}
               type="button"
+              role="radio"
+              aria-checked={selectedContactMethod === id}
               onClick={() => setValue('preferredContactMethod', id as PreferredContactMethod)}
               className={cn(
                 'flex min-h-[44px] items-center justify-center gap-2 rounded-xl border px-3 py-2 text-xs font-bold transition-all select-none',
@@ -329,18 +357,20 @@ export function ContactForm({ className, onSuccess }: ContactFormProps) {
 
       {/* Message Textarea */}
       <div className="space-y-1.5">
-        <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
+        <label htmlFor="contact-message" className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
           Message <span className="text-destructive">*</span>
         </label>
         <Textarea
+          id="contact-message"
           placeholder="How can we help you today? Ask about store pickup at Golfutar, product availability, or stack advice..."
           rows={4}
           {...register('message')}
           aria-invalid={!!errors.message}
+          aria-describedby={errors.message ? 'contact-message-error' : undefined}
           className="min-h-[100px] resize-y"
         />
         {errors.message && (
-          <p className="text-xs font-medium text-destructive">{errors.message.message}</p>
+          <p id="contact-message-error" className="text-xs font-medium text-destructive">{errors.message.message}</p>
         )}
       </div>
 

@@ -3,8 +3,8 @@
 import { useState, useEffect } from 'react';
 import { Clock, AlertCircle } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
-import { isStoreOpenNow } from '@/lib/data/store';
-import rawStoreData from '@/data/store-info.json';
+import { isStoreOpenNow, getOpeningHours, getStoreInfo } from '@/lib/data/store';
+import { type OpeningHourItem, type StoreContactMatrix } from '@/lib/validations/store';
 import { cn } from '@/lib/utils';
 
 export interface StoreHoursCardProps {
@@ -18,18 +18,31 @@ export function StoreHoursCard({ className, compact = false }: StoreHoursCardPro
     message: string;
   } | null>(null);
 
-  const currentKathmanduDay = new Intl.DateTimeFormat('en-US', {
-    timeZone: 'Asia/Kathmandu',
-    weekday: 'long',
-  })
-    .format(new Date())
-    .toLowerCase();
+  const [currentKathmanduDay, setCurrentKathmanduDay] = useState<string>('');
+  const [openingHours, setOpeningHours] = useState<OpeningHourItem[]>([]);
+  const [contacts, setContacts] = useState<StoreContactMatrix | null>(null);
 
   useEffect(() => {
-    isStoreOpenNow().then(setStoreStatus);
-  }, []);
+    // Load store metadata and opening hours via accessor layer
+    getOpeningHours().then(setOpeningHours);
+    getStoreInfo().then((info) => setContacts(info.contacts));
 
-  const { openingHours, contacts } = rawStoreData;
+    const updateStatusAndDay = () => {
+      const day = new Intl.DateTimeFormat('en-US', {
+        timeZone: 'Asia/Kathmandu',
+        weekday: 'long',
+      })
+        .format(new Date())
+        .toLowerCase();
+
+      setCurrentKathmanduDay(day);
+      isStoreOpenNow().then(setStoreStatus);
+    };
+
+    updateStatusAndDay();
+    const interval = setInterval(updateStatusAndDay, 60000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className={cn('rounded-2xl border border-border bg-card p-5 sm:p-6 shadow-xl space-y-4', className)}>
@@ -108,14 +121,14 @@ export function StoreHoursCard({ className, compact = false }: StoreHoursCardPro
       </div>
 
       {/* Saturday Notice Pill */}
-      {!compact && (
+      {!compact && contacts && (
         <div className="rounded-xl border border-amber-500/20 bg-amber-500/5 p-3 flex items-start gap-2.5 text-xs text-amber-800 dark:text-amber-300">
           <AlertCircle className="h-4 w-4 shrink-0 text-amber-600 dark:text-amber-400 mt-0.5" />
           <p className="leading-relaxed">
             <strong className="font-bold">Saturday Hours:</strong> Store hours on Saturdays may vary. Please call our Golfutar hotline at{' '}
             <a
               href={`tel:${contacts.primaryPhone}`}
-              className="font-bold underline hover:text-amber-900 dark:hover:text-amber-100"
+              className="inline-flex min-h-[48px] items-center font-bold underline hover:text-amber-900 dark:hover:text-amber-100 px-1"
             >
               {contacts.primaryPhone}
             </a>{' '}

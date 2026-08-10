@@ -5,12 +5,6 @@
 
 Object.assign(process.env, { NODE_ENV: 'test' });
 
-import { StoreMapEmbed } from '../components/location/store-map-embed';
-import { StoreHoursCard } from '../components/location/store-hours-card';
-import ContactPage, { metadata as contactMetadata } from '../app/(marketing)/contact/page';
-import LocationPage, { metadata as locationMetadata } from '../app/(marketing)/location/page';
-import rawStoreData from '../../data/store-info.json';
-
 let passed = 0;
 let failed = 0;
 
@@ -25,7 +19,13 @@ function assert(condition: boolean, testName: string, detail?: string): void {
   }
 }
 
-function runLocationValidation(): void {
+async function runLocationValidation(): Promise<void> {
+  const { StoreMapEmbed } = await import('../components/location/store-map-embed');
+  const { StoreHoursCard } = await import('../components/location/store-hours-card');
+  const { default: ContactPage, metadata: contactMetadata } = await import('../app/(marketing)/contact/page');
+  const { default: LocationPage, metadata: locationMetadata } = await import('../app/(marketing)/location/page');
+  const { default: rawStoreData } = await import('../../data/store-info.json');
+
   console.log('\n======================================================');
   console.log('  MUSCLEWORKS SUPPLEMENTS — LOCATION COMPONENTS VALIDATOR');
   console.log('======================================================\n');
@@ -62,3 +62,5 @@ function runLocationValidation(): void {
 }
 
 runLocationValidation();
+
+export {};

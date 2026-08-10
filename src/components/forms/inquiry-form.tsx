@@ -107,7 +107,13 @@ export function InquiryForm({
 
   const onSubmit = async (values: InquiryFormClientValues) => {
     try {
-      // If user selected 'Other' for city, combine with custom text input if available
+      // If user selected 'Other' for city, require a non-empty custom city
+      if (values.deliveryCity === 'Other' && !customCity.trim()) {
+        toast.error('Please specify your city or district.');
+        return;
+      }
+
+      // Combine with custom text input if 'Other' selected
       const finalPayload: InquiryFormClientValues = {
         ...values,
         deliveryCity:
@@ -254,33 +260,37 @@ export function InquiryForm({
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         {/* Full Name */}
         <div className="space-y-1.5">
-          <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
+          <label htmlFor="inquiry-fullName" className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
             Full Name <span className="text-destructive">*</span>
           </label>
           <Input
+            id="inquiry-fullName"
             placeholder="e.g. Rahul Sharma"
             {...register('fullName')}
             aria-invalid={!!errors.fullName}
+            aria-describedby={errors.fullName ? 'inquiry-fullName-error' : undefined}
             className="min-h-[44px]"
           />
           {errors.fullName && (
-            <p className="text-xs font-medium text-destructive">{errors.fullName.message}</p>
+            <p id="inquiry-fullName-error" className="text-xs font-medium text-destructive">{errors.fullName.message}</p>
           )}
         </div>
 
         {/* Nepal Phone Number */}
         <div className="space-y-1.5">
-          <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
+          <label htmlFor="inquiry-phoneNumber" className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
             Phone Number (Nepal) <span className="text-destructive">*</span>
           </label>
           <Input
+            id="inquiry-phoneNumber"
             placeholder="e.g. 9841XXXXXX or +977 9841XXXXXX"
             {...register('phoneNumber')}
             aria-invalid={!!errors.phoneNumber}
+            aria-describedby={errors.phoneNumber ? 'inquiry-phoneNumber-error' : undefined}
             className="min-h-[44px]"
           />
           {errors.phoneNumber && (
-            <p className="text-xs font-medium text-destructive">{errors.phoneNumber.message}</p>
+            <p id="inquiry-phoneNumber-error" className="text-xs font-medium text-destructive">{errors.phoneNumber.message}</p>
           )}
         </div>
       </div>
@@ -288,31 +298,33 @@ export function InquiryForm({
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         {/* Email Address (Optional) */}
         <div className="space-y-1.5">
-          <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
+          <label htmlFor="inquiry-email" className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
             Email Address <span className="text-xs text-muted-foreground font-normal">(Optional)</span>
           </label>
           <Input
+            id="inquiry-email"
             type="email"
             placeholder="your.email@example.com"
             {...register('email')}
             aria-invalid={!!errors.email}
+            aria-describedby={errors.email ? 'inquiry-email-error' : undefined}
             className="min-h-[44px]"
           />
           {errors.email && (
-            <p className="text-xs font-medium text-destructive">{errors.email.message}</p>
+            <p id="inquiry-email-error" className="text-xs font-medium text-destructive">{errors.email.message}</p>
           )}
         </div>
 
         {/* Inquiry Type Select */}
         <div className="space-y-1.5">
-          <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
+          <label htmlFor="inquiry-inquiryType" className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
             Inquiry Category
           </label>
           <Select
             value={selectedInquiryType}
             onValueChange={(val: InquiryType) => setValue('inquiryType', val)}
           >
-            <SelectTrigger className="min-h-[44px]">
+            <SelectTrigger id="inquiry-inquiryType" className="min-h-[44px]">
               <SelectValue placeholder="Select Category" />
             </SelectTrigger>
             <SelectContent>
@@ -328,14 +340,17 @@ export function InquiryForm({
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         {/* Delivery City Select */}
         <div className="space-y-1.5">
-          <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
+          <label htmlFor="inquiry-deliveryCity" className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
             Delivery Location / City
           </label>
           <Select
             value={selectedDeliveryCity || 'Kathmandu'}
-            onValueChange={(val) => setValue('deliveryCity', val)}
+            onValueChange={(val) => {
+              setValue('deliveryCity', val, { shouldValidate: true });
+              if (val !== 'Other') setCustomCity('');
+            }}
           >
-            <SelectTrigger className="min-h-[44px]">
+            <SelectTrigger id="inquiry-deliveryCity" className="min-h-[44px]">
               <SelectValue placeholder="Select Delivery City" />
             </SelectTrigger>
             <SelectContent>
@@ -353,13 +368,18 @@ export function InquiryForm({
         {/* Custom City Text Input (when 'Other' selected) */}
         {selectedDeliveryCity === 'Other' && (
           <div className="space-y-1.5">
-            <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
-              Specify City / District
+            <label htmlFor="inquiry-customCity" className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
+              Specify City / District <span className="text-destructive">*</span>
             </label>
             <Input
+              id="inquiry-customCity"
               placeholder="e.g. Dharan, Hetauda, Nepalgunj"
               value={customCity}
-              onChange={(e) => setCustomCity(e.target.value)}
+              onChange={(e) => {
+                const val = e.target.value;
+                setCustomCity(val);
+                setValue('deliveryCity', val ? val : 'Other', { shouldValidate: true });
+              }}
               className="min-h-[44px]"
             />
           </div>
@@ -367,10 +387,10 @@ export function InquiryForm({
 
         {/* Preferred Contact Method */}
         <div className="space-y-1.5 sm:col-span-2">
-          <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground block">
+          <label id="inquiry-method-label" className="text-xs font-bold uppercase tracking-wider text-muted-foreground block">
             Preferred Response Method
           </label>
-          <div className="grid grid-cols-3 gap-2">
+          <div role="radiogroup" aria-labelledby="inquiry-method-label" className="grid grid-cols-3 gap-2">
             {[
               { id: 'whatsapp', label: 'WhatsApp', icon: MessageSquare },
               { id: 'phone', label: 'Phone Call', icon: Phone },
@@ -379,6 +399,8 @@ export function InquiryForm({
               <button
                 key={id}
                 type="button"
+                role="radio"
+                aria-checked={selectedContactMethod === id}
                 onClick={() => setValue('preferredContactMethod', id as PreferredContactMethod)}
                 className={cn(
                   'flex min-h-[44px] items-center justify-center gap-2 rounded-xl border px-3 py-2 text-xs font-bold transition-all select-none',
@@ -397,18 +419,20 @@ export function InquiryForm({
 
       {/* Message Textarea */}
       <div className="space-y-1.5">
-        <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
+        <label htmlFor="inquiry-message" className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
           Your Message / Question <span className="text-destructive">*</span>
         </label>
         <Textarea
+          id="inquiry-message"
           placeholder="Ask us anything about supplement stacks, dosage, Kathmandu delivery, or product authenticity..."
           rows={4}
           {...register('message')}
           aria-invalid={!!errors.message}
+          aria-describedby={errors.message ? 'inquiry-message-error' : undefined}
           className="min-h-[100px] resize-y"
         />
         {errors.message && (
-          <p className="text-xs font-medium text-destructive">{errors.message.message}</p>
+          <p id="inquiry-message-error" className="text-xs font-medium text-destructive">{errors.message.message}</p>
         )}
       </div>
 

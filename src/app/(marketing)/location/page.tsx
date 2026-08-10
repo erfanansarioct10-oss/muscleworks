@@ -14,7 +14,7 @@ import {
   CheckCircle2,
 } from 'lucide-react';
 
-import rawStoreData from '@/data/store-info.json';
+import { getStoreInfo } from '@/lib/data/store';
 import { buildStoreLocationWhatsAppUrl } from '@/lib/whatsapp';
 import { StoreMapEmbed } from '@/components/location/store-map-embed';
 import { StoreHoursCard } from '@/components/location/store-hours-card';
@@ -34,8 +34,9 @@ export const metadata: Metadata = {
   },
 };
 
-export default function LocationPage() {
-  const { name, legalName, tagline, address, coordinates, openingHours, contacts, deliveryPolicy } = rawStoreData;
+export default async function LocationPage() {
+  const storeData = await getStoreInfo();
+  const { name, legalName, tagline, address, coordinates, openingHours, contacts, deliveryPolicy } = storeData;
 
   const whatsappUrl = buildStoreLocationWhatsAppUrl();
 
@@ -79,7 +80,7 @@ export default function LocationPage() {
       {/* Schema.org LocalBusiness JSON-LD Injection */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
       />
 
       {/* Hero Header Section */}
@@ -88,7 +89,7 @@ export default function LocationPage() {
           <nav aria-label="Breadcrumb" className="mb-4">
             <ol className="flex items-center space-x-2 text-xs font-medium text-muted-foreground">
               <li>
-                <Link href="/" className="hover:text-foreground transition-colors">
+                <Link href="/" className="inline-flex min-h-[44px] items-center hover:text-foreground transition-colors">
                   Home
                 </Link>
               </li>
@@ -140,7 +141,7 @@ export default function LocationPage() {
                       Golfutar Main Road Outlet
                     </h3>
                     <p className="text-xs text-muted-foreground">
-                      Budha-Nilkantha, Kathmandu 44500
+                      {address.municipality}, {address.city} {address.postalCode}
                     </p>
                   </div>
                 </div>

@@ -30,7 +30,7 @@ export function ConsultationModal({
 }: ConsultationModalProps) {
   const [uncontrolledOpen, setUncontrolledOpen] = useState(false);
 
-  const isControlled = controlledOpen !== undefined;
+  const isControlled = controlledOpen !== undefined && setControlledOpen !== undefined;
   const isOpen = isControlled ? controlledOpen : uncontrolledOpen;
 
   const handleOpenChange = (newOpen: boolean) => {
