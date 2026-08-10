@@ -76,7 +76,7 @@ export function BrandFilter({
           placeholder="Search brand..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="h-9 pl-8 pr-8 text-xs bg-neutral-50 border-neutral-200 focus-visible:ring-gold-500"
+          className="h-9 pl-8 pr-8 text-xs bg-neutral-50 border-neutral-200 focus-visible:ring-primary"
         />
         {searchQuery && (
           <button

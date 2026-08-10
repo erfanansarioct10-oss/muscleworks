@@ -78,7 +78,7 @@ export function ProductGridEmpty({
         className
       )}
     >
-      <div className="p-4 rounded-full bg-neutral-800/60 border border-neutral-700 text-amber-400 shrink-0">
+      <div className="p-4 rounded-full bg-neutral-800/60 border border-neutral-700 text-zinc-400 shrink-0">
         <PackageX className="w-8 h-8 sm:w-10 sm:h-10" />
       </div>
 
@@ -93,7 +93,7 @@ export function ProductGridEmpty({
 
       {onReset && (
         <Button
-          variant="gold"
+          variant="default"
           onClick={onReset}
           className="mt-2 min-h-11 min-w-11 sm:min-h-12 sm:min-w-12 text-xs sm:text-sm gap-2"
         >

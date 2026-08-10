@@ -220,7 +220,7 @@ export function MobileFilterDrawer({
           {activeFilterCount > 0 && (
             <Badge
               variant="default"
-              className="bg-neutral-900 text-gold-400 border-gold-500/30 text-xs px-1.5 py-0.5 rounded-full"
+              className="bg-neutral-900 text-white border-neutral-700 text-xs px-1.5 py-0.5 rounded-full"
             >
               {activeFilterCount}
             </Badge>
@@ -274,7 +274,7 @@ export function MobileFilterDrawer({
                     type="button"
                     onClick={() => handleToggleStagedCategory(category.slug)}
                     aria-pressed={isChecked}
-                    className="flex items-center gap-3 py-2 px-2.5 rounded-md hover:bg-neutral-50 cursor-pointer min-h-11 touch-manipulation group text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500"
+                    className="flex items-center gap-3 py-2 px-2.5 rounded-md hover:bg-neutral-50 cursor-pointer min-h-11 touch-manipulation group text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                   >
                     <div
                       className={cn(
@@ -321,7 +321,7 @@ export function MobileFilterDrawer({
                     type="button"
                     onClick={() => handleToggleStagedGoal(goal.id)}
                     aria-pressed={isChecked}
-                    className="flex items-center justify-start w-full gap-3 py-2 px-2.5 rounded-md hover:bg-neutral-50 cursor-pointer min-h-11 touch-manipulation group text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500"
+                    className="flex items-center justify-start w-full gap-3 py-2 px-2.5 rounded-md hover:bg-neutral-50 cursor-pointer min-h-11 touch-manipulation group text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                   >
                     <div
                       className={cn(
@@ -409,7 +409,7 @@ export function MobileFilterDrawer({
               type="button"
               onClick={() => setStagedInStock(!stagedInStock)}
               aria-pressed={stagedInStock}
-              className="flex items-center justify-between w-full py-2 px-2.5 rounded-md hover:bg-neutral-50 cursor-pointer min-h-11 touch-manipulation group text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500"
+              className="flex items-center justify-between w-full py-2 px-2.5 rounded-md hover:bg-neutral-50 cursor-pointer min-h-11 touch-manipulation group text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
             >
               <span className="text-sm font-medium text-neutral-800">
                 In-Stock Only
@@ -436,7 +436,7 @@ export function MobileFilterDrawer({
           <Button
             type="button"
             onClick={handleApplyFilters}
-            className="w-full bg-neutral-900 text-white hover:bg-neutral-800 font-semibold min-h-12 text-sm shadow-md ring-1 ring-gold-500/30"
+            className="w-full bg-neutral-900 text-white hover:bg-neutral-800 font-semibold min-h-12 text-sm shadow-md ring-1 ring-primary/30"
           >
             {totalCount !== undefined
               ? `Apply Filters (${totalCount} Products)`

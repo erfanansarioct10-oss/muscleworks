@@ -38,17 +38,14 @@ export function AuthenticityGuaranteeBox({
   return (
     <div
       className={cn(
-        'relative overflow-hidden rounded-2xl border border-gold/30 bg-gradient-to-br from-neutral-900 via-black to-neutral-950 p-5 text-white shadow-xl sm:p-6',
+        'relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-neutral-900 via-black to-neutral-950 p-5 text-white shadow-xl sm:p-6',
         className
       )}
     >
-      {/* Subtle Gold Ambient Glow Accent */}
-      <div className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-gold/10 blur-2xl" />
-
       {/* Top Header Badge */}
-      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-gold/20 pb-4">
+      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-4">
         <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gold/10 text-gold ring-1 ring-gold/30">
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white/10 text-white ring-1 ring-white/20">
             <ShieldCheck className="h-5 w-5" />
           </div>
           <div>
@@ -61,8 +58,8 @@ export function AuthenticityGuaranteeBox({
           </div>
         </div>
 
-        <span className="inline-flex items-center gap-1.5 rounded-full bg-gold/15 px-3 py-1 text-xs font-semibold text-gold ring-1 ring-gold/30">
-          <CheckCircle2 className="h-3.5 w-3.5" />
+        <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white ring-1 ring-white/20">
+          <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400" />
           {trustBadgeLabel}
         </span>
       </div>
@@ -81,7 +78,7 @@ export function AuthenticityGuaranteeBox({
         </div>
         {hologramDescription && (
           <p className="mt-2 text-2xs text-neutral-400">
-            <strong className="text-gold">Hologram Seal:</strong> {hologramDescription}
+            <strong className="text-white">Hologram Seal:</strong> {hologramDescription}
           </p>
         )}
       </div>
@@ -94,7 +91,7 @@ export function AuthenticityGuaranteeBox({
 
         <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-3">
           <div className="flex items-start gap-2.5 rounded-lg bg-black/40 p-3 ring-1 ring-white/5">
-            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gold/20 text-xs font-bold text-gold">
+            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white/20 text-xs font-bold text-white">
               1
             </span>
             <div>
@@ -106,7 +103,7 @@ export function AuthenticityGuaranteeBox({
           </div>
 
           <div className="flex items-start gap-2.5 rounded-lg bg-black/40 p-3 ring-1 ring-white/5">
-            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gold/20 text-xs font-bold text-gold">
+            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white/20 text-xs font-bold text-white">
               2
             </span>
             <div>
@@ -118,7 +115,7 @@ export function AuthenticityGuaranteeBox({
           </div>
 
           <div className="flex items-start gap-2.5 rounded-lg bg-black/40 p-3 ring-1 ring-white/5">
-            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gold/20 text-xs font-bold text-gold">
+            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white/20 text-xs font-bold text-white">
               3
             </span>
             <div>

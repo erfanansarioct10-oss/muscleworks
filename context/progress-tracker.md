@@ -2,15 +2,15 @@
  
 > **Active Phase:** Phase 6 — Informational, Trust, Education & Legal Pages  
 > **Next Sub-Phase:** `6.1` (Homepage Hero Section: `src/components/home/hero-section.tsx`) — **[NEXT UP]**  
-> **Last Verified:** 2026-08-10 (`tsc --noEmit` — 0 errors, `validate-location-components.ts` — 10/10 pass, `validate-form-components.ts` — 6/6 pass, `validate-server-actions.ts` — 15/15 pass, `npm run build` — 40 static pages pre-rendered)
+> **Last Verified:** 2026-08-10 (`tsc --noEmit` — 0 errors, `npm run lint` — 0 errors, Spec 40 responsive fixes — 0 horizontal overflow, `npm run build` — 40 static pages pre-rendered)
 
 
 ---
 
 ## 1. Active Phase Status: Phase 6 — Informational, Trust, Education & Legal Pages
 
-- [ ] **6.1** Homepage Hero Section (`src/components/home/hero-section.tsx`) — **[NEXT UP]**
-- [ ] **6.2** Trust Badges Bar & Category Showcase Grid (`src/components/home/trust-badges-bar.tsx`, `src/components/home/category-grid.tsx`)
+- [x] **6.1** Homepage Hero Section (`src/components/home/hero-section.tsx`)
+- [ ] **6.2** Trust Badges Bar & Category Showcase Grid (`src/components/home/trust-badges-bar.tsx`, `src/components/home/category-grid.tsx`) — **[NEXT UP]**
 - [ ] **6.3** Featured Products Showcase & Social Proof Section (`src/components/home/featured-products-section.tsx`, `src/components/home/why-choose-us.tsx`)
 - [ ] **6.4** Store Locator Preview & Full Homepage Assembly (`src/components/home/store-locator-preview.tsx`, `src/app/(marketing)/page.tsx`)
 - [ ] **6.5** Brand Trust, Authenticity Verification & About Pages (`src/app/(marketing)/about/page.tsx`, `src/app/(marketing)/authenticity/page.tsx`, `src/components/authenticity/verification-steps.tsx`, `src/components/authenticity/importer-seal-guide.tsx`)
@@ -34,6 +34,10 @@
 | **7** | SEO, Performance & Launch Hardening | 0/4 | Pending |
 
 ---
+
+- **2026-08-10 (Responsive Layout Overflow Fixes):** Resolved horizontal layout overflow and breakpoint collisions across mobile, tablet (`768px md:`), and desktop viewports (`src/components/layout/header.tsx`, `navbar.tsx`, `mobile-nav.tsx`, `src/app/layout.tsx`, `src/components/home/hero-section.tsx`). Fixed header flex width collision at 768px by aligning `<Navbar />` to `hidden lg:flex` ($\ge 1024\text{px}$) and `<MobileNav />` drawer trigger to `lg:hidden` (giving tablet users 768px-1023px a clean, un-cluttered slide-over drawer). Scaled brand logo (`w-44 sm:w-52 lg:w-72`), enforced `max-w-full overflow-x-hidden` on `html`, `body`, and `<main>` layout wrappers, and standardized heading typography. Authored [Spec 40](feature-specs/40-responsive-layout-overflow-fixes.md). Verified cleanly with `npx tsc --noEmit` (0 errors).
+
+- **2026-08-10 (Sub-Phase 6.1):** Implemented Homepage Hero Section (`src/components/home/hero-section.tsx`, `src/app/page.tsx`, `public/hero/hero-image.webp`). Compressed hero image PNG to WebP format (2.13 MB -> 167 KB, 92.1% reduction). Built responsive minimal luxury Hero component with dynamic typography, dark gradient contrast overlay for WCAG AA readability, trust badges ("100% Genuine Importer Holograms", "Golfutar, Budha-Nilkantha, Kathmandu"), direct WhatsApp quick-order CTA (`min-h-[48px]`), supplement catalog navigation link (`/products`), interactive `<ConsultationModal />` trigger for free stack advice, and hero stats summary bar. Mounted Hero into `src/app/page.tsx`. Authored [Spec 39](feature-specs/39-subphase-6.1-homepage-hero-section.md). Verified cleanly with `npx tsc --noEmit` (0 errors) and all 11 project validation test suites passing (100% pass).
 
 - **2026-08-10 (CodeRabbit Commit 82dc2d2 Resolutions):** Resolved all 10 CodeRabbit review findings from commit `82dc2d2`. Fixed `isControlled` logic in `src/components/forms/consultation-modal.tsx` to prevent controlled modal trapping; initialized day and store status in client `useEffect` with a 60s timer refresh interval in `src/components/location/store-hours-card.tsx` to eliminate SSG hydration mismatch; synchronized `customCity` input with `setValue('deliveryCity', ...)` and enforced non-empty custom city validation on `'Other'` selection across `inquiry-form.tsx` and `contact-form.tsx`; enforced cross-field email validation when preferred method is `'email'` in `contact-form.tsx`; added WAI-ARIA `radiogroup`/`radio`/`aria-checked` semantics, matching `<label htmlFor="...">`/`id` pairs, and `aria-describedby` error bindings across all form controls; enforced touch target dimensions (`min-h-[44px]` / `min-h-[48px]`) on breadcrumb and contact links; refactored page routes and components to use `@/lib/data/store` accessors; removed unnecessary `'use client'` from `store-map-embed.tsx`; escaped `<` in JSON-LD script payload; set `NODE_ENV = 'test'` before static imports in validator scripts. Authored [Spec 38](feature-specs/38-coderabbit-commit-82dc2d2-resolutions.md). Verified cleanly with `npx tsc --noEmit` (0 errors), `validate-location-components.ts` (10/10 pass), `validate-form-components.ts` (6/6 pass), and `npm run build` (40 static pages pre-rendered).
 

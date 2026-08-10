@@ -178,7 +178,7 @@ const headerStyle: React.CSSProperties = {
 };
 
 const brandBadgeStyle: React.CSSProperties = {
-  color: '#D4AF37', // Metallic Gold
+  color: '#FFFFFF', // Crisp White
   fontSize: '12px',
   fontWeight: 700,
   letterSpacing: '2px',
@@ -223,7 +223,7 @@ const cardSectionStyle: React.CSSProperties = {
 };
 
 const cardHeadingStyle: React.CSSProperties = {
-  color: '#D4AF37',
+  color: '#FFFFFF',
   fontSize: '16px',
   fontWeight: 700,
   margin: '0 0 16px 0',
@@ -240,7 +240,7 @@ const productBoxStyle: React.CSSProperties = {
   padding: '12px 16px',
   borderRadius: '6px',
   margin: '16px 0',
-  borderLeft: '3px solid #D4AF37',
+  borderLeft: '3px solid #71717A',
 };
 
 const productTitleStyle: React.CSSProperties = {
@@ -268,8 +268,8 @@ const messageBoxStyle: React.CSSProperties = {
 };
 
 const trustBannerStyle: React.CSSProperties = {
-  backgroundColor: 'rgba(212, 175, 55, 0.08)',
-  border: '1px solid rgba(212, 175, 55, 0.3)',
+  backgroundColor: 'rgba(255, 255, 255, 0.05)',
+  border: '1px solid rgba(255, 255, 255, 0.15)',
   borderRadius: '8px',
   padding: '16px',
   margin: '24px 0',
@@ -277,7 +277,7 @@ const trustBannerStyle: React.CSSProperties = {
 };
 
 const trustTitleStyle: React.CSSProperties = {
-  color: '#D4AF37',
+  color: '#FFFFFF',
   fontSize: '14px',
   fontWeight: 700,
   margin: '0 0 4px 0',
@@ -324,6 +324,6 @@ const footerSubtextStyle: React.CSSProperties = {
 };
 
 const linkStyle: React.CSSProperties = {
-  color: '#D4AF37',
+  color: '#FFFFFF',
   textDecoration: 'underline',
 };

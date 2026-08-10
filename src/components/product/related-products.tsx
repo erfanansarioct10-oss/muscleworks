@@ -30,7 +30,7 @@ export async function RelatedProducts({ currentProduct, className }: RelatedProd
   return (
     <section className={cn('space-y-6 pt-6 border-t border-neutral-200 dark:border-neutral-800', className)}>
       <div className="flex flex-col gap-1">
-        <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-gold">
+        <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-neutral-900 dark:text-neutral-300">
           <Sparkles className="h-3.5 w-3.5" />
           <span>Complete Your Fitness Stack</span>
         </div>

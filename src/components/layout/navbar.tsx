@@ -16,7 +16,7 @@ export function Navbar({ className, ...props }: NavbarProps) {
   return (
     <nav
       aria-label="Main Navigation"
-      className={cn("hidden md:flex items-center gap-1 lg:gap-2", className)}
+      className={cn("hidden lg:flex items-center gap-1 lg:gap-2", className)}
       {...props}
     >
       {NAV_LINKS.map((item) => (

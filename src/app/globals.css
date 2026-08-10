@@ -18,8 +18,8 @@
   --color-secondary: #f5f5f5;        /* Silver Gray Secondary Light Surface */
   --color-secondary-foreground: #0b0b0b;
   
-  --color-accent: #d4af37;           /* Metallic Luxury Gold */
-  --color-accent-foreground: #0b0b0b;
+  --color-accent: #18181b;           /* Dark Charcoal Accent Surface */
+  --color-accent-foreground: #ffffff;
   
   --color-success: #0b0b0b;          /* Jet Black Conversion CTA */
   --color-success-foreground: #ffffff;
@@ -28,7 +28,7 @@
   --color-muted-foreground: #666666; /* Neutral Gray Muted Secondary Text */
   
   --color-border: #e5e5e5;           /* Crisp Silver Divider */
-  --color-ring: #d4af37;             /* Metallic Luxury Gold Focus Ring */
+  --color-ring: #0b0b0b;             /* Jet Black Focus Ring */
   
   --radius-sm: 0.375rem;
   --radius-md: 0.5rem;
@@ -60,23 +60,16 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Custom Minimal Luxury Scrollbar */
+  /* Hide right-hand side vertical scrollbar UI */
   ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+    display: none;
+    width: 0;
+    height: 0;
   }
 
-  ::-webkit-scrollbar-track {
-    background: #fcfcfc;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: #d4d4d4;
-    border-radius: 4px;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: #a3a3a3;
+  html, body {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
   }
 
   /* Accessible Focus Rings */

@@ -11,9 +11,9 @@ export const buttonVariants = cva(
         default:
           "bg-primary text-primary-foreground shadow-sm hover:bg-primary-hover active:scale-[0.98]",
         whatsapp:
-          "min-h-12 min-w-12 bg-primary text-primary-foreground border border-accent/40 shadow-sm hover:bg-primary-hover hover:border-accent active:scale-[0.98]",
+          "min-h-12 min-w-12 bg-primary text-primary-foreground border border-border shadow-sm hover:bg-primary-hover active:scale-[0.98]",
         gold:
-          "bg-accent text-accent-foreground shadow-sm hover:bg-amber-600 hover:text-white active:scale-[0.98]",
+          "bg-neutral-900 text-white shadow-sm hover:bg-neutral-800 active:scale-[0.98]",
         secondary:
           "bg-secondary text-secondary-foreground hover:bg-secondary/80 border border-border/50",
         outline:

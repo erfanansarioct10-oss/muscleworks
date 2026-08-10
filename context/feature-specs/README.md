@@ -218,6 +218,8 @@ When writing or executing a feature spec:
 | `36-subphase-5.4-interactive-form-components-consultation-modal` | [Sub-Phase 5.4 — Interactive Form Components & Consultation Modal](36-subphase-5.4-interactive-form-components-consultation-modal.md) | **Approved** | Lead Forms & Notifications | 2026-08-10 |
 | `37-subphase-5.5-contact-store-locations-experience` | [Sub-Phase 5.5 — Contact & Store Locations Experience](37-subphase-5.5-contact-store-locations-experience.md) | **Approved** | Lead Forms & Notifications | 2026-08-10 |
 | `38-coderabbit-commit-82dc2d2-resolutions` | [CodeRabbit Commit 82dc2d2 Review Resolutions & Technical Synchronization](38-coderabbit-commit-82dc2d2-resolutions.md) | **Approved** | Quality & Technical Cleanup | 2026-08-10 |
+| `39-subphase-6.1-homepage-hero-section` | [Sub-Phase 6.1 — Homepage Hero Section](39-subphase-6.1-homepage-hero-section.md) | **Approved** | Trust, Educational & Legal Pages | 2026-08-10 |
+| `40-responsive-layout-overflow-fixes` | [Responsive Layout Overflow & Breakpoint Fixes](40-responsive-layout-overflow-fixes.md) | **Approved** | Global Layout, Header & Responsive Breakpoints | 2026-08-10 |
 
 
 

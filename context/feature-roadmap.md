@@ -727,7 +727,7 @@ flowchart LR
 | **5.3** | Server Actions Pipeline | `src/actions/inquiry.ts`, `contact.ts` | 5.1, 5.2 | `[ ]` |
 | **5.4** | Interactive Form Components & Modal | `src/components/forms/inquiry-form.tsx`, `contact-form.tsx`, `consultation-modal.tsx` | 1.2, 5.3 | `[x]` |
 | **5.5** | Contact & Store Locations Experience | `src/app/(marketing)/contact/page.tsx`, `location/page.tsx`, `src/components/location/store-map-embed.tsx`, `store-hours-card.tsx` | 2.4, 5.4 | `[x]` |
-| **6.1** | Homepage Hero Section | `src/components/home/hero-section.tsx` | 1.1, 3.1 | `[ ]` |
+| **6.1** | Homepage Hero Section | `src/components/home/hero-section.tsx` | 1.1, 3.1 | `[x]` |
 | **6.2** | Trust Badges Bar & Category Showcase Grid | `src/components/home/trust-badges-bar.tsx`, `category-grid.tsx` | 6.1 | `[ ]` |
 | **6.3** | Featured Products Showcase & Social Proof | `src/components/home/featured-products-section.tsx`, `why-choose-us.tsx` | 3.1, 6.2 | `[ ]` |
 | **6.4** | Store Locator Preview & Full Homepage Assembly | `src/components/home/store-locator-preview.tsx`, `src/app/(marketing)/page.tsx` | 6.3 | `[ ]` |

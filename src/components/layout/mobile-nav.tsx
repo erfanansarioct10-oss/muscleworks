@@ -97,7 +97,7 @@ export function MobileNav() {
         <button
           type="button"
           aria-label="Open mobile navigation menu"
-          className="flex h-11 w-11 min-h-[44px] min-w-[44px] items-center justify-center rounded-xl border border-border bg-card text-foreground transition-all hover:bg-muted active:scale-95 md:hidden"
+          className="flex h-11 w-11 min-h-[44px] min-w-[44px] items-center justify-center rounded-xl border border-border bg-card text-foreground transition-all hover:bg-muted active:scale-95 lg:hidden"
         >
           <Menu className="h-5 w-5" />
         </button>

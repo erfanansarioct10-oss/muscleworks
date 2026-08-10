@@ -207,12 +207,12 @@ const productCardSectionStyle: React.CSSProperties = {
   backgroundColor: '#1F1F1F',
   padding: '18px',
   borderRadius: '8px',
-  border: '1px solid #D4AF37', // Gold Border for product context
+  border: '1px solid #3F3F46', // Silver Border for product context
   margin: '0 0 16px 0',
 };
 
 const cardHeadingStyle: React.CSSProperties = {
-  color: '#D4AF37',
+  color: '#FFFFFF',
   fontSize: '15px',
   fontWeight: 700,
   margin: '0 0 12px 0',
@@ -225,7 +225,7 @@ const detailRowStyle: React.CSSProperties = {
 };
 
 const phoneLinkStyle: React.CSSProperties = {
-  color: '#D4AF37',
+  color: '#FFFFFF',
   fontWeight: 700,
   textDecoration: 'underline',
 };

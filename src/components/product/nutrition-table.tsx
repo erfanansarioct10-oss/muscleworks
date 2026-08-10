@@ -25,8 +25,8 @@ export function NutritionTable({ nutritionFacts, className }: NutritionTableProp
       {/* Top Macronutrient Metric Callout Cards */}
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
         {proteinGrams !== undefined && (
-          <div className="flex flex-col justify-between rounded-xl border border-gold/20 bg-black/5 p-4 text-center dark:bg-white/5 sm:p-4">
-            <div className="mx-auto mb-2 flex h-9 w-9 items-center justify-center rounded-full bg-gold/10 text-gold">
+          <div className="flex flex-col justify-between rounded-xl border border-neutral-200 bg-black/5 p-4 text-center dark:border-neutral-800 dark:bg-white/5 sm:p-4">
+            <div className="mx-auto mb-2 flex h-9 w-9 items-center justify-center rounded-full bg-neutral-900 text-white dark:bg-white/10 dark:text-white">
               <Dumbbell className="h-4 w-4" />
             </div>
             <span className="text-2xl font-bold tracking-tight text-neutral-900 dark:text-white">
@@ -38,8 +38,8 @@ export function NutritionTable({ nutritionFacts, className }: NutritionTableProp
           </div>
         )}
 
-        <div className="flex flex-col justify-between rounded-xl border border-gold/20 bg-black/5 p-4 text-center dark:bg-white/5 sm:p-4">
-          <div className="mx-auto mb-2 flex h-9 w-9 items-center justify-center rounded-full bg-gold/10 text-gold">
+        <div className="flex flex-col justify-between rounded-xl border border-neutral-200 bg-black/5 p-4 text-center dark:border-neutral-800 dark:bg-white/5 sm:p-4">
+          <div className="mx-auto mb-2 flex h-9 w-9 items-center justify-center rounded-full bg-neutral-900 text-white dark:bg-white/10 dark:text-white">
             <PackageCheck className="h-4 w-4" />
           </div>
           <span className="text-2xl font-bold tracking-tight text-neutral-900 dark:text-white">
@@ -51,8 +51,8 @@ export function NutritionTable({ nutritionFacts, className }: NutritionTableProp
         </div>
 
         {caloriesPerServing !== undefined && (
-          <div className="flex flex-col justify-between rounded-xl border border-gold/20 bg-black/5 p-4 text-center dark:bg-white/5 sm:p-4">
-            <div className="mx-auto mb-2 flex h-9 w-9 items-center justify-center rounded-full bg-gold/10 text-gold">
+          <div className="flex flex-col justify-between rounded-xl border border-neutral-200 bg-black/5 p-4 text-center dark:border-neutral-800 dark:bg-white/5 sm:p-4">
+            <div className="mx-auto mb-2 flex h-9 w-9 items-center justify-center rounded-full bg-neutral-900 text-white dark:bg-white/10 dark:text-white">
               <Flame className="h-4 w-4" />
             </div>
             <span className="text-2xl font-bold tracking-tight text-neutral-900 dark:text-white">
@@ -65,8 +65,8 @@ export function NutritionTable({ nutritionFacts, className }: NutritionTableProp
         )}
 
         {bcaaGrams !== undefined && (
-          <div className="flex flex-col justify-between rounded-xl border border-gold/20 bg-black/5 p-4 text-center dark:bg-white/5 sm:p-4">
-            <div className="mx-auto mb-2 flex h-9 w-9 items-center justify-center rounded-full bg-gold/10 text-gold">
+          <div className="flex flex-col justify-between rounded-xl border border-neutral-200 bg-black/5 p-4 text-center dark:border-neutral-800 dark:bg-white/5 sm:p-4">
+            <div className="mx-auto mb-2 flex h-9 w-9 items-center justify-center rounded-full bg-neutral-900 text-white dark:bg-white/10 dark:text-white">
               <Zap className="h-4 w-4" />
             </div>
             <span className="text-2xl font-bold tracking-tight text-neutral-900 dark:text-white">

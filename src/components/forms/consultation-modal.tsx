@@ -48,7 +48,7 @@ export function ConsultationModal({
       ) : (
         <DialogTrigger asChild>
           <Button
-            variant="gold"
+            variant="default"
             size="lg"
             className="min-h-[48px] rounded-xl font-bold shadow-md gap-2"
           >

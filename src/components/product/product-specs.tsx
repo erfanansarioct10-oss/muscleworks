@@ -36,7 +36,7 @@ export function ProductSpecs({ product, className }: ProductSpecsProps) {
             className={cn(
               'flex h-11 shrink-0 items-center gap-2 border-b-2 px-4 text-xs font-bold transition-all sm:text-sm',
               activeTab === 'nutrition'
-                ? 'border-gold text-gold dark:text-gold'
+                ? 'border-primary text-primary dark:text-white font-bold'
                 : 'border-transparent text-neutral-500 hover:border-neutral-300 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-200'
             )}
           >
@@ -54,7 +54,7 @@ export function ProductSpecs({ product, className }: ProductSpecsProps) {
             className={cn(
               'flex h-11 shrink-0 items-center gap-2 border-b-2 px-4 text-xs font-bold transition-all sm:text-sm',
               activeTab === 'usage'
-                ? 'border-gold text-gold dark:text-gold'
+                ? 'border-primary text-primary dark:text-white font-bold'
                 : 'border-transparent text-neutral-500 hover:border-neutral-300 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-200'
             )}
           >
@@ -72,7 +72,7 @@ export function ProductSpecs({ product, className }: ProductSpecsProps) {
             className={cn(
               'flex h-11 shrink-0 items-center gap-2 border-b-2 px-4 text-xs font-bold transition-all sm:text-sm',
               activeTab === 'authenticity'
-                ? 'border-gold text-gold dark:text-gold'
+                ? 'border-primary text-primary dark:text-white font-bold'
                 : 'border-transparent text-neutral-500 hover:border-neutral-300 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-200'
             )}
           >
@@ -101,7 +101,7 @@ export function ProductSpecs({ product, className }: ProductSpecsProps) {
                 <ul className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
                   {product.highlights.map((highlight, idx) => (
                     <li key={idx} className="flex items-start gap-2.5 text-xs text-neutral-700 dark:text-neutral-300">
-                      <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-gold/20 text-gold">
+                      <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-neutral-900 text-white dark:bg-white/20 dark:text-white">
                         <Check className="h-3 w-3" />
                       </span>
                       <span>{highlight}</span>

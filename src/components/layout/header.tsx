@@ -23,7 +23,7 @@ export function Header() {
           className="group flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           aria-label={`${STORE_NAME} Home`}
         >
-          <div className="relative h-11 w-52 sm:h-14 sm:w-72 shrink-0">
+          <div className="relative h-10 w-44 sm:h-12 sm:w-52 lg:h-14 lg:w-72 shrink-0">
             <Image
               src="/brnding-assets/logo.webp"
               alt={STORE_NAME}

@@ -177,7 +177,7 @@ export function SearchBar({
                     onClick={() => handleResultClick(query)}
                     className={`flex items-center gap-3 p-2 rounded-lg transition-colors min-h-11 ${
                       isSelected
-                        ? "bg-accent text-accent-foreground ring-1 ring-gold-500/40"
+                        ? "bg-accent text-accent-foreground ring-1 ring-primary/40"
                         : "hover:bg-muted/70 text-card-foreground"
                     }`}
                   >
@@ -195,7 +195,7 @@ export function SearchBar({
                     {/* Product Info */}
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center justify-between gap-2">
-                        <p className="text-xs font-bold truncate text-foreground group-hover:text-gold-500">
+                        <p className="text-xs font-bold truncate text-foreground group-hover:text-primary">
                           {product.name}
                         </p>
                       </div>
