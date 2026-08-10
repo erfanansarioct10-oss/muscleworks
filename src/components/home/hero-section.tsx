@@ -32,23 +32,37 @@ export function HeroSection() {
   ];
 
   return (
-    <section className="relative w-full min-h-[calc(100dvh-4rem)] sm:min-h-[calc(100dvh-5rem)] overflow-hidden bg-background flex items-center">
-      {/* Background Hero Image */}
-      <div className="absolute inset-0 z-0">
+    <section className="relative w-full min-h-[calc(100dvh-4rem)] sm:min-h-[calc(100dvh-5rem)] overflow-hidden bg-background flex items-start md:items-center">
+      {/* Mobile Hero Background (< md) */}
+      <div className="absolute inset-0 z-0 md:hidden">
+        <Image
+          src="/hero/mobile-hero-bg.webp"
+          alt="MuscleWorks Supplements Mobile Hero Background"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-top"
+        />
+        {/* Top-to-bottom gradient overlay for WCAG AA readability over top rocks */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/40 to-transparent pointer-events-none" />
+      </div>
+
+      {/* Desktop Hero Background (>= md) */}
+      <div className="absolute inset-0 z-0 hidden md:block">
         <Image
           src="/hero/hero-bg.webp"
-          alt="MuscleWorks Supplements Hero Background"
+          alt="MuscleWorks Supplements Desktop Hero Background"
           fill
           priority
           sizes="100vw"
           className="object-cover object-center"
         />
-        {/* Subtle, light gradient overlay for readability without heavy shadows */}
+        {/* Left-to-right gradient overlay for desktop hero typography */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/20 to-transparent pointer-events-none" />
       </div>
 
-      {/* Main Container Aligned to Safe Zone */}
-      <div className="relative z-10 mx-auto flex h-full w-full max-w-7xl items-center px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
+      {/* Main Container Aligned to Upper 70% Safe Zone on Mobile */}
+      <div className="relative z-10 mx-auto flex h-full w-full max-w-7xl items-start md:items-center px-4 sm:px-6 lg:px-8 pt-6 sm:pt-8 pb-48 sm:pb-60 md:py-12">
         <div className="w-full max-w-xl lg:max-w-2xl space-y-5 sm:space-y-7">
           {/* Main Heading: Fluid Responsive Scaling across all Breakpoints */}
           <h1 className="font-heading font-black tracking-tight uppercase italic leading-[0.95] text-left select-none max-w-full">
