@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { ShieldCheck, Truck, Sparkles } from 'lucide-react';
+import { ShieldCheck, Truck } from 'lucide-react';
 import { getProducts } from '@/lib/data/products';
 import { getCategories, getCategoryBySlug } from '@/lib/data/categories';
 import { getBrands } from '@/lib/data/brands';

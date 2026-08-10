@@ -43,13 +43,17 @@ export function SearchModal({
 }: SearchModalProps) {
   const [internalOpen, setInternalOpen] = React.useState(false);
   const isOpen = externalOpen !== undefined ? externalOpen : internalOpen;
-  const setOpen = (newOpen: boolean) => {
-    if (externalOnOpenChange) {
-      externalOnOpenChange(newOpen);
-    } else {
-      setInternalOpen(newOpen);
-    }
-  };
+  const setOpen = React.useCallback(
+    (newOpen: boolean) => {
+      if (externalOnOpenChange) {
+        externalOnOpenChange(newOpen);
+      } else {
+        setInternalOpen(newOpen);
+      }
+    },
+    [externalOnOpenChange]
+  );
+
 
   const [query, setQuery] = React.useState("");
   const [results, setResults] = React.useState<SearchResult[]>([]);

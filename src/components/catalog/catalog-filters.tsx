@@ -30,7 +30,7 @@ const PRESET_PRICE_RANGES = [
   { label: 'Above 20k', min: 20000, max: undefined },
 ];
 
-export function CatalogFilters({ categories, brands: _brands, className }: CatalogFiltersProps) {
+export function CatalogFilters({ categories, className }: CatalogFiltersProps) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();

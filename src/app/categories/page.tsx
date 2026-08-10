@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { Layers, ArrowRight, ShieldCheck, Dumbbell } from 'lucide-react';
 import { getCategories } from '@/lib/data/categories';
 import { getProducts } from '@/lib/data/products';
-import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import {
   Breadcrumb,
