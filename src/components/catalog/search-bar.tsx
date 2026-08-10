@@ -3,6 +3,7 @@
 import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { Search, X, Loader2, ArrowRight } from "lucide-react";
 import { searchProducts, addRecentSearch, type SearchResult } from "@/lib/search";
 import { formatNprPrice, calculateDiscountPercentage } from "@/lib/utils";
@@ -21,6 +22,7 @@ export function SearchBar({
   autoFocus = false,
   onSelectResult,
 }: SearchBarProps) {
+  const router = useRouter();
   const [query, setQuery] = React.useState("");
   const [results, setResults] = React.useState<SearchResult[]>([]);
   const [isLoading, setIsLoading] = React.useState(false);
@@ -34,10 +36,12 @@ export function SearchBar({
   React.useEffect(() => {
     const trimmed = query.trim();
     if (!trimmed) {
-      setResults([]);
-      setIsLoading(false);
-      setIsOpen(false);
-      return;
+      const timer = setTimeout(() => {
+        setResults([]);
+        setIsLoading(false);
+        setIsOpen(false);
+      }, 0);
+      return () => clearTimeout(timer);
     }
 
     setIsLoading(true);
@@ -85,7 +89,7 @@ export function SearchBar({
       const target = results[selectedIndex];
       addRecentSearch(query);
       if (onSelectResult) onSelectResult();
-      window.location.href = `/products/${target.product.slug}`;
+      router.push(`/products/${target.product.slug}`);
     }
   };
 

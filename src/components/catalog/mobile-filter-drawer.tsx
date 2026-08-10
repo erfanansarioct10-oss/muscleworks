@@ -92,9 +92,8 @@ export function MobileFilterDrawer({
   const [stagedMaxPrice, setStagedMaxPrice] = React.useState<string>(activeMaxPrice);
   const [stagedInStock, setStagedInStock] = React.useState<boolean>(activeInStock);
 
-  // Re-sync staged state whenever drawer opens
-  React.useEffect(() => {
-    if (isOpen) {
+  const handleOpenChange = (open: boolean) => {
+    if (open) {
       setStagedCategories(activeCategoryList);
       setStagedBrands(activeBrandList);
       setStagedGoals(activeGoalList);
@@ -102,15 +101,8 @@ export function MobileFilterDrawer({
       setStagedMaxPrice(activeMaxPrice);
       setStagedInStock(activeInStock);
     }
-  }, [
-    isOpen,
-    activeCategoryList,
-    activeBrandList,
-    activeGoalList,
-    activeMinPrice,
-    activeMaxPrice,
-    activeInStock,
-  ]);
+    setIsOpen(open);
+  };
 
   // Toggle helpers for staged state
   const handleToggleStagedCategory = (slug: string) => {
@@ -200,7 +192,7 @@ export function MobileFilterDrawer({
     (stagedInStock ? 1 : 0);
 
   return (
-    <Sheet open={isOpen} onOpenChange={setIsOpen}>
+    <Sheet open={isOpen} onOpenChange={handleOpenChange}>
       {/* Trigger Button */}
       <SheetTrigger asChild>
         <Button

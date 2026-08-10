@@ -34,7 +34,6 @@ import {
   Truck,
   MapPin,
   Clock,
-  Sparkles,
 } from 'lucide-react';
 
 export interface ProductDetailViewProps {
@@ -98,7 +97,7 @@ export function ProductDetailView({
       ];
     }
     return product.images;
-  }, [product.images, selectedVariant]);
+  }, [product.images, product.name, selectedVariant]);
 
   return (
     <div className={cn('min-h-screen bg-background text-foreground pb-20 md:pb-12', className)}>

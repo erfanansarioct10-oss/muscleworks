@@ -12,7 +12,7 @@ import { cn, formatNprPrice, calculateDiscountPercentage } from '@/lib/utils';
 import type { Product, ProductVariant } from '@/lib/validations/product';
 import { trackWhatsAppClick } from '@/lib/analytics';
 import { Button } from '@/components/ui/button';
-import { MessageSquare, ShieldCheck } from 'lucide-react';
+import { MessageSquare } from 'lucide-react';
 
 export interface ProductStickyBarProps {
   product: Product;

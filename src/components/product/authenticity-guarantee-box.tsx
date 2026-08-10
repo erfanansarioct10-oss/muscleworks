@@ -6,7 +6,7 @@ import type { AuthenticityMetadata } from '@/lib/validations/product';
 import { buildAuthenticityInquiryWhatsAppUrl } from '@/lib/whatsapp';
 import { trackWhatsAppClick } from '@/lib/analytics';
 import { Button } from '@/components/ui/button';
-import { ShieldCheck, CheckCircle2, QrCode, Lock, MessageSquare } from 'lucide-react';
+import { ShieldCheck, CheckCircle2, QrCode, MessageSquare } from 'lucide-react';
 
 interface AuthenticityGuaranteeBoxProps {
   authenticity: AuthenticityMetadata;

@@ -58,36 +58,38 @@ export function SearchModal({
 
   const inputRef = React.useRef<HTMLInputElement>(null);
 
-  // Global Cmd+K / Ctrl+K keyboard shortcut listener
-  React.useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
-        e.preventDefault();
-        setOpen(!isOpen);
-      }
-    };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isOpen]);
-
-  // Load recent searches when modal opens
-  React.useEffect(() => {
-    if (isOpen) {
+  const handleOpenChange = (open: boolean) => {
+    if (open) {
       setRecentSearches(getRecentSearches());
       setTimeout(() => inputRef.current?.focus(), 100);
     } else {
       setQuery("");
       setResults([]);
     }
+    setOpen(open);
+  };
+
+  // Global Cmd+K / Ctrl+K keyboard shortcut listener
+  React.useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
+        e.preventDefault();
+        handleOpenChange(!isOpen);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isOpen]);
 
   // Debounced search query
   React.useEffect(() => {
     const trimmed = query.trim();
     if (!trimmed) {
-      setResults([]);
-      setIsLoading(false);
-      return;
+      const timer = setTimeout(() => {
+        setResults([]);
+        setIsLoading(false);
+      }, 0);
+      return () => clearTimeout(timer);
     }
 
     setIsLoading(true);
@@ -115,24 +117,24 @@ export function SearchModal({
     setRecentSearches([]);
   };
 
-  const handleResultClick = (searchTerm: string) => {
+  const handleSelectProduct = (productSlug: string, searchTerm: string) => {
     if (searchTerm.trim()) {
       const updated = addRecentSearch(searchTerm);
       setRecentSearches(updated);
     }
-    setOpen(false);
+    handleOpenChange(false);
   };
 
   return (
     <>
       {/* Trigger Slot wrapper if provided */}
       {children && (
-        <span onClick={() => setOpen(true)} className="inline-block cursor-pointer">
+        <span onClick={() => handleOpenChange(true)} className="inline-block cursor-pointer">
           {children}
         </span>
       )}
 
-      <Dialog open={isOpen} onOpenChange={setOpen}>
+      <Dialog open={isOpen} onOpenChange={handleOpenChange}>
         <DialogContent className="max-w-2xl p-0 gap-0 overflow-hidden sm:max-w-2xl bg-card border-border shadow-2xl">
           <DialogHeader className="sr-only">
             <DialogTitle>Search Supplement Catalog</DialogTitle>

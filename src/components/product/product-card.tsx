@@ -3,7 +3,7 @@
 import * as React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { MessageCircle, CheckCircle2, Flame, AlertCircle } from 'lucide-react';
+import { MessageCircle, Flame, AlertCircle } from 'lucide-react';
 import { cn, formatNprPrice, calculateDiscountPercentage } from '@/lib/utils';
 import { STORE_WHATSAPP } from '@/lib/constants';
 import { Product, ProductVariant } from '@/lib/validations/product';
