@@ -209,6 +209,14 @@ When writing or executing a feature spec:
 | `27-subphase-4.2-product-gallery-variant-selector` | [Sub-Phase 4.2 — Product Gallery & Interactive Variant Selectors](27-subphase-4.2-product-gallery-variant-selector.md) | **Approved** | Product Detail & WhatsApp Engine | 2026-08-10 |
 | `28-subphase-4.3-product-specs-nutrition-trust` | [Sub-Phase 4.3 — Product Specifications, Nutrition Facts & Trust Elements](28-subphase-4.3-product-specs-nutrition-trust.md) | **Approved** | Product Detail & WhatsApp Engine | 2026-08-10 |
 | `29-subphase-4.4-product-detail-route-sticky-bar` | [Sub-Phase 4.4 — Product Detail Route & Mobile Sticky Action Bar](29-subphase-4.4-product-detail-route-sticky-bar.md) | **Approved** | Product Detail & WhatsApp Engine | 2026-08-10 |
+| `30-coderabbit-commit-d8692fd-resolutions` | [CodeRabbit Commit d8692fd Review Resolutions & Technical Synchronization](30-coderabbit-commit-d8692fd-resolutions.md) | **Approved** | Quality & Technical Cleanup | 2026-08-10 |
+| `31-subphase-5.1-anti-spam-rate-limiting` | [Sub-Phase 5.1 — Anti-Spam Security & Rate Limiting Infrastructure](31-subphase-5.1-anti-spam-rate-limiting.md) | **Approved** | Lead Forms & Notifications | 2026-08-10 |
+| `32-subphase-5.2-notification-dispatchers` | [Sub-Phase 5.2 — Multi-Channel Notification Dispatchers](32-subphase-5.2-notification-dispatchers.md) | **Approved** | Lead Forms & Notifications | 2026-08-10 |
+| `33-subphase-5.3-server-actions-pipeline` | [Sub-Phase 5.3 — Server Actions Pipeline](33-subphase-5.3-server-actions-pipeline.md) | **Approved** | Lead Forms & Notifications | 2026-08-10 |
+
+
+
+
 
 
 

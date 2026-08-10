@@ -54,7 +54,7 @@ Author `data/store-info.json` matching `StoreInfoSchema`:
   - `longitude`: `85.3533`
   - `googleMapsPlaceUrl`: `"https://maps.google.com/?q=27.7478,85.3533"`
   - `googleMapsEmbedUrl`: `"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3531.321!2d85.3533!3d27.7478!2m3!1f0!0f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjd8NDQnNTIuMSJOIDg1wrAyMShxMS45IkU!5e0!3m2!1sen!2snp!4v1600000000000"`
-- `openingHours`: 7 days array (Sunday to Friday 10:00 AM - 09:00 PM; Saturday labeled with `note: "Not yet specified — please contact store before visiting."`)
+- `openingHours`: 7 days array (Sunday to Friday 10:00 AM - 09:00 PM; Saturday specifies `opens: "Contact Store"`, `closes: "Contact Store"`, `isClosed: false`, and `note: "Saturday hours vary — please contact store before visiting Golfutar flagship."`)
 - `contacts`: Phone numbers (`+977-9800000000`), WhatsApp direct link (`9779800000000`), and official emails (`info@muscleworks.com.np`, `support@muscleworks.com.np`).
 - `deliveryPolicy`: Coverage `"Nationwide Nepal"`, primary zones (Kathmandu Valley Same-Day/Next-Day, Outside Valley 2-4 Business Days), free delivery threshold NPR 10,000.
 - `socialLinks`: Verified URL strings for Instagram, TikTok, Facebook.

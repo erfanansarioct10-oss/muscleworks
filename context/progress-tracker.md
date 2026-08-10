@@ -1,17 +1,18 @@
 # Progress Tracker
  
 > **Active Phase:** Phase 5 — Lead Forms, Server Actions & Notifications Pipeline  
-> **Next Sub-Phase:** `5.1` (Anti-Spam Security & Rate Limiting Infrastructure: `src/lib/services/ratelimit.ts`, `src/lib/services/security.ts`) — **[NEXT UP]**  
-> **Last Verified:** 2026-08-10 (`tsc --noEmit` — 0 errors, `npm run build` — 0 errors)
+> **Next Sub-Phase:** `5.4` (Interactive Form Components & Consultation Modal: `src/components/forms/inquiry-form.tsx`, `contact-form.tsx`, `consultation-modal.tsx`) — **[NEXT UP]**  
+> **Last Verified:** 2026-08-10 (`tsc --noEmit` — 0 errors, `validate-server-actions.ts` — 15/15 pass)
 
 ---
 
-## 1. Active Phase Status: Phase 4 (4/4 Complete — Phase 4 Complete!)
+## 1. Active Phase Status: Phase 5 — Lead Forms, Server Actions & Notifications Pipeline
 
-- [x] **4.1** WhatsApp URL Engine & Analytics Tracker (`src/lib/whatsapp.ts`, `src/lib/analytics.ts`)
-- [x] **4.2** Product Gallery & Interactive Variant Selectors (`src/components/product/product-gallery.tsx`, `product-variant-selector.tsx`, `product-stock-status.tsx`)
-- [x] **4.3** Product Specifications, Nutrition Facts & Trust Elements (`src/components/product/product-specs.tsx`, `nutrition-table.tsx`, `authenticity-guarantee-box.tsx`, `related-products.tsx`)
-- [x] **4.4** Product Detail Route & Mobile Sticky Action Bar (`src/app/products/[slug]/page.tsx`, `src/components/product/product-sticky-bar.tsx`)
+- [x] **5.1** Anti-Spam Security & Rate Limiting Infrastructure (`src/lib/services/ratelimit.ts`, `src/lib/services/security.ts`)
+- [x] **5.2** Multi-Channel Notification Dispatchers (`src/lib/services/telegram.ts`, `src/lib/services/resend.ts`, `src/emails/CustomerInquiryConfirmation.tsx`, `src/emails/AdminInquiryAlert.tsx`)
+- [x] **5.3** Server Actions Pipeline (`src/actions/inquiry.ts`, `src/actions/contact.ts`)
+- [ ] **5.4** Interactive Form Components & Consultation Modal (`src/components/forms/inquiry-form.tsx`, `contact-form.tsx`, `consultation-modal.tsx`)
+- [ ] **5.5** Contact & Store Locations Experience (`src/app/(marketing)/contact/page.tsx`, `src/app/(marketing)/location/page.tsx`)
 
 ---
 
@@ -24,13 +25,24 @@
 | **2** | Static Datasets & Data Accessors | 5/5 | **Complete** |
 | **3** | Catalog, Search & Filtering | 6/6 | **Complete** |
 | **4** | Product Detail & WhatsApp Engine | 4/4 | **Complete** |
-| **5** | Lead Forms & Notifications | 0/5 | **[IN PROGRESS]** |
+| **5** | Lead Forms & Notifications | 3/5 | **[IN PROGRESS]** |
 | **6** | Trust, Educational & Legal Pages | 0/5 | Pending |
 | **7** | SEO, Performance & Launch Hardening | 0/4 | Pending |
 
 ---
 
 ## 3. Session Change Log
+
+- **2026-08-10 (Sub-Phase 5.3):** Implemented Next.js 16 Server Actions Pipeline (`src/actions/inquiry.ts`, `src/actions/contact.ts`). Built canonical 7-step defensive server action execution pipeline: 1) Honeypot anti-spam trap check (`hp_field`), 2) Minimum 2000ms duration submission timing trap (`_form_loaded_at`), 3) Upstash / in-memory rate limiting verification (`ratelimit:inquiry` vs `ratelimit:contact` isolated scopes, 5 req / 60 min), 4) Zod schema input validation (`InquiryFormClientSchema`), 5) Payload sanitization (`sanitizePayload`), 6) Concurrent best-effort notification dispatch (`sendTelegramAlert` & `sendInquiryEmails` via `Promise.allSettled`), and 7) Standardized `ActionResult<{ inquiryId: string }>` envelope return. Authored [Spec 33](feature-specs/33-subphase-5.3-server-actions-pipeline.md). Programmatically validated via `src/scripts/validate-server-actions.ts` (15/15 tests passed). Verified cleanly with `npx tsc --noEmit` (0 errors).
+
+- **2026-08-10 (Sub-Phase 5.2):** Implemented Telegram Bot Alert Dispatcher (`src/lib/services/telegram.ts`), Resend Email Dispatcher (`src/lib/services/resend.ts`), and React Email Templates (`src/emails/CustomerInquiryConfirmation.tsx`, `src/emails/AdminInquiryAlert.tsx`). Built Telegram MarkdownV2 special character escaping (`escapeMarkdownV2()`) and structured admin push alert message builder (`buildTelegramMarkdownMessage()`). Built Jet Black luxury theme React Email templates (`@react-email/components`) with Golfutar Kathmandu store address, authenticity guarantee seal, inquiry summary table, and direct WhatsApp/Phone call CTAs. Built Resend email dispatcher handling concurrent customer & admin email sending via `Promise.allSettled` with dev console preview logging when API keys are unconfigured. Authored [Spec 32](feature-specs/32-subphase-5.2-notification-dispatchers.md). Programmatically validated via `src/scripts/validate-notification-services.ts` (15/15 tests passed). Verified cleanly with `npx tsc --noEmit` (0 errors).
+
+
+- **2026-08-10 (Sub-Phase 5.1):** Implemented Rate Limiting Infrastructure (`src/lib/services/ratelimit.ts`) and Anti-Spam Security Engine (`src/lib/services/security.ts`). Built `@upstash/ratelimit` sliding window rate limiter (5 requests per 60 min per IP) with graceful in-memory `Map` fallback in local dev (`NODE_ENV === 'development'`) when Upstash Redis credentials are missing. Built client IP extraction helper resolving `x-forwarded-for`, `x-real-ip`, `cf-connecting-ip`, and `127.0.0.1` fallbacks via Next.js 16 `await headers()`. Built honeypot field validator (`hp_field`), 2000ms timing trap check (`_form_loaded_at`), silent drop fake success generator (`SILENT_SPAM_SUCCESS_RESPONSE`), and HTML input string sanitizer (`sanitizeTextInput`, `sanitizePayload`). Authored [Spec 31](feature-specs/31-subphase-5.1-anti-spam-rate-limiting.md). Programmatically validated via `src/scripts/validate-security-ratelimit.ts` (20/20 tests passed). Verified cleanly with `npx tsc --noEmit` (0 errors).
+
+
+- **2026-08-10 (CodeRabbit Commit d8692fd Resolutions):** Resolved all 62 CodeRabbit review findings from commit `d8692fd` (PR #2). Parsed store opening hours dynamically in `src/lib/data/store.ts` handling `"Contact Store"` sentinels; added calendar date round-trip validation in `src/lib/validations/guide.ts`; sanitized recent searches string filtering in `src/lib/search.ts`; excluded `pre_order` variants from `isProductInStock()` in `src/lib/catalog.ts`; increased clear search button touch target to 44px in `brand-filter.tsx` and `search-bar.tsx`; passed `products` and `totalCount` props to `MobileFilterDrawer` in `catalog-container.tsx`; converted drawer controls to accessible keyboard controls; replaced `window.location.href` with `router.push()` in `search-bar.tsx`; memoized `setOpen` callback and added `setTimeout` cleanup in `search-modal.tsx`; validated URL `sort` param in `sort-select.tsx`; rendered anchor fallback (`href="/products"`) in `header.tsx`; used canonical `buildProductWhatsAppUrl` and moved WhatsApp button outside `<Link>` with 48px touch target in `product-card.tsx`; added safe-area bottom inset padding in `product-sticky-bar.tsx`; removed unnecessary `'use client'` directives from `product-stock-status.tsx` and `product-authenticity-badge.tsx`; resynchronized `selectedVariant` on `product.id` change in `product-detail-view.tsx`; added WAI-ARIA tab semantics to `product-specs.tsx`; hid missing country badge in `brands/[slug]/page.tsx`; escaped `<` as `\u003c` in JSON-LD script payload and used `formatNprPrice()` in `products/[slug]/page.tsx`; updated `validate-pdp-specs-components.ts` to call production `getRelatedProducts()`; synchronized Specs 17, 18, 19, 24, 25, 26, 28, 29, and registered Authored [Spec 30](feature-specs/30-coderabbit-commit-d8692fd-resolutions.md). Verified with zero errors on `tsc` and `npm run build`.
+
 
 - **2026-08-10 (Sub-Phase 4.4):** Implemented Product Detail Page SSG Route (`src/app/products/[slug]/page.tsx`), Interactive State Orchestrator Client Shell (`src/components/product/product-detail-view.tsx`), and Mobile Sticky Action Bar (`src/components/product/product-sticky-bar.tsx`). Implemented `generateStaticParams()` SSG pre-rendering across all 15 product slugs. Implemented dynamic SEO metadata generator (`generateMetadata`) with OpenGraph tags, product images, and NPR pricing. Injected Schema.org `Product` & `Offer` JSON-LD structured data with physical Golfutar Kathmandu store location metadata. Built `ProductDetailView` managing flavor/size variant state with 100% real-time synchronization across gallery previews, pricing, stock badges, hero WhatsApp CTA, tabbed specifications, and sticky bar. Built `ProductStickyBar` pinned to bottom on mobile (`md:hidden`) with variant preview, active NPR price, and full-width WhatsApp CTA button (≥48px touch height). Authored [Spec 29](feature-specs/29-subphase-4.4-product-detail-route-sticky-bar.md). Verified cleanly with `npx tsc --noEmit` (0 errors) and `npm run build` (0 errors — 15 SSG product routes compiled). Phase 4 is 100% complete!
 

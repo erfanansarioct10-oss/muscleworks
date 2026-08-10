@@ -53,6 +53,36 @@ export async function getTodayOpeningHours(): Promise<OpeningHourItem | null> {
 }
 
 /**
+ * Parses a time string ("10:00 AM", "09:00 PM", "10:00", "21:00") into minutes past midnight.
+ * Returns null if the string represents a contact-required sentinel ("Contact Store").
+ */
+function parseTimeToMinutes(timeStr: string): number | null {
+  const trimmed = timeStr.trim().toUpperCase();
+  if (trimmed === 'CONTACT STORE' || !trimmed) return null;
+
+  // 12-hour format e.g. "10:00 AM" or "09:00 PM"
+  const match12 = trimmed.match(/^(\d{1,2}):(\d{2})\s*(AM|PM)$/);
+  if (match12) {
+    let hours = parseInt(match12[1], 10);
+    const minutes = parseInt(match12[2], 10);
+    const period = match12[3];
+    if (period === 'PM' && hours < 12) hours += 12;
+    if (period === 'AM' && hours === 12) hours = 0;
+    return hours * 60 + minutes;
+  }
+
+  // 24-hour format e.g. "10:00" or "21:00"
+  const match24 = trimmed.match(/^(\d{1,2}):(\d{2})$/);
+  if (match24) {
+    const hours = parseInt(match24[1], 10);
+    const minutes = parseInt(match24[2], 10);
+    return hours * 60 + minutes;
+  }
+
+  return null;
+}
+
+/**
  * Evaluates whether the Golfutar store is currently open based on Asia/Kathmandu time.
  */
 export async function isStoreOpenNow(): Promise<{
@@ -80,34 +110,45 @@ export async function isStoreOpenNow(): Promise<{
       };
     }
 
-    if (kathmanduDay === 'saturday' || todayHours.opens === 'Contact Store') {
+    const openMinutes = parseTimeToMinutes(todayHours.opens);
+    const closeMinutes = parseTimeToMinutes(todayHours.closes);
+
+    if (openMinutes === null || closeMinutes === null) {
       return {
         isOpen: false,
         message:
+          todayHours.note ||
           'Saturday hours vary. Please contact store before visiting Golfutar flagship.',
       };
     }
 
-    // Get current Kathmandu hour (0-23)
-    const kathmanduHourStr = new Intl.DateTimeFormat('en-US', {
+    // Get current Kathmandu hour & minute as total minutes past midnight
+    const kathmanduTimeParts = new Intl.DateTimeFormat('en-US', {
       timeZone: 'Asia/Kathmandu',
       hour: 'numeric',
+      minute: 'numeric',
       hour12: false,
-    }).format(now);
+    }).formatToParts(now);
 
-    const kathmanduHour = parseInt(kathmanduHourStr, 10);
+    const hourStr = kathmanduTimeParts.find((p) => p.type === 'hour')?.value || '0';
+    const minStr = kathmanduTimeParts.find((p) => p.type === 'minute')?.value || '0';
+    const currentMinutes = parseInt(hourStr, 10) * 60 + parseInt(minStr, 10);
 
-    // Standard business hours: 10 AM (10) to 9 PM (21)
-    if (kathmanduHour >= 10 && kathmanduHour < 21) {
+    const isOpen =
+      openMinutes <= closeMinutes
+        ? currentMinutes >= openMinutes && currentMinutes < closeMinutes
+        : currentMinutes >= openMinutes || currentMinutes < closeMinutes;
+
+    if (isOpen) {
       return {
         isOpen: true,
-        message: 'Open Now (10:00 AM – 9:00 PM)',
+        message: `Open Now (${todayHours.opens} – ${todayHours.closes})`,
       };
     }
 
     return {
       isOpen: false,
-      message: 'Currently Closed. Opens at 10:00 AM.',
+      message: `Currently Closed. Opens at ${todayHours.opens}.`,
     };
   } catch {
     return {
@@ -116,3 +157,4 @@ export async function isStoreOpenNow(): Promise<{
     };
   }
 }
+

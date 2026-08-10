@@ -26,6 +26,21 @@ export const GuideAuthorSchema = z.object({
 
 export type GuideAuthor = z.infer<typeof GuideAuthorSchema>;
 
+function isValidCalendarDate(dateStr: string): boolean {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(dateStr)) return false;
+  const [yearStr, monthStr, dayStr] = dateStr.split('-');
+  const year = parseInt(yearStr, 10);
+  const month = parseInt(monthStr, 10);
+  const day = parseInt(dayStr, 10);
+
+  const date = new Date(Date.UTC(year, month - 1, day));
+  return (
+    date.getUTCFullYear() === year &&
+    date.getUTCMonth() === month - 1 &&
+    date.getUTCDate() === day
+  );
+}
+
 /**
  * Educational Guide Frontmatter Schema
  */
@@ -36,8 +51,15 @@ export const GuideFrontmatterSchema = z.object({
   category: GuideCategoryEnum,
   coverImage: ImageAssetSchema,
   author: GuideAuthorSchema,
-  publishedDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'Date must be in YYYY-MM-DD format'),
-  updatedDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'Date must be in YYYY-MM-DD format').optional(),
+  publishedDate: z
+    .string()
+    .regex(/^\d{4}-\d{2}-\d{2}$/, 'Date must be in YYYY-MM-DD format')
+    .refine(isValidCalendarDate, { message: 'Must be a valid calendar date (YYYY-MM-DD)' }),
+  updatedDate: z
+    .string()
+    .regex(/^\d{4}-\d{2}-\d{2}$/, 'Date must be in YYYY-MM-DD format')
+    .refine(isValidCalendarDate, { message: 'Must be a valid calendar date (YYYY-MM-DD)' })
+    .optional(),
   readingTimeMinutes: z.number().int().positive().default(5),
   isFeatured: z.boolean().default(false),
   relatedProductSlugs: z.array(z.string()).default([]),

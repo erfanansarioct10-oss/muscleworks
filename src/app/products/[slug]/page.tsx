@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { getProducts, getProductBySlug } from '@/lib/data/products';
 import { getCategoryById } from '@/lib/data/categories';
 import { getBrandById } from '@/lib/data/brands';
+import { formatNprPrice } from '@/lib/utils';
 import { ProductDetailView } from '@/components/product/product-detail-view';
 import { RelatedProducts } from '@/components/product/related-products';
 
@@ -34,7 +35,7 @@ export async function generateMetadata(props: PageProps): Promise<Metadata> {
     product.variants.find((v) => v.id === product.defaultVariantId) ||
     product.variants[0];
   const activePrice = defaultVariant.discountPriceNpr || defaultVariant.priceNpr;
-  const priceFormatted = `NPR ${activePrice.toLocaleString('en-US')}`;
+  const priceFormatted = formatNprPrice(activePrice);
 
   return {
     title: `Buy ${product.name} in Nepal (${priceFormatted}) | MuscleWorks Kathmandu`,
@@ -53,9 +54,8 @@ export async function generateMetadata(props: PageProps): Promise<Metadata> {
 }
 
 export default async function ProductDetailPage(props: PageProps) {
-  // Next.js 16 requirement: await params and searchParams
+  // Next.js 16 requirement: await params
   const { slug } = await props.params;
-  await props.searchParams;
 
   const product = await getProductBySlug(slug);
 
@@ -113,7 +113,9 @@ export default async function ProductDetailPage(props: PageProps) {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c'),
+        }}
       />
       <ProductDetailView
         product={product}

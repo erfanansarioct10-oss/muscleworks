@@ -49,10 +49,12 @@ export function SearchBar({
       try {
         const searchRes = await searchProducts(trimmed, 6);
         setResults(searchRes);
+        setSelectedIndex(-1);
         setIsOpen(true);
       } catch (err) {
         console.error("Search error:", err);
         setResults([]);
+        setSelectedIndex(-1);
       } finally {
         setIsLoading(false);
       }
@@ -96,6 +98,7 @@ export function SearchBar({
   const handleClear = () => {
     setQuery("");
     setResults([]);
+    setSelectedIndex(-1);
     setIsOpen(false);
     inputRef.current?.focus();
   };
@@ -132,7 +135,7 @@ export function SearchBar({
           <button
             type="button"
             onClick={handleClear}
-            className="absolute right-3 h-8 w-8 min-h-[44px] min-w-[44px] sm:min-h-0 sm:min-w-0 flex items-center justify-center text-muted-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-lg"
+            className="absolute right-1 top-1/2 -translate-y-1/2 h-11 w-11 min-h-11 min-w-11 flex items-center justify-center text-muted-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-lg"
             aria-label="Clear search"
           >
             <X className="h-4 w-4" />
@@ -154,7 +157,10 @@ export function SearchBar({
                 const defaultVariant =
                   product.variants.find((v) => v.id === product.defaultVariantId) ??
                   product.variants[0];
-                const discountPct = defaultVariant.discountPriceNpr
+                const activePrice = defaultVariant
+                  ? defaultVariant.discountPriceNpr || defaultVariant.priceNpr
+                  : 0;
+                const discountPct = defaultVariant?.discountPriceNpr
                   ? calculateDiscountPercentage(
                       defaultVariant.priceNpr,
                       defaultVariant.discountPriceNpr
@@ -169,36 +175,44 @@ export function SearchBar({
                     key={product.id}
                     href={`/products/${product.slug}`}
                     onClick={() => handleResultClick(query)}
-                    className={`flex items-center gap-3 rounded-lg p-2.5 transition-colors ${
-                      isSelected ? "bg-accent text-accent-foreground" : "hover:bg-accent/60"
+                    className={`flex items-center gap-3 p-2 rounded-lg transition-colors min-h-11 ${
+                      isSelected
+                        ? "bg-accent text-accent-foreground ring-1 ring-gold-500/40"
+                        : "hover:bg-muted/70 text-card-foreground"
                     }`}
                   >
                     {/* Thumbnail Image */}
-                    <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-md border border-border bg-muted">
+                    <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-lg border border-border bg-neutral-900">
                       <Image
                         src={primaryImage}
                         alt={product.name}
                         fill
-                        className="object-contain p-1"
                         sizes="48px"
+                        className="object-cover"
                       />
                     </div>
 
-                    {/* Meta info */}
+                    {/* Product Info */}
                     <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground">
-                        <span className="truncate">{res.brandName}</span>
-                        <span>•</span>
-                        <span className="truncate">{res.categoryName}</span>
+                      <div className="flex items-center justify-between gap-2">
+                        <p className="text-xs font-bold truncate text-foreground group-hover:text-gold-500">
+                          {product.name}
+                        </p>
                       </div>
-                      <h4 className="text-sm font-semibold text-foreground truncate">
-                        {product.name}
-                      </h4>
+
+                      <p className="text-[11px] text-muted-foreground truncate">
+                        {defaultVariant
+                          ? `${defaultVariant.sizeOrWeight}${
+                              defaultVariant.flavor !== "Unflavored" ? ` • ${defaultVariant.flavor}` : ""
+                            }`
+                          : product.shortDescription}
+                      </p>
+
                       <div className="flex items-center gap-2 mt-0.5">
-                        <span className="text-xs font-bold text-foreground">
-                          {formatNprPrice(defaultVariant.discountPriceNpr || defaultVariant.priceNpr)}
+                        <span className="text-xs font-extrabold text-amber-500">
+                          {formatNprPrice(activePrice)}
                         </span>
-                        {defaultVariant.discountPriceNpr && (
+                        {defaultVariant?.discountPriceNpr && (
                           <span className="text-[11px] text-muted-foreground line-through">
                             {formatNprPrice(defaultVariant.priceNpr)}
                           </span>
@@ -218,7 +232,7 @@ export function SearchBar({
               <Link
                 href={`/products?search=${encodeURIComponent(query.trim())}`}
                 onClick={() => handleResultClick(query)}
-                className="flex items-center justify-between rounded-lg p-2.5 text-xs font-semibold text-primary hover:bg-accent/80 transition-colors mt-1 border-t border-border/50"
+                className="flex items-center justify-between rounded-lg p-2.5 text-xs font-semibold text-primary hover:bg-accent/80 transition-colors mt-1 border-t border-border/50 min-h-11"
               >
                 <span>View all products matching &quot;{query.trim()}&quot;</span>
                 <ArrowRight className="h-3.5 w-3.5" />

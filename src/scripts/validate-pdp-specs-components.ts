@@ -1,4 +1,4 @@
-import { getProducts } from '../lib/data/products';
+import { getProducts, getRelatedProducts } from '../lib/data/products';
 import { buildAuthenticityInquiryWhatsAppUrl } from '../lib/whatsapp';
 
 async function validatePdpSpecsComponents() {
@@ -35,12 +35,13 @@ async function validatePdpSpecsComponents() {
   }
   console.log('✅ Authenticity Metadata & WhatsApp Verification Link generation passed 100%.');
 
-  // 3. Verify Related Products matching logic
+  // 3. Verify Related Products matching logic via production accessor
   const testProduct = products[0];
-  const relatedCandidates = products.filter(
-    (p) => p.id !== testProduct.id && (p.categoryId === testProduct.categoryId || p.brandId === testProduct.brandId)
-  );
-  console.log(`✅ Related products lookup test for "${testProduct.name}": found ${relatedCandidates.length} matching candidates.`);
+  const relatedCandidates = await getRelatedProducts(testProduct, 4);
+  if (relatedCandidates.some((p) => p.id === testProduct.id)) {
+    throw new Error(`❌ getRelatedProducts returned the current product ${testProduct.id}`);
+  }
+  console.log(`✅ Related products lookup test for "${testProduct.name}": found ${relatedCandidates.length} matching candidates via production getRelatedProducts.`);
 
   console.log('🎉 ALL SUB-PHASE 4.3 VALIDATION CHECKS PASSED SUCCESSFULLY!');
 }

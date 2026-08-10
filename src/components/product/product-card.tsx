@@ -5,35 +5,17 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { MessageCircle, Flame, AlertCircle } from 'lucide-react';
 import { cn, formatNprPrice, calculateDiscountPercentage } from '@/lib/utils';
-import { STORE_WHATSAPP } from '@/lib/constants';
 import { Product, ProductVariant } from '@/lib/validations/product';
 import { ProductAuthenticityBadge } from './product-authenticity-badge';
 import { Badge } from '@/components/ui/badge';
+
+import { buildProductWhatsAppUrl } from '@/lib/whatsapp';
 
 export interface ProductCardProps {
   product: Product;
   priorityImage?: boolean;
   className?: string;
   brandName?: string;
-}
-
-/**
- * Builds direct WhatsApp speed-order URL payload for a product.
- */
-function buildQuickWhatsAppUrl(product: Product, variant?: ProductVariant): string {
-  const phoneDigits = STORE_WHATSAPP.replace(/[^0-9]/g, '');
-  const activeVariant = variant || product.variants[0];
-  const price = activeVariant?.discountPriceNpr || activeVariant?.priceNpr;
-
-  const text = `Namaste MuscleWorks! I want to order:
-• Product: ${product.name}
-${activeVariant ? `• Variant: ${activeVariant.flavor} (${activeVariant.sizeOrWeight})` : ''}
-${price ? `• Price: ${formatNprPrice(price)}` : ''}
-• Direct Retail Outlet: Golfutar, Kathmandu
-
-Please confirm availability & same-day delivery timeline.`;
-
-  return `https://wa.me/${phoneDigits}?text=${encodeURIComponent(text)}`;
 }
 
 /**
@@ -85,7 +67,11 @@ export function ProductCard({
 
   const stockStatus = defaultVariant?.stockStatus || 'in_stock';
   const variantSummary = getVariantSummary(product.variants);
-  const whatsappUrl = buildQuickWhatsAppUrl(product, defaultVariant);
+  const whatsappUrl = buildProductWhatsAppUrl({
+    product,
+    selectedVariant: defaultVariant,
+    brandName,
+  });
 
   const handleWhatsAppClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -181,7 +167,7 @@ export function ProductCard({
             )}
           </div>
 
-          {/* Pricing Row & WhatsApp Action */}
+          {/* Pricing Row */}
           <div className="pt-2 border-t border-neutral-800/80 flex items-center justify-between gap-2 mt-auto">
             {/* Prices */}
             <div className="flex flex-col">
@@ -194,20 +180,20 @@ export function ProductCard({
                 </span>
               )}
             </div>
-
-            {/* Direct WhatsApp Quick-Order Trigger */}
-            <button
-              type="button"
-              onClick={handleWhatsAppClick}
-              title="Quick Order via WhatsApp"
-              aria-label={`Order ${product.name} via WhatsApp`}
-              className="inline-flex items-center justify-center min-h-11 min-w-11 sm:min-h-12 sm:min-w-12 h-11 w-11 sm:h-12 sm:w-12 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-semibold transition-all duration-200 hover:scale-105 active:scale-95 shadow-md shadow-emerald-900/30 focus:outline-none focus:ring-2 focus:ring-emerald-400 shrink-0"
-            >
-              <MessageCircle className="w-5 h-5 fill-white/10 text-white" />
-            </button>
           </div>
         </div>
       </Link>
+
+      {/* Direct WhatsApp Quick-Order Trigger (Sibling to Link to avoid nested interactive elements) */}
+      <button
+        type="button"
+        onClick={handleWhatsAppClick}
+        title="Quick Order via WhatsApp"
+        aria-label={`Order ${product.name} via WhatsApp`}
+        className="absolute bottom-3.5 sm:bottom-4 right-3.5 sm:right-4 z-20 inline-flex items-center justify-center h-12 w-12 min-h-12 min-w-12 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-semibold transition-all duration-200 hover:scale-105 active:scale-95 shadow-md shadow-emerald-900/30 focus:outline-none focus:ring-2 focus:ring-emerald-400 shrink-0"
+      >
+        <MessageCircle className="w-5 h-5 fill-white/10 text-white" />
+      </button>
     </div>
   );
 }

@@ -56,7 +56,7 @@ Sub-Phase 4.4 completes **Phase 4 (Product Detail Page & Dynamic WhatsApp Conver
   - Pads page bottom with `pb-20 md:pb-0` on container to prevent sticky bar overlapping content.
 
 ### Step 2: `ProductDetailView` Client Shell (`src/components/product/product-detail-view.tsx`)
-- **Props:** `product: Product`, `relatedProducts: Product[]`, `category?: Category`, `brand?: Brand`
+- **Props:** `product: Product`, `relatedProductsChildren?: React.ReactNode`, `category?: Category`, `brand?: Brand`
 - **State Management:**
   - Maintains `selectedFlavor` (default: `product.defaultVariant.flavor` or `flavors[0]`) and `selectedSize` (default: `product.defaultVariant.sizeWeight`).
   - Computes `selectedVariant` dynamically from options or falls back to `defaultVariant`.

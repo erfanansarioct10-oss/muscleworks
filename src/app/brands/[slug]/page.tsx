@@ -1,9 +1,10 @@
+import React, { Suspense } from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ShieldCheck, Award, Globe, CheckCircle2 } from 'lucide-react';
 import { getBrands, getBrandBySlug } from '@/lib/data/brands';
-import { getProducts } from '@/lib/data/products';
+import { getProductsByBrand } from '@/lib/data/products';
 import { getCategories } from '@/lib/data/categories';
 import { CatalogContainer } from '@/components/catalog/catalog-container';
 import { Badge } from '@/components/ui/badge';
@@ -52,9 +53,8 @@ export async function generateMetadata(props: PageProps): Promise<Metadata> {
 }
 
 export default async function BrandArchivePage(props: PageProps) {
-  // Next.js 16 requirements: await params and searchParams
+  // Next.js 16 requirement: await params
   const { slug } = await props.params;
-  await props.searchParams;
 
   const brand = await getBrandBySlug(slug);
 
@@ -63,7 +63,7 @@ export default async function BrandArchivePage(props: PageProps) {
   }
 
   const [products, categories, brands] = await Promise.all([
-    getProducts(),
+    getProductsByBrand(brand.slug),
     getCategories(),
     getBrands(),
   ]);
@@ -108,10 +108,12 @@ export default async function BrandArchivePage(props: PageProps) {
                 <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-foreground tracking-tight">
                   {brand.name}
                 </h1>
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-secondary border border-border text-xs font-semibold text-muted-foreground">
-                  <Globe className="w-3.5 h-3.5 text-primary" />
-                  <span>{brand.countryOfOrigin ?? 'USA'}</span>
-                </span>
+                {brand.countryOfOrigin && (
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-secondary border border-border text-xs font-semibold text-muted-foreground">
+                    <Globe className="w-3.5 h-3.5 text-primary" />
+                    <span>{brand.countryOfOrigin}</span>
+                  </span>
+                )}
               </div>
 
               <p className="text-xs sm:text-sm text-muted-foreground mt-2 max-w-2xl leading-relaxed">
@@ -137,11 +139,13 @@ export default async function BrandArchivePage(props: PageProps) {
 
       {/* Main Catalog Container */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-6">
-        <CatalogContainer
-          initialProducts={products}
-          categories={categories}
-          brands={brands}
-        />
+        <Suspense fallback={<div className="min-h-[400px] flex items-center justify-center text-muted-foreground text-sm">Loading brand catalog...</div>}>
+          <CatalogContainer
+            initialProducts={products}
+            categories={categories}
+            brands={brands}
+          />
+        </Suspense>
       </div>
     </div>
   );

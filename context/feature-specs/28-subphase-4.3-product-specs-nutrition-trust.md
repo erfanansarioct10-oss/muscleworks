@@ -67,7 +67,7 @@ Sub-Phase 4.3 completes the core information architecture, supplement transparen
 
 ### Step 4: `RelatedProducts` Component (`src/components/product/related-products.tsx`)
 - **Props:** `currentProduct: Product`, `className?: string`
-- **Data Fetching / Filtering:** Filter dataset for products where `id !== currentProduct.id` and (`categoryId === currentProduct.categoryId` || `brandId === currentProduct.brandId`), sliced to top 4 products.
+- **Data Fetching / Filtering:** Prioritize matching category or brand products (excluding `currentProduct.id`) via `getRelatedProducts`, with other catalog products filling remaining slots up to the 4-product limit.
 - **Rendering:** Section heading ("Complete Your Fitness Stack"), subhead, and responsive `<ProductGrid />` rendering `<ProductCard />` instances.
 
 ---

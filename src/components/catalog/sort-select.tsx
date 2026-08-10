@@ -29,7 +29,9 @@ export function SortSelect({ className }: SortSelectProps) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
-  const currentSort = (searchParams.get('sort') as CatalogSortOption) || 'featured';
+  const rawSort = searchParams.get('sort');
+  const currentSort: CatalogSortOption =
+    SORT_OPTIONS.find((opt) => opt.value === rawSort)?.value ?? 'featured';
 
   const handleSortChange = React.useCallback(
     (newSort: string) => {

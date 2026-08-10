@@ -1,3 +1,4 @@
+import React, { Suspense } from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ShieldCheck, Truck } from 'lucide-react';
@@ -110,11 +111,13 @@ export default async function ProductsPage(props: PageProps) {
 
       {/* Main Interactive Catalog Filter & Grid Container */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-6">
-        <CatalogContainer
-          initialProducts={products}
-          categories={categories}
-          brands={brands}
-        />
+        <Suspense fallback={<div className="min-h-[400px] flex items-center justify-center text-muted-foreground text-sm">Loading catalog...</div>}>
+          <CatalogContainer
+            initialProducts={products}
+            categories={categories}
+            brands={brands}
+          />
+        </Suspense>
       </div>
     </div>
   );

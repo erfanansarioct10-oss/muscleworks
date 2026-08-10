@@ -10,6 +10,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogDescription,
+  DialogTrigger,
 } from "@/components/ui/dialog";
 import {
   searchProducts,
@@ -30,30 +31,31 @@ const POPULAR_CATEGORIES = [
   { name: "Amino & BCAA", slug: "amino-bcaa" },
 ];
 
-interface SearchModalProps {
-  open?: boolean;
+export interface SearchModalProps {
+  isOpen?: boolean;
   onOpenChange?: (open: boolean) => void;
   children?: React.ReactNode;
 }
 
 export function SearchModal({
-  open: externalOpen,
+  isOpen: externalIsOpen,
   onOpenChange: externalOnOpenChange,
   children,
 }: SearchModalProps) {
-  const [internalOpen, setInternalOpen] = React.useState(false);
-  const isOpen = externalOpen !== undefined ? externalOpen : internalOpen;
+  const [internalIsOpen, setInternalIsOpen] = React.useState(false);
+  const isControlled = externalIsOpen !== undefined;
+  const isOpen = isControlled ? externalIsOpen : internalIsOpen;
+
   const setOpen = React.useCallback(
-    (newOpen: boolean) => {
-      if (externalOnOpenChange) {
-        externalOnOpenChange(newOpen);
+    (open: boolean) => {
+      if (isControlled) {
+        externalOnOpenChange?.(open);
       } else {
-        setInternalOpen(newOpen);
+        setInternalIsOpen(open);
       }
     },
-    [externalOnOpenChange]
+    [isControlled, externalOnOpenChange]
   );
-
 
   const [query, setQuery] = React.useState("");
   const [results, setResults] = React.useState<SearchResult[]>([]);
@@ -61,12 +63,18 @@ export function SearchModal({
   const [recentSearches, setRecentSearches] = React.useState<string[]>([]);
 
   const inputRef = React.useRef<HTMLInputElement>(null);
+  const focusTimerRef = React.useRef<NodeJS.Timeout | null>(null);
 
   const handleOpenChange = React.useCallback(
     (open: boolean) => {
+      if (focusTimerRef.current) {
+        clearTimeout(focusTimerRef.current);
+        focusTimerRef.current = null;
+      }
+
       if (open) {
         setRecentSearches(getRecentSearches());
-        setTimeout(() => inputRef.current?.focus(), 100);
+        focusTimerRef.current = setTimeout(() => inputRef.current?.focus(), 100);
       } else {
         setQuery("");
         setResults([]);
@@ -75,6 +83,14 @@ export function SearchModal({
     },
     [setOpen]
   );
+
+  React.useEffect(() => {
+    return () => {
+      if (focusTimerRef.current) {
+        clearTimeout(focusTimerRef.current);
+      }
+    };
+  }, []);
 
   // Global Cmd+K / Ctrl+K keyboard shortcut listener
   React.useEffect(() => {
@@ -132,18 +148,10 @@ export function SearchModal({
     handleOpenChange(false);
   };
 
-
   return (
-    <>
-      {/* Trigger Slot wrapper if provided */}
-      {children && (
-        <span onClick={() => handleOpenChange(true)} className="inline-block cursor-pointer">
-          {children}
-        </span>
-      )}
-
-      <Dialog open={isOpen} onOpenChange={handleOpenChange}>
-        <DialogContent className="max-w-2xl p-0 gap-0 overflow-hidden sm:max-w-2xl bg-card border-border shadow-2xl">
+    <Dialog open={isOpen} onOpenChange={handleOpenChange}>
+      {children && <DialogTrigger asChild>{children}</DialogTrigger>}
+      <DialogContent className="max-w-2xl p-0 gap-0 overflow-hidden sm:max-w-2xl bg-card border-border shadow-2xl">
           <DialogHeader className="sr-only">
             <DialogTitle>Search Supplement Catalog</DialogTitle>
             <DialogDescription>
@@ -372,6 +380,5 @@ export function SearchModal({
           </div>
         </DialogContent>
       </Dialog>
-    </>
   );
 }

@@ -32,10 +32,13 @@ export function getProductActivePrice(product: Product): number {
 }
 
 /**
- * Check if a product is in stock (has at least one variant not out of stock).
+ * Check if a product is in stock (has at least one variant immediately available).
+ * Excludes out_of_stock and pre_order variants.
  */
 export function isProductInStock(product: Product): boolean {
-  return product.variants.some((v) => v.stockStatus !== 'out_of_stock');
+  return product.variants.some(
+    (v) => v.stockStatus === 'in_stock' || v.stockStatus === 'low_stock'
+  );
 }
 
 /**
@@ -169,19 +172,21 @@ export function filterAndSortProducts(
         return getProductActivePrice(b) - getProductActivePrice(a);
       case 'name-asc':
         return a.name.localeCompare(b.name);
-      case 'newest':
+      case 'newest': {
         // Sort by badge new_arrival or fallback to createdAt/id
         const aIsNew = a.badges.includes('new_arrival') ? 1 : 0;
         const bIsNew = b.badges.includes('new_arrival') ? 1 : 0;
         if (aIsNew !== bIsNew) return bIsNew - aIsNew;
         return (b.createdAt ?? b.id).localeCompare(a.createdAt ?? a.id);
+      }
       case 'featured':
-      default:
+      default: {
         // Featured products first, then standard order
         const aFeatured = a.isFeatured ? 1 : 0;
         const bFeatured = b.isFeatured ? 1 : 0;
         if (aFeatured !== bFeatured) return bFeatured - aFeatured;
         return 0;
+      }
     }
   });
 

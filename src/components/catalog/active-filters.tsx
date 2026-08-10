@@ -33,7 +33,11 @@ export function ActiveFilters({
   const minPriceParam = searchParams.get('minPrice');
   const maxPriceParam = searchParams.get('maxPrice');
   const inStockParam = searchParams.get('inStock');
-  const searchParam = searchParams.get('q') ?? searchParams.get('searchQuery') ?? '';
+  const searchParam =
+    searchParams.get('search') ??
+    searchParams.get('q') ??
+    searchParams.get('searchQuery') ??
+    '';
 
   const activeCategories = React.useMemo(
     () => (categoryParam ? categoryParam.split(',').filter(Boolean) : []),
@@ -138,6 +142,7 @@ export function ActiveFilters({
               <button
                 type="button"
                 onClick={() => {
+                  removeFilter('search');
                   removeFilter('q');
                   removeFilter('searchQuery');
                 }}

@@ -22,11 +22,16 @@ export function ProductSpecs({ product, className }: ProductSpecsProps) {
       {/* Tab Navigation Header */}
       <div className="flex border-b border-neutral-200 dark:border-neutral-800">
         <nav
-          className="-mb-px flex w-full gap-2 overflow-x-auto pb-1 no-scrollbar sm:gap-4"
+          role="tablist"
           aria-label="Product Information Tabs"
+          className="-mb-px flex w-full gap-2 overflow-x-auto pb-1 no-scrollbar sm:gap-4"
         >
           <button
+            id="tab-nutrition"
             type="button"
+            role="tab"
+            aria-selected={activeTab === 'nutrition'}
+            aria-controls="panel-nutrition"
             onClick={() => setActiveTab('nutrition')}
             className={cn(
               'flex h-11 shrink-0 items-center gap-2 border-b-2 px-4 text-xs font-bold transition-all sm:text-sm',
@@ -40,7 +45,11 @@ export function ProductSpecs({ product, className }: ProductSpecsProps) {
           </button>
 
           <button
+            id="tab-usage"
             type="button"
+            role="tab"
+            aria-selected={activeTab === 'usage'}
+            aria-controls="panel-usage"
             onClick={() => setActiveTab('usage')}
             className={cn(
               'flex h-11 shrink-0 items-center gap-2 border-b-2 px-4 text-xs font-bold transition-all sm:text-sm',
@@ -54,7 +63,11 @@ export function ProductSpecs({ product, className }: ProductSpecsProps) {
           </button>
 
           <button
+            id="tab-authenticity"
             type="button"
+            role="tab"
+            aria-selected={activeTab === 'authenticity'}
+            aria-controls="panel-authenticity"
             onClick={() => setActiveTab('authenticity')}
             className={cn(
               'flex h-11 shrink-0 items-center gap-2 border-b-2 px-4 text-xs font-bold transition-all sm:text-sm',
@@ -73,7 +86,12 @@ export function ProductSpecs({ product, className }: ProductSpecsProps) {
       <div className="pt-2">
         {/* Tab 1: Nutrition & Highlights */}
         {activeTab === 'nutrition' && (
-          <div className="space-y-6 animate-in fade-in-50 duration-200">
+          <div
+            id="panel-nutrition"
+            role="tabpanel"
+            aria-labelledby="tab-nutrition"
+            className="space-y-6 animate-in fade-in-50 duration-200"
+          >
             {/* Highlights Bullet Callouts */}
             {product.highlights && product.highlights.length > 0 && (
               <div className="rounded-xl border border-neutral-200 bg-neutral-50/50 p-4 dark:border-neutral-800 dark:bg-neutral-900/50">
@@ -100,7 +118,12 @@ export function ProductSpecs({ product, className }: ProductSpecsProps) {
 
         {/* Tab 2: Usage & Ingredients */}
         {activeTab === 'usage' && (
-          <div className="space-y-6 animate-in fade-in-50 duration-200">
+          <div
+            id="panel-usage"
+            role="tabpanel"
+            aria-labelledby="tab-usage"
+            className="space-y-6 animate-in fade-in-50 duration-200"
+          >
             {/* Directions for Use */}
             <div className="rounded-xl border border-neutral-200 bg-white p-5 shadow-sm dark:border-neutral-800 dark:bg-neutral-900">
               <h4 className="mb-2 font-heading text-sm font-bold tracking-tight text-neutral-900 dark:text-white">
@@ -136,7 +159,12 @@ export function ProductSpecs({ product, className }: ProductSpecsProps) {
 
         {/* Tab 3: Authenticity Guarantee */}
         {activeTab === 'authenticity' && (
-          <div className="animate-in fade-in-50 duration-200">
+          <div
+            id="panel-authenticity"
+            role="tabpanel"
+            aria-labelledby="tab-authenticity"
+            className="animate-in fade-in-50 duration-200"
+          >
             <AuthenticityGuaranteeBox
               authenticity={product.authenticity}
               productName={product.name}

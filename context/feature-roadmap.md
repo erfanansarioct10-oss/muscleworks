@@ -449,7 +449,7 @@ flowchart LR
 ### Phase 5: Lead Forms, Server Actions & Notifications Pipeline
 
 #### Sub-Phase 5.1: Anti-Spam Security & Rate Limiting Infrastructure
-- [ ] **Status:** Unchecked
+- [x] **Status:** Completed
 - **Target Files:**
   - `src/lib/services/ratelimit.ts` [NEW]
   - `src/lib/services/security.ts` [NEW]
@@ -458,11 +458,11 @@ flowchart LR
   - Implement Honeypot field validation helper (`hp_field` check) to silently block automated bot submissions.
   - Implement submission time trap (`_form_loaded_at`, minimum 2000ms duration) and HTML input sanitization helpers.
 - **Verification Checklist:**
-  - [ ] `npx tsc --noEmit` passes cleanly.
-  - [ ] Rate limiter permits 5 requests per 60 minutes and rejects spam bursts.
+  - [x] `npx tsc --noEmit` passes cleanly.
+  - [x] Rate limiter permits 5 requests per 60 minutes and rejects spam bursts.
 
 #### Sub-Phase 5.2: Multi-Channel Notification Dispatchers (Telegram & Resend)
-- [ ] **Status:** Unchecked
+- [x] **Status:** Completed
 - **Target Files:**
   - `src/lib/services/telegram.ts` [NEW]
   - `src/lib/services/resend.ts` [NEW]
@@ -473,11 +473,11 @@ flowchart LR
   - Build React Email templates for customer inquiry receipt and admin notification emails.
   - Configure Resend SDK email dispatcher with graceful error handling and dev environment logging.
 - **Verification Checklist:**
-  - [ ] `npx tsc --noEmit` passes cleanly.
-  - [ ] Telegram payload correctly escapes Markdown special characters.
+  - [x] `npx tsc --noEmit` passes cleanly.
+  - [x] Telegram payload correctly escapes Markdown special characters.
 
 #### Sub-Phase 5.3: Server Actions Pipeline
-- [ ] **Status:** Unchecked
+- [x] **Status:** Completed
 - **Target Files:**
   - `src/actions/inquiry.ts` [NEW]
   - `src/actions/contact.ts` [NEW]
@@ -491,8 +491,8 @@ flowchart LR
     6. Parallel dispatch to Telegram Bot and Resend Email
     7. Return standardized `ActionResult<{ inquiryId: string }>`
 - **Verification Checklist:**
-  - [ ] `npx tsc --noEmit` passes cleanly.
-  - [ ] Honeypot submission triggers silent success without triggering alerts.
+  - [x] `npx tsc --noEmit` passes cleanly.
+  - [x] Honeypot submission triggers silent success without triggering alerts.
 
 #### Sub-Phase 5.4: Interactive Form Components & Consultation Modal
 - [ ] **Status:** Unchecked

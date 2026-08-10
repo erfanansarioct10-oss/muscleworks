@@ -4,7 +4,7 @@
 > **Sub-Phase:** `3.6` (Category & Brand Dynamic Archive Routes)  
 > **Target Files:** `src/app/categories/page.tsx` [NEW], `src/app/categories/[slug]/page.tsx` [NEW], `src/app/brands/page.tsx` [NEW], `src/app/brands/[slug]/page.tsx` [NEW]  
 > **Dependencies:** Sub-Phase 2.4 (Catalog Data Accessors), Sub-Phase 3.5 (Products Catalog Hub Route)  
-> **Status:** Draft / Pending Implementation
+> **Status:** Approved
 
 ---
 
@@ -13,7 +13,7 @@
 Sub-Phase 3.6 builds the category and brand archive routing hub for MuscleWorks Supplements. It delivers dedicated landing pages for supplement categories (`/categories`, `/categories/[slug]`) and authorized importer brands (`/brands`, `/brands/[slug]`).
 
 ### Key Objectives
-1. **Static Site Generation (SSG):** Implement `generateStaticParams()` on `[slug]` routes to pre-render all category and brand archive pages at build time (0ms TTFB).
+1. **Static Site Generation (SSG):** Implement `generateStaticParams()` on `[slug]` routes to pre-render all category and brand archive pages at build time.
 2. **Next.js 16 Compatibility:** Await `props.params` and `props.searchParams` across all page routes and metadata generators.
 3. **Category Archive Experience:** Category hero banner, trust indicators, pre-filtered catalog grid (`CatalogContainer`), category FAQs, and WAI-ARIA breadcrumbs.
 4. **Brand Archive Experience:** Brand logo/banner, country of origin badge (USA/UK), authorized importer authenticity guarantee seal, pre-filtered catalog grid, and WAI-ARIA breadcrumbs.

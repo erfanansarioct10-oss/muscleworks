@@ -82,7 +82,7 @@ export function BrandFilter({
           <button
             type="button"
             onClick={() => setSearchQuery('')}
-            className="absolute right-2 top-1/2 -translate-y-1/2 inline-flex items-center justify-center min-h-[28px] min-w-[28px] text-neutral-400 hover:text-neutral-700"
+            className="absolute right-0 top-1/2 -translate-y-1/2 inline-flex h-11 w-11 min-h-11 min-w-11 items-center justify-center text-neutral-400 hover:text-neutral-700"
             aria-label="Clear brand search"
           >
             <X className="h-3 w-3" />
@@ -98,7 +98,7 @@ export function BrandFilter({
           filteredBrands.map((brand) => {
             const isChecked = selectedBrandSlugs.includes(brand.slug) || selectedBrandSlugs.includes(brand.id);
             const countryCode = getCountryCode(brand.countryOfOrigin);
-            const count = brandProductCounts.get(brand.id) ?? brandProductCounts.get(brand.slug) ?? 0;
+            const count = brandProductCounts.get(brand.id) ?? 0;
 
             return (
               <label

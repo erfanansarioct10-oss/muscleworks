@@ -253,10 +253,12 @@ export function MobileFilterDrawer({
               {categories.map((category) => {
                 const isChecked = stagedCategories.includes(category.slug);
                 return (
-                  <label
+                  <button
                     key={category.id}
+                    type="button"
                     onClick={() => handleToggleStagedCategory(category.slug)}
-                    className="flex items-center gap-3 py-2 px-2.5 rounded-md hover:bg-neutral-50 cursor-pointer min-h-11 touch-manipulation group"
+                    aria-pressed={isChecked}
+                    className="flex items-center gap-3 py-2 px-2.5 rounded-md hover:bg-neutral-50 cursor-pointer min-h-11 touch-manipulation group text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500"
                   >
                     <div
                       className={cn(
@@ -271,7 +273,7 @@ export function MobileFilterDrawer({
                     <span className="text-sm font-medium text-neutral-800">
                       {category.name}
                     </span>
-                  </label>
+                  </button>
                 );
               })}
             </div>
@@ -298,10 +300,12 @@ export function MobileFilterDrawer({
               {FITNESS_GOALS.map((goal) => {
                 const isChecked = stagedGoals.includes(goal.id);
                 return (
-                  <label
+                  <button
                     key={goal.id}
+                    type="button"
                     onClick={() => handleToggleStagedGoal(goal.id)}
-                    className="flex items-center gap-3 py-2 px-2.5 rounded-md hover:bg-neutral-50 cursor-pointer min-h-11 touch-manipulation group"
+                    aria-pressed={isChecked}
+                    className="flex items-center justify-start w-full gap-3 py-2 px-2.5 rounded-md hover:bg-neutral-50 cursor-pointer min-h-11 touch-manipulation group text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500"
                   >
                     <div
                       className={cn(
@@ -316,7 +320,7 @@ export function MobileFilterDrawer({
                     <span className="text-sm font-medium text-neutral-800">
                       {goal.name}
                     </span>
-                  </label>
+                  </button>
                 );
               })}
             </div>
@@ -385,9 +389,11 @@ export function MobileFilterDrawer({
 
           {/* In-Stock Only */}
           <div className="pt-1 pb-4">
-            <label
+            <button
+              type="button"
               onClick={() => setStagedInStock(!stagedInStock)}
-              className="flex items-center justify-between py-2 px-2.5 rounded-md hover:bg-neutral-50 cursor-pointer min-h-11 touch-manipulation group"
+              aria-pressed={stagedInStock}
+              className="flex items-center justify-between w-full py-2 px-2.5 rounded-md hover:bg-neutral-50 cursor-pointer min-h-11 touch-manipulation group text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500"
             >
               <span className="text-sm font-medium text-neutral-800">
                 In-Stock Only
@@ -405,7 +411,7 @@ export function MobileFilterDrawer({
                   )}
                 />
               </div>
-            </label>
+            </button>
           </div>
         </div>
 
@@ -416,7 +422,9 @@ export function MobileFilterDrawer({
             onClick={handleApplyFilters}
             className="w-full bg-neutral-900 text-white hover:bg-neutral-800 font-semibold min-h-12 text-sm shadow-md ring-1 ring-gold-500/30"
           >
-            Apply Filters {totalCount !== undefined ? `(${totalCount} Products)` : ''}
+            {totalCount !== undefined
+              ? `Apply Filters (${totalCount} Products)`
+              : 'Apply Filters'}
           </Button>
         </div>
       </SheetContent>

@@ -68,7 +68,12 @@ export function CatalogContainer({
         <div className="flex items-center gap-3">
           {/* Mobile Filter Drawer Button (Visible on < lg viewports) */}
           <div className="lg:hidden">
-            <MobileFilterDrawer categories={categories} brands={brands} />
+            <MobileFilterDrawer
+              categories={categories}
+              brands={brands}
+              products={initialProducts}
+              totalCount={filteredProducts.length}
+            />
           </div>
 
           <div className="text-xs sm:text-sm text-muted-foreground font-medium">

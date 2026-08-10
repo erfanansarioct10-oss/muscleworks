@@ -41,7 +41,7 @@ export function CategoryChips({ categories, className }: CategoryChipsProps) {
             params.delete('category');
           }
         } else {
-          params.set('category', slug);
+          params.set('category', [...activeCategorySlugs, slug].join(','));
         }
       }
 

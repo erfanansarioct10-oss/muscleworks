@@ -23,7 +23,7 @@ List of files to be created:
 | # | Target File | Action Required | Responsibility Summary |
 |---|---|---|---|
 | 1 | `src/lib/whatsapp.ts` | **[NEW]** | High-converting WhatsApp URL generator supporting structured product order payloads, flavor/size variant specs, delivery city breakdown, authenticity verification inquiries, stack consultations, and store visit links. |
-| 2 | `src/lib/analytics.ts` | **[NEW]** | Client-side analytics wrapper tracking `trackWhatsAppClick`, `trackProductView`, `trackSearch`, `trackCategoryView`, and `trackLeadSubmission` across GA4 (`gtag`), Meta Pixel (`fbq`), and browser events with dev console fallbacks. |
+| 2 | `src/lib/analytics.ts` | **[NEW]** | Client-side analytics wrapper tracking `trackWhatsAppClick`, `trackProductView`, `trackSearchQuery`, `trackCategoryView`, and `trackLeadSubmission` across GA4 (`gtag`), Meta Pixel (`fbq`), and browser events with dev console fallbacks. |
 
 ---
 
@@ -40,7 +40,7 @@ List of files to be created:
 
 ### Step 1: WhatsApp URL Engine (`src/lib/whatsapp.ts`)
 
-- Define `ProductWhatsAppParams` interface:
+- Define `ProductWhatsAppOptions` interface:
   - `product`: `Product` domain object
   - `selectedVariant?`: `ProductVariant` optional object
   - `customerCity?`: string (e.g., "Kathmandu (Inside Ring Road)", "Pokhara")

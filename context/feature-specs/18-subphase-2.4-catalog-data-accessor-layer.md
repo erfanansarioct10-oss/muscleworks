@@ -18,7 +18,7 @@ Sub-Phase 2.4 implements the typed catalog data accessor gateway layer (`src/lib
 
 | # | Target File | Action Required | Responsibility Summary |
 |---|---|---|---|
-| 1 | `src/lib/data/products.ts` | **[NEW]** | Implement typed accessor functions for product retrieval (`getProducts`, `getProductBySlug`, `getFeaturedProducts`, `getProductsByCategory`, `getProductsByBrand`, `getRelatedProducts`, `searchProductsInMemory`). |
+| 1 | `src/lib/data/products.ts` | **[NEW]** | Implement typed accessor functions for product retrieval (`getProducts`, `getProductBySlug`, `getProductById`, `getFeaturedProducts`, `getProductsByCategory`, `getProductsByBrand`, `getRelatedProducts`, `searchProductsInMemory`). |
 | 2 | `src/lib/data/categories.ts` | **[NEW]** | Implement typed accessor functions for category taxonomy (`getCategories`, `getCategoryBySlug`, `getCategoryById`, `getFeaturedCategories`). |
 | 3 | `src/lib/data/brands.ts` | **[NEW]** | Implement typed accessor functions for authorized brand profiles (`getBrands`, `getBrandBySlug`, `getBrandById`, `getFeaturedBrands`). |
 
@@ -44,7 +44,7 @@ Implement typed product gateway:
 - `getProductsByCategory(categorySlugOrId: string): Promise<Product[]>` — Returns products belonging to the given category.
 - `getProductsByBrand(brandSlugOrId: string): Promise<Product[]>` — Returns products belonging to the given brand.
 - `getRelatedProducts(product: Product, limit = 4): Promise<Product[]>` — Returns related products from the same category/brand excluding `product.id`.
-- `searchProductsInMemory(query: string): Promise<Product[]>` — Substring/keyword fuzzy match across name, brand, category, tags, and highlights.
+- `searchProductsInMemory(query: string): Promise<Product[]>` — Substring/keyword fuzzy match across name, brand, category, tags, and highlights. Empty query string returns all products.
 
 ### Step 2: `src/lib/data/categories.ts`
 Implement typed category gateway:

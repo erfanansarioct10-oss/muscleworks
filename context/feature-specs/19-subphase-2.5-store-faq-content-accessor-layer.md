@@ -42,7 +42,7 @@ Sub-Phase 2.5 completes Phase 2 (**Static Datasets & Typed Data Access Layer**) 
 
 ### Step 1: `src/lib/validations/guide.ts`
 Define Zod schemas and TypeScript types:
-- `GuideCategoryEnum`: `'buying_guide' | 'supplement_education' | 'authenticity_guide' | 'beginner_fitness' | 'nutrition_science'`
+- `GuideCategory`: `'buying_guide' | 'supplement_education' | 'authenticity_guide' | 'beginner_fitness' | 'nutrition_science'`
 - `GuideAuthorSchema`: `name`, `role`, `avatar`, `bio`
 - `GuideFrontmatterSchema`: `title`, `slug`, `excerpt`, `category`, `coverImage`, `author`, `publishedDate`, `updatedDate`, `readingTimeMinutes`, `isFeatured`, `relatedProductSlugs`, `relatedCategorySlugs`, `faqs`, `seo`
 
@@ -59,13 +59,13 @@ Implement typed store gateway:
 - `getOpeningHours(): Promise<OpeningHourItem[]>`
 - `getDeliveryPolicy(): Promise<DeliveryZonePolicy>`
 - `getTodayOpeningHours(): Promise<OpeningHourItem | null>`
-- `isStoreOpenNow(): Promise<{ isOpen: boolean; message: string }>` (evaluating `Asia/Kathmandu` current hour & day).
+- `isStoreOpenNow(): Promise<{ isOpen: boolean; message: string }>` (evaluating `Asia/Kathmandu` current time & day; returning `isOpen: false` with `"Saturday hours vary. Please contact store before visiting Golfutar flagship."` on Saturdays or when `opens === "Contact Store"`).
 
 ### Step 4: `src/lib/data/faqs.ts`
 Implement typed FAQ gateway:
 - Parse `data/faqs.json` using `FAQItemSchema.array().parse(...)` on module execution.
 - `getFAQs(): Promise<FAQItem[]>`
-- `getFAQsByCategory(category: string): Promise<FAQItem[]>`
+- `getFAQsByCategory(category: FAQCategory | string): Promise<FAQItem[]>`
 - `getFAQById(id: string): Promise<FAQItem | null>`
 - `searchFAQs(query: string): Promise<FAQItem[]>`
 - `getFeaturedFAQs(limit = 4): Promise<FAQItem[]>`

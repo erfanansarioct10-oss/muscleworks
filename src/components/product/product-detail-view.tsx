@@ -59,6 +59,13 @@ export function ProductDetailView({
   const [selectedVariant, setSelectedVariant] =
     React.useState<ProductVariant>(defaultVariant);
 
+  // Resynchronize selected variant when rendered product changes across client transitions
+  const [prevProductId, setPrevProductId] = React.useState(product.id);
+  if (prevProductId !== product.id) {
+    setPrevProductId(product.id);
+    setSelectedVariant(defaultVariant);
+  }
+
   // Compute live price & discount
   const activePrice = selectedVariant.discountPriceNpr || selectedVariant.priceNpr;
   const originalPrice = selectedVariant.discountPriceNpr

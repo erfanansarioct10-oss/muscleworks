@@ -1,5 +1,3 @@
-'use client';
-
 /**
  * MUSCLEWORKS SUPPLEMENTS — PRODUCT STOCK STATUS INDICATOR
  * Multi-state inventory badge displaying real-time stock levels and Golfutar store availability.

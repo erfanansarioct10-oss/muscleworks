@@ -2,7 +2,7 @@
 
 /**
  * MUSCLEWORKS SUPPLEMENTS — MOBILE STICKY ACTION BAR
- * Pinned bottom bar on mobile viewports (<640px / md:hidden) displaying real-time variant preview,
+ * Pinned bottom bar on mobile viewports (<768px / md:hidden) displaying real-time variant preview,
  * formatted NPR price, stock status, and full-width WhatsApp CTA button (≥48px touch height).
  */
 
@@ -21,17 +21,26 @@ export interface ProductStickyBarProps {
   className?: string;
 }
 
+/**
+ * Resolves active price, original list price, and discount percentage for a variant.
+ */
+export function resolveVariantPricing(variant: ProductVariant) {
+  const activePrice = variant.discountPriceNpr || variant.priceNpr;
+  const originalPrice = variant.discountPriceNpr ? variant.priceNpr : undefined;
+  const discountPercent = originalPrice
+    ? calculateDiscountPercentage(originalPrice, variant.discountPriceNpr!)
+    : 0;
+
+  return { activePrice, originalPrice, discountPercent };
+}
+
 export function ProductStickyBar({
   product,
   selectedVariant,
   whatsappUrl,
   className,
 }: ProductStickyBarProps) {
-  const price = selectedVariant.discountPriceNpr || selectedVariant.priceNpr;
-  const originalPrice = selectedVariant.discountPriceNpr ? selectedVariant.priceNpr : undefined;
-  const discountPercent = originalPrice
-    ? calculateDiscountPercentage(originalPrice, selectedVariant.discountPriceNpr!)
-    : 0;
+  const { activePrice, originalPrice, discountPercent } = resolveVariantPricing(selectedVariant);
 
   const thumbnail =
     selectedVariant.image?.url ||
@@ -44,14 +53,14 @@ export function ProductStickyBar({
       productName: product.name,
       flavor: selectedVariant.flavor,
       size: selectedVariant.sizeOrWeight,
-      price: price,
+      price: activePrice,
     });
   };
 
   return (
     <div
       className={cn(
-        'fixed bottom-0 left-0 right-0 z-40 border-t border-border bg-card/95 p-3 shadow-2xl backdrop-blur-md md:hidden',
+        'fixed bottom-0 left-0 right-0 z-40 border-t border-border bg-card/95 p-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))] shadow-2xl backdrop-blur-md md:hidden',
         className
       )}
     >
@@ -79,7 +88,7 @@ export function ProductStickyBar({
             </p>
             <div className="flex items-center gap-1.5 mt-0.5">
               <span className="text-sm font-extrabold text-foreground tracking-tight">
-                {formatNprPrice(price)}
+                {formatNprPrice(activePrice)}
               </span>
               {originalPrice && (
                 <span className="text-[10px] text-muted-foreground line-through">

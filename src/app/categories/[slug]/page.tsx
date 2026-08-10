@@ -1,3 +1,4 @@
+import React, { Suspense } from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -52,9 +53,8 @@ export async function generateMetadata(props: PageProps): Promise<Metadata> {
 }
 
 export default async function CategoryArchivePage(props: PageProps) {
-  // Next.js 16 requirements: await params and searchParams
+  // Next.js 16 requirement: await params
   const { slug } = await props.params;
-  await props.searchParams;
 
   const category = await getCategoryBySlug(slug);
 
@@ -123,11 +123,13 @@ export default async function CategoryArchivePage(props: PageProps) {
 
       {/* Main Catalog Container */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-6">
-        <CatalogContainer
-          initialProducts={products}
-          categories={categories}
-          brands={brands}
-        />
+        <Suspense fallback={<div className="min-h-[400px] flex items-center justify-center text-muted-foreground text-sm">Loading category catalog...</div>}>
+          <CatalogContainer
+            initialProducts={products}
+            categories={categories}
+            brands={brands}
+          />
+        </Suspense>
       </div>
 
       {/* Category Specific FAQs Section */}
