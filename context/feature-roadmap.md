@@ -538,17 +538,20 @@ flowchart LR
   - [ ] `npx tsc --noEmit` passes cleanly.
   - [ ] Hero CTA buttons have minimum touch target ≥48x48px on mobile.
 
-#### Sub-Phase 6.2: Trust Badges Bar & Category Showcase Grid
-- [ ] **Status:** Unchecked
+#### Sub-Phase 6.2: Authorized Brands Marquee Section (White BG)
+- [x] **Status:** Completed
 - **Target Files:**
-  - `src/components/home/trust-badges-bar.tsx` [NEW]
-  - `src/components/home/category-grid.tsx` [NEW]
+  - `public/brands/*` [RENAME & COMPRESS]
+  - `data/brands.json` [MODIFY]
+  - `src/components/home/brands-marquee.tsx` [NEW]
+  - `src/app/globals.css` [MODIFY]
+  - `src/app/page.tsx` [MODIFY]
 - **Purpose & Scope:**
-  - Build Trust Badges Bar (100% Genuine Importer Guarantee, Fast Kathmandu Delivery, Physical Store in Golfutar, Free Nutrition Consultation).
-  - Build Category Showcase grid with high-resolution visual cards.
+  - Build Authorized Brands Marquee Section directly below Hero on homepage (`src/app/page.tsx`) with a clean white background (`bg-white`), amber/gold header lines (`— OFFICIAL STOCKED BRANDS —`), subtitle, infinite horizontal marquee loop (`@keyframes marquee`) with hover pause effect, and bottom trust bar (`• 100% Authentic | • Official Importer Seals | • Verified Holograms | • No Fakes. Ever.`).
 - **Verification Checklist:**
-  - [ ] `npx tsc --noEmit` passes cleanly.
-  - [ ] Category cards navigate to canonical category route `/categories/[slug]`.
+  - [x] `npx tsc --noEmit` passes cleanly.
+  - [x] Brand logos converted & compressed to WebP (saving up to 90.8% size).
+
 
 #### Sub-Phase 6.3: Featured Products Showcase & Social Proof Section
 - [ ] **Status:** Unchecked

@@ -4,7 +4,7 @@
     "slug": "optimum-nutrition",
     "name": "Optimum Nutrition (ON)",
     "logo": {
-      "url": "/images/brands/optimum-nutrition.webp",
+      "url": "/brands/optimum-nutrition.webp",
       "alt": "Optimum Nutrition Logo",
       "isPrimary": true
     },
@@ -30,7 +30,7 @@
     "slug": "muscletech",
     "name": "MuscleTech",
     "logo": {
-      "url": "/images/brands/muscletech.webp",
+      "url": "/brands/muscletech.webp",
       "alt": "MuscleTech Logo",
       "isPrimary": true
     },
@@ -56,7 +56,7 @@
     "slug": "dymatize",
     "name": "Dymatize",
     "logo": {
-      "url": "/images/brands/dymatize.webp",
+      "url": "/brands/dymatize.webp",
       "alt": "Dymatize Logo",
       "isPrimary": true
     },
@@ -81,7 +81,7 @@
     "slug": "myprotein",
     "name": "MyProtein",
     "logo": {
-      "url": "/images/brands/myprotein.webp",
+      "url": "/brands/myprotein.webp",
       "alt": "MyProtein Logo",
       "isPrimary": true
     },
@@ -106,7 +106,7 @@
     "slug": "kevin-levrone",
     "name": "Kevin Levrone Signature Series",
     "logo": {
-      "url": "/images/brands/kevin-levrone.webp",
+      "url": "/brands/kevin-levrone.webp",
       "alt": "Kevin Levrone Signature Series Logo",
       "isPrimary": true
     },
@@ -131,7 +131,7 @@
     "slug": "rule-1",
     "name": "Rule 1 Proteins",
     "logo": {
-      "url": "/images/brands/rule-1.webp",
+      "url": "/brands/rule-1.webp",
       "alt": "Rule 1 Proteins Logo",
       "isPrimary": true
     },
@@ -156,7 +156,7 @@
     "slug": "labrada",
     "name": "Labrada Nutrition",
     "logo": {
-      "url": "/images/brands/labrada.webp",
+      "url": "/brands/labrada.webp",
       "alt": "Labrada Nutrition Logo",
       "isPrimary": true
     },
@@ -181,7 +181,7 @@
     "slug": "cellucor",
     "name": "Cellucor",
     "logo": {
-      "url": "/images/brands/cellucor.webp",
+      "url": "/brands/cellucor.webp",
       "alt": "Cellucor Logo",
       "isPrimary": true
     },
@@ -206,7 +206,7 @@
     "slug": "universal-nutrition",
     "name": "Universal Nutrition",
     "logo": {
-      "url": "/images/brands/universal-nutrition.webp",
+      "url": "/brands/universal-nutrition.webp",
       "alt": "Universal Nutrition Logo",
       "isPrimary": true
     },
@@ -231,7 +231,7 @@
     "slug": "scivation",
     "name": "Scivation",
     "logo": {
-      "url": "/images/brands/scivation.webp",
+      "url": "/brands/scivation.webp",
       "alt": "Scivation Logo",
       "isPrimary": true
     },
@@ -256,7 +256,7 @@
     "slug": "insane-labz",
     "name": "Insane Labz",
     "logo": {
-      "url": "/images/brands/insane-labz.webp",
+      "url": "/brands/insane-labz.webp",
       "alt": "Insane Labz Logo",
       "isPrimary": true
     },
@@ -281,7 +281,7 @@
     "slug": "musclepharm",
     "name": "MusclePharm",
     "logo": {
-      "url": "/images/brands/musclepharm.webp",
+      "url": "/brands/musclepharm.webp",
       "alt": "MusclePharm Logo",
       "isPrimary": true
     },
@@ -298,6 +298,106 @@
         "musclepharm nepal",
         "musclepharm fish oil price kathmandu",
         "musclepharm kathmandu"
+      ]
+    }
+  },
+  {
+    "id": "brand_biotech_usa",
+    "slug": "biotech-usa",
+    "name": "BioTech USA",
+    "logo": {
+      "url": "/brands/biotech-usa.webp",
+      "alt": "BioTech USA Logo",
+      "isPrimary": true
+    },
+    "countryOfOrigin": "European Union (EU)",
+    "officialDistributorInfo": "Imported via official authorized Nepal sports nutrition importers.",
+    "verificationGuide": "Features official security seal and batch QR code verification.",
+    "description": "BioTech USA is a premier European sports nutrition brand offering premium Iso Whey Zero, BCAAs, and multivitamins.",
+    "websiteUrl": "https://biotechusa.com",
+    "isFeatured": true,
+    "seo": {
+      "metaTitle": "BioTech USA Supplements in Nepal | MuscleWorks",
+      "metaDescription": "Shop authentic BioTech USA Iso Whey Zero and supplements in Nepal at MuscleWorks Golfutar.",
+      "keywords": [
+        "biotech usa nepal",
+        "iso whey zero price nepal",
+        "biotech usa kathmandu"
+      ]
+    }
+  },
+  {
+    "id": "brand_scitec_nutrition",
+    "slug": "scitec-nutrition",
+    "name": "Scitec Nutrition",
+    "logo": {
+      "url": "/brands/scitec-nutrition.webp",
+      "alt": "Scitec Nutrition Logo",
+      "isPrimary": true
+    },
+    "countryOfOrigin": "European Union (EU)",
+    "officialDistributorInfo": "Imported via authorized Nepal supplement distribution networks.",
+    "verificationGuide": "Look for the official distributor hologram security seal on every tub.",
+    "description": "Scitec Nutrition is one of Europe's largest supplement manufacturers, famous for 100% Whey Professional and 100% Plant Protein.",
+    "websiteUrl": "https://scitecnutrition.com",
+    "isFeatured": true,
+    "seo": {
+      "metaTitle": "Scitec Nutrition Supplements in Nepal | MuscleWorks",
+      "metaDescription": "Buy 100% genuine Scitec Nutrition 100% Whey Professional in Nepal at MuscleWorks Golfutar.",
+      "keywords": [
+        "scitec nutrition nepal",
+        "scitec whey professional kathmandu",
+        "scitec nepal"
+      ]
+    }
+  },
+  {
+    "id": "brand_bpi_sports",
+    "slug": "bpi-sports",
+    "name": "BPI Sports",
+    "logo": {
+      "url": "/brands/bpi-sports.webp",
+      "alt": "BPI Sports Logo",
+      "isPrimary": true
+    },
+    "countryOfOrigin": "United States (USA)",
+    "officialDistributorInfo": "Imported by authorized Nepal sports nutrition distributors.",
+    "verificationGuide": "Features ChromaDex quality testing seal and importer verification sticker.",
+    "description": "BPI Sports is engineered in the USA, famous for Best BCAA, ISO HD, and 1MR pre-workout formulas.",
+    "websiteUrl": "https://bpisports.com",
+    "isFeatured": true,
+    "seo": {
+      "metaTitle": "BPI Sports Supplements in Nepal | MuscleWorks",
+      "metaDescription": "Shop authentic BPI Sports Best BCAA & ISO HD in Nepal with official verification at MuscleWorks.",
+      "keywords": [
+        "bpi sports nepal",
+        "bpi best bcaa price nepal",
+        "bpi kathmandu"
+      ]
+    }
+  },
+  {
+    "id": "brand_muscleblaze",
+    "slug": "muscleblaze",
+    "name": "MuscleBlaze",
+    "logo": {
+      "url": "/brands/muscleblaze.webp",
+      "alt": "MuscleBlaze Logo",
+      "isPrimary": true
+    },
+    "countryOfOrigin": "India",
+    "officialDistributorInfo": "Imported via authorized national distribution channels.",
+    "verificationGuide": "Features authentication scratch code on the tub seal for instant website validation.",
+    "description": "MuscleBlaze delivers high-potency, Biozyme Whey Isolate and Creatine formulas with lab-certified protein content.",
+    "websiteUrl": "https://www.muscleblaze.com",
+    "isFeatured": true,
+    "seo": {
+      "metaTitle": "MuscleBlaze Supplements in Nepal | MuscleWorks",
+      "metaDescription": "Buy genuine MuscleBlaze Biozyme Whey & MB Creatine in Nepal with scratch-code authentication at MuscleWorks.",
+      "keywords": [
+        "muscleblaze nepal",
+        "muscleblaze biozyme whey kathmandu",
+        "mb creatine nepal"
       ]
     }
   }

@@ -1,9 +1,12 @@
 import { HeroSection } from "@/components/home/hero-section";
+import { BrandsMarquee } from "@/components/home/brands-marquee";
 
 export default function HomePage() {
   return (
-    <main className="w-full flex-1 bg-background overflow-hidden">
+    <div className="w-full flex-1 bg-background">
       <HeroSection />
-    </main>
+      <BrandsMarquee />
+    </div>
   );
 }
+

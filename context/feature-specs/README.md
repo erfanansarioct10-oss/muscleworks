@@ -222,6 +222,9 @@ When writing or executing a feature spec:
 | `40-responsive-layout-overflow-fixes` | [Responsive Layout Overflow & Breakpoint Fixes](40-responsive-layout-overflow-fixes.md) | **Approved** | Global Layout, Header & Responsive Breakpoints | 2026-08-10 |
 | `41-mobile-hero-background-layout` | [Dual Responsive Mobile/Desktop Hero Background & Layout](41-mobile-hero-background-layout.md) | **Approved** | Sub-Phase 6.1 — Hero Section | 2026-08-10 |
 | `42-coderabbit-commit-3f39ab6-resolutions` | [CodeRabbit Commit 3f39ab6 Review Resolutions & Technical Synchronization](42-coderabbit-commit-3f39ab6-resolutions.md) | **Approved** | Quality & Technical Cleanup | 2026-08-10 |
+| `43-subphase-6.2-authorized-brands-marquee-section` | [Sub-Phase 6.2 — Authorized Brands Marquee Section](43-subphase-6.2-authorized-brands-marquee-section.md) | **Approved** | Trust, Educational & Legal Pages | 2026-08-10 |
+| `44-subphase-6.2-authorized-brands-marquee-white-bg` | [Sub-Phase 6.2 — Authorized Brands Marquee Section (White BG & Glassmorphic Slice)](44-subphase-6.2-authorized-brands-marquee-white-bg.md) | **Approved** | Trust, Educational & Legal Pages | 2026-08-10 |
+
 
 
 
