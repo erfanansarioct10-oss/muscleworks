@@ -63,11 +63,11 @@ export function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent pointer-events-none select-none" />
       </div>
 
-      {/* Main Container Centered Vertically & Horizontally on Mobile */}
-      <div className="relative z-10 mx-auto flex h-full w-full max-w-7xl items-center justify-center sm:justify-start px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16">
-        <div className="w-full max-w-xl md:max-w-4xl lg:max-w-5xl space-y-5 sm:space-y-7 flex flex-col items-center sm:items-start text-center sm:text-left">
-          {/* Main Heading: Fluid Responsive Scaling across all Breakpoints */}
-          <h1 className="font-heading font-black tracking-tight uppercase italic leading-[0.95] text-center sm:text-left max-w-full">
+      {/* Main Container Left-Aligned on Mobile and Desktop */}
+      <div className="relative z-10 mx-auto flex h-full w-full max-w-7xl items-center justify-start px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16">
+        <div className="w-full max-w-xl md:max-w-4xl lg:max-w-5xl space-y-5 sm:space-y-7 flex flex-col items-start text-left">
+          {/* Main Heading: Left-Aligned Fluid Responsive Scaling */}
+          <h1 className="font-heading font-black tracking-tight uppercase italic leading-[0.95] text-left max-w-full">
             <span className="block whitespace-nowrap text-3xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl text-white">
               SUPPORTING YOUR
             </span>
@@ -76,19 +76,19 @@ export function HeroSection() {
             </span>
           </h1>
 
-          {/* Minimal Subheading */}
-          <div className="border-l-0 sm:border-l-3 border-white/80 pl-0 sm:pl-4">
-            <p className="text-xs sm:text-sm font-bold tracking-widest text-white uppercase leading-snug text-center sm:text-left">
+          {/* Left-Border Accent Subheading */}
+          <div className="border-l-3 border-amber-400/90 pl-3 sm:pl-4">
+            <p className="text-xs sm:text-sm font-bold tracking-widest text-white uppercase leading-snug text-left">
               PREMIUM SUPPLEMENTS. TRUSTED BRANDS. REAL RESULTS.
             </p>
           </div>
 
-          {/* 4 Trust Badges (Centered on Mobile, 2 Per Row on sm+) */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 sm:gap-x-8 gap-y-3 sm:gap-y-4 pt-1 w-full max-w-md sm:max-w-lg mx-auto sm:mx-0">
+          {/* 4 Trust Badges (Left-Aligned Grid) */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 sm:gap-x-8 gap-y-3 sm:gap-y-4 pt-1 w-full max-w-md sm:max-w-lg mx-0">
             {trustBadges.map((badge, idx) => {
               const Icon = badge.icon;
               return (
-                <div key={idx} className="flex items-center justify-start sm:justify-start gap-2.5 sm:gap-3">
+                <div key={idx} className="flex items-center justify-start gap-2.5 sm:gap-3">
                   <div className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full border border-white/40 bg-black/40 text-white backdrop-blur-md shrink-0">
                     <Icon className="h-4 w-4 text-amber-400" />
                   </div>
@@ -105,8 +105,8 @@ export function HeroSection() {
             })}
           </div>
 
-          {/* Minimal CTA Buttons: Full-width long centered on mobile (<sm), horizontal inline on desktop (>=sm) */}
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center sm:justify-start gap-3 sm:gap-4 pt-2 w-full max-w-md sm:max-w-none mx-auto sm:mx-0">
+          {/* Minimal CTA Buttons: Full-width on mobile (<sm), horizontal inline on desktop (>=sm) */}
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-start gap-3 sm:gap-4 pt-2 w-full max-w-md sm:max-w-none mx-0">
             {/* Primary WhatsApp Order CTA Button */}
             <a
               href={whatsappUrl}
