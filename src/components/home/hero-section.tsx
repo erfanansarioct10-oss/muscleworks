@@ -36,7 +36,7 @@ export function HeroSection() {
       {/* Mobile Hero Background (< md) */}
       <div className="absolute inset-0 z-0 md:hidden">
         <Image
-          src="/hero/mobile-hero-bg.webp"
+          src="/hero/image.webp"
           alt="MuscleWorks Supplements Mobile Hero Background"
           fill
           priority
