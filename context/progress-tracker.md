@@ -1,23 +1,26 @@
 # Progress Tracker
  
-> **Active Phase:** Phase 5 — Lead Forms, Server Actions & Notifications Pipeline  
-> **Next Sub-Phase:** `5.4` (Interactive Form Components & Consultation Modal: `src/components/forms/inquiry-form.tsx`, `contact-form.tsx`, `consultation-modal.tsx`) — **[NEXT UP]**  
-> **Last Verified:** 2026-08-10 (`tsc --noEmit` — 0 errors, `eslint` — 0 errors / 0 warnings, `validate-catalog-accessors.ts` — 18/18 pass, `validate-notification-services.ts` — 15/15 pass, `validate-server-actions.ts` — 15/15 pass, `npm run build` — 38 static pages pre-rendered)
+> **Active Phase:** Phase 6 — Informational, Trust, Education & Legal Pages  
+> **Next Sub-Phase:** `6.1` (Homepage Hero Section: `src/components/home/hero-section.tsx`) — **[NEXT UP]**  
+> **Last Verified:** 2026-08-10 (`tsc --noEmit` — 0 errors, `validate-location-components.ts` — 10/10 pass, `validate-form-components.ts` — 6/6 pass, `validate-server-actions.ts` — 15/15 pass, `npm run build` — 40 static pages pre-rendered)
 
 
 ---
 
-## 1. Active Phase Status: Phase 5 — Lead Forms, Server Actions & Notifications Pipeline
+## 1. Active Phase Status: Phase 6 — Informational, Trust, Education & Legal Pages
 
-- [x] **5.1** Anti-Spam Security & Rate Limiting Infrastructure (`src/lib/services/ratelimit.ts`, `src/lib/services/security.ts`)
-- [x] **5.2** Multi-Channel Notification Dispatchers (`src/lib/services/telegram.ts`, `src/lib/services/resend.ts`, `src/emails/CustomerInquiryConfirmation.tsx`, `src/emails/AdminInquiryAlert.tsx`)
-- [x] **5.3** Server Actions Pipeline (`src/actions/inquiry.ts`, `src/actions/contact.ts`)
-- [ ] **5.4** Interactive Form Components & Consultation Modal (`src/components/forms/inquiry-form.tsx`, `contact-form.tsx`, `consultation-modal.tsx`)
-- [ ] **5.5** Contact & Store Locations Experience (`src/app/(marketing)/contact/page.tsx`, `src/app/(marketing)/location/page.tsx`)
+- [ ] **6.1** Homepage Hero Section (`src/components/home/hero-section.tsx`) — **[NEXT UP]**
+- [ ] **6.2** Trust Badges Bar & Category Showcase Grid (`src/components/home/trust-badges-bar.tsx`, `src/components/home/category-grid.tsx`)
+- [ ] **6.3** Featured Products Showcase & Social Proof Section (`src/components/home/featured-products-section.tsx`, `src/components/home/why-choose-us.tsx`)
+- [ ] **6.4** Store Locator Preview & Full Homepage Assembly (`src/components/home/store-locator-preview.tsx`, `src/app/(marketing)/page.tsx`)
+- [ ] **6.5** Brand Trust, Authenticity Verification & About Pages (`src/app/(marketing)/about/page.tsx`, `src/app/(marketing)/authenticity/page.tsx`, `src/components/authenticity/verification-steps.tsx`, `src/components/authenticity/importer-seal-guide.tsx`)
+- [ ] **6.6** Educational MDX Core & Buying Guides (`src/lib/mdx.ts`, `content/guides/creatine-guide-nepal.mdx`, `content/guides/whey-protein-beginners.mdx`)
+- [ ] **6.7** Educational Hub Routes (`src/app/guides/page.tsx`, `src/app/guides/[slug]/page.tsx`, `src/components/guides/guide-card.tsx`)
+- [ ] **6.8** Legal, Privacy & FAQ Hub (`src/app/(marketing)/privacy-policy/page.tsx`, `src/app/(marketing)/terms/page.tsx`, `src/app/(marketing)/delivery-policy/page.tsx`, `src/app/(marketing)/faq/page.tsx`)
 
 ---
 
-## 2. High-Level Phase Overview (5/8 Complete)
+## 2. High-Level Phase Overview (6/8 Complete)
 
 | Phase | Milestone | Sub-Phases | Status |
 |:---:|---|:---:|:---:|
@@ -26,13 +29,17 @@
 | **2** | Static Datasets & Data Accessors | 5/5 | **Complete** |
 | **3** | Catalog, Search & Filtering | 6/6 | **Complete** |
 | **4** | Product Detail & WhatsApp Engine | 4/4 | **Complete** |
-| **5** | Lead Forms & Notifications | 3/5 | **[IN PROGRESS]** |
-| **6** | Trust, Educational & Legal Pages | 0/5 | Pending |
+| **5** | Lead Forms & Notifications | 5/5 | **Complete** |
+| **6** | Trust, Educational & Legal Pages | 0/8 | **[IN PROGRESS]** |
 | **7** | SEO, Performance & Launch Hardening | 0/4 | Pending |
 
 ---
 
 ## 3. Session Change Log
+
+- **2026-08-10 (Sub-Phase 5.5):** Implemented Contact & Store Locations Experience (`src/app/(marketing)/contact/page.tsx`, `src/app/(marketing)/location/page.tsx`, `src/components/location/store-map-embed.tsx`, `store-hours-card.tsx`). Built `/contact` SSG route featuring split 2-column layout, direct telephone hotline links (`tel:+977-9800000000`), WhatsApp action buttons (`wa.me`), and interactive `<ContactForm />`. Built `/location` SSG route displaying flagship Golfutar, Budha-Nilkantha store profile, responsive Google Maps embed (`StoreMapEmbed`), weekly operating hours card (`StoreHoursCard`) with live open status calculation (`isStoreOpenNow()`), landmark directions ("Near Golfutar Basketball Court"), parking guidance, Kathmandu same-day delivery terms, and Schema.org `LocalBusiness` JSON-LD structured data. Authored [Spec 37](feature-specs/37-subphase-5.5-contact-store-locations-experience.md). Programmatically validated via `src/scripts/validate-location-components.ts` (10/10 pass). Verified cleanly with `npx tsc --noEmit` (0 errors) and `npm run build` (40 static pages pre-rendered). Phase 5 is 100% complete!
+
+- **2026-08-10 (Sub-Phase 5.4):** Implemented Interactive Form Components & Consultation Modal (`src/components/forms/inquiry-form.tsx`, `contact-form.tsx`, `consultation-modal.tsx`). Built `InquiryForm` and `ContactForm` using React Hook Form + `@hookform/resolvers/zod` enforcing `InquiryFormClientSchema`. Built Nepal phone validation (`+977-98...`), Kathmandu Valley city selector, contextual product preview pill, anti-bot honeypot (`hp_field`), submission timing trap (`_form_loaded_at`), and inline luxury success receipt card view with generated Inquiry ID & direct WhatsApp follow-up CTA buttons. Built `ConsultationModal` wrapping `InquiryForm` inside Radix Dialog with controlled/uncontrolled triggers for free expert supplement stack advice. Authored [Spec 36](feature-specs/36-subphase-5.4-interactive-form-components-consultation-modal.md). Programmatically validated via `src/scripts/validate-form-components.ts` (6/6 pass) and `src/scripts/validate-server-actions.ts` (15/15 pass). Verified cleanly with `npx tsc --noEmit` (0 errors) and `npm run build` (38 static pages pre-rendered).
 
 - **2026-08-10 (CodeRabbit Commit 27de917 Resolutions):** Resolved all 8 CodeRabbit review findings from commit `27de917` (PR #4). Replaced `MapPin` icon assigned to "All Supplements" link with `Package` in `src/app/not-found.tsx`; removed unsupported `↑↓ navigate` keyhint and maintained $\ge 44\text{px}$ touch targets across desktop breakpoints in `src/components/catalog/search-modal.tsx`; updated verification phrasing in `context/progress-tracker.md`; fixed MD028 blockquote, serving size math text, TS snippet syntax, and script path in `context/feature-specs/34-coderabbit-commit-b4abf63-resolutions.md`; added `text` language tags to bare code fences in `context/coderabbit-comments/from-commit-b4abf63.md`. Authored [Spec 35](feature-specs/35-coderabbit-commit-27de917-resolutions.md). Verified with 0 errors on `npx tsc --noEmit`, 100% pass on all 7 project validation scripts, and 0 errors on `npm run build` (38 static pages pre-rendered).
 

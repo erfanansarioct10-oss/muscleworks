@@ -72,7 +72,7 @@ flowchart LR
 
 | **Phase 4** | Product Detail & Dynamic WhatsApp Engine | 4 Sub-Phases (4.1–4.4) | Phase 2, Phase 3 | Gallery, variant selectors, WhatsApp URL generator, `/products/[slug]` |
 | **Phase 5** | Lead Forms, Server Actions & Notifications | 5 Sub-Phases (5.1–5.5) | Phase 1, Phase 2 | Upstash rate limit, Resend emails, Telegram bot, `/contact`, `/stores` |
-| **Phase 6** | Informational, Trust, Education & Legal Pages | 5 Sub-Phases (6.1–6.5) | Phase 1, Phase 3, Phase 4 | Homepage `/`, `/about`, `/authenticity`, MDX `/guides`, legal pages |
+| **Phase 6** | Informational, Trust, Education & Legal Pages | 8 Sub-Phases (6.1–6.8) | Phase 1, Phase 3, Phase 4 | Homepage `/`, `/about`, `/authenticity`, MDX `/guides`, legal pages |
 | **Phase 7** | SEO, Security, Performance & Launch Hardening | 4 Sub-Phases (7.1–7.4) | Phase 0–6 | XML sitemap, JSON-LD schemas, CSP headers, Lighthouse 95+ audit |
 
 ---
@@ -496,7 +496,7 @@ flowchart LR
   - [x] Honeypot submission triggers silent success without triggering alerts.
 
 #### Sub-Phase 5.4: Interactive Form Components & Consultation Modal
-- [ ] **Status:** Unchecked
+- [x] **Status:** Checked
 - **Target Files:**
   - `src/components/forms/inquiry-form.tsx` [NEW]
   - `src/components/forms/contact-form.tsx` [NEW]
@@ -507,11 +507,11 @@ flowchart LR
   - Build `ConsultationModal` for free expert supplement stacks advice.
   - Integrate Sonner success/error toasts on action response.
 - **Verification Checklist:**
-  - [ ] `npx tsc --noEmit` passes cleanly.
-  - [ ] Form displays inline field validation errors on invalid inputs.
+  - [x] `npx tsc --noEmit` passes cleanly.
+  - [x] Form displays inline field validation errors on invalid inputs.
 
 #### Sub-Phase 5.5: Contact & Store Locations Experience
-- [ ] **Status:** Unchecked
+- [x] **Status:** Checked
 - **Target Files:**
   - `src/app/(marketing)/contact/page.tsx` [NEW]
   - `src/app/(marketing)/location/page.tsx` [NEW]
@@ -521,44 +521,60 @@ flowchart LR
   - Build `/contact` route featuring inquiry form, direct WhatsApp buttons, emergency store phone, and customer support hours.
   - Build `/location` route showcasing Golfutar, Budha-Nilkantha retail outlet with Google Maps embed, landmark directions, parking details, opening hours (Sun-Fri 10AM-9PM), and Schema.org `LocalBusiness` JSON-LD structured data.
 - **Verification Checklist:**
-  - [ ] `npx tsc --noEmit` passes cleanly.
-  - [ ] Direct phone call links (`tel:+977...`) and Google Maps directions triggers function correctly.
+  - [x] `npx tsc --noEmit` passes cleanly.
+  - [x] Direct phone call links (`tel:+977...`) and Google Maps directions triggers function correctly.
 
 ---
 
 ### Phase 6: Informational, Trust, Education & Legal Pages
 
-#### Sub-Phase 6.1: Homepage Hero, Trust Banners & Category Showcase
+#### Sub-Phase 6.1: Homepage Hero Section
 - [ ] **Status:** Unchecked
 - **Target Files:**
   - `src/components/home/hero-section.tsx` [NEW]
-  - `src/components/home/trust-badges-bar.tsx` [NEW]
-  - `src/components/home/category-grid.tsx` [NEW]
-  - `src/components/home/featured-products-section.tsx` [NEW]
 - **Purpose & Scope:**
-  - Build high-impact dark athletic Hero with animated headline, WhatsApp instant order CTA, catalog browse CTA, and athlete background visual.
-  - Build Trust Badges Bar (100% Genuine Importer Guarantee, Fast Kathmandu Delivery, Physical Store in Golfutar, Free Nutrition Consultation).
-  - Build Category Showcase grid with high-resolution visual cards.
-  - Build Featured Products section with tabbed switching (Best Sellers, Whey Protein, Creatine).
+  - Build high-impact minimal premium luxury Hero component with dynamic typography, primary WhatsApp fast-order CTA button (≥48px touch height), catalog browse CTA button, trust pill badges, and responsive layout for mobile and desktop.
 - **Verification Checklist:**
   - [ ] `npx tsc --noEmit` passes cleanly.
   - [ ] Hero CTA buttons have minimum touch target ≥48x48px on mobile.
 
-#### Sub-Phase 6.2: Homepage Social Proof, Store Highlights & Full Page Assembly
+#### Sub-Phase 6.2: Trust Badges Bar & Category Showcase Grid
 - [ ] **Status:** Unchecked
 - **Target Files:**
+  - `src/components/home/trust-badges-bar.tsx` [NEW]
+  - `src/components/home/category-grid.tsx` [NEW]
+- **Purpose & Scope:**
+  - Build Trust Badges Bar (100% Genuine Importer Guarantee, Fast Kathmandu Delivery, Physical Store in Golfutar, Free Nutrition Consultation).
+  - Build Category Showcase grid with high-resolution visual cards.
+- **Verification Checklist:**
+  - [ ] `npx tsc --noEmit` passes cleanly.
+  - [ ] Category cards navigate to canonical category route `/categories/[slug]`.
+
+#### Sub-Phase 6.3: Featured Products Showcase & Social Proof Section
+- [ ] **Status:** Unchecked
+- **Target Files:**
+  - `src/components/home/featured-products-section.tsx` [NEW]
   - `src/components/home/why-choose-us.tsx` [NEW]
+- **Purpose & Scope:**
+  - Build Featured Products section with tabbed switching (Best Sellers, Whey Protein, Creatine) using `ProductGrid` and `ProductCard`.
+  - Build "Why MuscleWorks / Authenticity Guarantee" value proposition section (official importer hologram stickers, lab-tested batches, expert advice).
+- **Verification Checklist:**
+  - [ ] `npx tsc --noEmit` passes cleanly.
+  - [ ] Product tabs switch smoothly and render responsive grid layout.
+
+#### Sub-Phase 6.4: Store Locator Preview & Full Homepage Assembly
+- [ ] **Status:** Unchecked
+- **Target Files:**
   - `src/components/home/store-locator-preview.tsx` [NEW]
   - `src/app/(marketing)/page.tsx` [NEW]
 - **Purpose & Scope:**
-  - Build "Why MuscleWorks" value propositions (official importer hologram stickers, lab tested batches, expert advice).
-  - Build Store Locator Preview highlighting the Golfutar flagship outlet.
+  - Build Store Locator Preview highlighting the Golfutar flagship outlet with live opening hours status and directions CTA.
   - Assemble complete `/` homepage route with dynamic metadata and Schema.org `Organization` JSON-LD.
 - **Verification Checklist:**
   - [ ] `npx tsc --noEmit` passes cleanly.
   - [ ] Homepage renders completely with 0 layout shift (CLS < 0.05).
 
-#### Sub-Phase 6.3: Brand Trust, Authenticity Verification & About Pages
+#### Sub-Phase 6.5: Brand Trust, Authenticity Verification & About Pages
 - [ ] **Status:** Unchecked
 - **Target Files:**
   - `src/app/(marketing)/about/page.tsx` [NEW]
@@ -572,7 +588,7 @@ flowchart LR
   - [ ] `npx tsc --noEmit` passes cleanly.
   - [ ] Step-by-step authenticity verification guide renders with clear illustrative cards.
 
-#### Sub-Phase 6.4: Educational MDX Core & Buying Guides
+#### Sub-Phase 6.6: Educational MDX Core & Buying Guides
 - [ ] **Status:** Unchecked
 - **Target Files:**
   - `src/lib/mdx.ts` [NEW]
@@ -587,7 +603,7 @@ flowchart LR
   - [ ] `npx tsc --noEmit` passes cleanly.
   - [ ] MDX parser correctly parses frontmatter, headings, and reading times.
 
-#### Sub-Phase 6.5: Educational Hub Routes
+#### Sub-Phase 6.7: Educational Hub Routes
 - [ ] **Status:** Unchecked
 - **Target Files:**
   - `src/app/guides/page.tsx` [NEW]
@@ -600,7 +616,7 @@ flowchart LR
   - [ ] `npx tsc --noEmit` passes cleanly.
   - [ ] MDX pages render formatted typography, callout alerts, and related product embeds.
 
-#### Sub-Phase 6.6: Legal, Privacy & FAQ Hub
+#### Sub-Phase 6.8: Legal, Privacy & FAQ Hub
 - [ ] **Status:** Unchecked
 - **Target Files:**
   - `src/app/(marketing)/privacy-policy/page.tsx` [NEW]
@@ -709,14 +725,16 @@ flowchart LR
 | **5.1** | Anti-Spam Security & Rate Limiting | `src/lib/services/ratelimit.ts`, `src/lib/services/security.ts` | 0.3 | `[ ]` |
 | **5.2** | Notification Dispatchers (Telegram & Resend) | `src/lib/services/telegram.ts`, `resend.ts`, `src/emails/CustomerInquiryConfirmation.tsx`, `AdminInquiryAlert.tsx` | 2.1 | `[ ]` |
 | **5.3** | Server Actions Pipeline | `src/actions/inquiry.ts`, `contact.ts` | 5.1, 5.2 | `[ ]` |
-| **5.4** | Interactive Form Components & Modal | `src/components/forms/inquiry-form.tsx`, `contact-form.tsx`, `consultation-modal.tsx` | 1.2, 5.3 | `[ ]` |
-| **5.5** | Contact & Store Locations Experience | `src/app/(marketing)/contact/page.tsx`, `location/page.tsx`, `src/components/location/store-map-embed.tsx`, `store-hours-card.tsx` | 2.4, 5.4 | `[ ]` |
-| **6.1** | Homepage Hero, Trust Banners & Category Grid | `src/components/home/hero-section.tsx`, `trust-badges-bar.tsx`, `category-grid.tsx`, `featured-products-section.tsx` | 1.1, 3.1 | `[ ]` |
-| **6.2** | Homepage Social Proof & Full Page Assembly | `src/components/home/why-choose-us.tsx`, `store-locator-preview.tsx`, `src/app/(marketing)/page.tsx` | 6.1 | `[ ]` |
-| **6.3** | Brand Trust, Authenticity & About Pages | `src/app/(marketing)/about/page.tsx`, `authenticity/page.tsx`, `src/components/authenticity/verification-steps.tsx`, `importer-seal-guide.tsx` | 1.1, 2.4 | `[ ]` |
-| **6.4** | Educational MDX Core & Buying Guides | `src/lib/mdx.ts`, `content/guides/creatine-guide-nepal.mdx`, `content/guides/whey-protein-beginners.mdx` | 2.4 | `[ ]` |
-| **6.5** | Educational Hub Routes | `src/app/guides/page.tsx`, `guides/[slug]/page.tsx`, `src/components/guides/guide-card.tsx` | 6.4 | `[ ]` |
-| **6.6** | Legal, Privacy & FAQ Hub | `src/app/(marketing)/privacy-policy/page.tsx`, `terms/page.tsx`, `delivery-policy/page.tsx`, `faq/page.tsx` | 1.1, 2.4 | `[ ]` |
+| **5.4** | Interactive Form Components & Modal | `src/components/forms/inquiry-form.tsx`, `contact-form.tsx`, `consultation-modal.tsx` | 1.2, 5.3 | `[x]` |
+| **5.5** | Contact & Store Locations Experience | `src/app/(marketing)/contact/page.tsx`, `location/page.tsx`, `src/components/location/store-map-embed.tsx`, `store-hours-card.tsx` | 2.4, 5.4 | `[x]` |
+| **6.1** | Homepage Hero Section | `src/components/home/hero-section.tsx` | 1.1, 3.1 | `[ ]` |
+| **6.2** | Trust Badges Bar & Category Showcase Grid | `src/components/home/trust-badges-bar.tsx`, `category-grid.tsx` | 6.1 | `[ ]` |
+| **6.3** | Featured Products Showcase & Social Proof | `src/components/home/featured-products-section.tsx`, `why-choose-us.tsx` | 3.1, 6.2 | `[ ]` |
+| **6.4** | Store Locator Preview & Full Homepage Assembly | `src/components/home/store-locator-preview.tsx`, `src/app/(marketing)/page.tsx` | 6.3 | `[ ]` |
+| **6.5** | Brand Trust, Authenticity & About Pages | `src/app/(marketing)/about/page.tsx`, `authenticity/page.tsx`, `src/components/authenticity/verification-steps.tsx`, `importer-seal-guide.tsx` | 1.1, 2.4 | `[ ]` |
+| **6.6** | Educational MDX Core & Buying Guides | `src/lib/mdx.ts`, `content/guides/creatine-guide-nepal.mdx`, `content/guides/whey-protein-beginners.mdx` | 2.4 | `[ ]` |
+| **6.7** | Educational Hub Routes | `src/app/guides/page.tsx`, `guides/[slug]/page.tsx`, `src/components/guides/guide-card.tsx` | 6.6 | `[ ]` |
+| **6.8** | Legal, Privacy & FAQ Hub | `src/app/(marketing)/privacy-policy/page.tsx`, `terms/page.tsx`, `delivery-policy/page.tsx`, `faq/page.tsx` | 1.1, 2.4 | `[ ]` |
 | **7.1** | Programmatic SEO Engine & Schema Architecture | `src/app/sitemap.ts`, `robots.ts`, `src/lib/seo.ts`, `src/components/seo/json-ld.tsx` | 3.6, 4.4, 6.5 | `[ ]` |
 | **7.2** | Security Headers, CSP & Network Proxy | `src/proxy.ts`, `next.config.ts` | 0.1 | `[ ]` |
 | **7.3** | Mobile Performance & Web App Manifest | `src/app/icon.tsx`, `apple-icon.tsx`, `manifest.ts` | 0.2 | `[ ]` |
