@@ -63,13 +63,13 @@ export function HeroSection() {
 
       {/* Main Container Aligned to Upper 70% Safe Zone on Mobile */}
       <div className="relative z-10 mx-auto flex h-full w-full max-w-7xl items-start md:items-center px-4 sm:px-6 lg:px-8 pt-6 sm:pt-8 pb-48 sm:pb-60 md:py-12">
-        <div className="w-full max-w-xl lg:max-w-2xl space-y-5 sm:space-y-7">
+        <div className="w-full max-w-xl md:max-w-3xl lg:max-w-4xl space-y-5 sm:space-y-7">
           {/* Main Heading: Fluid Responsive Scaling across all Breakpoints */}
           <h1 className="font-heading font-black tracking-tight uppercase italic leading-[0.95] text-left select-none max-w-full">
-            <span className="block text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white drop-shadow-md">
+            <span className="block whitespace-nowrap text-2xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-6xl text-white drop-shadow-md">
               SUPPORTING YOUR
             </span>
-            <span className="block text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-black drop-shadow-sm mt-1 sm:mt-2">
+            <span className="block whitespace-nowrap text-2xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-6xl text-black drop-shadow-sm mt-1 sm:mt-2">
               BEST EVERYDAY
             </span>
           </h1>
