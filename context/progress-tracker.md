@@ -1,8 +1,8 @@
 # Progress Tracker
  
 > **Active Phase:** Phase 6 — Informational, Trust, Education & Legal Pages  
-> **Next Sub-Phase:** `6.3` (Featured Products Showcase & Social Proof: `src/components/home/featured-products-section.tsx`, `src/components/home/why-choose-us.tsx`) — **[NEXT UP]**  
-> **Last Verified:** 2026-08-10 (`tsc --noEmit` — 0 errors, `npm run build` — 42 static pages pre-rendered)
+> **Next Sub-Phase:** `6.4` (Store Locator Preview & Full Homepage Assembly: `src/components/home/store-locator-preview.tsx`, `src/app/page.tsx`) — **[NEXT UP]**  
+> **Last Verified:** 2026-08-12 (`tsc --noEmit` — 0 errors, `npm run lint` — 0 errors, `npm run build` — 46 static pages pre-rendered)
 
 
 ---
@@ -11,8 +11,8 @@
 
 - [x] **6.1** Homepage Hero Section (`src/components/home/hero-section.tsx`)
 - [x] **6.2** Authorized Brands Marquee Section (`src/components/home/brands-marquee.tsx`)
-- [ ] **6.3** Featured Products Showcase & Social Proof Section (`src/components/home/featured-products-section.tsx`, `src/components/home/why-choose-us.tsx`) — **[NEXT UP]**
-- [ ] **6.4** Store Locator Preview & Full Homepage Assembly (`src/components/home/store-locator-preview.tsx`, `src/app/(marketing)/page.tsx`)
+- [x] **6.3** Featured Products Showcase Section (`src/components/home/featured-products-section.tsx`)
+- [ ] **6.4** Store Locator Preview & Full Homepage Assembly (`src/components/home/store-locator-preview.tsx`, `src/app/page.tsx`) — **[NEXT UP]**
 - [ ] **6.5** Brand Trust, Authenticity Verification & About Pages (`src/app/(marketing)/about/page.tsx`, `src/app/(marketing)/authenticity/page.tsx`, `src/components/authenticity/verification-steps.tsx`, `src/components/authenticity/importer-seal-guide.tsx`)
 - [ ] **6.6** Educational MDX Core & Buying Guides (`src/lib/mdx.ts`, `content/guides/creatine-guide-nepal.mdx`, `content/guides/whey-protein-beginners.mdx`)
 - [ ] **6.7** Educational Hub Routes (`src/app/guides/page.tsx`, `src/app/guides/[slug]/page.tsx`, `src/components/guides/guide-card.tsx`)
@@ -34,6 +34,24 @@
 | **7** | SEO, Performance & Launch Hardening | 0/4 | Pending |
 
 ---
+
+- **2026-08-12 (Official Store WhatsApp Number Configuration):** Configured canonical official Nepal WhatsApp number `+977 981-9877070` (`9779819877070`) across `src/lib/constants.ts` and `data/store-info.json`. Automatically updated all product order CTAs, header order buttons, PDP inquiries, floating CTAs, and contact links to direct customer messages to `wa.me/9779819877070`. Verified cleanly with `npx tsc --noEmit` (0 errors).
+
+- **2026-08-12 (Mobile Hero Image Overlay Shadow Reduction):** Reduced heavy mobile background image gradient overlay (`from-black/80 via-black/50 to-black/70` -> `from-black/45 via-black/20 to-black/35`) in `src/components/home/hero-section.tsx` per user request to make background product visuals significantly brighter while maintaining crisp typography contrast. Verified cleanly with `npx tsc --noEmit` (0 errors).
+
+- **2026-08-12 (Section 2 Typography Synchronization):** Synchronized "OFFICIAL STOCKED BRANDS" heading typography in `src/components/home/brands-marquee.tsx` to match the exact Hero section font family, weight, tracking, and italic styling (`font-heading font-black tracking-tight uppercase italic text-black`). Verified cleanly with `npx tsc --noEmit` (0 errors).
+
+- **2026-08-12 (Scitec Nutrition Logo Scale Reduction):** Reduced Scitec Nutrition logo dimensions (`max-h-[32px] sm:max-h-[40px]`, `scale-90`) in `src/components/home/brands-marquee.tsx` per user request to maintain balanced visual weight relative to adjacent brand marks. Verified cleanly with `npx tsc --noEmit` (0 errors).
+
+- **2026-08-12 (Scitec Nutrition Logo Size Fine-Tuning):** Applied subtle targeted scaling (`max-h-[46px] sm:max-h-[60px] scale-110`) specifically for the Scitec Nutrition logo in `src/components/home/brands-marquee.tsx` so its detailed text renders sharp and legible while remaining visual aligned with all other brand marks. Verified cleanly with `npx tsc --noEmit` (0 errors).
+
+- **2026-08-12 (BrandsMarquee Logo Sizing Normalization):** Removed artificial 135% scaling multiplier override on MuscleBlaze and Scitec Nutrition logos in `src/components/home/brands-marquee.tsx`. Standardized all brand logos to a uniform max-height (`42px sm:55px`) and max-width (`140px sm:180px`) with subtle 1.05 hover zoom. Verified cleanly with `npx tsc --noEmit` (0 errors).
+
+- **2026-08-12 (Hero Section Typography Update):** Changed "BEST EVERYDAY" heading text in Hero section (`src/components/home/hero-section.tsx`) to deep **black** (`text-black`) with subtle light drop-shadow contrast for WCAG AA readability against dark hero background image overlay. Verified cleanly with `npx tsc --noEmit` (0 errors).
+
+- **2026-08-12 (Section 2 & Hero Section Black Theme Alignment):** Removed side accent dashes from Section 2 (`src/components/home/brands-marquee.tsx`) heading container. Migrated Hero section (`src/components/home/hero-section.tsx`) to the black, white, and slate monochromatic luxury palette by replacing amber heading accents (`text-slate-200`), left border accents (`border-white/80`), and trust badge icons and title labels (`text-white`). Verified cleanly with `npx tsc --noEmit` (0 errors).
+
+- **2026-08-12 (Section 2 BrandsMarquee Typography & Palette Refresh):** Updated Section 2 (`src/components/home/brands-marquee.tsx`) per user design directives. Transformed "OFFICIAL STOCKED BRANDS" heading to deep black (`text-black`), increased font size (`text-xl sm:text-3xl md:text-4xl lg:text-5xl`), and tilted with dynamic skew/italic styling (`italic -skew-x-6`). Updated side shimmer lines to black/slate gradients (`from-slate-400 via-slate-900 to-black`). Re-styled all 4 trust badges (*100% Authentic*, *Official Importer Seals*, *Verified Holograms*, *No Fakes. Ever.*) and icons to use black, white, slate, and charcoal palette (`bg-slate-100/80 hover:bg-black`, `text-black group-hover:text-white`). Verified cleanly with `npx tsc --noEmit` (0 errors).
 
 - **2026-08-10 (Sub-Phase 6.2 Authorized Brands Marquee Section — White BG):** Implemented Authorized Brands Marquee Section (`src/components/home/brands-marquee.tsx`, `src/app/globals.css`, `src/app/page.tsx`, `public/brands/*`). Processed 5 raw brand logo images in `public/brands` using `sharp`, converting & compressing them to optimized WebP format (`biotech-usa.webp`, `scitec-nutrition.webp`, `bpi-sports.webp`, `muscleblaze.webp`, `optimum-nutrition.webp`, saving up to 90.8% file size). Updated `data/brands.json` dataset to 16 total authorized brands. Built clean white background marquee section (`bg-white`) directly below Hero featuring amber/gold header lines (`— OFFICIAL STOCKED BRANDS —`), subtitle, infinite horizontal marquee loop (`@keyframes marquee`) with hover pause effect, rounded white brand cards with subtle border & hover shadows, Next.js WebP image rendering with text fallbacks, and bottom authenticity verification bar (`• 100% Authentic | • Official Importer Seals | • Verified Holograms | • No Fakes. Ever.`). Authored [Spec 44](feature-specs/44-subphase-6.2-authorized-brands-marquee-white-bg.md). Verified cleanly with `npx tsc --noEmit` (0 errors).
 

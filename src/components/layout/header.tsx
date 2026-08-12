@@ -16,14 +16,14 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/80 bg-background/95 backdrop-blur-md transition-all">
-      <div className="mx-auto flex h-16 sm:h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex h-14 sm:h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Brand Logo & Logotype */}
         <Link
           href="/"
           className="group flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           aria-label={`${STORE_NAME} Home`}
         >
-          <div className="relative h-10 w-44 sm:h-12 sm:w-52 lg:h-14 lg:w-72 shrink-0">
+          <div className="relative h-8 w-36 sm:h-10 sm:w-48 lg:h-11 lg:w-56 shrink-0">
             <Image
               src="/brnding-assets/logo.webp"
               alt={STORE_NAME}

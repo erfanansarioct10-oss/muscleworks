@@ -18,10 +18,10 @@ export const DEFAULT_PRODUCT_PLACEHOLDER = "/brnding-assets/logo.webp";
 
 
 // Contact & Ordering Details
-export const STORE_PHONE = "+977 980-0000000";
-export const STORE_PHONE_RAW = "+9779800000000";
-export const STORE_WHATSAPP = "+9779800000000";
-export const STORE_WHATSAPP_DISPLAY = "+977 980-0000000";
+export const STORE_PHONE = "+977 981-9877070";
+export const STORE_PHONE_RAW = "+9779819877070";
+export const STORE_WHATSAPP = "+9779819877070";
+export const STORE_WHATSAPP_DISPLAY = "+977 981-9877070";
 export const STORE_EMAIL = "orders@muscleworksnepal.com";
 export const STORE_SUPPORT_EMAIL = "support@muscleworksnepal.com";
 
