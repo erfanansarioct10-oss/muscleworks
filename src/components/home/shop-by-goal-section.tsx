@@ -72,10 +72,10 @@ export function ShopByGoalSection() {
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-black tracking-tight uppercase text-white">
             <Link
               href="/products"
-              className="group inline-flex items-center gap-1.5 hover:text-[#FF5500] transition-colors duration-200"
+              className="group inline-flex items-center gap-1.5 hover:text-slate-300 transition-colors duration-200"
             >
-              <span>SHOP BY GOAL</span>
-              <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8 text-[#FF5500] stroke-[3] group-hover:translate-x-1 transition-transform" />
+              <span>SHOP BY <span className="text-slate-500">GOAL</span></span>
+              <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8 text-white stroke-[3] group-hover:translate-x-1 transition-transform" />
             </Link>
           </h2>
           <p className="mt-2 text-sm sm:text-base text-slate-300 font-medium max-w-lg">
@@ -89,13 +89,13 @@ export function ShopByGoalSection() {
             <Link
               key={goal.id}
               href={goal.href}
-              className="group relative flex flex-col items-center text-center rounded-xl p-2 sm:p-4 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
+              className="group relative flex flex-col items-center text-center rounded-xl p-2 sm:p-4 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
             >
               {/* Parallelogram Background Shape (Behind Image) */}
               <div className="relative w-full aspect-square flex items-center justify-center">
                 {/* Slanted Parallelogram Card Background */}
                 <div
-                  className="absolute inset-x-2 sm:inset-x-4 top-8 bottom-4 -skew-x-12 rounded-lg bg-white/10 border border-white/10 group-hover:bg-[#FF5500] transition-all duration-300 ease-out group-hover:shadow-xl group-hover:shadow-orange-500/25 group-hover:scale-[1.02]"
+                  className="absolute inset-x-2 sm:inset-x-4 top-8 bottom-4 -skew-x-12 rounded-lg bg-white/10 border border-white/10 group-hover:bg-white/20 transition-all duration-300 ease-out group-hover:shadow-xl group-hover:shadow-black/40 group-hover:scale-[1.02]"
                   aria-hidden="true"
                 />
 
@@ -115,10 +115,10 @@ export function ShopByGoalSection() {
 
               {/* Typography Below Card */}
               <div className="mt-4 flex flex-col items-center">
-                <h3 className="font-heading font-black italic tracking-tight text-xl sm:text-2xl uppercase text-white group-hover:text-[#FF5500] transition-colors duration-200">
+                <h3 className="font-heading font-black italic tracking-tight text-xl sm:text-2xl uppercase text-white group-hover:text-slate-200 transition-colors duration-200">
                   {goal.title}
                 </h3>
-                <span className="mt-1 text-sm sm:text-base font-semibold text-slate-300 underline underline-offset-4 decoration-slate-600 group-hover:text-[#FF5500] group-hover:decoration-[#FF5500] transition-colors duration-200">
+                <span className="mt-1 text-sm sm:text-base font-semibold text-slate-300 underline underline-offset-4 decoration-slate-600 group-hover:text-white group-hover:decoration-white transition-colors duration-200">
                   {goal.subtitle}
                 </span>
                 <p className="mt-1.5 text-xs sm:text-sm text-slate-400 font-normal max-w-[240px]">

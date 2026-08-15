@@ -52,7 +52,7 @@ export async function BrandsMarquee() {
         {/* Heading Container */}
         <div className="flex items-center justify-center mb-2.5">
           <h2 className="font-heading font-black tracking-tight uppercase text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-black">
-            OFFICIAL STOCKED BRANDS
+            OFFICIAL STOCKED <span className="text-slate-500">BRANDS</span>
           </h2>
         </div>
 

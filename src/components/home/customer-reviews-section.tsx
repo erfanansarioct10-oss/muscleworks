@@ -59,8 +59,8 @@ export function CustomerReviewsSection() {
         {/* Top Header Row with Right-Aligned Static Title */}
         <div className="flex justify-end mb-8 sm:mb-12">
           <div className="inline-flex items-center gap-1 sm:gap-1.5 font-heading font-black text-xl sm:text-2xl md:text-3xl uppercase tracking-tight text-slate-950 select-none shrink-0">
-            <h2>OUR HAPPY CUSTOMERS</h2>
-            <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-[#FF5500] stroke-[3.5]" aria-hidden="true" />
+            <h2>OUR HAPPY <span className="text-slate-500">CUSTOMERS</span></h2>
+            <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-slate-950 stroke-[3.5]" aria-hidden="true" />
           </div>
         </div>
 
@@ -127,7 +127,7 @@ export function CustomerReviewsSection() {
               onClick={() => scrollToCard(i)}
               className={`transition-all duration-300 rounded-full cursor-pointer ${
                 activeIndex === i
-                  ? "w-6 h-2.5 bg-[#FF5500]"
+                  ? "w-6 h-2.5 bg-slate-900"
                   : "w-2.5 h-2.5 bg-slate-300 hover:bg-slate-400"
               }`}
               aria-label={`Go to review ${i + 1}`}

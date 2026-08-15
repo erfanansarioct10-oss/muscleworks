@@ -37,12 +37,13 @@ export const STORE_LOCATION = {
   fullAddress: "Golfutar, Budha-Nilkantha, Kathmandu (44500), Nepal",
   landmark: "Near Golfutar Basketball Court / Budha-Nilkantha Highway",
   coordinates: {
-    latitude: 27.7681,
-    longitude: 85.3524,
+    latitude: 27.7525222,
+    longitude: 85.3467945,
   },
-  googleMapsUrl: "https://maps.google.com/?q=Golfutar+Budhanilkantha+Kathmandu",
+  googleMapsUrl:
+    "https://www.google.com/maps/place/MUSCLEWORKS+SUPPLEMENTS/@27.752597,85.3466912,17z/data=!4m15!1m8!3m7!1s0x39eb19002cf5b31f:0x7685a7207f30b8ef!2sMUSCLEWORKS+SUPPLEMENTS!8m2!3d27.7525222!4d85.3467945!10e5!16s%2Fg%2F11nr8t5p78!3m5!1s0x39eb19002cf5b31f:0x7685a7207f30b8ef!8m2!3d27.7525222!4d85.3467945!16s%2Fg%2F11nr8t5p78?entry=ttu",
   googleMapsEmbedUrl:
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14122.844391629817!2d85.3435!3d27.7681!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1bfd6f28b7e7%3A0x8e833446059c1181!2sGolfutar%2C%20Kathmandu!5e0!3m2!1sen!2snp!4v1700000000000",
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3531.1895697204987!2d85.3442195761358!3d27.75252682390196!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19002cf5b31f%3A0x7685a7207f30b8ef!2sMUSCLEWORKS%20SUPPLEMENTS!5e0!3m2!1sen!2snp!4v1723719000000!5m2!1sen!2snp",
 } as const;
 
 // Operating Hours
