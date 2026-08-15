@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import { useForm } from 'react-hook-form';
+import React, { useState, useEffect, useRef } from 'react';
+import { useForm, useWatch } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { toast } from 'sonner';
 import {
@@ -59,12 +59,13 @@ export function ContactForm({ className, onSuccess }: ContactFormProps) {
   } | null>(null);
 
   const [customCity, setCustomCity] = useState('');
+  const isSubmittingLockRef = useRef(false);
 
   const {
     register,
     handleSubmit,
     setValue,
-    watch,
+    control,
     reset,
     formState: { errors, isSubmitting },
   } = useForm<InquiryFormClientValues>({
@@ -78,7 +79,7 @@ export function ContactForm({ className, onSuccess }: ContactFormProps) {
       preferredContactMethod: 'whatsapp',
       deliveryCity: 'Kathmandu',
       hp_field: '',
-      _form_loaded_at: Date.now(),
+      _form_loaded_at: 0,
     },
   });
 
@@ -86,10 +87,12 @@ export function ContactForm({ className, onSuccess }: ContactFormProps) {
     setValue('_form_loaded_at', Date.now());
   }, [setValue]);
 
-  const selectedContactMethod = watch('preferredContactMethod');
-  const selectedDeliveryCity = watch('deliveryCity');
+  const selectedContactMethod = useWatch({ control, name: 'preferredContactMethod' });
+  const selectedDeliveryCity = useWatch({ control, name: 'deliveryCity' });
 
   const onSubmit = async (values: InquiryFormClientValues) => {
+    if (isSubmittingLockRef.current) return;
+    isSubmittingLockRef.current = true;
     try {
       // Validate cross-field email requirement when 'email' contact method is chosen
       if (values.preferredContactMethod === 'email' && !values.email?.trim()) {
@@ -133,6 +136,8 @@ export function ContactForm({ className, onSuccess }: ContactFormProps) {
     } catch (err) {
       console.error('[ContactForm Submit Error]:', err);
       toast.error('An unexpected error occurred. Please call or message us on WhatsApp.');
+    } finally {
+      isSubmittingLockRef.current = false;
     }
   };
 
@@ -199,7 +204,10 @@ export function ContactForm({ className, onSuccess }: ContactFormProps) {
   // ── CONTACT FORM VIEW ──
   return (
     <form
-      onSubmit={handleSubmit(onSubmit)}
+      onSubmit={(e) => {
+        e.preventDefault();
+        void handleSubmit(onSubmit)(e);
+      }}
       className={cn('space-y-5 rounded-2xl border border-border bg-card p-6 shadow-xl sm:p-8', className)}
       noValidate
     >
@@ -215,7 +223,8 @@ export function ContactForm({ className, onSuccess }: ContactFormProps) {
         type="text"
         tabIndex={-1}
         aria-hidden="true"
-        autoComplete="off"
+        autoComplete="nope"
+        data-lpignore="true"
         className="absolute -left-[9999px] opacity-0 h-0 w-0 pointer-events-none"
         {...register('hp_field')}
       />
@@ -382,7 +391,7 @@ export function ContactForm({ className, onSuccess }: ContactFormProps) {
         </div>
         <div className="flex items-center gap-1.5">
           <Clock className="h-4 w-4 text-primary shrink-0" />
-          <span>Sun–Fri: 10:00 AM – 9:00 PM</span>
+          <span>Sun–Fri: 10:00 AM – 8:00 PM</span>
         </div>
       </div>
 

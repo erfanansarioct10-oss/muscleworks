@@ -76,3 +76,9 @@ export async function getRelatedGuides(
   const remaining = filtered.filter((g) => g.category !== current.category);
   return [...sameCategory, ...remaining].slice(0, limit);
 }
+
+/**
+ * Backward compatibility alias for getAllGuides.
+ */
+export const getGuides = getAllGuides;
+

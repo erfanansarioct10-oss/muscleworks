@@ -43,7 +43,7 @@ export async function submitContactAction(
 ): Promise<ActionResult<{ inquiryId: string }>> {
   try {
     // 1. Honeypot Anti-Spam Trap Check
-    if (isHoneypotTriggered(values?.hp_field)) {
+    if (isHoneypotTriggered((values as Record<string, unknown>)?.hp_field)) {
       return SILENT_SPAM_SUCCESS_RESPONSE;
     }
 
@@ -52,22 +52,22 @@ export async function submitContactAction(
       return SILENT_SPAM_SUCCESS_RESPONSE;
     }
 
-    // 3. Isolated Rate Limiting Check for Contact Form Scope ('contact')
-    const rateLimit = await checkRateLimit('contact', 5, 3600);
-    if (!rateLimit.success) {
-      return {
-        success: false,
-        error: 'Too many contact messages sent. Please wait a while before sending another message.',
-      };
-    }
-
-    // 4. Zod Input Validation
+    // 3. Zod Input Validation (Validate input syntax before consuming rate limit quota)
     const parsed = InquiryFormClientSchema.safeParse(values);
     if (!parsed.success) {
       return {
         success: false,
         error: 'Validation failed. Please correct the highlighted fields.',
         fieldErrors: parsed.error.flatten().fieldErrors,
+      };
+    }
+
+    // 4. Isolated Rate Limiting Check for Contact Form Scope ('contact')
+    const rateLimit = await checkRateLimit('contact', 5, 3600);
+    if (!rateLimit.success) {
+      return {
+        success: false,
+        error: 'Too many contact messages sent. Please wait a while before sending another message.',
       };
     }
 

@@ -10,22 +10,33 @@ import { cn } from '@/lib/utils';
 export interface StoreHoursCardProps {
   className?: string;
   compact?: boolean;
+  initialOpeningHours?: OpeningHourItem[];
+  initialContacts?: StoreContactMatrix | null;
 }
 
-export function StoreHoursCard({ className, compact = false }: StoreHoursCardProps) {
+export function StoreHoursCard({
+  className,
+  compact = false,
+  initialOpeningHours = [],
+  initialContacts = null,
+}: StoreHoursCardProps) {
   const [storeStatus, setStoreStatus] = useState<{
     isOpen: boolean;
     message: string;
   } | null>(null);
 
   const [currentKathmanduDay, setCurrentKathmanduDay] = useState<string>('');
-  const [openingHours, setOpeningHours] = useState<OpeningHourItem[]>([]);
-  const [contacts, setContacts] = useState<StoreContactMatrix | null>(null);
+  const [openingHours, setOpeningHours] = useState<OpeningHourItem[]>(initialOpeningHours);
+  const [contacts, setContacts] = useState<StoreContactMatrix | null>(initialContacts);
 
   useEffect(() => {
-    // Load store metadata and opening hours via accessor layer
-    getOpeningHours().then(setOpeningHours);
-    getStoreInfo().then((info) => setContacts(info.contacts));
+    // Load store metadata and opening hours via accessor layer if not provided
+    if (initialOpeningHours.length === 0) {
+      void getOpeningHours().then(setOpeningHours);
+    }
+    if (!initialContacts) {
+      void getStoreInfo().then((info) => setContacts(info.contacts));
+    }
 
     const updateStatusAndDay = () => {
       const day = new Intl.DateTimeFormat('en-US', {
@@ -36,13 +47,13 @@ export function StoreHoursCard({ className, compact = false }: StoreHoursCardPro
         .toLowerCase();
 
       setCurrentKathmanduDay(day);
-      isStoreOpenNow().then(setStoreStatus);
+      void isStoreOpenNow().then(setStoreStatus);
     };
 
     updateStatusAndDay();
     const interval = setInterval(updateStatusAndDay, 60000);
     return () => clearInterval(interval);
-  }, []);
+  }, [initialOpeningHours.length, initialContacts]);
 
   return (
     <div className={cn('rounded-2xl border border-border bg-card p-5 sm:p-6 shadow-xl space-y-4', className)}>

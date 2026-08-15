@@ -1,8 +1,7 @@
 # Progress Tracker
  
 > **Active Phase:** Phase 6 — Informational, Trust, Education & Legal Pages  
-> **Next Sub-Phase:** `6.4` (Store Locator Preview & Full Homepage Assembly: `src/components/home/store-locator-preview.tsx`, `src/app/page.tsx`) — **[NEXT UP]**  
-> **Last Verified:** 2026-08-12 (`tsc --noEmit` — 0 errors, `npm run lint` — 0 errors, `npm run build` — 46 static pages pre-rendered)
+> **Last Verified:** 2026-08-15 (`tsc --noEmit` — 0 errors, `npm run lint` — 0 errors, `npm run build` — 54 static pages pre-rendered, 7 validation suites — 100% pass)
 
 
 ---
@@ -34,6 +33,24 @@
 | **7** | SEO, Performance & Launch Hardening | 0/4 | Pending |
 
 ---
+
+- **2026-08-15 ("This Week Deals" Products Replacement):** Replaced the 2nd, 3rd, and 4th products in `DEALS_PRODUCTS` (`src/components/home/deals-section.tsx`) with BioTechUSA Mega Omega 3 (`/deals/omega-3.png`), FuelOne Impact Whey Protein (`/deals/impact-whey.png`), and BPI Sports 1.M.R Vortex Pre-Workout (`/deals/bpi-1-mr-vortex.png`), while keeping BioTechUSA Hyper Mass. Configured realistic NPR deal pricing and ratings. Verified cleanly with `npx tsc --noEmit` (0 errors).
+
+- **2026-08-15 ("Shop by Goal" Cut Image WebP Compression & Replacement):** Converted `public/goals/new-cut.png` to optimized transparent WebP format `public/goals/get-cut.webp` (243 KB, ~88% file size reduction with full alpha transparency). Updated `goal_burn` ("BUILD YOUR BURN / Get Cut") card image source in `src/components/home/shop-by-goal-section.tsx`. Verified cleanly with `npx tsc --noEmit` (0 errors).
+
+- **2026-08-12 ("This Week Deals" Product Images & Card Alignment Fix):** Replaced wide horizontal photoshoot banner images in the deals product cards with 4 custom-generated isolated studio product tub images on pure white backgrounds (`/deals/on-gold-whey.png`, `/deals/bpi-whey-hd.png`, `/deals/muscleblaze-biozyme.png`, `/deals/nitrotech-gold.png`). Increased image container dimensions significantly (`w-20 h-24` -> `w-28 h-32 sm:w-36 sm:h-40 md:w-40 md:h-44`) for high visual prominence and clarity. Verified cleanly with `npx tsc --noEmit` (0 errors).
+
+- **2026-08-12 ("This Week Deals" Homepage Section Implementation):** Generated dark charcoal grunge background texture asset (`public/deals/charcoal-bg.png`) and built the `<DealsSection />` component (`src/components/home/deals-section.tsx`, `src/app/page.tsx`) directly after Featured Products. Features responsive widescreen layout, high-contrast title typography ("THIS WEEK DEALS - UP TO 50% OFF"), live dynamic countdown timer boxes (Days, Hours, Mins, Secs), underlined "View All Deals" link, and a 2x2 grid of deal product cards with white surfaces, star ratings, NPR pricing, and direct WhatsApp quick-order actions.
+
+- **2026-08-12 ("Shop by Goal" Section & Image Subheadings Addition):** Added a clean main section subheading ("Targeted supplement stacks engineered to fuel your specific fitness transformation") and short taglines for each goal card (*BUILD YOUR BURN*: "Shred fat & reveal lean muscle definition", *BUILD YOUR PERFORMANCE*: "Maximize energy, focus & workout intensity", *BUILD YOUR STRENGTH*: "Accelerate muscle growth & heavy strength gains") in `src/components/home/shop-by-goal-section.tsx`. Verified cleanly with `npx tsc --noEmit` (0 errors).
+
+- **2026-08-12 ("BUILD YOUR BURN" & "BUILD YOUR STRENGTH" Goal Card Photos Update):** Configured images for "BUILD YOUR BURN" (`/goals/ChatGPT Image Aug 12, 2026, 01_41_22 PM.png`) and "BUILD YOUR STRENGTH" (`/goals/image.png`) in `src/components/home/shop-by-goal-section.tsx` per user request. Verified cleanly with `npx tsc --noEmit` (0 errors).
+
+- **2026-08-12 ("BUILD YOUR BURN" & "BUILD YOUR STRENGTH" Goal Card Photos Removal):** Removed image photo rendering for both "BUILD YOUR BURN" and "BUILD YOUR STRENGTH" goal cards in `src/components/home/shop-by-goal-section.tsx` per user request, while keeping card containers, titles, and subtitles intact. Verified cleanly with `npx tsc --noEmit` (0 errors).
+
+- **2026-08-12 ("Shop by Goal" Homepage Section Implementation & Asset Refresh):** Built and mounted the `<ShopByGoalSection />` component (`src/components/home/shop-by-goal-section.tsx`, `src/app/page.tsx`) directly after the Hero section. Features 3 goal cards (*BUILD YOUR BURN / Get Cut*, *BUILD YOUR PERFORMANCE / Get Powerful*, *BUILD YOUR STRENGTH / Get Muscles*) with custom transparent WebP images (`public/goals/*.webp`), dynamic 3D image pop-out framing, slanted parallelogram background shapes with smooth electric orange (`#FF5500`) hover transitions, and direct category routing (`/products?category=creatine`, `/products?category=pre-workout`, `/products?category=proteins`). Replaced Card 3 asset with `get-muscles1.png` converted to optimized transparent `get-muscles.webp` (258KB). Verified cleanly with `npx tsc --noEmit` (0 errors).
+
+- **2026-08-12 (Shop by Brand Homepage Showcase Section Removal):** Completely removed `ShopByBrandSection` from homepage (`src/app/page.tsx`) and deleted component file `src/components/home/shop-by-brand-section.tsx` per user request. Verified 0 dead code and clean build with `npx tsc --noEmit` (0 errors).
 
 - **2026-08-12 (Official Store WhatsApp Number Configuration):** Configured canonical official Nepal WhatsApp number `+977 981-9877070` (`9779819877070`) across `src/lib/constants.ts` and `data/store-info.json`. Automatically updated all product order CTAs, header order buttons, PDP inquiries, floating CTAs, and contact links to direct customer messages to `wa.me/9779819877070`. Verified cleanly with `npx tsc --noEmit` (0 errors).
 
@@ -114,6 +131,8 @@
 - **2026-08-10 (Sub-Phase 3.3):** Implemented desktop multi-facet filtering UI and active filter state management suite (`src/components/catalog/catalog-filters.tsx`, `src/components/catalog/active-filters.tsx`, `src/components/catalog/category-chips.tsx`). Built multi-select category and fitness goal facets, dual NPR price range inputs (`minPrice`, `maxPrice`) with preset range pills (*Under 5k*, *5k-10k*, *10k-20k*, *Above 20k*), and in-stock toggle. Integrated URL query parameter synchronization using `useSearchParams` and `useRouter` with `{ scroll: false }`. Built `ActiveFilters` summary bar with removable badge pills (≥44px touch target) and "Clear All" action. Built `CategoryChips` horizontal scrollable quick-filter bar. Authored [Spec 22](feature-specs/22-subphase-3.3-desktop-filter-components-active-state.md). Verified cleanly with `npx tsc --noEmit`.
 
 
+
+- **2026-08-15 (Full Codebase Audit Remediation — 33 Findings):** Fully implemented, integrated, and verified all 33 findings from the master codebase audit across 4 domains (Security, Concurrency, Catalog/Search, SEO/Infrastructure, and WCAG AA Accessibility). Fixed anti-spam timing trap clock skew tolerance (`CRIT-01`), category archive product filtering (`CRIT-02`), accessible checkbox filter controls (`CRIT-03`), form double-submit mutex ref locking (`MAJ-01`), Telegram MarkdownV2 entity escaping (`MAJ-02`), trusted client IP extraction (`MAJ-03`), `src/proxy.ts` security response headers (`MAJ-04`), dynamic XML sitemaps and robots.txt (`MAJ-05`), email template URLs (`MAJ-06`), fallback media asset handling for 35 missing assets (`MAJ-07`), active routes for legal & guide pages (`MAJ-08`), Fuse.js search index caching & debounce state sync (`MAJ-09`, `MAJ-12`), image priority optimization (`MAJ-10`), store hours helpers (`MAJ-11`), semantic HTML landmarks (`MAJ-13`), Nepal phone regex (`MIN-01`), touch targets (`MIN-02`), rate limit map TTL eviction (`MIN-03`), and honeypot autofill defenses (`OPT-04`). All 7 test suites passed 100%. Verified with 0 errors on `tsc --noEmit`, `eslint`, and `npm run build` (54 static pages pre-rendered).
 
 - **2026-08-10 (Sub-Phase 3.2):** Implemented client-side Fuse.js fuzzy search engine and command palette UI (`src/lib/search.ts`, `src/components/catalog/search-bar.tsx`, `src/components/catalog/search-modal.tsx`). Configured multi-field index across product name (0.4), brand (0.25), category (0.2), flavor variants (0.1), and tags (0.05) with fuzzy threshold 0.3. Built debounced `SearchBar` dropdown preview and accessible `SearchModal` bound to global `Cmd+K` / `Ctrl+K` keypresses, storing up to 5 recent search terms in `localStorage`, popular category shortcuts when empty, and zero-match recovery UI. Integrated interactive `SearchModal` trigger into global `<Header />`. Authored [Spec 21](feature-specs/21-subphase-3.2-in-memory-fuzzy-search-engine.md). Verified cleanly with `npx tsc --noEmit`.
 

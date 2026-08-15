@@ -5,14 +5,15 @@ import { Search, MessageCircle } from "lucide-react";
 import { Navbar } from "@/components/layout/navbar";
 import { MobileNav } from "@/components/layout/mobile-nav";
 import { Button } from "@/components/ui/button";
-import { STORE_NAME, STORE_WHATSAPP } from "@/lib/constants";
+import { STORE_NAME } from "@/lib/constants";
+import { buildGeneralWhatsAppUrl } from "@/lib/whatsapp";
 
 import { SearchModal } from "@/components/catalog/search-modal";
 
 export function Header() {
-  const whatsappUrl = `https://wa.me/${STORE_WHATSAPP.replace(/\+/g, "")}?text=${encodeURIComponent(
+  const whatsappUrl = buildGeneralWhatsAppUrl(
     "Hello MuscleWorks Nepal! I'd like to order authentic supplements / check product stock."
-  )}`;
+  );
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/80 bg-background/95 backdrop-blur-md transition-all">
@@ -28,6 +29,7 @@ export function Header() {
               src="/brnding-assets/logo.webp"
               alt={STORE_NAME}
               fill
+              sizes="(max-width: 640px) 144px, (max-width: 1024px) 192px, 224px"
               className="object-contain object-left transition-transform group-hover:scale-105"
               priority
             />

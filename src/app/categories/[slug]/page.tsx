@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ShieldCheck, Dumbbell, HelpCircle } from 'lucide-react';
 import { getCategories, getCategoryBySlug } from '@/lib/data/categories';
-import { getProducts } from '@/lib/data/products';
+import { getProductsByCategory } from '@/lib/data/products';
 import { getBrands } from '@/lib/data/brands';
 import { CatalogContainer } from '@/components/catalog/catalog-container';
 import { Badge } from '@/components/ui/badge';
@@ -63,7 +63,7 @@ export default async function CategoryArchivePage(props: PageProps) {
   }
 
   const [products, categories, brands] = await Promise.all([
-    getProducts(),
+    getProductsByCategory(category.slug),
     getCategories(),
     getBrands(),
   ]);

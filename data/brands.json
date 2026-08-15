@@ -30,7 +30,7 @@
     "slug": "muscletech",
     "name": "MuscleTech",
     "logo": {
-      "url": "/brands/muscletech.webp",
+      "url": "/brands/muscletech.svg",
       "alt": "MuscleTech Logo",
       "isPrimary": true
     },
@@ -56,7 +56,7 @@
     "slug": "dymatize",
     "name": "Dymatize",
     "logo": {
-      "url": "/brands/dymatize.webp",
+      "url": "/brands/dymatize.svg",
       "alt": "Dymatize Logo",
       "isPrimary": true
     },
@@ -81,7 +81,7 @@
     "slug": "myprotein",
     "name": "MyProtein",
     "logo": {
-      "url": "/brands/myprotein.webp",
+      "url": "/brands/myprotein.svg",
       "alt": "MyProtein Logo",
       "isPrimary": true
     },
@@ -106,7 +106,7 @@
     "slug": "kevin-levrone",
     "name": "Kevin Levrone Signature Series",
     "logo": {
-      "url": "/brands/kevin-levrone.webp",
+      "url": "/brands/kevin-levrone.svg",
       "alt": "Kevin Levrone Signature Series Logo",
       "isPrimary": true
     },
@@ -131,7 +131,7 @@
     "slug": "rule-1",
     "name": "Rule 1 Proteins",
     "logo": {
-      "url": "/brands/rule-1.webp",
+      "url": "/brands/rule-1.svg",
       "alt": "Rule 1 Proteins Logo",
       "isPrimary": true
     },
@@ -156,7 +156,7 @@
     "slug": "labrada",
     "name": "Labrada Nutrition",
     "logo": {
-      "url": "/brands/labrada.webp",
+      "url": "/brands/labrada.svg",
       "alt": "Labrada Nutrition Logo",
       "isPrimary": true
     },
@@ -181,7 +181,7 @@
     "slug": "cellucor",
     "name": "Cellucor",
     "logo": {
-      "url": "/brands/cellucor.webp",
+      "url": "/brands/cellucor.svg",
       "alt": "Cellucor Logo",
       "isPrimary": true
     },
@@ -206,7 +206,7 @@
     "slug": "universal-nutrition",
     "name": "Universal Nutrition",
     "logo": {
-      "url": "/brands/universal-nutrition.webp",
+      "url": "/brands/universal-nutrition.svg",
       "alt": "Universal Nutrition Logo",
       "isPrimary": true
     },
@@ -231,7 +231,7 @@
     "slug": "scivation",
     "name": "Scivation",
     "logo": {
-      "url": "/brands/scivation.webp",
+      "url": "/brands/scivation.svg",
       "alt": "Scivation Logo",
       "isPrimary": true
     },
@@ -256,7 +256,7 @@
     "slug": "insane-labz",
     "name": "Insane Labz",
     "logo": {
-      "url": "/brands/insane-labz.webp",
+      "url": "/brands/insane-labz.svg",
       "alt": "Insane Labz Logo",
       "isPrimary": true
     },
@@ -281,7 +281,7 @@
     "slug": "musclepharm",
     "name": "MusclePharm",
     "logo": {
-      "url": "/brands/musclepharm.webp",
+      "url": "/brands/musclepharm.svg",
       "alt": "MusclePharm Logo",
       "isPrimary": true
     },

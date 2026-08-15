@@ -225,6 +225,7 @@ When writing or executing a feature spec:
 | `43-subphase-6.2-authorized-brands-marquee-section` | [Sub-Phase 6.2 — Authorized Brands Marquee Section](43-subphase-6.2-authorized-brands-marquee-section.md) | **Approved** | Trust, Educational & Legal Pages | 2026-08-10 |
 | `44-subphase-6.2-authorized-brands-marquee-white-bg` | [Sub-Phase 6.2 — Authorized Brands Marquee Section (White BG & Glassmorphic Slice)](44-subphase-6.2-authorized-brands-marquee-white-bg.md) | **Approved** | Trust, Educational & Legal Pages | 2026-08-10 |
 | `45-subphase-6.3-featured-products-showcase` | [Sub-Phase 6.3 — Featured Products Showcase Section](45-subphase-6.3-featured-products-showcase.md) | **Approved** | Trust, Educational & Legal Pages | 2026-08-12 |
+| `46-shop-by-brand-section` | [Shop by Brand Showcase Section](46-shop-by-brand-section.md) | **Approved** | Homepage Showcase Assembly | 2026-08-12 |
 
 
 

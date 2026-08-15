@@ -43,7 +43,7 @@ export async function submitInquiryAction(
 ): Promise<ActionResult<{ inquiryId: string }>> {
   try {
     // 1. Honeypot Anti-Spam Trap
-    if (isHoneypotTriggered(values?.hp_field)) {
+    if (isHoneypotTriggered((values as Record<string, unknown>)?.hp_field)) {
       return SILENT_SPAM_SUCCESS_RESPONSE;
     }
 
@@ -52,22 +52,22 @@ export async function submitInquiryAction(
       return SILENT_SPAM_SUCCESS_RESPONSE;
     }
 
-    // 3. Upstash / In-Memory Rate Limiting Check
-    const rateLimit = await checkRateLimit('inquiry', 5, 3600);
-    if (!rateLimit.success) {
-      return {
-        success: false,
-        error: 'Too many inquiry requests. Please wait a while before submitting again.',
-      };
-    }
-
-    // 4. Zod Input Validation
+    // 3. Zod Input Validation (Validate input syntax before consuming rate limit quota)
     const parsed = InquiryFormClientSchema.safeParse(values);
     if (!parsed.success) {
       return {
         success: false,
         error: 'Validation failed. Please correct the highlighted errors.',
         fieldErrors: parsed.error.flatten().fieldErrors,
+      };
+    }
+
+    // 4. Upstash / In-Memory Rate Limiting Check
+    const rateLimit = await checkRateLimit('inquiry', 5, 3600);
+    if (!rateLimit.success) {
+      return {
+        success: false,
+        error: 'Too many inquiry requests. Please wait a while before submitting again.',
       };
     }
 

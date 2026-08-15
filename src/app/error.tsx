@@ -8,7 +8,7 @@ import {
   MessageCircle,
   Home,
 } from "lucide-react";
-import { STORE_WHATSAPP } from "@/lib/constants";
+import { buildGeneralWhatsAppUrl } from "@/lib/whatsapp";
 
 interface ErrorPageProps {
   error: Error & { digest?: string };
@@ -21,9 +21,9 @@ export default function ErrorPage({ error, reset }: ErrorPageProps) {
     console.error("[RUNTIME_ERROR_BOUNDARY]", error);
   }, [error]);
 
-  const reportWhatsAppUrl = `https://wa.me/${STORE_WHATSAPP.replace(/\+/g, "")}?text=${encodeURIComponent(
+  const reportWhatsAppUrl = buildGeneralWhatsAppUrl(
     "Hi MuscleWorks Support, I encountered a technical issue on the website while browsing. Please assist."
-  )}`;
+  );
 
   return (
     <div className="min-h-[80vh] w-full flex items-center justify-center px-4 py-12 sm:px-6 lg:px-8">

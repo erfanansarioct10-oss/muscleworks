@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import { useForm } from 'react-hook-form';
+import React, { useState, useEffect, useRef } from 'react';
+import { useForm, useWatch } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { toast } from 'sonner';
 import {
@@ -70,12 +70,13 @@ export function InquiryForm({
   } | null>(null);
 
   const [customCity, setCustomCity] = useState('');
+  const isSubmittingLockRef = useRef(false);
 
   const {
     register,
     handleSubmit,
     setValue,
-    watch,
+    control,
     reset,
     formState: { errors, isSubmitting },
   } = useForm<InquiryFormClientValues>({
@@ -92,7 +93,7 @@ export function InquiryForm({
       deliveryCity: 'Kathmandu',
       productContext: productContext || undefined,
       hp_field: '',
-      _form_loaded_at: Date.now(),
+      _form_loaded_at: 0,
     },
   });
 
@@ -101,11 +102,13 @@ export function InquiryForm({
     setValue('_form_loaded_at', Date.now());
   }, [setValue]);
 
-  const selectedInquiryType = watch('inquiryType');
-  const selectedContactMethod = watch('preferredContactMethod');
-  const selectedDeliveryCity = watch('deliveryCity');
+  const selectedInquiryType = useWatch({ control, name: 'inquiryType' });
+  const selectedContactMethod = useWatch({ control, name: 'preferredContactMethod' });
+  const selectedDeliveryCity = useWatch({ control, name: 'deliveryCity' });
 
   const onSubmit = async (values: InquiryFormClientValues) => {
+    if (isSubmittingLockRef.current) return;
+    isSubmittingLockRef.current = true;
     try {
       // If user selected 'Other' for city, require a non-empty custom city
       if (values.deliveryCity === 'Other' && !customCity.trim()) {
@@ -145,6 +148,8 @@ export function InquiryForm({
     } catch (err) {
       console.error('[InquiryForm Submit Error]:', err);
       toast.error('An unexpected client error occurred. Please try again or contact us via WhatsApp.');
+    } finally {
+      isSubmittingLockRef.current = false;
     }
   };
 
@@ -215,7 +220,10 @@ export function InquiryForm({
   // ── INQUIRY FORM VIEW ──
   return (
     <form
-      onSubmit={handleSubmit(onSubmit)}
+      onSubmit={(e) => {
+        e.preventDefault();
+        void handleSubmit(onSubmit)(e);
+      }}
       className={cn('space-y-5 rounded-2xl border border-border bg-card p-6 shadow-xl sm:p-8', className)}
       noValidate
     >
@@ -252,7 +260,8 @@ export function InquiryForm({
         type="text"
         tabIndex={-1}
         aria-hidden="true"
-        autoComplete="off"
+        autoComplete="nope"
+        data-lpignore="true"
         className="absolute -left-[9999px] opacity-0 h-0 w-0 pointer-events-none"
         {...register('hp_field')}
       />

@@ -12,12 +12,20 @@ export const SILENT_SPAM_SUCCESS_RESPONSE: ActionResult<{ inquiryId: string }> =
 
 /**
  * Checks if the honeypot field (`hp_field`) has been populated by a bot script.
+ * Catches empty strings, undefined, null as valid human submissions, while flagging
+ * non-empty strings, arrays, objects, numbers, and booleans as automated bot evasion attempts.
  *
  * @param hpField The value of the hidden honeypot input field
- * @returns true if honeypot is triggered (non-empty string), false otherwise
+ * @returns true if honeypot is triggered, false otherwise
  */
-export function isHoneypotTriggered(hpField?: string): boolean {
-  return typeof hpField === 'string' && hpField.trim().length > 0;
+export function isHoneypotTriggered(hpField?: unknown): boolean {
+  if (hpField === undefined || hpField === null || hpField === '') {
+    return false;
+  }
+  if (typeof hpField === 'string') {
+    return hpField.trim().length > 0;
+  }
+  return true; // Any non-empty non-string value is suspicious/bot activity
 }
 
 /**
@@ -40,12 +48,24 @@ export function isTimingTrapTriggered(
   const now = Date.now();
   const elapsed = now - formLoadedAt;
 
-  // Triggered if submitted faster than minDurationMs or if timestamp is in future (> 5s skew)
-  return elapsed < minDurationMs || elapsed < -5000 || formLoadedAt > now + 5000;
+  // Allow realistic client clock skew tolerance (up to 120 seconds into future)
+  const MAX_CLOCK_SKEW_MS = 120000;
+  if (formLoadedAt > now + MAX_CLOCK_SKEW_MS) {
+    return true; // Extreme future timestamp indicates automated spambot
+  }
+
+  // If elapsed time is positive, enforce minDurationMs.
+  // If negative but within the clock-skew window, allow submission to avoid dropping genuine leads.
+  if (elapsed >= 0 && elapsed < minDurationMs) {
+    return true;
+  }
+
+  return false;
 }
 
 /**
  * Strips HTML tags, inline JavaScript schemes, and dangerous event handlers from a text string.
+ * Iteratively removes HTML tags to prevent tag evasion while preserving mathematical/comparison brackets (<5kg, >30g).
  *
  * @param input Raw text string from form submission
  * @returns Sanitized text string safe for Markdown and HTML rendering
@@ -53,8 +73,14 @@ export function isTimingTrapTriggered(
 export function sanitizeTextInput(input: string): string {
   if (!input) return '';
 
-  return input
-    .replace(/<[^>]*>/g, '') // Strip HTML tags
+  let sanitized = input;
+  // Iteratively strip valid HTML tags (including nested evasion attempts)
+  const htmlTagRegex = /<(?:\/?[a-zA-Z][a-zA-Z0-9]*(?:\s+[^>]*)?|\!--[\s\S]*?--)>/gi;
+  while (htmlTagRegex.test(sanitized)) {
+    sanitized = sanitized.replace(htmlTagRegex, '');
+  }
+
+  return sanitized
     .replace(/javascript:/gi, '') // Strip inline js schemes
     .replace(/data:/gi, '') // Strip data URIs
     .replace(/on\w+\s*=/gi, '') // Strip inline event handlers (e.g. onerror=, onload=)
@@ -91,10 +117,17 @@ export function sanitizePayload<T extends Record<string, unknown>>(payload: T): 
  * @returns Object containing isSpam boolean and optional silent success response
  */
 export function verifySecurityContext(payload: {
-  hp_field?: string;
-  _form_loaded_at?: number;
+  hp_field?: unknown;
+  _form_loaded_at?: unknown;
 }): { isSpam: boolean; silentResponse?: ActionResult<{ inquiryId: string }> } {
-  if (isHoneypotTriggered(payload.hp_field) || isTimingTrapTriggered(payload._form_loaded_at)) {
+  const formLoadedAt =
+    typeof payload._form_loaded_at === 'number'
+      ? payload._form_loaded_at
+      : typeof payload._form_loaded_at === 'string'
+        ? Number(payload._form_loaded_at)
+        : undefined;
+
+  if (isHoneypotTriggered(payload.hp_field) || isTimingTrapTriggered(formLoadedAt)) {
     return {
       isSpam: true,
       silentResponse: SILENT_SPAM_SUCCESS_RESPONSE,

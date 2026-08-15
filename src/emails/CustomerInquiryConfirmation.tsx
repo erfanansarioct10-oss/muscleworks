@@ -12,6 +12,7 @@ import {
   Button,
   Preview,
 } from '@react-email/components';
+import { STORE_PHONE, STORE_WHATSAPP } from '../lib/constants';
 
 export interface CustomerInquiryConfirmationProps {
   inquiryId: string;
@@ -28,7 +29,7 @@ export interface CustomerInquiryConfirmationProps {
 export const CustomerInquiryConfirmation = ({
   inquiryId = 'INQ-1001',
   fullName = 'Valued Customer',
-  phoneNumber = '+977 9801234567',
+  phoneNumber = '+977 981-9877070',
   inquiryType = 'general',
   message = 'I would like to check stock availability and delivery to Golfutar.',
   deliveryCity = 'Kathmandu',
@@ -37,6 +38,7 @@ export const CustomerInquiryConfirmation = ({
   priceFormatted,
 }: CustomerInquiryConfirmationProps) => {
   const previewText = `Namaste ${fullName}! Your inquiry #${inquiryId} has been received by MUSCLEWORKS SUPPLEMENTS Nepal.`;
+  const sanitizedWhatsApp = STORE_WHATSAPP.replace(/\D/g, '');
 
   return (
     <Html lang="en">
@@ -119,7 +121,7 @@ export const CustomerInquiryConfirmation = ({
           {/* Quick Action Button */}
           <Section style={actionSectionStyle}>
             <Button
-              href="https://wa.me/9779801234567"
+              href={`https://wa.me/${sanitizedWhatsApp}`}
               style={whatsappButtonStyle}
             >
               💬 Need Urgent Help? Chat via WhatsApp
@@ -137,10 +139,10 @@ export const CustomerInquiryConfirmation = ({
               Golfutar, Budha-Nilkantha, Kathmandu (44500), Nepal
             </Text>
             <Text style={footerSubtextStyle}>
-              Opening Hours: Sun–Fri 10:00 AM – 9:00 PM | Sat: Contact Store
+              Opening Hours: Sun–Fri 10:00 AM – 8:00 PM | Sat: Contact Store
             </Text>
             <Text style={footerSubtextStyle}>
-              Phone: +977 9801234567 | Web: {' '}
+              Phone: {STORE_PHONE} | Web: {' '}
               <Link href="https://muscleworksnepal.com" style={linkStyle}>
                 muscleworksnepal.com
               </Link>

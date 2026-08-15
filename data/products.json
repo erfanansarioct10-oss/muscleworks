@@ -42,12 +42,12 @@
     },
     "images": [
       {
-        "url": "/images/products/on-gold-standard-whey-choc.webp",
+        "url": "/images/products/on-gold-standard-whey-choc.svg",
         "alt": "ON Gold Standard 100% Whey Double Rich Chocolate 5lbs Tub Nepal",
         "isPrimary": true
       },
       {
-        "url": "/images/products/on-gold-standard-whey-vanilla.webp",
+        "url": "/images/products/on-gold-standard-whey-vanilla.svg",
         "alt": "ON Gold Standard 100% Whey Vanilla Ice Cream",
         "isPrimary": false
       }
@@ -64,7 +64,7 @@
         "stockStatus": "in_stock",
         "inStockQuantity": 25,
         "image": {
-          "url": "/images/products/on-gold-standard-whey-choc.webp",
+          "url": "/images/products/on-gold-standard-whey-choc.svg",
           "alt": "ON Gold Standard Whey 5lbs Double Rich Chocolate",
           "isPrimary": true
         }
@@ -151,7 +151,7 @@
     },
     "images": [
       {
-        "url": "/images/products/muscletech-nitrotech-milk-choc.webp",
+        "url": "/images/products/muscletech-nitrotech-milk-choc.svg",
         "alt": "MuscleTech NitroTech Milk Chocolate 4lbs Tub Nepal",
         "isPrimary": true
       }
@@ -238,7 +238,7 @@
     },
     "images": [
       {
-        "url": "/images/products/dymatize-iso100-gourmet-choc.webp",
+        "url": "/images/products/dymatize-iso100-gourmet-choc.svg",
         "alt": "Dymatize ISO 100 Gourmet Chocolate 5lbs Tub Nepal",
         "isPrimary": true
       }
@@ -325,7 +325,7 @@
     },
     "images": [
       {
-        "url": "/images/products/myprotein-impact-whey-2.5kg.webp",
+        "url": "/images/products/myprotein-impact-whey-2.5kg.svg",
         "alt": "MyProtein Impact Whey Protein 2.5kg Pouch Nepal",
         "isPrimary": true
       }
@@ -401,7 +401,7 @@
     },
     "images": [
       {
-        "url": "/images/products/rule1-r1-protein-choc.webp",
+        "url": "/images/products/rule1-r1-protein-choc.svg",
         "alt": "Rule 1 R1 Protein Isolate 5lbs Tub Nepal",
         "isPrimary": true
       }
@@ -476,7 +476,7 @@
     },
     "images": [
       {
-        "url": "/images/products/kevin-levrone-gold-creatine-300g.webp",
+        "url": "/images/products/kevin-levrone-gold-creatine-300g.svg",
         "alt": "Kevin Levrone Gold Creatine 300g Container Nepal",
         "isPrimary": true
       }
@@ -546,7 +546,7 @@
     },
     "images": [
       {
-        "url": "/images/products/muscletech-platinum-creatine.webp",
+        "url": "/images/products/muscletech-platinum-creatine.svg",
         "alt": "MuscleTech Platinum 100% Creatine Tub Nepal",
         "isPrimary": true
       }
@@ -615,7 +615,7 @@
     },
     "images": [
       {
-        "url": "/images/products/on-creatine-300g.webp",
+        "url": "/images/products/on-creatine-300g.svg",
         "alt": "ON Micronized Creatine Powder 300g Nepal",
         "isPrimary": true
       }
@@ -691,7 +691,7 @@
     },
     "images": [
       {
-        "url": "/images/products/on-serious-mass-12lb.webp",
+        "url": "/images/products/on-serious-mass-12lb.svg",
         "alt": "ON Serious Mass 12lbs Bag Chocolate Nepal",
         "isPrimary": true
       }
@@ -775,7 +775,7 @@
     },
     "images": [
       {
-        "url": "/images/products/labrada-mass-gainer-12lb.webp",
+        "url": "/images/products/labrada-mass-gainer-12lb.svg",
         "alt": "Labrada Muscle Mass Gainer 12lbs Bag Nepal",
         "isPrimary": true
       }
@@ -847,7 +847,7 @@
     },
     "images": [
       {
-        "url": "/images/products/cellucor-c4-fruit-punch.webp",
+        "url": "/images/products/cellucor-c4-fruit-punch.svg",
         "alt": "Cellucor C4 Original Pre-Workout Fruit Punch 30 Servings Nepal",
         "isPrimary": true
       }
@@ -927,7 +927,7 @@
     },
     "images": [
       {
-        "url": "/images/products/psychotic-gold.webp",
+        "url": "/images/products/psychotic-gold.svg",
         "alt": "Psychotic Gold Pre-Workout 30 Servings Nepal",
         "isPrimary": true
       }
@@ -1002,7 +1002,7 @@
     },
     "images": [
       {
-        "url": "/images/products/animal-pak-44packs.webp",
+        "url": "/images/products/animal-pak-44packs.svg",
         "alt": "Universal Nutrition Animal Pak 44 Packs Tin Can Nepal",
         "isPrimary": true
       }
@@ -1075,7 +1075,7 @@
     },
     "images": [
       {
-        "url": "/images/products/musclepharm-fish-oil.webp",
+        "url": "/images/products/musclepharm-fish-oil.svg",
         "alt": "MusclePharm Fish Oil 100 Softgels Nepal",
         "isPrimary": true
       }
@@ -1149,7 +1149,7 @@
     },
     "images": [
       {
-        "url": "/images/products/scivation-xtend-blue-raspberry.webp",
+        "url": "/images/products/scivation-xtend-blue-raspberry.svg",
         "alt": "Scivation Xtend Original BCAA Blue Raspberry Ice 30 Servings Nepal",
         "isPrimary": true
       }

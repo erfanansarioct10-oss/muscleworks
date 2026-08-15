@@ -26,8 +26,8 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#09090b",
-  colorScheme: "dark",
+  themeColor: "#fcfcfc",
+  colorScheme: "light",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -74,7 +74,7 @@ export const metadata: Metadata = {
     description: STORE_DESCRIPTION,
     images: [
       {
-        url: "/images/og-default.jpg",
+        url: "/images/og-default.svg",
         width: 1200,
         height: 630,
         alt: `${STORE_NAME} — 100% Genuine Sports Nutrition in Nepal`,
@@ -85,7 +85,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${STORE_NAME} | Genuine Supplements Nepal`,
     description: STORE_DESCRIPTION,
-    images: ["/images/og-default.jpg"],
+    images: ["/images/og-default.svg"],
   },
   robots: {
     index: true,

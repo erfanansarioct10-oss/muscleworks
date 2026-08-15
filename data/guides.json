@@ -5,7 +5,7 @@
     "excerpt": "Learn how to inspect authorized national importer holographic seals, scratch-off security QR codes, and tamper-evident packaging to avoid counterfeit supplements in Nepal.",
     "category": "authenticity_guide",
     "coverImage": {
-      "url": "/images/guides/authenticity-guide-cover.webp",
+      "url": "/images/guides/authenticity-guide-cover.svg",
       "alt": "Authorized Importer Hologram Verification Seal on Supplement Tub",
       "width": 1200,
       "height": 630,
@@ -14,7 +14,7 @@
     "author": {
       "name": "MUSCLEWORKS Verification Desk",
       "role": "Authorized Importer Quality & Authenticity Team",
-      "avatar": "/images/authors/muscleworks-team.webp",
+      "avatar": "/images/authors/muscleworks-team.svg",
       "bio": "Expert authenticity verification specialists dedicated to eradicating fake supplements in Nepal."
     },
     "publishedDate": "2026-08-01",
@@ -56,7 +56,7 @@
     "excerpt": "Discover the key differences in purity, lactose digestion, macro profiles, and NPR pricing between Whey Isolate blends and pure Concentrates.",
     "category": "buying_guide",
     "coverImage": {
-      "url": "/images/guides/whey-isolate-vs-concentrate-cover.webp",
+      "url": "/images/guides/whey-isolate-vs-concentrate-cover.svg",
       "alt": "Whey Protein Isolate and Concentrate Powder Scoops",
       "width": 1200,
       "height": 630,
@@ -65,7 +65,7 @@
     "author": {
       "name": "Bikash Shrestha",
       "role": "Certified Sports Nutrition Specialist",
-      "avatar": "/images/authors/bikash-shrestha.webp",
+      "avatar": "/images/authors/bikash-shrestha.svg",
       "bio": "Kathmandu-based fitness practitioner and nutrition consultant specializing in physique hypertrophy."
     },
     "publishedDate": "2026-08-05",
@@ -96,7 +96,7 @@
     "excerpt": "Everything you need to know about Creatine Monohydrate dosage, hydration requirements, strength gains, and timing strategies for fitness enthusiasts in Nepal.",
     "category": "supplement_education",
     "coverImage": {
-      "url": "/images/guides/creatine-monohydrate-guide-cover.webp",
+      "url": "/images/guides/creatine-monohydrate-guide-cover.svg",
       "alt": "Creatine Monohydrate Micronized Powder and Water Shaker",
       "width": 1200,
       "height": 630,
@@ -105,7 +105,7 @@
     "author": {
       "name": "Bikash Shrestha",
       "role": "Certified Sports Nutrition Specialist",
-      "avatar": "/images/authors/bikash-shrestha.webp",
+      "avatar": "/images/authors/bikash-shrestha.svg",
       "bio": "Kathmandu-based fitness practitioner and nutrition consultant specializing in physique hypertrophy."
     },
     "publishedDate": "2026-08-08",

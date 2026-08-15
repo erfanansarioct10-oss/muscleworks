@@ -10,6 +10,7 @@ import { ProductAuthenticityBadge } from './product-authenticity-badge';
 import { Badge } from '@/components/ui/badge';
 
 import { buildProductWhatsAppUrl } from '@/lib/whatsapp';
+import { DEFAULT_PRODUCT_PLACEHOLDER } from '@/lib/constants';
 
 export interface ProductCardProps {
   product: Product;
@@ -50,7 +51,7 @@ export function ProductCard({
     product.variants[0];
 
   const mainImage = product.images[0] || {
-    url: '/images/products/placeholder.jpg',
+    url: DEFAULT_PRODUCT_PLACEHOLDER,
     alt: product.name,
   };
 

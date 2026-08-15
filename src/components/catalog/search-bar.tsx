@@ -36,16 +36,18 @@ export function SearchBar({
   React.useEffect(() => {
     let cancelled = false;
     const trimmed = query.trim();
+
     if (!trimmed) {
-      const timer = setTimeout(() => {
-        if (cancelled) return;
-        setResults([]);
-        setIsLoading(false);
-        setIsOpen(false);
+      const emptyTimer = setTimeout(() => {
+        if (!cancelled) {
+          setResults([]);
+          setIsLoading(false);
+          setIsOpen(false);
+        }
       }, 0);
       return () => {
         cancelled = true;
-        clearTimeout(timer);
+        clearTimeout(emptyTimer);
       };
     }
 
@@ -104,6 +106,12 @@ export function SearchBar({
       addRecentSearch(query);
       if (onSelectResult) onSelectResult();
       router.push(`/products/${target.product.slug}`);
+    } else if (e.key === "Enter" && query.trim()) {
+      e.preventDefault();
+      addRecentSearch(query.trim());
+      setIsOpen(false);
+      if (onSelectResult) onSelectResult();
+      router.push(`/products?search=${encodeURIComponent(query.trim())}`);
     }
   };
 

@@ -34,10 +34,11 @@ const SUPPLEMENT_CATEGORIES = [
 ] as const;
 
 const LEGAL_LINKS = [
-  { label: "Privacy Policy", href: "/privacy-policy" },
+  { label: "Authenticity Guarantee", href: "/authenticity" },
+  { label: "Shipping & Delivery", href: "/shipping" },
+  { label: "Return Policy", href: "/returns" },
+  { label: "Privacy Policy", href: "/privacy" },
   { label: "Terms of Service", href: "/terms" },
-  { label: "Delivery & Returns", href: "/delivery-policy" },
-  { label: "Authenticity Disclaimer", href: "/disclaimer" },
 ] as const;
 
 
@@ -63,6 +64,7 @@ export function Footer() {
                   src="/brnding-assets/logo.webp"
                   alt={STORE_NAME}
                   fill
+                  sizes="(max-width: 640px) 240px, 288px"
                   className="object-contain object-left transition-transform group-hover:scale-105"
                 />
               </div>

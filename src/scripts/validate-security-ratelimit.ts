@@ -38,6 +38,10 @@ async function runValidation() {
   assert(isHoneypotTriggered('   spam   ') === true, 'Whitespace padded hp_field triggers honeypot');
   assert(isHoneypotTriggered('') === false, 'Empty hp_field passes honeypot');
   assert(isHoneypotTriggered(undefined) === false, 'Undefined hp_field passes honeypot');
+  assert(isHoneypotTriggered(null) === false, 'Null hp_field passes honeypot');
+  assert(isHoneypotTriggered(['bot_array']) === true, 'Array payload triggers honeypot');
+  assert(isHoneypotTriggered({ bot: true }) === true, 'Object payload triggers honeypot');
+  assert(isHoneypotTriggered(123) === true, 'Numeric payload triggers honeypot');
 
   // TEST SUITE 2: Submission Timing Trap
   console.log('\n▶ Test Group 2: Submission Timing Trap');
@@ -45,7 +49,8 @@ async function runValidation() {
   assert(isTimingTrapTriggered(now - 100) === true, 'Submission in 100ms triggers timing trap (<2000ms)');
   assert(isTimingTrapTriggered(now - 1500) === true, 'Submission in 1500ms triggers timing trap (<2000ms)');
   assert(isTimingTrapTriggered(now - 2500) === false, 'Submission in 2500ms passes timing trap');
-  assert(isTimingTrapTriggered(now + 10000) === true, 'Future submission timestamp (>5s skew) triggers timing trap');
+  assert(isTimingTrapTriggered(now + 10000) === false, 'Submission within 120s clock skew tolerance passes timing trap');
+  assert(isTimingTrapTriggered(now + 130000) === true, 'Extreme future submission timestamp (>120s skew) triggers timing trap');
   assert(isTimingTrapTriggered(undefined) === true, 'Missing _form_loaded_at triggers timing trap');
 
   // TEST SUITE 3: Combined Security Context Verification

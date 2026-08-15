@@ -29,9 +29,9 @@ import {
   STORE_NAME,
   STORE_PHONE,
   STORE_PHONE_RAW,
-  STORE_WHATSAPP,
   STORE_HOURS,
 } from "@/lib/constants";
+import { buildGeneralWhatsAppUrl } from "@/lib/whatsapp";
 
 const CATEGORY_ITEMS = [
   {
@@ -87,9 +87,9 @@ const TRUST_NAV_ITEMS = [
 
 export function MobileNav() {
   const [open, setOpen] = React.useState(false);
-  const whatsappUrl = `https://wa.me/${STORE_WHATSAPP.replace(/\+/g, "")}?text=${encodeURIComponent(
+  const whatsappUrl = buildGeneralWhatsAppUrl(
     "Hello MuscleWorks Nepal! I would like to inquire about authentic supplements and stock availability."
-  )}`;
+  );
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
@@ -115,6 +115,7 @@ export function MobileNav() {
                 src="/brnding-assets/logo.webp"
                 alt={STORE_NAME}
                 fill
+                sizes="240px"
                 className="object-contain object-left"
                 priority
               />

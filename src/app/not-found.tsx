@@ -10,9 +10,9 @@ import {
   Flame,
 } from "lucide-react";
 import {
-  STORE_WHATSAPP,
   STORE_LOCATION,
 } from "@/lib/constants";
+import { buildGeneralWhatsAppUrl } from "@/lib/whatsapp";
 
 const CATEGORY_SHORTCUTS = [
   { label: "Whey Proteins", href: "/categories/proteins", icon: Dumbbell },
@@ -24,9 +24,9 @@ const CATEGORY_SHORTCUTS = [
 
 
 export default function NotFound() {
-  const whatsappUrl = `https://wa.me/${STORE_WHATSAPP.replace(/\+/g, "")}?text=${encodeURIComponent(
+  const whatsappUrl = buildGeneralWhatsAppUrl(
     "Hi MuscleWorks, I landed on a missing page on your website and need help finding a product."
-  )}`;
+  );
 
   return (
     <div className="min-h-[80vh] w-full flex items-center justify-center px-4 py-12 sm:px-6 lg:px-8">

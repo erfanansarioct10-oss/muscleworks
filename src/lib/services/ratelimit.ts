@@ -10,22 +10,47 @@ interface InMemoryLimitRecord {
   expiresAt: number;
 }
 
+const MAX_IN_MEMORY_ENTRIES = 10000;
 const inMemoryCache = new Map<string, InMemoryLimitRecord>();
+let cachedRedis: Redis | null = null;
+const ratelimitInstances = new Map<string, Ratelimit>();
+
+function pruneExpiredInMemoryRecords(): void {
+  const now = Date.now();
+  if (inMemoryCache.size > MAX_IN_MEMORY_ENTRIES / 2) {
+    for (const [key, record] of inMemoryCache.entries()) {
+      if (now > record.expiresAt) {
+        inMemoryCache.delete(key);
+      }
+    }
+  }
+
+  // If map still exceeds maximum entries after purging expired keys, remove oldest keys
+  if (inMemoryCache.size >= MAX_IN_MEMORY_ENTRIES) {
+    const keysToDelete = Array.from(inMemoryCache.keys()).slice(0, 1000);
+    for (const key of keysToDelete) {
+      inMemoryCache.delete(key);
+    }
+  }
+}
 
 /**
  * Helper to extract client IP address from Next.js request headers.
- * Resolves x-forwarded-for (first IP), x-real-ip, cf-connecting-ip, or defaults to 127.0.0.1.
+ * Resolves trusted edge headers (x-vercel-ip, cf-connecting-ip, x-real-ip), rightmost x-forwarded-for, or defaults to 127.0.0.1.
  */
 export async function getClientIp(): Promise<string> {
   try {
     const headerList = await headers();
     
-    const forwardedFor = headerList.get('x-forwarded-for');
-    if (forwardedFor) {
-      const ips = forwardedFor.split(',').map((ip) => ip.trim());
-      if (ips.length > 0 && ips[0]) {
-        return ips[0];
-      }
+    // Check trusted edge headers first (Vercel, Cloudflare, standard reverse proxies)
+    const vercelIp = headerList.get('x-vercel-ip');
+    if (vercelIp && vercelIp.trim()) {
+      return vercelIp.trim();
+    }
+
+    const cfIp = headerList.get('cf-connecting-ip');
+    if (cfIp && cfIp.trim()) {
+      return cfIp.trim();
     }
 
     const realIp = headerList.get('x-real-ip');
@@ -33,9 +58,16 @@ export async function getClientIp(): Promise<string> {
       return realIp.trim();
     }
 
-    const cfIp = headerList.get('cf-connecting-ip');
-    if (cfIp && cfIp.trim()) {
-      return cfIp.trim();
+    const forwardedFor = headerList.get('x-forwarded-for');
+    if (forwardedFor) {
+      const ips = forwardedFor.split(',').map((ip) => ip.trim()).filter(Boolean);
+      if (ips.length > 0) {
+        // Use rightmost IP from reverse proxy chain to prevent client header spoofing
+        const rightmostIp = ips[ips.length - 1];
+        if (rightmostIp) {
+          return rightmostIp;
+        }
+      }
     }
   } catch {
     // Called outside Next.js request scope (e.g. standalone scripts or test suite)
@@ -77,13 +109,20 @@ export async function checkRateLimit(
 
   if (hasUpstashKeys) {
     try {
-      const redis = Redis.fromEnv();
-      const ratelimit = new Ratelimit({
-        redis,
-        limiter: Ratelimit.slidingWindow(maxRequests, `${windowSeconds} s`),
-        analytics: true,
-        prefix: `@muscleworks/ratelimit`,
-      });
+      if (!cachedRedis) {
+        cachedRedis = Redis.fromEnv();
+      }
+      const cacheKey = `${maxRequests}:${windowSeconds}`;
+      let ratelimit = ratelimitInstances.get(cacheKey);
+      if (!ratelimit) {
+        ratelimit = new Ratelimit({
+          redis: cachedRedis,
+          limiter: Ratelimit.slidingWindow(maxRequests, `${windowSeconds} s`),
+          analytics: true,
+          prefix: `@muscleworks/ratelimit`,
+        });
+        ratelimitInstances.set(cacheKey, ratelimit);
+      }
 
       const result = await ratelimit.limit(identifier);
       return {
@@ -127,6 +166,7 @@ function checkInMemoryRateLimit(
   maxRequests: number,
   windowSeconds: number
 ): RateLimitResult {
+  pruneExpiredInMemoryRecords();
   const now = Date.now();
   const windowMs = windowSeconds * 1000;
   const record = inMemoryCache.get(identifier);

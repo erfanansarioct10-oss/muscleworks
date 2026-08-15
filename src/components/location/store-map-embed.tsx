@@ -1,5 +1,3 @@
-'use client';
-
 import { MapPin, Navigation, ExternalLink, Car } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import rawStoreData from '@/data/store-info.json';

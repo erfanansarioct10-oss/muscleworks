@@ -127,12 +127,14 @@ export async function isStoreOpenNow(): Promise<{
       timeZone: 'Asia/Kathmandu',
       hour: 'numeric',
       minute: 'numeric',
-      hour12: false,
+      hourCycle: 'h23',
     }).formatToParts(now);
 
     const hourStr = kathmanduTimeParts.find((p) => p.type === 'hour')?.value || '0';
     const minStr = kathmanduTimeParts.find((p) => p.type === 'minute')?.value || '0';
-    const currentMinutes = parseInt(hourStr, 10) * 60 + parseInt(minStr, 10);
+    const parsedHour = parseInt(hourStr, 10);
+    const normalizedHour = parsedHour === 24 ? 0 : parsedHour;
+    const currentMinutes = normalizedHour * 60 + parseInt(minStr, 10);
 
     const isOpen =
       openMinutes <= closeMinutes

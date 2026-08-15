@@ -12,9 +12,10 @@ export async function BrandsMarquee() {
     return null;
   }
 
-  // Strictly filter ONLY brands that have valid image logo files on disk (the 5 provided brand marks)
+  // Strictly filter ONLY brands that have genuine provided image logos (excluding SVG text placeholders)
   const logoBrands = allBrands.filter((brand) => {
     if (!brand.logo?.url) return false;
+    if (brand.logo.url.endsWith('.svg')) return false;
     const fullPath = path.join(process.cwd(), 'public', brand.logo.url);
     return fs.existsSync(fullPath);
   });
@@ -23,8 +24,10 @@ export async function BrandsMarquee() {
     return null;
   }
 
-  // Repeat the 5 brand logo marks to create a continuous, smooth infinite marquee loop
+  // Repeat the 5 brand logo marks 6 times (30 items total) to create a continuous, smooth infinite marquee loop
   const marqueeItems = [
+    ...logoBrands,
+    ...logoBrands,
     ...logoBrands,
     ...logoBrands,
     ...logoBrands,

@@ -21,12 +21,21 @@ export interface TelegramInquiryAlertPayload {
 }
 
 /**
- * Escapes reserved Telegram MarkdownV2 characters.
- * Reserved: _ * [ ] ( ) ~ ` > # + - = | { } . !
+ * Escapes reserved Telegram MarkdownV2 characters for normal text entities.
+ * Reserved: _ * [ ] ( ) ~ ` > # + - = | { } . ! \
  */
 export function escapeMarkdownV2(text: string): string {
   if (!text) return '';
   return text.replace(/[-_*[\]()~`>#+=|{}.!\\]/g, '\\$&');
+}
+
+/**
+ * Escapes reserved Telegram MarkdownV2 characters inside `code` and `pre` entities.
+ * According to Telegram Bot API specification, only ` and \ need to be escaped in code blocks.
+ */
+export function escapeMarkdownV2Code(text: string): string {
+  if (!text) return '';
+  return text.replace(/[`\\]/g, '\\$&');
 }
 
 /**
@@ -39,7 +48,7 @@ export function buildTelegramMarkdownMessage(payload: TelegramInquiryAlertPayloa
   
   const customerDetails = [
     `👤 *Name:* ${escapeMarkdownV2(payload.fullName)}`,
-    `📞 *Phone:* \`${escapeMarkdownV2(payload.phoneNumber)}\``,
+    `📞 *Phone:* \`${escapeMarkdownV2Code(payload.phoneNumber)}\``,
     payload.email ? `📧 *Email:* ${escapeMarkdownV2(payload.email)}` : null,
     `📍 *Delivery City:* ${escapeMarkdownV2(payload.deliveryCity || 'Kathmandu')}`,
     `💬 *Contact Method:* ${escapeMarkdownV2(payload.preferredContactMethod || 'whatsapp')}`,
@@ -54,7 +63,7 @@ export function buildTelegramMarkdownMessage(payload: TelegramInquiryAlertPayloa
     const lines = [
       `📦 *Product:* ${escapeMarkdownV2(pc.productName)}`,
       pc.variantLabel ? `⚖️ *Variant:* ${escapeMarkdownV2(pc.variantLabel)}` : null,
-      pc.variantSku ? `🆔 *SKU:* \`${escapeMarkdownV2(pc.variantSku)}\`` : null,
+      pc.variantSku ? `🆔 *SKU:* \`${escapeMarkdownV2Code(pc.variantSku)}\`` : null,
       pc.priceNpr ? `💰 *Price:* ${escapeMarkdownV2(formatNprPrice(pc.priceNpr))}` : null,
     ].filter(Boolean);
 
@@ -63,7 +72,7 @@ export function buildTelegramMarkdownMessage(payload: TelegramInquiryAlertPayloa
 
   const messageSection = `\n📝 *Customer Message:*\n"${escapeMarkdownV2(payload.message)}"`;
   
-  const footer = `\n🆔 *Inquiry ID:* \`${escapeMarkdownV2(payload.inquiryId)}\`\n⏰ *Submitted:* ${escapeMarkdownV2(timestamp)}`;
+  const footer = `\n🆔 *Inquiry ID:* \`${escapeMarkdownV2Code(payload.inquiryId)}\`\n⏰ *Submitted:* ${escapeMarkdownV2(timestamp)}`;
 
   return `${header}\n\n${customerDetails}${productDetails}\n${messageSection}\n${footer}`;
 }

@@ -209,16 +209,23 @@ export function CatalogFilters({ categories, className }: CatalogFiltersProps) {
             return (
               <label
                 key={category.id}
-                onClick={() => handleToggleCategory(category.slug)}
                 className="flex items-center gap-3 py-1.5 px-2 rounded-md hover:bg-neutral-50 cursor-pointer min-h-11 touch-manipulation group"
               >
+                <input
+                  type="checkbox"
+                  checked={isChecked}
+                  onChange={() => handleToggleCategory(category.slug)}
+                  className="sr-only"
+                  aria-label={`Filter by category ${category.name}`}
+                />
                 <div
                   className={cn(
-                    'flex h-4 w-4 shrink-0 items-center justify-center rounded-sm border transition-colors',
+                    'flex h-4 w-4 shrink-0 items-center justify-center rounded-sm border transition-colors group-focus-within:ring-2 group-focus-within:ring-neutral-900 group-focus-within:ring-offset-1',
                     isChecked
                       ? 'border-neutral-900 bg-neutral-900 text-white'
                       : 'border-neutral-300 bg-white group-hover:border-neutral-400'
                   )}
+                  aria-hidden="true"
                 >
                   {isChecked && <Check className="h-3 w-3" />}
                 </div>
@@ -244,16 +251,23 @@ export function CatalogFilters({ categories, className }: CatalogFiltersProps) {
             return (
               <label
                 key={goal.id}
-                onClick={() => handleToggleGoal(goal.id)}
                 className="flex items-center gap-3 py-1.5 px-2 rounded-md hover:bg-neutral-50 cursor-pointer min-h-11 touch-manipulation group"
               >
+                <input
+                  type="checkbox"
+                  checked={isChecked}
+                  onChange={() => handleToggleGoal(goal.id)}
+                  className="sr-only"
+                  aria-label={`Filter by fitness goal ${goal.name}`}
+                />
                 <div
                   className={cn(
-                    'flex h-4 w-4 shrink-0 items-center justify-center rounded-sm border transition-colors',
+                    'flex h-4 w-4 shrink-0 items-center justify-center rounded-sm border transition-colors group-focus-within:ring-2 group-focus-within:ring-neutral-900 group-focus-within:ring-offset-1',
                     isChecked
                       ? 'border-neutral-900 bg-neutral-900 text-white'
                       : 'border-neutral-300 bg-white group-hover:border-neutral-400'
                   )}
+                  aria-hidden="true"
                 >
                   {isChecked && <Check className="h-3 w-3" />}
                 </div>
@@ -340,17 +354,26 @@ export function CatalogFilters({ categories, className }: CatalogFiltersProps) {
       {/* 4. Availability Facet (In-Stock Only) */}
       <div className="pt-1">
         <label
-          onClick={handleToggleInStock}
           className="flex items-center justify-between py-2 px-2 rounded-md hover:bg-neutral-50 cursor-pointer min-h-11 touch-manipulation group"
         >
+          <input
+            type="checkbox"
+            role="switch"
+            aria-checked={inStockOnly}
+            checked={inStockOnly}
+            onChange={handleToggleInStock}
+            className="sr-only"
+            aria-label="Filter in-stock supplements only"
+          />
           <span className="text-sm font-medium text-neutral-800 group-hover:text-neutral-900">
             In-Stock Only
           </span>
           <div
             className={cn(
-              'relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none',
+              'relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out group-focus-within:ring-2 group-focus-within:ring-neutral-900 group-focus-within:ring-offset-1',
               inStockOnly ? 'bg-emerald-600' : 'bg-neutral-200'
             )}
+            aria-hidden="true"
           >
             <span
               className={cn(

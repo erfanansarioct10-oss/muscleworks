@@ -7,7 +7,7 @@
     "longDescription": "Explore 100% authentic imported whey protein powders in Nepal from top global brands like Optimum Nutrition, MuscleTech, and Dymatize. Sourced directly via authorized distributors with scratch-code hologram verification stickers.",
     "icon": "Dumbbell",
     "heroImage": {
-      "url": "/images/categories/proteins-hero.webp",
+      "url": "/images/categories/proteins-hero.svg",
       "alt": "Proteins and Whey Supplements in Nepal",
       "isPrimary": true
     },
@@ -43,7 +43,7 @@
     "longDescription": "Supercharge your athletic performance with 100% pure micronized creatine monohydrate. Proven by clinical research to enhance strength, peak power output, and muscle cell volume. Available with official importer authenticity seals.",
     "icon": "Zap",
     "heroImage": {
-      "url": "/images/categories/creatine-hero.webp",
+      "url": "/images/categories/creatine-hero.svg",
       "alt": "Creatine Monohydrate Supplements in Nepal",
       "isPrimary": true
     },
@@ -78,7 +78,7 @@
     "longDescription": "Pack on serious size and weight with premium high-calorie mass gainers. Formulated with multi-source proteins, complex carbohydrates, essential vitamins, and minerals tailored for fast metabolisms and intense training.",
     "icon": "Flame",
     "heroImage": {
-      "url": "/images/categories/mass-gainers-hero.webp",
+      "url": "/images/categories/mass-gainers-hero.svg",
       "alt": "Mass Gainer Supplements in Nepal",
       "isPrimary": true
     },
@@ -109,7 +109,7 @@
     "longDescription": "Elevate your training intensity with high-potency pre-workout supplements. Packed with beta-alanine, L-citrulline, caffeine, and neuro-focus enhancers to push past plateaus and deliver skin-splitting pumps.",
     "icon": "ShieldCheck",
     "heroImage": {
-      "url": "/images/categories/pre-workout-hero.webp",
+      "url": "/images/categories/pre-workout-hero.svg",
       "alt": "Pre-Workout Supplements in Nepal",
       "isPrimary": true
     },
@@ -140,7 +140,7 @@
     "longDescription": "Support overall wellness, immune function, joint health, and cardiovascular longevity with clinical-strength multivitamins, high-potency fish oil softgels, and daily health essentials.",
     "icon": "HeartPulse",
     "heroImage": {
-      "url": "/images/categories/vitamins-health-hero.webp",
+      "url": "/images/categories/vitamins-health-hero.svg",
       "alt": "Vitamins and Health Supplements in Nepal",
       "isPrimary": true
     },
@@ -171,7 +171,7 @@
     "longDescription": "Sustain intra-workout stamina, prevent muscle catabolism, and accelerate recovery with fermented 2:1:1 BCAAs and EAAs infused with hydration electrolytes.",
     "icon": "Activity",
     "heroImage": {
-      "url": "/images/categories/amino-bcaa-hero.webp",
+      "url": "/images/categories/amino-bcaa-hero.svg",
       "alt": "Amino Acid and BCAA Supplements in Nepal",
       "isPrimary": true
     },

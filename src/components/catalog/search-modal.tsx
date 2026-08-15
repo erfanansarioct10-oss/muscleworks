@@ -3,6 +3,7 @@
 import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { Search, X, Loader2, History, Trash2, Tag, ArrowRight, ShieldCheck } from "lucide-react";
 import {
   Dialog,
@@ -42,6 +43,7 @@ export function SearchModal({
   onOpenChange: externalOnOpenChange,
   children,
 }: SearchModalProps) {
+  const router = useRouter();
   const [internalIsOpen, setInternalIsOpen] = React.useState(false);
   const isControlled = externalIsOpen !== undefined;
   const isOpen = isControlled ? externalIsOpen : internalIsOpen;
@@ -108,15 +110,17 @@ export function SearchModal({
   React.useEffect(() => {
     let cancelled = false;
     const trimmed = query.trim();
+
     if (!trimmed) {
-      const timer = setTimeout(() => {
-        if (cancelled) return;
-        setResults([]);
-        setIsLoading(false);
+      const emptyTimer = setTimeout(() => {
+        if (!cancelled) {
+          setResults([]);
+          setIsLoading(false);
+        }
       }, 0);
       return () => {
         cancelled = true;
-        clearTimeout(timer);
+        clearTimeout(emptyTimer);
       };
     }
 
@@ -160,6 +164,23 @@ export function SearchModal({
     handleOpenChange(false);
   };
 
+  const handleSearchSubmit = (e?: React.FormEvent) => {
+    if (e) e.preventDefault();
+    const trimmed = query.trim();
+    if (trimmed) {
+      addRecentSearch(trimmed);
+      handleOpenChange(false);
+      router.push(`/products?search=${encodeURIComponent(trimmed)}`);
+    }
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      handleSearchSubmit();
+    }
+  };
+
   return (
     <Dialog open={isOpen} onOpenChange={handleOpenChange}>
       {children && <DialogTrigger asChild>{children}</DialogTrigger>}
@@ -172,7 +193,7 @@ export function SearchModal({
           </DialogHeader>
 
           {/* Top Search Input Bar */}
-          <div className="flex items-center border-b border-border px-4 py-3 pr-14 bg-card">
+          <form role="search" onSubmit={handleSearchSubmit} className="flex items-center border-b border-border px-4 py-3 pr-14 bg-card">
 
             <Search className="h-5 w-5 shrink-0 text-muted-foreground mr-3" />
             <input
@@ -180,7 +201,9 @@ export function SearchModal({
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
+              onKeyDown={handleKeyDown}
               placeholder="Search Optimum, Creatine, Whey, Gold Standard..."
+              aria-label="Search supplement catalog"
               className="h-10 w-full bg-transparent text-base sm:text-sm text-foreground placeholder:text-muted-foreground focus:outline-none"
             />
             {isLoading ? (
@@ -198,7 +221,7 @@ export function SearchModal({
             <kbd className="hidden sm:inline-flex items-center gap-1 rounded border border-border bg-muted px-2 py-0.5 text-[10px] font-medium text-muted-foreground">
               ESC
             </kbd>
-          </div>
+          </form>
 
           {/* Modal Body Container */}
           <div className="max-h-[65vh] sm:max-h-[500px] overflow-y-auto p-4 space-y-5">

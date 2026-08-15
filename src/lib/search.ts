@@ -30,6 +30,7 @@ export interface SearchResult {
 
 let fuseInstance: Fuse<SearchableProductItem> | null = null;
 let searchableItemsCache: SearchableProductItem[] | null = null;
+let fuseInitPromise: Promise<Fuse<SearchableProductItem>> | null = null;
 
 /**
  * Build or return the cached Fuse.js search index across products, brands, categories, flavors, and tags.
@@ -39,60 +40,68 @@ export async function getSearchIndex(): Promise<Fuse<SearchableProductItem>> {
     return fuseInstance;
   }
 
-  const [products, brands, categories] = await Promise.all([
-    getProducts(),
-    getBrands(),
-    getCategories(),
-  ]);
+  if (fuseInitPromise) {
+    return fuseInitPromise;
+  }
 
-  const brandMap = new Map(brands.map((b) => [b.id, b.name]));
-  const categoryMap = new Map(categories.map((c) => [c.id, c.name]));
+  fuseInitPromise = (async () => {
+    const [products, brands, categories] = await Promise.all([
+      getProducts(),
+      getBrands(),
+      getCategories(),
+    ]);
 
-  searchableItemsCache = products.map((product) => {
-    const brandName = brandMap.get(product.brandId) ?? product.brandId;
-    const categoryName = categoryMap.get(product.categoryId) ?? product.categoryId;
-    const defaultVariant =
-      product.variants.find((v: ProductVariant) => v.id === product.defaultVariantId) ?? product.variants[0];
+    const brandMap = new Map(brands.map((b) => [b.id, b.name]));
+    const categoryMap = new Map(categories.map((c) => [c.id, c.name]));
 
-    const flavorList = Array.from(
-      new Set(product.variants.map((v: ProductVariant) => v.flavor).filter((f: string): f is string => Boolean(f) && f !== 'Unflavored'))
-    );
+    searchableItemsCache = products.map((product) => {
+      const brandName = brandMap.get(product.brandId) ?? product.brandId;
+      const categoryName = categoryMap.get(product.categoryId) ?? product.categoryId;
+      const defaultVariant =
+        product.variants.find((v: ProductVariant) => v.id === product.defaultVariantId) ?? product.variants[0];
 
-    return {
-      id: product.id,
-      slug: product.slug,
-      name: product.name,
-      brandId: product.brandId,
-      brandName,
-      categoryId: product.categoryId,
-      categoryName,
-      shortDescription: product.shortDescription,
-      flavorList,
-      tags: product.tags,
-      highlights: product.highlights,
-      priceNpr: defaultVariant?.priceNpr ?? 0,
-      discountPriceNpr: defaultVariant?.discountPriceNpr,
-      product,
+      const flavorList = Array.from(
+        new Set(product.variants.map((v: ProductVariant) => v.flavor).filter((f: string): f is string => Boolean(f) && f !== 'Unflavored'))
+      );
+
+      return {
+        id: product.id,
+        slug: product.slug,
+        name: product.name,
+        brandId: product.brandId,
+        brandName,
+        categoryId: product.categoryId,
+        categoryName,
+        shortDescription: product.shortDescription,
+        flavorList,
+        tags: product.tags,
+        highlights: product.highlights,
+        priceNpr: defaultVariant?.priceNpr ?? 0,
+        discountPriceNpr: defaultVariant?.discountPriceNpr,
+        product,
+      };
+    });
+
+    const fuseOptions: IFuseOptions<SearchableProductItem> = {
+      includeScore: true,
+      threshold: 0.3,
+      minMatchCharLength: 2,
+      ignoreLocation: true,
+      keys: [
+        { name: 'name', weight: 0.4 },
+        { name: 'brandName', weight: 0.25 },
+        { name: 'categoryName', weight: 0.2 },
+        { name: 'flavorList', weight: 0.1 },
+        { name: 'tags', weight: 0.05 },
+        { name: 'highlights', weight: 0.05 },
+      ],
     };
-  });
 
-  const fuseOptions: IFuseOptions<SearchableProductItem> = {
-    includeScore: true,
-    threshold: 0.3,
-    minMatchCharLength: 2,
-    ignoreLocation: true,
-    keys: [
-      { name: 'name', weight: 0.4 },
-      { name: 'brandName', weight: 0.25 },
-      { name: 'categoryName', weight: 0.2 },
-      { name: 'flavorList', weight: 0.1 },
-      { name: 'tags', weight: 0.05 },
-      { name: 'highlights', weight: 0.05 },
-    ],
-  };
+    fuseInstance = new Fuse(searchableItemsCache ?? [], fuseOptions);
+    return fuseInstance;
+  })();
 
-  fuseInstance = new Fuse(searchableItemsCache ?? [], fuseOptions);
-  return fuseInstance;
+  return fuseInitPromise;
 }
 
 /**

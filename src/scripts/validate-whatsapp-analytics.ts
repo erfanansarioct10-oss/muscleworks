@@ -11,6 +11,7 @@ import {
   buildStackConsultationWhatsAppUrl,
   buildStoreLocationWhatsAppUrl,
 } from '../lib/whatsapp';
+import { STORE_WHATSAPP } from '../lib/constants';
 
 import {
   trackWhatsAppClick,
@@ -25,18 +26,20 @@ import { getProducts } from '../lib/data/products';
 async function runValidation() {
   console.log('🚀 Running Sub-Phase 4.1 WhatsApp & Analytics Engine Validation...');
 
+  const expectedDigits = STORE_WHATSAPP.replace(/\D/g, '');
+
   // 1. Phone number sanitization
   const sanitizedNum = getSanitizedWhatsAppNumber();
   console.log(`✓ Sanitized Phone Number: ${sanitizedNum}`);
-  if (sanitizedNum !== '9779800000000') {
-    throw new Error(`Sanitized phone number mismatch! Expected 9779800000000, got ${sanitizedNum}`);
+  if (sanitizedNum !== expectedDigits) {
+    throw new Error(`Sanitized phone number mismatch! Expected ${expectedDigits}, got ${sanitizedNum}`);
   }
 
   // 2. Base WhatsApp URL
   const baseUrl = getBaseWhatsAppUrl();
   console.log(`✓ Base WhatsApp URL: ${baseUrl}`);
-  if (baseUrl !== 'https://wa.me/9779800000000') {
-    throw new Error(`Base URL mismatch! Expected https://wa.me/9779800000000, got ${baseUrl}`);
+  if (baseUrl !== `https://wa.me/${expectedDigits}`) {
+    throw new Error(`Base URL mismatch! Expected https://wa.me/${expectedDigits}, got ${baseUrl}`);
   }
 
   // 3. Product WhatsApp URL Generation
@@ -53,7 +56,7 @@ async function runValidation() {
   });
 
   console.log(`✓ Product WhatsApp URL: ${productUrl.substring(0, 80)}...`);
-  if (!productUrl.startsWith('https://wa.me/9779800000000?text=')) {
+  if (!productUrl.startsWith(`https://wa.me/${expectedDigits}?text=`)) {
     throw new Error('Product WhatsApp URL prefix mismatch!');
   }
   if (!productUrl.includes(encodeURIComponent(sampleProduct.name))) {

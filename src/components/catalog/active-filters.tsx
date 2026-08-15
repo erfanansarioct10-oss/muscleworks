@@ -139,8 +139,7 @@ export function ActiveFilters({
               <button
                 type="button"
                 onClick={() => removeFilter('search')}
-
-                className="inline-flex items-center justify-center min-h-[32px] min-w-[32px] sm:min-h-11 sm:min-w-11 rounded-full text-neutral-500 hover:text-neutral-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary"
+                className="inline-flex items-center justify-center min-h-[44px] min-w-[44px] rounded-full text-neutral-500 hover:text-neutral-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary p-2"
                 aria-label={`Remove search query ${searchParam}`}
               >
                 <X className="h-3.5 w-3.5" />
@@ -161,7 +160,7 @@ export function ActiveFilters({
                 <button
                   type="button"
                   onClick={() => removeFilter('category', catSlug)}
-                  className="inline-flex items-center justify-center min-h-[32px] min-w-[32px] sm:min-h-11 sm:min-w-11 rounded-full text-neutral-500 hover:text-neutral-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary"
+                  className="inline-flex items-center justify-center min-h-[44px] min-w-[44px] rounded-full text-neutral-500 hover:text-neutral-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary p-2"
                   aria-label={`Remove category filter ${displayName}`}
                 >
                   <X className="h-3.5 w-3.5" />
@@ -183,7 +182,7 @@ export function ActiveFilters({
                 <button
                   type="button"
                   onClick={() => removeFilter('brand', brandSlug)}
-                  className="inline-flex items-center justify-center min-h-[32px] min-w-[32px] sm:min-h-11 sm:min-w-11 rounded-full text-neutral-500 hover:text-neutral-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary"
+                  className="inline-flex items-center justify-center min-h-[44px] min-w-[44px] rounded-full text-neutral-500 hover:text-neutral-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary p-2"
                   aria-label={`Remove brand filter ${displayName}`}
                 >
                   <X className="h-3.5 w-3.5" />
@@ -203,7 +202,7 @@ export function ActiveFilters({
               <button
                 type="button"
                 onClick={() => removeFilter('goal', goal)}
-                className="inline-flex items-center justify-center min-h-[32px] min-w-[32px] sm:min-h-11 sm:min-w-11 rounded-full text-neutral-500 hover:text-neutral-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary"
+                className="inline-flex items-center justify-center min-h-[44px] min-w-[44px] rounded-full text-neutral-500 hover:text-neutral-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary p-2"
                 aria-label={`Remove goal filter ${goal}`}
               >
                 <X className="h-3.5 w-3.5" />
@@ -231,7 +230,7 @@ export function ActiveFilters({
                   removeFilter('minPrice');
                   removeFilter('maxPrice');
                 }}
-                className="inline-flex items-center justify-center min-h-[32px] min-w-[32px] sm:min-h-11 sm:min-w-11 rounded-full text-neutral-500 hover:text-neutral-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary"
+                className="inline-flex items-center justify-center min-h-[44px] min-w-[44px] rounded-full text-neutral-500 hover:text-neutral-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary p-2"
                 aria-label="Remove price filter"
               >
                 <X className="h-3.5 w-3.5" />
@@ -249,7 +248,7 @@ export function ActiveFilters({
               <button
                 type="button"
                 onClick={() => removeFilter('inStock')}
-                className="inline-flex items-center justify-center min-h-[32px] min-w-[32px] sm:min-h-11 sm:min-w-11 rounded-full text-neutral-500 hover:text-neutral-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary"
+                className="inline-flex items-center justify-center min-h-[44px] min-w-[44px] rounded-full text-neutral-500 hover:text-neutral-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary p-2"
                 aria-label="Remove in-stock filter"
               >
                 <X className="h-3.5 w-3.5" />

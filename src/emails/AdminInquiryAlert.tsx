@@ -44,7 +44,12 @@ export const AdminInquiryAlert = ({
 }: AdminInquiryAlertProps) => {
   const previewText = `🚨 ADMIN ALERT: New Inquiry #${inquiryId} from ${fullName} (${deliveryCity})`;
 
-  const formattedPhoneDigits = phoneNumber.replace(/[^0-9]/g, '');
+  const rawDigits = phoneNumber.replace(/[^0-9]/g, '');
+  const formattedPhoneDigits = rawDigits.startsWith('977')
+    ? rawDigits
+    : rawDigits.length === 10
+    ? `977${rawDigits}`
+    : rawDigits;
 
   return (
     <Html lang="en">

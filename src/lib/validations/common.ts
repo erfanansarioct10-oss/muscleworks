@@ -6,7 +6,8 @@ import { z } from 'zod';
  * - GSM Mobile (Ncell/NTC): +977-98XXXXXXXX, 98XXXXXXXX, +977-97XXXXXXXX, 97XXXXXXXX
  * - Kathmandu Landline: 01-XXXXXXX, +977-01-XXXXXXX
  */
-export const NEPAL_PHONE_REGEX = /^(?:\+977[- ]?)?(?:98\d{8}|97\d{8}|01[- ]?\d{6,7})$/;
+export const NEPAL_PHONE_REGEX =
+  /^(?:\+?977[- ]?)?(?:9[78]\d{8}|9[78]\d{1,2}[- ]?\d{3}[- ]?\d{3,4}|01[- ]?\d{6,7})$/;
 export const NepalPhoneRegex = NEPAL_PHONE_REGEX;
 
 /**

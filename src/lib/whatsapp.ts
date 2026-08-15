@@ -125,3 +125,17 @@ export function buildStoreLocationWhatsAppUrl(): string {
   ];
   return `${getBaseWhatsAppUrl()}?text=${encodeURIComponent(lines.join('\n'))}`;
 }
+
+/**
+ * Builds a pre-filled WhatsApp URL for claiming deals and limited-time discounts.
+ */
+export function buildDealInquiryWhatsAppUrl(productTitle: string, priceNpr: number): string {
+  const formattedPrice = formatNprPrice(priceNpr);
+  const lines = [
+    `Namaste ${STORE_NAME}! I want to claim the Week Deal for ${productTitle} (${formattedPrice}) with Kathmandu delivery.`,
+    ``,
+    `Please confirm stock availability and store pickup/delivery timeline.`
+  ];
+  return `${getBaseWhatsAppUrl()}?text=${encodeURIComponent(lines.join('\n'))}`;
+}
+
