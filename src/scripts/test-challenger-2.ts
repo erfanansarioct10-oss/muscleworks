@@ -412,7 +412,7 @@ async function runTestSuite() {
   );
 
   // Test escapeMarkdownV2Code on code blocks (only ` and \ must be escaped)
-  const codeWithSpecialChars = '+977 981-9877070 | ON-WHEY-5LB-CHOC | INQ_2026-001 | 100% Whey!';
+  const codeWithSpecialChars = '+977 986-1725036 | ON-WHEY-5LB-CHOC | INQ_2026-001 | 100% Whey!';
   const escapedCode = escapeMarkdownV2Code(codeWithSpecialChars);
   assert(
     escapedCode === codeWithSpecialChars,
@@ -430,7 +430,7 @@ async function runTestSuite() {
   const testPayload = {
     inquiryId: 'INQ-7788',
     fullName: 'Erfan Ansari (Athlete & Trainer)',
-    phoneNumber: '+977 981-9877070',
+    phoneNumber: '+977 986-1725036',
     email: 'erfan.ansari@example.com',
     inquiryType: 'product_inquiry',
     message: 'Can I get 2 tubs of ON Whey 5lb (Chocolate) + 1 Creatine? Price discount > 10%?',
@@ -454,7 +454,7 @@ async function runTestSuite() {
     'Header is formatted as bold Markdown'
   );
   assert(
-    telegramMsg.includes('`+977 981-9877070`'),
+    telegramMsg.includes('`+977 986-1725036`'),
     'Phone number is in code block without internal backslashes'
   );
   assert(

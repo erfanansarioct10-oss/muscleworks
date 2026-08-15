@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Layers, ArrowRight, ShieldCheck, Dumbbell } from 'lucide-react';
 import { getCategories } from '@/lib/data/categories';
 import { getProducts } from '@/lib/data/products';
+import { SITE_URL } from '@/lib/constants';
 import { Badge } from '@/components/ui/badge';
 import {
   Breadcrumb,
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
     description:
       'Browse authentic imported supplement categories in Nepal with official importer hologram seals.',
     type: 'website',
-    url: 'https://muscleworks.com.np/categories',
+    url: `${SITE_URL}/categories`,
   },
 };
 

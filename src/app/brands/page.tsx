@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Award, ArrowRight, ShieldCheck, Globe } from 'lucide-react';
 import { getBrands } from '@/lib/data/brands';
 import { getProducts } from '@/lib/data/products';
+import { SITE_URL } from '@/lib/constants';
 import { Badge } from '@/components/ui/badge';
 import {
   Breadcrumb,
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
     description:
       'Explore official authorized supplement brands in Nepal with 100% genuine importer seals and lab-tested verification.',
     type: 'website',
-    url: 'https://muscleworks.com.np/brands',
+    url: `${SITE_URL}/brands`,
   },
 };
 

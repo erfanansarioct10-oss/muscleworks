@@ -21,6 +21,7 @@ import {
   type SearchResult,
 } from "@/lib/search";
 import { formatNprPrice, calculateDiscountPercentage } from "@/lib/utils";
+import { DEFAULT_PRODUCT_PLACEHOLDER } from "@/lib/constants";
 import { Badge } from "@/components/ui/badge";
 
 const POPULAR_CATEGORIES = [
@@ -315,7 +316,7 @@ export function SearchModal({
                       : 0;
 
                     const primaryImage =
-                      product.images[0]?.url || "/images/placeholder-product.webp";
+                      product.images[0]?.url || DEFAULT_PRODUCT_PLACEHOLDER;
 
                     return (
                       <Link

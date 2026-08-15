@@ -3,6 +3,9 @@ import { ShopByGoalSection } from "@/components/home/shop-by-goal-section";
 import { BrandsMarquee } from "@/components/home/brands-marquee";
 import { FeaturedProductsSection } from "@/components/home/featured-products-section";
 import { DealsSection } from "@/components/home/deals-section";
+import { FavoriteBrandSection } from "@/components/home/favorite-brand-section";
+import { CustomerReviewsSection } from "@/components/home/customer-reviews-section";
+import { HomeContactSection } from "@/components/home/home-contact-section";
 
 export default function HomePage() {
   return (
@@ -12,9 +15,14 @@ export default function HomePage() {
       <BrandsMarquee />
       <FeaturedProductsSection />
       <DealsSection />
+      <FavoriteBrandSection />
+      <CustomerReviewsSection />
+      <HomeContactSection />
     </div>
   );
 }
+
+
 
 
 

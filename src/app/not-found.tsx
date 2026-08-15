@@ -13,6 +13,7 @@ import {
   STORE_LOCATION,
 } from "@/lib/constants";
 import { buildGeneralWhatsAppUrl } from "@/lib/whatsapp";
+import { SearchBar } from "@/components/catalog/search-bar";
 
 const CATEGORY_SHORTCUTS = [
   { label: "Whey Proteins", href: "/categories/proteins", icon: Dumbbell },
@@ -56,6 +57,11 @@ export default function NotFound() {
           The supplement, brand, or page you are looking for has been moved, renamed,
           or is temporarily out of stock in Kathmandu.
         </p>
+
+        {/* Interactive Search Recovery */}
+        <div className="mt-6 max-w-md mx-auto text-left">
+          <SearchBar placeholder="Search authentic supplements, brands..." />
+        </div>
 
         {/* Primary & Secondary Action CTAs */}
         <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-center">

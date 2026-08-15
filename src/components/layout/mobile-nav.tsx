@@ -66,7 +66,7 @@ const CATEGORY_ITEMS = [
 const TRUST_NAV_ITEMS = [
   {
     label: "100% Authenticity Guarantee",
-    href: "/products",
+    href: "/authenticity",
     icon: ShieldCheck,
     description: "Official authorized importer holograms",
   },

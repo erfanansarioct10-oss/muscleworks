@@ -9,6 +9,7 @@
 import * as React from 'react';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
+import { DEFAULT_PRODUCT_PLACEHOLDER } from '@/lib/constants';
 import type { AuthenticityMetadata } from '@/lib/validations/product';
 import { ProductAuthenticityBadge } from '@/components/product/product-authenticity-badge';
 import {
@@ -47,7 +48,7 @@ export function ProductGallery({
     if (!images || images.length === 0) {
       return [
         {
-          url: '/images/products/placeholder.webp',
+          url: DEFAULT_PRODUCT_PLACEHOLDER,
           alt: productName,
         },
       ];

@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import { Search, X, Loader2, ArrowRight } from "lucide-react";
 import { searchProducts, addRecentSearch, type SearchResult } from "@/lib/search";
 import { formatNprPrice, calculateDiscountPercentage } from "@/lib/utils";
+import { DEFAULT_PRODUCT_PLACEHOLDER } from "@/lib/constants";
 import { Badge } from "@/components/ui/badge";
 
 interface SearchBarProps {
@@ -187,7 +188,7 @@ export function SearchBar({
                     )
                   : 0;
 
-                const primaryImage = product.images[0]?.url || "/images/placeholder-product.webp";
+                const primaryImage = product.images[0]?.url || DEFAULT_PRODUCT_PLACEHOLDER;
                 const isSelected = index === selectedIndex;
 
                 return (

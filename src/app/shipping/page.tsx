@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 
 export const metadata: Metadata = {
   title: 'Shipping & Delivery Policy | Same-Day Kathmandu Delivery',
-  description: 'Fast supplement delivery across Kathmandu Valley and nationwide Nepal. Free Kathmandu delivery on orders above NPR 10,000 with tamper-evident packaging and cash on delivery.',
+  description: 'Fast supplement delivery across Kathmandu Valley and nationwide Nepal. Free Kathmandu delivery on orders above NPR 5,000 with tamper-evident packaging and cash on delivery.',
   openGraph: {
     title: `Shipping & Delivery Policy | ${STORE_NAME}`,
     description: 'Same-day Kathmandu delivery and express nationwide courier shipping across all 7 provinces of Nepal.',
@@ -20,7 +20,7 @@ const DELIVERY_TIERS = [
     title: 'Kathmandu Valley Express',
     coverage: 'Kathmandu, Lalitpur, Bhaktapur & Budha-Nilkantha',
     timing: 'Same-Day / Within 24 Hours',
-    cost: 'NPR 150 (FREE on orders above NPR 10,000)',
+    cost: 'NPR 150 (FREE on orders above NPR 5,000)',
     payment: 'Cash on Delivery (COD), Fonepay QR, eSewa, Khalti',
     icon: Truck,
     highlight: true,
@@ -37,7 +37,7 @@ const DELIVERY_TIERS = [
   {
     title: 'Store Pickup (Walk-In)',
     coverage: 'Golfutar Flagship Store, Budha-Nilkantha Road',
-    timing: 'Instant (10:00 AM – 9:00 PM Sun–Fri)',
+    timing: 'Instant (10:00 AM – 8:00 PM Sun–Fri)',
     cost: 'FREE',
     payment: 'Cash, Fonepay QR, Mobile Banking',
     icon: ShieldCheck,
@@ -147,7 +147,7 @@ export default function ShippingPage() {
             <div className="space-y-2">
               <h3 className="font-bold text-foreground">4. Free Delivery Threshold</h3>
               <p>
-                Orders totaling NPR 10,000 or above qualify for 100% free delivery across Kathmandu, Lalitpur, and Bhaktapur municipal areas.
+                Orders totaling NPR 5,000 or above qualify for 100% free delivery across Kathmandu, Lalitpur, and Bhaktapur municipal areas.
               </p>
             </div>
           </div>

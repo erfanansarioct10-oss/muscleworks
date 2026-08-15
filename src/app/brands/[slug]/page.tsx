@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ShieldCheck, Award, Globe, CheckCircle2 } from 'lucide-react';
 import { getBrands, getBrandBySlug } from '@/lib/data/brands';
+import { SITE_URL } from '@/lib/constants';
 import { getProductsByBrand } from '@/lib/data/products';
 import { getCategories } from '@/lib/data/categories';
 import { CatalogContainer } from '@/components/catalog/catalog-container';
@@ -47,7 +48,7 @@ export async function generateMetadata(props: PageProps): Promise<Metadata> {
       title: `Authentic ${brand.name} Supplements in Nepal | MuscleWorks Kathmandu`,
       description: brand.description,
       type: 'website',
-      url: `https://muscleworks.com.np/brands/${brand.slug}`,
+      url: `${SITE_URL}/brands/${brand.slug}`,
     },
   };
 }

@@ -5,6 +5,7 @@ import { ShieldCheck, Truck } from 'lucide-react';
 import { getProducts } from '@/lib/data/products';
 import { getCategories, getCategoryBySlug } from '@/lib/data/categories';
 import { getBrands } from '@/lib/data/brands';
+import { SITE_URL } from '@/lib/constants';
 import { CatalogContainer } from '@/components/catalog/catalog-container';
 import {
   Breadcrumb,
@@ -42,7 +43,7 @@ export async function generateMetadata(props: PageProps): Promise<Metadata> {
       title,
       description,
       type: 'website',
-      url: 'https://muscleworks.com.np/products',
+      url: `${SITE_URL}/products`,
     },
     twitter: {
       card: 'summary_large_image',

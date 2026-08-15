@@ -4,6 +4,7 @@ import { getProducts, getProductBySlug } from '@/lib/data/products';
 import { getCategoryById } from '@/lib/data/categories';
 import { getBrandById } from '@/lib/data/brands';
 import { formatNprPrice } from '@/lib/utils';
+import { SITE_URL } from '@/lib/constants';
 import type { ProductVariant } from '@/lib/validations/product';
 import type { ImageAsset } from '@/lib/validations/common';
 import { ProductDetailView } from '@/components/product/product-detail-view';
@@ -47,7 +48,7 @@ export async function generateMetadata(props: PageProps): Promise<Metadata> {
       title: `${product.name} | Authentic Supplement in Nepal`,
       description: product.shortDescription,
       type: 'website',
-      url: `https://muscleworks.com.np/products/${product.slug}`,
+      url: `${SITE_URL}/products/${product.slug}`,
       images: product.images.map((img: ImageAsset) => ({
         url: img.url,
         alt: img.alt || product.name,
@@ -90,7 +91,7 @@ export default async function ProductDetailPage(props: PageProps) {
     },
     offers: {
       '@type': 'Offer',
-      url: `https://muscleworks.com.np/products/${product.slug}`,
+      url: `${SITE_URL}/products/${product.slug}`,
       priceCurrency: 'NPR',
       price: defaultVariant.discountPriceNpr || defaultVariant.priceNpr,
       itemCondition: 'https://schema.org/NewCondition',

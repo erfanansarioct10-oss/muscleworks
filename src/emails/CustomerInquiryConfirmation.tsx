@@ -29,7 +29,7 @@ export interface CustomerInquiryConfirmationProps {
 export const CustomerInquiryConfirmation = ({
   inquiryId = 'INQ-1001',
   fullName = 'Valued Customer',
-  phoneNumber = '+977 981-9877070',
+  phoneNumber = '+977 986-1725036',
   inquiryType = 'general',
   message = 'I would like to check stock availability and delivery to Golfutar.',
   deliveryCity = 'Kathmandu',

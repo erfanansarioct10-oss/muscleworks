@@ -89,7 +89,7 @@ export function FeaturedProductsSection() {
         {/* Section Header */}
         <div className="relative z-10 max-w-7xl mx-auto text-center mb-6 sm:mb-10 px-2">
           <div className="flex items-center justify-center mb-2">
-            <h2 className="font-heading font-black tracking-tight uppercase italic text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-black">
+            <h2 className="font-heading font-black tracking-tight uppercase text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-black">
               BEST-SELLING PRODUCTS
             </h2>
           </div>
@@ -117,7 +117,6 @@ export function FeaturedProductsSection() {
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover object-right"
-                  priority
                 />
 
                 {/* Lightened Text Scrim / Gradient Overlay for bright product visuals */}

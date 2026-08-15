@@ -132,7 +132,7 @@ async function runAdversarialStressTests(): Promise<void> {
   console.log('\n▶ Test Suite 3: Nepal Phone Number Regex Permutations');
 
   const validPhones = [
-    { num: '981-9877070', label: '981-9877070 (Hyphenated standard mobile)' },
+    { num: '986-1725036', label: '986-1725036 (Hyphenated standard mobile)' },
     { num: '+977 9841234567', label: '+977 9841234567 (International prefix with space)' },
     { num: '9801234567', label: '9801234567 (10-digit unformatted Ncell)' },
     { num: '+977-9841234567', label: '+977-9841234567 (International prefix with hyphen)' },

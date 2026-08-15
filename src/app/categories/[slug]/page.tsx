@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ShieldCheck, Dumbbell, HelpCircle } from 'lucide-react';
 import { getCategories, getCategoryBySlug } from '@/lib/data/categories';
+import { SITE_URL } from '@/lib/constants';
 import { getProductsByCategory } from '@/lib/data/products';
 import { getBrands } from '@/lib/data/brands';
 import { CatalogContainer } from '@/components/catalog/catalog-container';
@@ -47,7 +48,7 @@ export async function generateMetadata(props: PageProps): Promise<Metadata> {
       title: `Authentic ${category.name} in Nepal | MuscleWorks Kathmandu`,
       description: category.shortDescription,
       type: 'website',
-      url: `https://muscleworks.com.np/categories/${category.slug}`,
+      url: `${SITE_URL}/categories/${category.slug}`,
     },
   };
 }

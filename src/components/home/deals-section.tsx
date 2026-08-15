@@ -23,7 +23,7 @@ const DEALS_PRODUCTS: DealProduct[] = [
     id: "deal-hyper-mass",
     title: "BioTechUSA Hyper Mass 4000g",
     brand: "BIOTECHUSA",
-    imageSrc: "/deals/hyper-mass.png",
+    imageSrc: "/deals/hyper-mass.webp",
     priceNpr: 10500,
     originalPriceNpr: 13500,
     rating: 5,
@@ -33,7 +33,7 @@ const DEALS_PRODUCTS: DealProduct[] = [
     id: "deal-omega-3",
     title: "BioTechUSA Mega Omega 3",
     brand: "BIOTECHUSA",
-    imageSrc: "/deals/omega-3.png",
+    imageSrc: "/deals/omega-3.webp",
     priceNpr: 2800,
     originalPriceNpr: 3500,
     rating: 5,
@@ -43,7 +43,7 @@ const DEALS_PRODUCTS: DealProduct[] = [
     id: "deal-impact-whey",
     title: "FuelOne Impact Whey Protein",
     brand: "FUELONE",
-    imageSrc: "/deals/impact-whey.png",
+    imageSrc: "/deals/impact-whey.webp",
     priceNpr: 5400,
     originalPriceNpr: 6800,
     rating: 5,
@@ -53,7 +53,7 @@ const DEALS_PRODUCTS: DealProduct[] = [
     id: "deal-bpi-vortex",
     title: "BPI Sports 1.M.R Vortex Pre-Workout",
     brand: "BPI SPORTS",
-    imageSrc: "/deals/bpi-1-mr-vortex.png",
+    imageSrc: "/deals/bpi-1-mr-vortex.webp",
     priceNpr: 4600,
     originalPriceNpr: 5800,
     rating: 5,
@@ -101,13 +101,22 @@ export function DealsSection() {
 
   return (
     <section className="relative w-full overflow-hidden bg-slate-950 py-12 sm:py-16 lg:py-20 border-b border-slate-800">
-      {/* Background Charcoal Texture Image */}
+      {/* Responsive Background Charcoal Textures */}
+      {/* Mobile Vertical Texture */}
       <Image
-        src="/deals/charcoal-bg.png"
-        alt="Dark Charcoal Background Texture"
+        src="/deals/charcoal-bg-mobile.webp"
+        alt="Dark Charcoal Background Texture Mobile"
         fill
-        sizes="100vw"
-        className="object-cover object-center scale-125"
+        sizes="(max-width: 640px) 100vw, 1px"
+        className="object-cover object-center sm:hidden"
+      />
+      {/* Desktop & Tablet Widescreen Texture */}
+      <Image
+        src="/deals/charcoal-bg.webp"
+        alt="Dark Charcoal Background Texture Desktop"
+        fill
+        sizes="(min-width: 640px) 100vw, 1px"
+        className="hidden sm:block object-cover object-center"
       />
 
       {/* Dark Shadow Overlay */}

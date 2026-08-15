@@ -108,13 +108,17 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={cn(
         "h-full max-w-full scroll-smooth antialiased",
         outfit.variable,
         plusJakartaSans.variable
       )}
     >
-      <body className="min-h-full max-w-full flex flex-col bg-background text-foreground font-sans selection:bg-primary/20 selection:text-primary">
+      <body
+        suppressHydrationWarning
+        className="min-h-full max-w-full flex flex-col bg-background text-foreground font-sans selection:bg-primary/20 selection:text-primary"
+      >
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2.5 focus:bg-primary focus:text-primary-foreground focus:rounded-xl focus:font-semibold focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-ring"

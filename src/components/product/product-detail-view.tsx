@@ -216,7 +216,7 @@ export function ProductDetailView({
               </div>
               <p className="text-[11px] text-muted-foreground pt-1 flex items-center gap-1">
                 <Truck className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
-                <span>Free delivery inside Kathmandu Ringroad on orders above NPR 10,000</span>
+                <span>Free delivery inside Kathmandu Ringroad on orders above NPR 5,000</span>
               </p>
             </div>
 

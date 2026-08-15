@@ -18,11 +18,11 @@ export const DEFAULT_PRODUCT_PLACEHOLDER = "/brnding-assets/logo.webp";
 
 
 // Contact & Ordering Details
-export const STORE_PHONE = "+977 981-9877070";
-export const STORE_PHONE_RAW = "+9779819877070";
+export const STORE_PHONE = "+977 986-1725036";
+export const STORE_PHONE_RAW = "+9779861725036";
 export const STORE_PHONE_DISPLAY = STORE_PHONE;
-export const STORE_WHATSAPP = "+9779819877070";
-export const STORE_WHATSAPP_DISPLAY = "+977 981-9877070";
+export const STORE_WHATSAPP = "+9779861725036";
+export const STORE_WHATSAPP_DISPLAY = "+977 986-1725036";
 export const STORE_EMAIL = "orders@muscleworksnepal.com";
 export const STORE_SUPPORT_EMAIL = "support@muscleworksnepal.com";
 
@@ -136,7 +136,7 @@ export const MAIN_NAV_ITEMS = [
   { label: "Guides", href: "/guides" },
 ] as const;
 
-// Social & Community Channels
+// Social & Community Channels (WhatsApp & Instagram Official)
 export const SOCIAL_LINKS = [
   {
     platform: "WhatsApp",
@@ -145,20 +145,11 @@ export const SOCIAL_LINKS = [
   },
   {
     platform: "Instagram",
-    href: "https://instagram.com/muscleworksnepal",
-    label: "Follow @muscleworksnepal on Instagram",
-  },
-  {
-    platform: "Facebook",
-    href: "https://facebook.com/muscleworksnepal",
-    label: "Like MuscleWorks Nepal on Facebook",
-  },
-  {
-    platform: "TikTok",
-    href: "https://tiktok.com/@muscleworksnepal",
-    label: "Watch Workout Tips on TikTok",
+    href: "https://www.instagram.com/muscleworks.supplements/?hl=en",
+    label: "Follow @muscleworks.supplements on Instagram",
   },
 ] as const;
+
 
 // Delivery Cities for Nepal Checkout / Inquiries
 export const NEPAL_DELIVERY_CITIES = [

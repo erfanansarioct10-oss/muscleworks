@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 
 import { getStoreInfo } from '@/lib/data/store';
+import { SITE_URL, STORE_PHONE } from '@/lib/constants';
 import { buildGeneralWhatsAppUrl } from '@/lib/whatsapp';
 import { ContactForm } from '@/components/forms/contact-form';
 import { StoreHoursCard } from '@/components/location/store-hours-card';
@@ -19,12 +20,12 @@ import { StoreHoursCard } from '@/components/location/store-hours-card';
 export const metadata: Metadata = {
   title: 'Contact Us | MuscleWorks Supplements Golfutar Kathmandu',
   description:
-    'Contact MuscleWorks Supplements at Golfutar, Budha-Nilkantha, Kathmandu. Phone hotline: +977-9800000000, direct WhatsApp orders, email support, and flagship store hours.',
+    `Contact MuscleWorks Supplements at Golfutar, Budha-Nilkantha, Kathmandu. Phone hotline: ${STORE_PHONE}, direct WhatsApp orders, email support, and flagship store hours.`,
   openGraph: {
     title: 'Contact Us | MuscleWorks Supplements Kathmandu',
     description:
       'Get in touch with Nepal premier destination for 100% authentic supplements at Golfutar Main Road, Kathmandu.',
-    url: 'https://muscleworks.com.np/contact',
+    url: `${SITE_URL}/contact`,
     siteName: 'MUSCLEWORKS SUPPLEMENTS',
     locale: 'en_NP',
     type: 'website',

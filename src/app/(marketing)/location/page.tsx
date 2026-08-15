@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 
 import { getStoreInfo } from '@/lib/data/store';
+import { SITE_URL } from '@/lib/constants';
 import { buildStoreLocationWhatsAppUrl } from '@/lib/whatsapp';
 import { StoreMapEmbed } from '@/components/location/store-map-embed';
 import { StoreHoursCard } from '@/components/location/store-hours-card';
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
     title: 'Flagship Store Location | MuscleWorks Supplements Kathmandu',
     description:
       'Visit our physical retail outlet at Golfutar Main Road, Kathmandu. 100% genuine sports nutrition & fitness supplements in Nepal.',
-    url: 'https://muscleworks.com.np/location',
+    url: `${SITE_URL}/location`,
     siteName: 'MUSCLEWORKS SUPPLEMENTS',
     locale: 'en_NP',
     type: 'website',
@@ -47,7 +48,7 @@ export default async function LocationPage() {
     name: name,
     legalName: legalName,
     description: tagline,
-    url: 'https://muscleworks.com.np',
+    url: SITE_URL,
     telephone: contacts.primaryPhone,
     email: contacts.storeEmail,
     address: {
