@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400">
+  <defs>
+    <linearGradient id="g-mass" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#09090b" />
+      <stop offset="100%" stop-color="#18181b" />
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g-mass)" />
+  <rect x="20" y="20" width="760" height="360" rx="16" fill="none" stroke="#f97316" stroke-width="2" stroke-opacity="0.3"/>
+  <circle cx="400" cy="170" r="70" fill="#27272a" stroke="#f97316" stroke-width="1.5"/>
+  <text x="50%" y="175" text-anchor="middle" dominant-baseline="middle" fill="#f97316" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="28">MASS</text>
+  <text x="50%" y="280" text-anchor="middle" dominant-baseline="middle" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="32" letter-spacing="2">HIGH-CALORIE MASS GAINERS</text>
+  <text x="50%" y="320" text-anchor="middle" dominant-baseline="middle" fill="#f97316" font-family="system-ui, -apple-system, sans-serif" font-weight="600" font-size="15" letter-spacing="1">MAXIMUM HYPERTROPHY &amp; SIZE</text>
+</svg>

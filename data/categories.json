@@ -1,0 +1,197 @@
+[
+  {
+    "id": "cat_proteins",
+    "slug": "proteins",
+    "name": "Proteins & Whey",
+    "shortDescription": "Premium imported whey protein isolate, concentrate, and hydrolysate blends for muscle recovery and lean growth in Nepal.",
+    "longDescription": "Explore 100% authentic imported whey protein powders in Nepal from top global brands like Optimum Nutrition, MuscleTech, and Dymatize. Sourced directly via authorized distributors with scratch-code hologram verification stickers.",
+    "icon": "Dumbbell",
+    "heroImage": {
+      "url": "/images/categories/proteins-hero.svg",
+      "alt": "Proteins and Whey Supplements in Nepal",
+      "isPrimary": true
+    },
+    "isFeatured": true,
+    "displayOrder": 1,
+    "faqs": [
+      {
+        "question": "How do I choose between Whey Isolate and Whey Concentrate?",
+        "answer": "Whey Isolate has higher protein purity (90%+) with lower carbs and lactose, making it ideal for lean muscle building and lactose-sensitive individuals. Whey Concentrate provides high quality protein with naturally occurring nutrients at a more budget-friendly price point in Nepal."
+      },
+      {
+        "question": "How can I verify if my whey protein tub is authentic in Nepal?",
+        "answer": "Every authentic whey tub sold at MUSCLEWORKS comes with an official importer security sticker featuring a scratch-off verification code. You can verify the code on the official distributor site or manufacturer portal."
+      }
+    ],
+    "seo": {
+      "metaTitle": "Buy Authentic Whey Protein in Nepal | Best Prices at MuscleWorks",
+      "metaDescription": "Shop 100% genuine imported whey protein isolate & concentrate in Nepal. Sourced from ON, MuscleTech & Dymatize with official importer seals.",
+      "keywords": [
+        "whey protein nepal",
+        "gold standard whey kathmandu",
+        "buy protein powder nepal",
+        "authentic supplements nepal",
+        "whey isolate price npr"
+      ]
+    }
+  },
+  {
+    "id": "cat_creatine",
+    "slug": "creatine",
+    "name": "Creatine",
+    "shortDescription": "Pure micronized creatine monohydrate to increase muscle strength, power output, and cell hydration for intense workouts.",
+    "longDescription": "Supercharge your athletic performance with 100% pure micronized creatine monohydrate. Proven by clinical research to enhance strength, peak power output, and muscle cell volume. Available with official importer authenticity seals.",
+    "icon": "Zap",
+    "heroImage": {
+      "url": "/images/categories/creatine-hero.svg",
+      "alt": "Creatine Monohydrate Supplements in Nepal",
+      "isPrimary": true
+    },
+    "isFeatured": true,
+    "displayOrder": 2,
+    "faqs": [
+      {
+        "question": "What is the best way to take creatine monohydrate?",
+        "answer": "Take 3-5 grams daily with water or fruit juice. A loading phase (20g daily divided into 4 servings for 5-7 days) is optional but speeds up muscle saturation."
+      },
+      {
+        "question": "Does creatine cause hair loss or kidney issues?",
+        "answer": "No. Extensive peer-reviewed scientific studies confirm that creatine monohydrate is safe for healthy individuals when taken at recommended daily dosages."
+      }
+    ],
+    "seo": {
+      "metaTitle": "Buy Authentic Creatine Monohydrate in Nepal | MuscleWorks",
+      "metaDescription": "Shop genuine micronized creatine monohydrate powders in Nepal. Sourced from Kevin Levrone & MuscleTech with official importer seals.",
+      "keywords": [
+        "creatine nepal",
+        "creatine monohydrate kathmandu",
+        "kevin levrone gold creatine nepal",
+        "creatine price in nepal"
+      ]
+    }
+  },
+  {
+    "id": "cat_mass_gainers",
+    "slug": "mass-gainers",
+    "name": "Mass Gainers",
+    "shortDescription": "High-calorie, protein-rich mass gainers formulated for hardgainers seeking muscle mass, weight gain, and size.",
+    "longDescription": "Pack on serious size and weight with premium high-calorie mass gainers. Formulated with multi-source proteins, complex carbohydrates, essential vitamins, and minerals tailored for fast metabolisms and intense training.",
+    "icon": "Flame",
+    "heroImage": {
+      "url": "/images/categories/mass-gainers-hero.svg",
+      "alt": "Mass Gainer Supplements in Nepal",
+      "isPrimary": true
+    },
+    "isFeatured": true,
+    "displayOrder": 3,
+    "faqs": [
+      {
+        "question": "Who should take a mass gainer supplement?",
+        "answer": "Mass gainers are ideal for hardgainers and athletes who struggle to consume enough daily calories from whole food alone to meet weight and muscle gain goals."
+      }
+    ],
+    "seo": {
+      "metaTitle": "Authentic Mass Gainers in Nepal | Serious Mass & Labrada",
+      "metaDescription": "Buy high-calorie mass gainers in Nepal for fast weight & muscle gain. 100% genuine ON Serious Mass & Labrada Muscle Mass Gainer at MuscleWorks Golfutar.",
+      "keywords": [
+        "mass gainer nepal",
+        "serious mass price nepal",
+        "labrada muscle mass gainer kathmandu",
+        "weight gain supplement nepal"
+      ]
+    }
+  },
+  {
+    "id": "cat_pre_workout",
+    "slug": "pre-workout",
+    "name": "Pre-Workout",
+    "shortDescription": "High-energy pre-workout formulas to maximize focus, endurance, explosive power, and intense muscle pumps during training.",
+    "longDescription": "Elevate your training intensity with high-potency pre-workout supplements. Packed with beta-alanine, L-citrulline, caffeine, and neuro-focus enhancers to push past plateaus and deliver skin-splitting pumps.",
+    "icon": "ShieldCheck",
+    "heroImage": {
+      "url": "/images/categories/pre-workout-hero.svg",
+      "alt": "Pre-Workout Supplements in Nepal",
+      "isPrimary": true
+    },
+    "isFeatured": true,
+    "displayOrder": 4,
+    "faqs": [
+      {
+        "question": "When should I drink my pre-workout supplement?",
+        "answer": "Consume 15-30 minutes before your workout session with 250-300ml of cold water to allow key ingredients to take effect."
+      }
+    ],
+    "seo": {
+      "metaTitle": "Pre-Workout Supplements in Nepal | Cellucor C4 & Psychotic",
+      "metaDescription": "Shop explosive pre-workout powders in Nepal. High energy, focus & endurance formulas available at MuscleWorks Golfutar, Kathmandu.",
+      "keywords": [
+        "pre workout nepal",
+        "c4 pre workout price nepal",
+        "psychotic pre workout kathmandu",
+        "energy supplement nepal"
+      ]
+    }
+  },
+  {
+    "id": "cat_vitamins_health",
+    "slug": "vitamins-health",
+    "name": "Vitamins & Health",
+    "shortDescription": "Essential daily multivitamins, Omega-3 fish oils, joint support, and wellness formulas for overall health and performance.",
+    "longDescription": "Support overall wellness, immune function, joint health, and cardiovascular longevity with clinical-strength multivitamins, high-potency fish oil softgels, and daily health essentials.",
+    "icon": "HeartPulse",
+    "heroImage": {
+      "url": "/images/categories/vitamins-health-hero.svg",
+      "alt": "Vitamins and Health Supplements in Nepal",
+      "isPrimary": true
+    },
+    "isFeatured": true,
+    "displayOrder": 5,
+    "faqs": [
+      {
+        "question": "Why do athletes need daily multivitamins and Omega-3 fish oil?",
+        "answer": "Intense physical training increases micronutrient turnover and inflammation. Multivitamins prevent nutritional gaps while Omega-3 fish oils reduce joint stiffness and promote cardiovascular recovery."
+      }
+    ],
+    "seo": {
+      "metaTitle": "Multivitamins & Fish Oil Supplements in Nepal | MuscleWorks",
+      "metaDescription": "Shop authentic multivitamins, Animal Pak, and Omega-3 fish oil in Nepal. Trusted wellness & performance supplements at MuscleWorks Golfutar.",
+      "keywords": [
+        "multivitamin nepal",
+        "animal pak price nepal",
+        "fish oil softgels kathmandu",
+        "health supplements nepal"
+      ]
+    }
+  },
+  {
+    "id": "cat_amino_bcaa",
+    "slug": "amino-bcaa",
+    "name": "Amino & BCAA",
+    "shortDescription": "Intra-workout BCAAs and essential amino acids (EAAs) to prevent muscle breakdown and maintain intra-workout hydration.",
+    "longDescription": "Sustain intra-workout stamina, prevent muscle catabolism, and accelerate recovery with fermented 2:1:1 BCAAs and EAAs infused with hydration electrolytes.",
+    "icon": "Activity",
+    "heroImage": {
+      "url": "/images/categories/amino-bcaa-hero.svg",
+      "alt": "Amino Acid and BCAA Supplements in Nepal",
+      "isPrimary": true
+    },
+    "isFeatured": true,
+    "displayOrder": 6,
+    "faqs": [
+      {
+        "question": "When should I sip on BCAA or EAA supplements?",
+        "answer": "Sip BCAAs during your workout to reduce fatigue and muscle breakdown, or between meals to boost daily amino acid intake."
+      }
+    ],
+    "seo": {
+      "metaTitle": "BCAA & Amino Acid Supplements in Nepal | Scivation Xtend",
+      "metaDescription": "Buy authentic Scivation Xtend BCAA & EAAs in Nepal. Intra-workout muscle recovery & electrolyte hydration at MuscleWorks Golfutar.",
+      "keywords": [
+        "bcaa nepal",
+        "scivation xtend price nepal",
+        "intra workout amino kathmandu",
+        "bcaa powder nepal"
+      ]
+    }
+  }
+]

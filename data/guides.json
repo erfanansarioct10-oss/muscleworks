@@ -1,0 +1,132 @@
+[
+  {
+    "title": "How to Spot & Verify 100% Authentic Supplements in Nepal (2026 Guide)",
+    "slug": "how-to-verify-authentic-supplements-in-nepal",
+    "excerpt": "Learn how to inspect authorized national importer holographic seals, scratch-off security QR codes, and tamper-evident packaging to avoid counterfeit supplements in Nepal.",
+    "category": "authenticity_guide",
+    "coverImage": {
+      "url": "/images/guides/authenticity-guide-cover.svg",
+      "alt": "Authorized Importer Hologram Verification Seal on Supplement Tub",
+      "width": 1200,
+      "height": 630,
+      "isPrimary": true
+    },
+    "author": {
+      "name": "MUSCLEWORKS Verification Desk",
+      "role": "Authorized Importer Quality & Authenticity Team",
+      "avatar": "/images/authors/muscleworks-team.svg",
+      "bio": "Expert authenticity verification specialists dedicated to eradicating fake supplements in Nepal."
+    },
+    "publishedDate": "2026-08-01",
+    "updatedDate": "2026-08-10",
+    "readingTimeMinutes": 6,
+    "isFeatured": true,
+    "relatedProductSlugs": [
+      "optimum-nutrition-gold-standard-100-whey",
+      "muscletech-nitro-tech-performance-series",
+      "dymatize-iso-100-hydrolyzed-protein"
+    ],
+    "relatedCategorySlugs": [
+      "proteins",
+      "creatine"
+    ],
+    "faqs": [
+      {
+        "id": "faq_guide_auth_1",
+        "category": "authenticity",
+        "question": "Which official importers supply authentic supplements in Nepal?",
+        "answer": "Muscle House Nepal (ON, Dymatize, MyProtein) and Radiant Traders (MuscleTech, Kevin Levrone) are official national distributors with holographic seals.",
+        "priority": 1
+      }
+    ],
+    "seo": {
+      "metaTitle": "Verify Authentic Supplements in Nepal | Hologram Seal Guide 2026",
+      "metaDescription": "Step-by-step verification guide for supplement authenticity in Nepal. Identify Muscle House Nepal & Radiant Traders holographic seals and scratch QR codes.",
+      "keywords": [
+        "authentic supplements nepal",
+        "muscle house nepal seal",
+        "radiant traders hologram",
+        "fake vs real whey protein nepal"
+      ]
+    }
+  },
+  {
+    "title": "Whey Protein Isolate vs. Concentrate: Complete Buyer's Guide for Nepal",
+    "slug": "whey-protein-isolate-vs-concentrate-buying-guide",
+    "excerpt": "Discover the key differences in purity, lactose digestion, macro profiles, and NPR pricing between Whey Isolate blends and pure Concentrates.",
+    "category": "buying_guide",
+    "coverImage": {
+      "url": "/images/guides/whey-isolate-vs-concentrate-cover.svg",
+      "alt": "Whey Protein Isolate and Concentrate Powder Scoops",
+      "width": 1200,
+      "height": 630,
+      "isPrimary": true
+    },
+    "author": {
+      "name": "Bikash Shrestha",
+      "role": "Certified Sports Nutrition Specialist",
+      "avatar": "/images/authors/bikash-shrestha.svg",
+      "bio": "Kathmandu-based fitness practitioner and nutrition consultant specializing in physique hypertrophy."
+    },
+    "publishedDate": "2026-08-05",
+    "readingTimeMinutes": 7,
+    "isFeatured": true,
+    "relatedProductSlugs": [
+      "dymatize-iso-100-hydrolyzed-protein",
+      "optimum-nutrition-gold-standard-100-whey",
+      "myprotein-impact-whey-protein"
+    ],
+    "relatedCategorySlugs": [
+      "proteins"
+    ],
+    "faqs": [],
+    "seo": {
+      "metaTitle": "Whey Isolate vs Concentrate Nepal | Supplement Buyer Guide 2026",
+      "metaDescription": "Compare Whey Isolate and Concentrate for muscle growth and lactose tolerance. Detailed NPR pricing and product recommendations in Nepal.",
+      "keywords": [
+        "whey isolate vs concentrate nepal",
+        "best whey protein kathmandu",
+        "lactose free whey protein nepal"
+      ]
+    }
+  },
+  {
+    "title": "Creatine Monohydrate Guide: Daily 5g Maintenance vs Loading Phase",
+    "slug": "creatine-monohydrate-loading-vs-daily-dose-guide",
+    "excerpt": "Everything you need to know about Creatine Monohydrate dosage, hydration requirements, strength gains, and timing strategies for fitness enthusiasts in Nepal.",
+    "category": "supplement_education",
+    "coverImage": {
+      "url": "/images/guides/creatine-monohydrate-guide-cover.svg",
+      "alt": "Creatine Monohydrate Micronized Powder and Water Shaker",
+      "width": 1200,
+      "height": 630,
+      "isPrimary": true
+    },
+    "author": {
+      "name": "Bikash Shrestha",
+      "role": "Certified Sports Nutrition Specialist",
+      "avatar": "/images/authors/bikash-shrestha.svg",
+      "bio": "Kathmandu-based fitness practitioner and nutrition consultant specializing in physique hypertrophy."
+    },
+    "publishedDate": "2026-08-08",
+    "readingTimeMinutes": 5,
+    "isFeatured": false,
+    "relatedProductSlugs": [
+      "kevin-levrone-gold-creatine",
+      "muscletech-platinum-100-creatine"
+    ],
+    "relatedCategorySlugs": [
+      "creatine"
+    ],
+    "faqs": [],
+    "seo": {
+      "metaTitle": "Creatine Monohydrate Loading vs Daily Dose Guide | MUSCLEWORKS Nepal",
+      "metaDescription": "Should you load creatine? Learn daily 5g maintenance dosage, hydration tips, and best creatine monohydrate brands available in Nepal.",
+      "keywords": [
+        "creatine monohydrate dosage nepal",
+        "how to take creatine kathmandu",
+        "kevin levrone gold creatine nepal"
+      ]
+    }
+  }
+]

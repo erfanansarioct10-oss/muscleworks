@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-heading: var(--font-heading), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Minimal Premium Modern Luxury Palette Tokens */
+  --color-background: #fcfcfc;       /* Pure Off-White Canvas */
+  --color-foreground: #0b0b0b;       /* Jet Black Premium Text */
+  
+  --color-card: #ffffff;             /* Pure White Surface */
+  --color-card-foreground: #0b0b0b;  /* Card Text */
+  
+  --color-primary: #0b0b0b;          /* Jet Black Primary Action */
+  --color-primary-hover: #2c2c2c;    /* Neutral Gray Hover State */
+  --color-primary-foreground: #ffffff;
+  
+  --color-secondary: #f5f5f5;        /* Silver Gray Secondary Light Surface */
+  --color-secondary-foreground: #0b0b0b;
+  
+  --color-accent: #18181b;           /* Dark Charcoal Accent Surface */
+  --color-accent-foreground: #ffffff;
+  
+  --color-success: #0b0b0b;          /* Jet Black Conversion CTA */
+  --color-success-foreground: #ffffff;
+  
+  --color-muted: #f5f5f5;            /* Silver Gray Muted Element Fill */
+  --color-muted-foreground: #666666; /* Neutral Gray Muted Secondary Text */
+  
+  --color-border: #e5e5e5;           /* Crisp Silver Divider */
+  --color-ring: #0b0b0b;             /* Jet Black Focus Ring */
+  
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+}
+
+/* Base Resets & Global Minimal Luxury Defaults */
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    color-scheme: light;
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    min-height: 100vh;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Hide right-hand side vertical scrollbar UI */
+  ::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
+  html, body {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+  /* Accessible Focus Rings */
+  :focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 2px;
+  }
+}
+
+/* Marquee Animations */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 42s linear infinite;
+}
+
+.animate-marquee-reverse {
+  animation: marquee-reverse 42s linear infinite;
+}
+
+

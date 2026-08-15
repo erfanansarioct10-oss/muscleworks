@@ -1,0 +1,32 @@
+[
+  {
+    "id": "rev_1",
+    "rating": 5,
+    "headline": "Excellent service",
+    "author": "Alan Vellios",
+    "role": "Design / Athlete",
+    "location": "Kathmandu",
+    "quote": "I have been using MuscleWorks for over 2 years and love the taste of their Hydro ISO protein. I also feel a change in my shape since the use of your products. Thanks MuscleWorks, keep up the great products.. providing outstanding results.",
+    "isFeatured": true
+  },
+  {
+    "id": "rev_2",
+    "rating": 5,
+    "headline": "Top Quality",
+    "author": "Bikash Shrestha",
+    "role": "Fitness Trainer",
+    "location": "Lalitpur",
+    "quote": "Hands down, it is the best supplement store out there in Nepal. Best rates, official importer hologram seals, and equally good genuine products. I've had an amazing experience so far. Customer satisfaction is definitely guaranteed.",
+    "isFeatured": true
+  },
+  {
+    "id": "rev_3",
+    "rating": 5,
+    "headline": "Best Product",
+    "author": "Aron Smith",
+    "role": "Bodybuilder",
+    "location": "Kathmandu",
+    "quote": "A great company to buy from. Excellent quality products at good value. Delivery in Kathmandu is efficient and quick. Keep you updated all the time with WhatsApp orders. Superb customer service and 100% authentic batches.",
+    "isFeatured": true
+  }
+]

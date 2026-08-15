@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#18181b"/>
+      <stop offset="100%" stop-color="#09090b"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#bg)"/>
+  <circle cx="300" cy="240" r="130" fill="#27272a" stroke="#a855f7" stroke-width="2" stroke-dasharray="8 4"/>
+  <text x="50%" y="225" text-anchor="middle" dominant-baseline="middle" fill="#a855f7" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="28" letter-spacing="2">PSYCHOTIC</text>
+  <text x="50%" y="265" text-anchor="middle" dominant-baseline="middle" fill="#a1a1aa" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="14" letter-spacing="1">GOLD EDITION PRE-WORKOUT</text>
+  <text x="50%" y="420" text-anchor="middle" dominant-baseline="middle" fill="#fafafa" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="20" letter-spacing="0.5">Insane Labz Psychotic Gold</text>
+  <text x="50%" y="460" text-anchor="middle" dominant-baseline="middle" fill="#71717a" font-family="system-ui, -apple-system, sans-serif" font-weight="600" font-size="14">Extreme Focus &amp; Energy</text>
+</svg>
