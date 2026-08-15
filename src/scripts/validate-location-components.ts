@@ -49,8 +49,8 @@ async function runLocationValidation(): Promise<void> {
   console.log('\nTest Suite 3: Store Data Dataset Contracts');
   assert(rawStoreData.address.area === 'Golfutar', 'Store address area is Golfutar');
   assert(rawStoreData.address.city === 'Kathmandu', 'Store address city is Kathmandu');
-  assert(rawStoreData.coordinates.latitude === 27.7478, 'Store latitude is 27.7478');
-  assert(rawStoreData.coordinates.longitude === 85.3533, 'Store longitude is 85.3533');
+  assert(rawStoreData.coordinates.latitude === 27.7525222, 'Store latitude is 27.7525222');
+  assert(rawStoreData.coordinates.longitude === 85.3467945, 'Store longitude is 85.3467945');
 
   console.log('\n======================================================');
   console.log(`  SUMMARY: ${passed} passed, ${failed} failed`);

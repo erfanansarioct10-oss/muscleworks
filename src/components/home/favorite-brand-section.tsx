@@ -97,7 +97,7 @@ export function FavoriteBrandSection() {
             {/* Main Display Heading */}
             <h2 className="font-heading font-black text-3xl sm:text-4xl lg:text-5xl uppercase tracking-tight text-black leading-[1.08]">
               MOST FAVOURITE <br />
-              SUPPLEMENT BRAND
+              <span className="text-slate-500">SUPPLEMENT BRAND</span>
             </h2>
 
             {/* Brand Story Description */}
@@ -122,7 +122,7 @@ export function FavoriteBrandSection() {
                 }`}
                 style={{ transitionDelay: "150ms" }}
               >
-                <div className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-[#FF5500] tracking-tight leading-none">
+                <div className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-black tracking-tight leading-none">
                   <AnimatedCounter end={15000} suffix="+" isInView={isInView} />
                 </div>
                 <span className="text-xs sm:text-sm font-bold text-slate-900 uppercase tracking-wider mt-2.5 block">
@@ -139,7 +139,7 @@ export function FavoriteBrandSection() {
                 }`}
                 style={{ transitionDelay: "300ms" }}
               >
-                <div className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-[#FF5500] tracking-tight leading-none">
+                <div className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-black tracking-tight leading-none">
                   <AnimatedCounter end={5000} suffix="+" isInView={isInView} />
                 </div>
                 <span className="text-xs sm:text-sm font-bold text-slate-900 uppercase tracking-wider mt-2.5 block">
@@ -153,7 +153,7 @@ export function FavoriteBrandSection() {
           <div className="lg:col-span-6 relative">
             {/* Layer 1: Stylized Offset Geometric Background Frame */}
             <div
-              className="absolute -inset-2 sm:-inset-3.5 rounded-3xl bg-gradient-to-tr from-slate-900/15 via-slate-800/10 to-[#FF5500]/15 -rotate-1"
+              className="absolute -inset-2 sm:-inset-3.5 rounded-3xl bg-gradient-to-tr from-slate-900/15 via-slate-800/10 to-slate-700/10 -rotate-1"
               aria-hidden="true"
             />
 

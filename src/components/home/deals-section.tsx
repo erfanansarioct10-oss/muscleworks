@@ -142,7 +142,7 @@ export function DealsSection() {
             {/* Countdown Boxes */}
             <div className="flex items-center gap-2 sm:gap-3 mb-8">
               <div className="flex flex-col items-center">
-                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-[#FF5500] rounded flex items-center justify-center shadow-md">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white/15 border border-white/20 rounded flex items-center justify-center shadow-md">
                   <span className="font-heading font-black text-xl sm:text-2xl text-white">
                     {String(timeLeft.days).padStart(2, "0")}
                   </span>
@@ -151,7 +151,7 @@ export function DealsSection() {
               </div>
 
               <div className="flex flex-col items-center">
-                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-[#FF5500] rounded flex items-center justify-center shadow-md">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white/15 border border-white/20 rounded flex items-center justify-center shadow-md">
                   <span className="font-heading font-black text-xl sm:text-2xl text-white">
                     {String(timeLeft.hours).padStart(2, "0")}
                   </span>
@@ -160,7 +160,7 @@ export function DealsSection() {
               </div>
 
               <div className="flex flex-col items-center">
-                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-[#FF5500] rounded flex items-center justify-center shadow-md">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white/15 border border-white/20 rounded flex items-center justify-center shadow-md">
                   <span className="font-heading font-black text-xl sm:text-2xl text-white">
                     {String(timeLeft.minutes).padStart(2, "0")}
                   </span>
@@ -169,7 +169,7 @@ export function DealsSection() {
               </div>
 
               <div className="flex flex-col items-center">
-                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-[#FF5500] rounded flex items-center justify-center shadow-md">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white/15 border border-white/20 rounded flex items-center justify-center shadow-md">
                   <span className="font-heading font-black text-xl sm:text-2xl text-white">
                     {String(timeLeft.seconds).padStart(2, "0")}
                   </span>
@@ -182,7 +182,7 @@ export function DealsSection() {
             <div>
               <Link
                 href="/products"
-                className="inline-block font-semibold text-sm sm:text-base text-white underline underline-offset-4 decoration-2 decoration-[#FF5500] hover:text-[#FF5500] transition-colors min-h-[44px] leading-loose"
+                className="inline-block font-semibold text-sm sm:text-base text-white underline underline-offset-4 decoration-2 decoration-white hover:text-slate-300 transition-colors min-h-[44px] leading-loose"
               >
                 View All Deals
               </Link>
@@ -216,7 +216,7 @@ export function DealsSection() {
 
                     {/* Right Details */}
                     <div className="flex flex-col justify-between flex-1 min-w-0">
-                      <h3 className="font-semibold text-xs sm:text-sm md:text-base text-white line-clamp-2 leading-snug group-hover:text-[#FF5500] transition-colors mb-2">
+                      <h3 className="font-semibold text-xs sm:text-sm md:text-base text-white line-clamp-2 leading-snug group-hover:text-slate-300 transition-colors mb-2">
                         {product.title}
                       </h3>
 

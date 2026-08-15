@@ -229,6 +229,7 @@ When writing or executing a feature spec:
 | `47-most-favourite-supplement-brand-section` | [Most Favourite Supplement Brand Showcase Section](47-most-favourite-supplement-brand-section.md) | **Approved** | Homepage Showcase Assembly | 2026-08-15 |
 | `48-customer-reviews-section` | [Customer Reviews Section ("OUR HAPPY CUSTOMERS")](48-customer-reviews-section.md) | **Approved** | Homepage Showcase Assembly | 2026-08-15 |
 | `49-homepage-contact-us-section` | [Homepage Contact Us Section ("GET IN TOUCH")](49-homepage-contact-us-section.md) | **Approved** | Homepage Showcase Assembly | 2026-08-15 |
+| `50-homepage-faq-section` | [Homepage Frequently Asked Questions (FAQ) Section](50-homepage-faq-section.md) | **Approved** | Homepage Showcase Assembly | 2026-08-15 |
 
 
 

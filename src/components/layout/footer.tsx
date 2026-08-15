@@ -74,10 +74,21 @@ export function Footer() {
     <footer
       role="contentinfo"
       aria-label="Site Footer"
-      className="border-t border-border bg-card/80 text-foreground transition-colors"
+      className="relative border-t border-border bg-card/80 text-foreground transition-colors overflow-hidden"
     >
+      {/* Background Radial Slate Spotlight Glow */}
+      <div
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_50%_35%,rgba(15,23,42,0.04),transparent)]"
+        aria-hidden="true"
+      />
+
+      {/* Glassmorphic Charcoal Diagonal Slice (Shifted Farther to the Right) */}
+      <div className="pointer-events-none absolute inset-0 max-w-full overflow-hidden select-none" aria-hidden="true">
+        <div className="absolute -top-64 -bottom-64 left-[62%] sm:left-[66%] lg:left-[70%] -translate-x-1/2 w-[240px] sm:w-[500px] md:w-[700px] lg:w-[800px] -skew-x-45 bg-gradient-to-b from-slate-900/8 via-slate-800/5 to-transparent backdrop-blur-[2px] border-x border-slate-900/10 shadow-2xs opacity-85" />
+      </div>
+
       {/* Main Multi-Column Content Area */}
-      <div className="mx-auto max-w-7xl px-4 pt-10 pb-4 sm:px-6 sm:pt-12 sm:pb-5 lg:px-8 lg:pt-14 lg:pb-6">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 pt-10 pb-4 sm:px-6 sm:pt-12 sm:pb-5 lg:px-8 lg:pt-14 lg:pb-6">
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3 lg:gap-12">
           {/* Column 1: Brand Manifesto & Socials */}
           <div className="flex flex-col gap-4">

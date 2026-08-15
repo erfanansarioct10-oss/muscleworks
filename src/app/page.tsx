@@ -6,6 +6,7 @@ import { DealsSection } from "@/components/home/deals-section";
 import { FavoriteBrandSection } from "@/components/home/favorite-brand-section";
 import { CustomerReviewsSection } from "@/components/home/customer-reviews-section";
 import { HomeContactSection } from "@/components/home/home-contact-section";
+import { HomeFaqSection } from "@/components/home/home-faq-section";
 
 export default function HomePage() {
   return (
@@ -18,6 +19,7 @@ export default function HomePage() {
       <FavoriteBrandSection />
       <CustomerReviewsSection />
       <HomeContactSection />
+      <HomeFaqSection />
     </div>
   );
 }
