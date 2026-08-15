@@ -32,7 +32,7 @@ export function HeroSection() {
   ];
 
   return (
-    <section className="relative w-full min-h-[calc(100dvh-3.5rem)] sm:min-h-[calc(100dvh-4rem)] overflow-hidden bg-background flex items-center justify-center">
+    <section className="relative w-full min-h-[calc(100svh-3.5rem)] sm:min-h-[calc(100svh-4rem)] overflow-hidden bg-background flex items-center justify-center">
       {/* Mobile Hero Background (< md) */}
       <div className="absolute inset-0 z-0 md:hidden select-none pointer-events-none" aria-hidden="true">
         <Image

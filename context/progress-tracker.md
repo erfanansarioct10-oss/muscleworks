@@ -34,6 +34,8 @@
 
 ---
 
+- **2026-08-15 (Mobile Hero Viewport Height & Scroll Zoom Glitch Fix):** Replaced dynamic viewport height units (`100dvh`) with immutable small viewport height units (`100svh`) in `<HeroSection />` (`src/components/home/hero-section.tsx`). Eliminates mobile background image stretching, reflow, and zoom jumps caused by browser URL address bar retraction during user scroll gestures. Verified cleanly with `npx tsc --noEmit` (0 errors) and `npm run lint` (0 errors).
+
 - **2026-08-15 (Primary Store Phone & WhatsApp Number Replacement):** Replaced placeholder/interim phone and WhatsApp numbers across the entire application with the canonical customer number `+977 9861725036` (`+977 986-1725036` / `+9779861725036`). Synchronized `src/lib/constants.ts` (`STORE_PHONE`, `STORE_PHONE_RAW`, `STORE_WHATSAPP`, `STORE_WHATSAPP_DISPLAY`), `data/store-info.json` (`primaryPhone`, `secondaryPhone`, `whatsappNumber`, `whatsappDisplay`), `src/emails/CustomerInquiryConfirmation.tsx`, and validation test suites. Verified cleanly with `npx tsc --noEmit` (0 errors), `npm run lint` (0 errors), `npm run build` (54 static routes compiled), and 100% pass across all test suites.
 
 - **2026-08-15 (Footer Copyright Bottom Spacing Optimization):** Reduced excessive vertical blank space beneath the copyright and legal links bar in `<Footer />` (`src/components/layout/footer.tsx`). Reduced outer container bottom padding (`pb-8 sm:pb-10 lg:pb-10` -> `pb-4 sm:pb-5 lg:pb-6`), tightened separator margin (`mb-6 sm:mb-8` -> `mb-4 sm:mb-5`), and optimized legal link vertical dimensions (`py-1`). Verified with `npx tsc --noEmit` (0 errors) and `npm run lint` (0 errors).
