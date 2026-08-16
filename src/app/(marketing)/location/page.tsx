@@ -127,7 +127,7 @@ export default async function LocationPage() {
             
             {/* Google Maps Embed Container */}
             <div className="lg:col-span-7 flex flex-col">
-              <StoreMapEmbed className="h-full min-h-[400px] flex-1" />
+              <StoreMapEmbed className="h-full min-h-[400px] flex-1" storeInfo={storeData} />
             </div>
 
             {/* Store Information & Direct Call Actions */}

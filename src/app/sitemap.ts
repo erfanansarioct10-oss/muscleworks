@@ -28,24 +28,24 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${baseUrl}/terms`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.3 },
   ];
 
-  const productRoutes: MetadataRoute.Sitemap = products.map((product) => ({
+  const productRoutes: MetadataRoute.Sitemap = products.map((product): MetadataRoute.Sitemap[number] => ({
     url: `${baseUrl}/products/${product.slug}`,
     lastModified: product.updatedAt ? new Date(product.updatedAt) : new Date(),
-    changeFrequency: 'weekly' as const,
+    changeFrequency: 'weekly',
     priority: 0.8,
   }));
 
-  const categoryRoutes: MetadataRoute.Sitemap = categories.map((category) => ({
+  const categoryRoutes: MetadataRoute.Sitemap = categories.map((category): MetadataRoute.Sitemap[number] => ({
     url: `${baseUrl}/categories/${category.slug}`,
     lastModified: new Date(),
-    changeFrequency: 'weekly' as const,
+    changeFrequency: 'weekly',
     priority: 0.7,
   }));
 
-  const brandRoutes: MetadataRoute.Sitemap = brands.map((brand) => ({
+  const brandRoutes: MetadataRoute.Sitemap = brands.map((brand): MetadataRoute.Sitemap[number] => ({
     url: `${baseUrl}/brands/${brand.slug}`,
     lastModified: new Date(),
-    changeFrequency: 'weekly' as const,
+    changeFrequency: 'weekly',
     priority: 0.7,
   }));
 

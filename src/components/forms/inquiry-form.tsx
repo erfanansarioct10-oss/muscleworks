@@ -25,6 +25,7 @@ import {
 import { submitInquiryAction } from '@/actions/inquiry';
 import { buildGeneralWhatsAppUrl } from '@/lib/whatsapp';
 import { formatNprPrice, cn } from '@/lib/utils';
+import { trackLeadSubmission } from '@/lib/analytics';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -129,6 +130,11 @@ export function InquiryForm({
 
       if (result.success && result.data?.inquiryId) {
         const inquiryId = result.data.inquiryId;
+        trackLeadSubmission({
+          formName: 'InquiryForm',
+          city: finalPayload.deliveryCity,
+          inquiryType: values.inquiryType,
+        });
         toast.success(result.message || 'Inquiry submitted successfully!');
         
         setSubmittedReceipt({

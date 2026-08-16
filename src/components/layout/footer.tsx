@@ -133,7 +133,7 @@ export function Footer() {
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`inline-flex min-h-11 min-w-11 items-center justify-center rounded-xl border border-border bg-secondary/60 p-2.5 text-muted-foreground transition-all duration-200 active:scale-95 shadow-xs ${
+                      className={`inline-flex min-h-11 min-w-11 items-center justify-center rounded-xl border border-border bg-secondary/60 p-2.5 text-muted-foreground transition-all duration-200 active:scale-95 shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
                         isWhatsApp
                           ? "hover:border-emerald-500 hover:bg-emerald-600 hover:text-white"
                           : "hover:border-pink-500 hover:bg-gradient-to-tr hover:from-amber-500 hover:via-pink-500 hover:to-purple-600 hover:text-white"
@@ -162,9 +162,9 @@ export function Footer() {
                 <li key={cat.href}>
                   <Link
                     href={cat.href}
-                    className="group inline-flex min-h-11 items-center gap-1.5 text-muted-foreground transition-colors hover:text-foreground"
+                    className="group inline-flex min-h-11 items-center gap-1.5 text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-md px-1"
                   >
-                    <ChevronRight className="h-3 w-3 text-muted-foreground/60 transition-transform group-hover:translate-x-0.5 group-hover:text-foreground" />
+                    <ChevronRight className="h-3 w-3 text-muted-foreground/60 transition-transform group-hover:translate-x-0.5 group-hover:text-foreground" aria-hidden="true" />
                     <span>{cat.label}</span>
                   </Link>
                 </li>
@@ -180,7 +180,7 @@ export function Footer() {
             <div className="flex flex-col space-y-3 text-xs text-muted-foreground">
               {/* Address */}
               <div className="flex items-start gap-2.5">
-                <MapPin className="h-4 w-4 shrink-0 text-accent mt-0.5" />
+                <MapPin className="h-4 w-4 shrink-0 text-accent mt-0.5" aria-hidden="true" />
                 <div className="flex flex-col">
                   <span className="font-semibold text-foreground">
                     {STORE_LOCATION.street}, {STORE_LOCATION.area}
@@ -193,17 +193,17 @@ export function Footer() {
                     href={STORE_LOCATION.googleMapsUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex min-h-11 items-center gap-1 font-medium text-foreground hover:text-accent hover:underline mt-1"
+                    className="inline-flex min-h-11 items-center gap-1 font-medium text-foreground hover:text-accent hover:underline mt-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-md"
                   >
                     <span>Get Directions on Google Maps</span>
-                    <ExternalLink className="h-3 w-3" />
+                    <ExternalLink className="h-3 w-3" aria-hidden="true" />
                   </a>
                 </div>
               </div>
 
               {/* Hours */}
               <div className="flex items-start gap-2.5 pt-1">
-                <Clock className="h-4 w-4 shrink-0 text-accent mt-0.5" />
+                <Clock className="h-4 w-4 shrink-0 text-accent mt-0.5" aria-hidden="true" />
                 <div className="flex flex-col">
                   <span className="font-semibold text-foreground">Opening Hours</span>
                   <span>{STORE_HOURS.weekdays}</span>
@@ -215,16 +215,16 @@ export function Footer() {
               <div className="flex flex-col gap-1.5 pt-1">
                 <a
                   href={`tel:${STORE_PHONE_RAW}`}
-                  className="inline-flex min-h-12 min-w-12 items-center gap-2 font-medium text-foreground hover:text-accent"
+                  className="inline-flex min-h-12 min-w-12 items-center gap-2 font-medium text-foreground hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-md"
                 >
-                  <Phone className="h-3.5 w-3.5 text-accent" />
+                  <Phone className="h-3.5 w-3.5 text-accent" aria-hidden="true" />
                   <span>{STORE_PHONE}</span>
                 </a>
                 <a
                   href={`mailto:${STORE_EMAIL}`}
-                  className="inline-flex min-h-11 items-center gap-2 text-muted-foreground hover:text-foreground"
+                  className="inline-flex min-h-11 items-center gap-2 text-muted-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-md"
                 >
-                  <Mail className="h-3.5 w-3.5 text-muted-foreground" />
+                  <Mail className="h-3.5 w-3.5 text-muted-foreground" aria-hidden="true" />
                   <span>{STORE_EMAIL}</span>
                 </a>
               </div>
@@ -266,7 +266,7 @@ export function Footer() {
               <Link
                 key={legal.href}
                 href={legal.href}
-                className="inline-flex py-1 items-center transition-colors hover:text-foreground"
+                className="inline-flex min-h-[44px] items-center py-2 px-1 text-xs transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-md"
               >
                 {legal.label}
               </Link>

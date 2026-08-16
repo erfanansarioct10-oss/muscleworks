@@ -13,6 +13,7 @@ import {
   SheetContent,
   SheetHeader,
   SheetTitle,
+  SheetDescription,
   SheetTrigger,
 } from '@/components/ui/sheet';
 import { BrandFilter } from '@/components/catalog/brand-filter';
@@ -239,6 +240,9 @@ export function MobileFilterDrawer({
             <SheetTitle className="text-base font-semibold text-neutral-900 font-heading">
               Filter Catalog
             </SheetTitle>
+            <SheetDescription className="sr-only">
+              Filter supplements by category, brand, fitness goal, and price range.
+            </SheetDescription>
             {stagedCount > 0 && (
               <Badge variant="secondary" className="text-xs bg-neutral-100 text-neutral-700">
                 {stagedCount} selected
@@ -386,6 +390,7 @@ export function MobileFilterDrawer({
                 placeholder="Min NPR"
                 value={stagedMinPrice}
                 onChange={(e) => setStagedMinPrice(e.target.value)}
+                aria-label="Minimum price in NPR"
                 className="h-10 text-xs"
                 min={0}
               />
@@ -395,6 +400,7 @@ export function MobileFilterDrawer({
                 placeholder="Max NPR"
                 value={stagedMaxPrice}
                 onChange={(e) => setStagedMaxPrice(e.target.value)}
+                aria-label="Maximum price in NPR"
                 className="h-10 text-xs"
                 min={0}
               />

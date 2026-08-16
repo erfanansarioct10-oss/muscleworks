@@ -16,19 +16,3 @@ export type ActionError = {
 };
 
 export type ActionResult<T = void> = ActionSuccess<T> | ActionError;
-
-/**
- * Standard payload for contact & product consultation inquiries.
- */
-export interface InquiryPayload {
-  name: string;
-  phone: string;
-  city: string;
-  message?: string;
-  productSlug?: string;
-  productName?: string;
-  variantName?: string;
-  preferredContactMethod?: "whatsapp" | "phone";
-  hp_field?: string; // Honeypot trap
-  submissionTimestamp?: number;
-}

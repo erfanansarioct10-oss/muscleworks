@@ -325,6 +325,7 @@ export function CatalogFilters({ categories, className }: CatalogFiltersProps) {
               placeholder="Min NPR"
               value={minPriceInput}
               onChange={(e) => setMinPriceInput(e.target.value)}
+              aria-label="Minimum price in NPR"
               className="h-10 text-xs"
               min={0}
             />
@@ -334,6 +335,7 @@ export function CatalogFilters({ categories, className }: CatalogFiltersProps) {
               placeholder="Max NPR"
               value={maxPriceInput}
               onChange={(e) => setMaxPriceInput(e.target.value)}
+              aria-label="Maximum price in NPR"
               className="h-10 text-xs"
               min={0}
             />

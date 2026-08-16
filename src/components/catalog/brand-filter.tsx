@@ -76,6 +76,7 @@ export function BrandFilter({
           placeholder="Search brand..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
+          aria-label="Search authorized brands"
           className="h-9 pl-8 pr-8 text-xs bg-neutral-50 border-neutral-200 focus-visible:ring-primary"
         />
         {searchQuery && (
@@ -110,6 +111,7 @@ export function BrandFilter({
                     type="checkbox"
                     checked={isChecked}
                     onChange={() => onToggleBrand?.(brand.slug)}
+                    aria-label={`Filter by brand ${brand.name}`}
                     className="sr-only"
                   />
                   <div
