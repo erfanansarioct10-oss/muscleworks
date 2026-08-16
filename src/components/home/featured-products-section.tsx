@@ -177,7 +177,7 @@ export function FeaturedProductsSection() {
                       href={whatsappUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`inline-flex items-center justify-center rounded-full px-5 py-2.5 text-xs sm:text-sm tracking-wider uppercase shadow-md transition-all duration-200 active:scale-95 min-h-[44px] sm:min-h-[48px] ${banner.buttonClass}`}
+                      className={`inline-flex items-center justify-center rounded-full px-5 py-2.5 text-xs sm:text-sm tracking-wider uppercase shadow-md transition-all duration-200 active:scale-95 min-h-[48px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black ${banner.buttonClass}`}
                       aria-label={`Order ${banner.title} via WhatsApp`}
                     >
                       ORDER NOW

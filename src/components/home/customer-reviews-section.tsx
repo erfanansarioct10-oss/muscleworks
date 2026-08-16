@@ -2,31 +2,31 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import { Star, ChevronRight } from "lucide-react";
-import reviewsData from "@/../data/reviews.json";
-import { ReviewItemSchema, type ReviewItem } from "@/lib/validations/review";
+import type { ReviewItem } from "@/lib/validations/review";
 
-// Validate reviews dataset at build time
-const reviews: ReviewItem[] = ReviewItemSchema.array().parse(reviewsData);
+export interface CustomerReviewsSectionProps {
+  reviews?: ReviewItem[];
+}
 
-export function CustomerReviewsSection() {
+export function CustomerReviewsSection({ reviews = [] }: CustomerReviewsSectionProps) {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
-
-  const handleScroll = () => {
-    const container = scrollContainerRef.current;
-    if (!container) return;
-    const scrollPosition = container.scrollLeft;
-    const cardWidth = container.offsetWidth;
-    const index = Math.round(scrollPosition / cardWidth);
-    setActiveIndex(Math.min(Math.max(index, 0), reviews.length - 1));
-  };
 
   useEffect(() => {
     const container = scrollContainerRef.current;
     if (!container) return;
+
+    const handleScroll = () => {
+      if (!container || reviews.length === 0) return;
+      const scrollPosition = container.scrollLeft;
+      const cardWidth = container.offsetWidth;
+      const index = Math.round(scrollPosition / cardWidth);
+      setActiveIndex(Math.min(Math.max(index, 0), reviews.length - 1));
+    };
+
     container.addEventListener("scroll", handleScroll, { passive: true });
     return () => container.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [reviews.length]);
 
   const scrollToCard = (index: number) => {
     const container = scrollContainerRef.current;
@@ -41,6 +41,10 @@ export function CustomerReviewsSection() {
     }
     setActiveIndex(index);
   };
+
+  if (reviews.length === 0) {
+    return null;
+  }
 
   return (
     <section className="w-full bg-white py-12 sm:py-16 lg:py-20 border-b border-slate-100 relative overflow-hidden">
@@ -115,9 +119,9 @@ export function CustomerReviewsSection() {
           ))}
         </div>
 
-        {/* Mobile Pagination Indicator Dots */}
+        {/* Mobile Pagination Indicator Dots (>=44px touch target) */}
         <div
-          className="flex md:hidden items-center justify-center gap-2 mt-6"
+          className="flex md:hidden items-center justify-center gap-1 mt-6"
           aria-label="Customer review pagination indicators"
         >
           {reviews.map((_, i) => (
@@ -125,14 +129,18 @@ export function CustomerReviewsSection() {
               key={i}
               type="button"
               onClick={() => scrollToCard(i)}
-              className={`transition-all duration-300 rounded-full cursor-pointer ${
-                activeIndex === i
-                  ? "w-6 h-2.5 bg-slate-900"
-                  : "w-2.5 h-2.5 bg-slate-300 hover:bg-slate-400"
-              }`}
+              className="min-h-[44px] min-w-[44px] inline-flex items-center justify-center p-2 rounded-full cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-900"
               aria-label={`Go to review ${i + 1}`}
               aria-current={activeIndex === i ? "true" : undefined}
-            />
+            >
+              <span
+                className={`transition-all duration-300 rounded-full block ${
+                  activeIndex === i
+                    ? "w-6 h-2.5 bg-slate-900"
+                    : "w-2.5 h-2.5 bg-slate-300 hover:bg-slate-400"
+                }`}
+              />
+            </button>
           ))}
         </div>
       </div>

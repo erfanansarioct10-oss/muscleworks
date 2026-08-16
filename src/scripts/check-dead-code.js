@@ -19,10 +19,17 @@ function getAllFiles(dir, ext = ['.ts', '.tsx', '.js', '.jsx']) {
 const srcDir = path.resolve('src');
 const allFiles = getAllFiles(srcDir);
 
-console.log(`Total source files: ${allFiles.length}`);
+// Exclude test harness scripts in src/scripts from production caller scanning
+const prodFiles = allFiles.filter(f => !f.includes(path.join('src', 'scripts')));
+const testFiles = allFiles.filter(f => f.includes(path.join('src', 'scripts')));
+
+console.log(`Total source files: ${allFiles.length} (${prodFiles.length} production, ${testFiles.length} test scripts)`);
 
 // 1. Check if component files are imported
-const componentFiles = allFiles.filter(f => f.includes(path.join('src', 'components')));
+// Exclude UI primitives directory (src/components/ui/) which contains standard atomic design system components
+const componentFiles = prodFiles.filter(
+  f => f.includes(path.join('src', 'components')) && !f.includes(path.join('src', 'components', 'ui'))
+);
 
 const unusedComponents = [];
 
@@ -30,7 +37,7 @@ componentFiles.forEach(compPath => {
   const baseName = path.basename(compPath, path.extname(compPath));
   let isImported = false;
 
-  for (const file of allFiles) {
+  for (const file of prodFiles) {
     if (file === compPath) continue;
     const content = fs.readFileSync(file, 'utf8');
     if (content.includes(baseName)) {
@@ -46,16 +53,36 @@ componentFiles.forEach(compPath => {
 
 console.log('\n--- UNUSED COMPONENT FILES ---');
 if (unusedComponents.length === 0) {
-  console.log('None! All component files are referenced.');
+  console.log('None! All non-UI component files are referenced in production.');
 } else {
-  unusedComponents.forEach(c => console.log('UNREFERENCED:', c));
+  unusedComponents.forEach(c => console.log('UNREFERENCED:', path.relative(process.cwd(), c)));
 }
 
-// 2. Check for unused exports in lib, components, types, actions
-const exportsMap = []; // { name, file, isType }
+// 2. Check for unused exports across production source files
+// Whitelist Next.js framework exports
+const NEXTJS_SPECIAL_EXPORTS = new Set([
+  'default',
+  'generateMetadata',
+  'generateStaticParams',
+  'metadata',
+  'viewport',
+  'dynamic',
+  'dynamicParams',
+  'revalidate',
+  'fetchCache',
+  'runtime',
+  'preferredRegion',
+  'maxDuration',
+  'generateImageMetadata',
+  'generateSitemaps',
+]);
 
-allFiles.forEach(file => {
-  if (file.includes(path.join('src', 'scripts'))) return; // Skip scripts directory for export check
+const exportsMap = []; // { name, file }
+
+prodFiles.forEach(file => {
+  // Whitelist standard Radix/shadcn atomic UI primitives in src/components/ui/
+  if (file.includes(path.join('src', 'components', 'ui'))) return;
+
   const content = fs.readFileSync(file, 'utf8');
 
   // Match named exports
@@ -63,42 +90,33 @@ allFiles.forEach(file => {
   let match;
   while ((match = exportRegex.exec(content)) !== null) {
     const exportName = match[1];
-    if (exportName !== 'default' && exportName !== 'generateMetadata' && exportName !== 'generateStaticParams') {
+    if (!NEXTJS_SPECIAL_EXPORTS.has(exportName)) {
       exportsMap.push({ name: exportName, file });
     }
   }
 });
 
-console.log(`\nTotal exported identifiers found: ${exportsMap.length}`);
+console.log(`\nTotal production exported identifiers evaluated: ${exportsMap.length}`);
 
 const unusedExports = [];
 
 exportsMap.forEach(({ name, file }) => {
-  let occurrences = 0;
-  for (const otherFile of allFiles) {
+  let isUsedElsewhere = false;
+  for (const otherFile of prodFiles) {
+    if (otherFile === file) continue;
     const content = fs.readFileSync(otherFile, 'utf8');
-    // Simple word boundary regex match
-    const regex = new RegExp(`\\b${name}\\b`, 'g');
-    const matches = content.match(regex);
-    if (matches) {
-      occurrences += matches.length;
-    }
-    if (occurrences > 1 && otherFile !== file) {
-      // Used in at least another file
+    const regex = new RegExp(`\\b${name}\\b`);
+    if (regex.test(content)) {
+      isUsedElsewhere = true;
       break;
     }
   }
-
-  // Count occurrences inside source file
-  const ownContent = fs.readFileSync(file, 'utf8');
-  const ownMatches = (ownContent.match(new RegExp(`\\b${name}\\b`, 'g')) || []).length;
-
-  if (occurrences <= ownMatches) {
+  if (!isUsedElsewhere) {
     unusedExports.push({ name, file });
   }
 });
 
-console.log('\n--- UNUSED EXPORTS (Not referenced outside their own defining file) ---');
+console.log('\n--- UNUSED EXPORTS (Not referenced in production code outside their defining file) ---');
 if (unusedExports.length === 0) {
   console.log('None! All exports are referenced outside their file.');
 } else {

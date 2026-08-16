@@ -1,7 +1,5 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import fs from 'fs';
-import path from 'path';
 import { ShieldCheck, Stamp, QrCode, Award } from 'lucide-react';
 import { getBrands } from '@/lib/data/brands';
 
@@ -16,8 +14,7 @@ export async function BrandsMarquee() {
   const logoBrands = allBrands.filter((brand) => {
     if (!brand.logo?.url) return false;
     if (brand.logo.url.endsWith('.svg')) return false;
-    const fullPath = path.join(process.cwd(), 'public', brand.logo.url);
-    return fs.existsSync(fullPath);
+    return true;
   });
 
   if (logoBrands.length === 0) {

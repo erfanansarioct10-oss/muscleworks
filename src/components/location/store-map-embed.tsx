@@ -1,14 +1,30 @@
 import { MapPin, Navigation, ExternalLink, Car } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import rawStoreData from '@/data/store-info.json';
+import { STORE_LOCATION } from '@/lib/constants';
+import type { StoreInfo } from '@/lib/validations/store';
 
 export interface StoreMapEmbedProps {
   className?: string;
   showOverlay?: boolean;
+  storeInfo?: StoreInfo;
 }
 
-export function StoreMapEmbed({ className, showOverlay = true }: StoreMapEmbedProps) {
-  const { address, coordinates } = rawStoreData;
+export function StoreMapEmbed({
+  className,
+  showOverlay = true,
+  storeInfo,
+}: StoreMapEmbedProps) {
+  const embedUrl =
+    storeInfo?.coordinates.googleMapsEmbedUrl ??
+    STORE_LOCATION.googleMapsEmbedUrl;
+  const placeUrl =
+    storeInfo?.coordinates.googleMapsPlaceUrl ??
+    STORE_LOCATION.googleMapsUrl;
+  const streetText = storeInfo
+    ? `${storeInfo.address.streetAddress}, ${storeInfo.address.area}, ${storeInfo.address.municipality}, ${storeInfo.address.city}`
+    : `${STORE_LOCATION.street}, ${STORE_LOCATION.area}, ${STORE_LOCATION.city}`;
+  const landmarkText =
+    storeInfo?.address.landmark ?? STORE_LOCATION.landmark;
 
   return (
     <div
@@ -20,7 +36,7 @@ export function StoreMapEmbed({ className, showOverlay = true }: StoreMapEmbedPr
       {/* Google Maps Responsive Iframe */}
       <iframe
         title="MuscleWorks Supplements Golfutar Store Location Map"
-        src={coordinates.googleMapsEmbedUrl}
+        src={embedUrl}
         width="100%"
         height="100%"
         style={{ border: 0, minHeight: '360px' }}
@@ -42,10 +58,10 @@ export function StoreMapEmbed({ className, showOverlay = true }: StoreMapEmbedPr
                 Golfutar Retail Outlet
               </h4>
               <p className="text-xs text-muted-foreground line-clamp-2">
-                {address.streetAddress}, {address.area}, {address.municipality}, {address.city}
+                {streetText}
               </p>
               <p className="text-[11px] font-medium text-primary mt-0.5">
-                📍 {address.landmark}
+                📍 {landmarkText}
               </p>
             </div>
           </div>
@@ -57,7 +73,7 @@ export function StoreMapEmbed({ className, showOverlay = true }: StoreMapEmbedPr
 
           {/* Open in Google Maps CTA Button (≥48px height) */}
           <a
-            href={coordinates.googleMapsPlaceUrl}
+            href={placeUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex w-full min-h-[48px] items-center justify-center gap-2 rounded-xl bg-primary px-4 py-2.5 text-sm font-bold text-primary-foreground shadow-md transition-all hover:bg-primary/90 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"

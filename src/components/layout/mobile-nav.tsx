@@ -21,6 +21,7 @@ import {
   SheetContent,
   SheetHeader,
   SheetTitle,
+  SheetDescription,
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
@@ -97,9 +98,9 @@ export function MobileNav() {
         <button
           type="button"
           aria-label="Open mobile navigation menu"
-          className="flex h-11 w-11 min-h-[44px] min-w-[44px] items-center justify-center rounded-xl border border-border bg-card text-foreground transition-all hover:bg-muted active:scale-95 lg:hidden"
+          className="flex h-11 w-11 min-h-[44px] min-w-[44px] items-center justify-center rounded-xl border border-border bg-card text-foreground transition-all hover:bg-muted active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring lg:hidden"
         >
-          <Menu className="h-5 w-5" />
+          <Menu className="h-5 w-5" aria-hidden="true" />
         </button>
       </SheetTrigger>
 
@@ -122,6 +123,9 @@ export function MobileNav() {
             </div>
           </div>
           <SheetTitle className="sr-only">{STORE_NAME} Navigation</SheetTitle>
+          <SheetDescription className="sr-only">
+            Mobile navigation menu with supplement categories, store information, and guides.
+          </SheetDescription>
         </SheetHeader>
 
         {/* Scrollable Navigation Body */}
@@ -139,11 +143,11 @@ export function MobileNav() {
                     key={item.href}
                     href={item.href}
                     onClick={() => setOpen(false)}
-                    className="flex min-h-[44px] items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-muted active:scale-[0.98]"
+                    className="flex min-h-[44px] items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-muted active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                   >
                     <div className="flex items-center gap-3">
                       <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-muted text-foreground">
-                        <Icon className="h-4 w-4" />
+                        <Icon className="h-4 w-4" aria-hidden="true" />
                       </div>
                       <span>{item.label}</span>
                     </div>
@@ -152,7 +156,7 @@ export function MobileNav() {
                         {item.badge}
                       </Badge>
                     ) : (
-                      <ChevronRight className="h-4 w-4 text-muted-foreground/60" />
+                      <ChevronRight className="h-4 w-4 text-muted-foreground/60" aria-hidden="true" />
                     )}
                   </Link>
                 );
@@ -173,11 +177,11 @@ export function MobileNav() {
                     key={item.href}
                     href={item.href}
                     onClick={() => setOpen(false)}
-                    className="flex min-h-[44px] items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-muted active:scale-[0.98]"
+                    className="flex min-h-[44px] items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-muted active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                   >
                     <div className="flex items-start gap-3">
                       <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-muted text-accent">
-                        <Icon className="h-4 w-4" />
+                        <Icon className="h-4 w-4" aria-hidden="true" />
                       </div>
                       <div className="flex flex-col">
                         <span>{item.label}</span>
@@ -186,7 +190,7 @@ export function MobileNav() {
                         </span>
                       </div>
                     </div>
-                    <ChevronRight className="h-4 w-4 shrink-0 text-muted-foreground/60" />
+                    <ChevronRight className="h-4 w-4 shrink-0 text-muted-foreground/60" aria-hidden="true" />
                   </Link>
                 );
               })}
@@ -200,7 +204,7 @@ export function MobileNav() {
             asChild
             variant="whatsapp"
             size="lg"
-            className="w-full justify-center gap-2 shadow-lg font-semibold"
+            className="w-full justify-center gap-2 shadow-lg font-semibold min-h-[48px]"
           >
             <a
               href={whatsappUrl}
@@ -208,7 +212,7 @@ export function MobileNav() {
               rel="noopener noreferrer"
               onClick={() => setOpen(false)}
             >
-              <MessageCircle className="h-5 w-5" />
+              <MessageCircle className="h-5 w-5" aria-hidden="true" />
               <span>Order on WhatsApp</span>
             </a>
           </Button>
@@ -216,11 +220,11 @@ export function MobileNav() {
           <Button
             asChild
             variant="outline"
-            size="default"
-            className="w-full justify-center gap-2"
+            size="lg"
+            className="w-full justify-center gap-2 min-h-[48px]"
           >
             <a href={`tel:${STORE_PHONE_RAW}`}>
-              <Phone className="h-4 w-4 text-foreground" />
+              <Phone className="h-4 w-4 text-foreground" aria-hidden="true" />
               <span>Call Store: {STORE_PHONE}</span>
             </a>
           </Button>

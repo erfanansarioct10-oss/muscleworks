@@ -22,6 +22,7 @@ import {
 import { submitContactAction } from '@/actions/contact';
 import { buildGeneralWhatsAppUrl } from '@/lib/whatsapp';
 import { cn } from '@/lib/utils';
+import { trackLeadSubmission } from '@/lib/analytics';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -118,6 +119,11 @@ export function ContactForm({ className, onSuccess }: ContactFormProps) {
 
       if (result.success && result.data?.inquiryId) {
         const inquiryId = result.data.inquiryId;
+        trackLeadSubmission({
+          formName: 'ContactForm',
+          city: finalPayload.deliveryCity,
+          inquiryType: values.inquiryType,
+        });
         toast.success(result.message || 'Contact message submitted successfully!');
 
         setSubmittedReceipt({

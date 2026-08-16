@@ -77,8 +77,3 @@ export async function getRelatedGuides(
   return [...sameCategory, ...remaining].slice(0, limit);
 }
 
-/**
- * Backward compatibility alias for getAllGuides.
- */
-export const getGuides = getAllGuides;
-

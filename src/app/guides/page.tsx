@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { BookOpen, Clock, ShieldCheck, ArrowRight } from 'lucide-react';
 import { STORE_NAME, SITE_URL } from '@/lib/constants';
-import guidesData from '@/data/guides.json';
+import { getAllGuides } from '@/lib/data/guides';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 
@@ -17,7 +17,9 @@ export const metadata: Metadata = {
   },
 };
 
-export default function GuidesPage() {
+export default async function GuidesPage() {
+  const guides = await getAllGuides();
+
   return (
     <div className="w-full bg-background py-8 sm:py-12 lg:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -44,7 +46,7 @@ export default function GuidesPage() {
 
         {/* Guides Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {guidesData.map((guide) => (
+          {guides.map((guide) => (
             <article
               key={guide.slug}
               className="group flex flex-col justify-between rounded-2xl border border-border bg-card overflow-hidden shadow-xs hover:border-primary/40 hover:shadow-lg transition-all duration-300"
@@ -89,14 +91,20 @@ export default function GuidesPage() {
                 {/* Author & Action Footer */}
                 <div className="pt-4 border-t border-border/80 flex items-center justify-between gap-2 mt-auto">
                   <div className="flex items-center gap-2.5">
-                    <div className="relative h-8 w-8 rounded-full overflow-hidden bg-muted border border-border">
-                      <Image
-                        src={guide.author.avatar}
-                        alt={guide.author.name}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
+                    {guide.author.avatar ? (
+                      <div className="relative h-8 w-8 rounded-full overflow-hidden bg-muted border border-border">
+                        <Image
+                          src={guide.author.avatar}
+                          alt={guide.author.name}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                    ) : (
+                      <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-primary font-bold text-xs border border-border">
+                        {guide.author.name.charAt(0)}
+                      </div>
+                    )}
                     <div className="flex flex-col">
                       <span className="text-xs font-semibold text-foreground">{guide.author.name}</span>
                       <span className="text-[10px] text-muted-foreground truncate max-w-[140px]">{guide.author.role}</span>

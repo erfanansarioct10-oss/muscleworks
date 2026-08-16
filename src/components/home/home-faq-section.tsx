@@ -12,52 +12,13 @@ import {
 import { buildGeneralWhatsAppUrl } from "@/lib/whatsapp";
 import { STORE_PHONE, STORE_PHONE_RAW } from "@/lib/constants";
 
-interface FaqItem {
-  id: string;
-  question: string;
-  answer: string;
+import type { FAQItem } from "@/lib/validations/common";
+
+export interface HomeFaqSectionProps {
+  faqs?: FAQItem[];
 }
 
-const HOMEPAGE_FAQS: FaqItem[] = [
-  {
-    id: "faq_authenticity_1",
-    question: "How can I verify that supplements bought from MUSCLEWORKS Nepal are 100% genuine?",
-    answer:
-      "Every product sold at MUSCLEWORKS SUPPLEMENTS comes with an official authorized importer hologram seal (such as Muscle House Nepal or Radiant Traders) and a tamper-evident scratch-and-verify security code. You can scan the QR code or enter the unique scratch code directly on the manufacturer's official verification portal to verify batch authenticity before opening.",
-  },
-  {
-    id: "faq_authenticity_2",
-    question: "What authorized importer holographic seals should I look for?",
-    answer:
-      "In Nepal, top global brands are imported exclusively by authorized national distributors. For instance, Optimum Nutrition and Dymatize feature Muscle House Nepal holographic seals, while MuscleTech and Kevin Levrone feature Radiant Traders seals. MUSCLEWORKS guarantees 100% authorized supply lines with zero grey-market or counterfeit tubs.",
-  },
-  {
-    id: "faq_ordering_delivery_1",
-    question: "How quickly do you deliver within Kathmandu Valley?",
-    answer:
-      "Orders placed before 2:00 PM are delivered same-day across Kathmandu, Lalitpur, and Bhaktapur. Orders placed after 2:00 PM are delivered next-morning. We also offer express emergency delivery within Kathmandu Valley from our Golfutar flagship retail outlet.",
-  },
-  {
-    id: "faq_ordering_delivery_2",
-    question: "Do you ship outside Kathmandu Valley to Pokhara, Chitwan, or Butwal?",
-    answer:
-      "Yes, we ship nationwide across Nepal including Pokhara, Chitwan, Butwal, Biratnagar, Dharan, Itahari, Nepalgunj, and Birtamode via reliable courier partners. Outside-valley deliveries typically arrive within 2 to 4 business days with tracking.",
-  },
-  {
-    id: "faq_ordering_delivery_3",
-    question: "How does ordering via WhatsApp work?",
-    answer:
-      "Ordering via WhatsApp is instant and convenient! Click any 'Order via WhatsApp' button on our product pages. A pre-filled message with your selected product name, flavor, weight, and price will automatically populate. Simply send the message, share your delivery city, and our team will confirm stock and dispatch immediately.",
-  },
-  {
-    id: "faq_payment_store_1",
-    question: "What payment methods do you accept?",
-    answer:
-      "We accept Cash on Delivery (COD) across Kathmandu Valley and major outside-valley cities. You can also pay seamlessly via Fonepay QR, eSewa, Khalti, or direct bank transfer upon delivery or order placement.",
-  },
-];
-
-export function HomeFaqSection() {
+export function HomeFaqSection({ faqs = [] }: HomeFaqSectionProps) {
   const directWhatsAppUrl = buildGeneralWhatsAppUrl(
     "Namaste MuscleWorks! I have a question about supplement authenticity, stock availability, or delivery."
   );
@@ -135,23 +96,26 @@ export function HomeFaqSection() {
             <Accordion
               type="single"
               collapsible
-              defaultValue="faq_authenticity_1"
+              defaultValue={faqs[0]?.id || "faq_1"}
               className="space-y-3.5 sm:space-y-4"
             >
-              {HOMEPAGE_FAQS.map((faq) => (
-                <AccordionItem
-                  key={faq.id}
-                  value={faq.id}
-                  className="rounded-2xl border border-border bg-card data-[state=open]:border-foreground/30 data-[state=open]:shadow-sm px-5 sm:px-6 transition-all shadow-xs overflow-hidden"
-                >
-                  <AccordionTrigger className="text-foreground font-heading font-bold text-sm sm:text-base py-4 sm:py-5 min-h-[48px] hover:no-underline hover:text-muted-foreground transition-colors">
-                    <span className="pr-4">{faq.question}</span>
-                  </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground text-xs sm:text-sm leading-relaxed pb-5 pt-1 border-t border-border/60">
-                    {faq.answer}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
+              {faqs.map((faq, index) => {
+                const faqId = faq.id || `faq_${index + 1}`;
+                return (
+                  <AccordionItem
+                    key={faqId}
+                    value={faqId}
+                    className="rounded-2xl border border-border bg-card data-[state=open]:border-foreground/30 data-[state=open]:shadow-sm px-5 sm:px-6 transition-all shadow-xs overflow-hidden"
+                  >
+                    <AccordionTrigger className="text-foreground font-heading font-bold text-sm sm:text-base py-4 sm:py-5 min-h-[48px] hover:no-underline hover:text-muted-foreground transition-colors">
+                      <span className="pr-4">{faq.question}</span>
+                    </AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground text-xs sm:text-sm leading-relaxed pb-5 pt-1 border-t border-border/60">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                );
+              })}
             </Accordion>
           </div>
         </div>

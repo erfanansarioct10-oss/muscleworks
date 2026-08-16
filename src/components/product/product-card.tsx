@@ -8,9 +8,9 @@ import { cn, formatNprPrice, calculateDiscountPercentage } from '@/lib/utils';
 import { Product, ProductVariant } from '@/lib/validations/product';
 import { ProductAuthenticityBadge } from './product-authenticity-badge';
 import { Badge } from '@/components/ui/badge';
-
 import { buildProductWhatsAppUrl } from '@/lib/whatsapp';
 import { DEFAULT_PRODUCT_PLACEHOLDER } from '@/lib/constants';
+import { trackWhatsAppClick } from '@/lib/analytics';
 
 export interface ProductCardProps {
   product: Product;
@@ -77,6 +77,14 @@ export function ProductCard({
   const handleWhatsAppClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     e.stopPropagation();
+    trackWhatsAppClick({
+      source: 'product_card_quick_order',
+      productName: product.name,
+      brand: brandName,
+      flavor: defaultVariant?.flavor,
+      size: defaultVariant?.sizeOrWeight,
+      price: currentPrice,
+    });
     window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
   };
 

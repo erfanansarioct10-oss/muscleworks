@@ -11,7 +11,7 @@ import Link from 'next/link';
 import { cn, formatNprPrice, calculateDiscountPercentage } from '@/lib/utils';
 import type { Product, ProductVariant, Category, Brand } from '@/lib/validations/product';
 import { buildProductWhatsAppUrl } from '@/lib/whatsapp';
-import { trackWhatsAppClick } from '@/lib/analytics';
+import { trackWhatsAppClick, trackProductView } from '@/lib/analytics';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import {
@@ -65,6 +65,17 @@ export function ProductDetailView({
     setPrevProductId(product.id);
     setSelectedVariant(defaultVariant);
   }
+
+  // Track product view in analytics
+  React.useEffect(() => {
+    trackProductView({
+      productId: product.id,
+      productName: product.name,
+      brand: brand?.name,
+      category: category?.name,
+      price: selectedVariant.discountPriceNpr || selectedVariant.priceNpr,
+    });
+  }, [product.id, product.name, brand?.name, category?.name, selectedVariant]);
 
   // Compute live price & discount
   const activePrice = selectedVariant.discountPriceNpr || selectedVariant.priceNpr;

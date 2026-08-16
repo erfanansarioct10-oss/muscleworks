@@ -20,9 +20,7 @@ export const DEFAULT_PRODUCT_PLACEHOLDER = "/brnding-assets/logo.webp";
 // Contact & Ordering Details
 export const STORE_PHONE = "+977 986-1725036";
 export const STORE_PHONE_RAW = "+9779861725036";
-export const STORE_PHONE_DISPLAY = STORE_PHONE;
 export const STORE_WHATSAPP = "+9779861725036";
-export const STORE_WHATSAPP_DISPLAY = "+977 986-1725036";
 export const STORE_EMAIL = "orders@muscleworksnepal.com";
 export const STORE_SUPPORT_EMAIL = "support@muscleworksnepal.com";
 
@@ -54,36 +52,6 @@ export const STORE_HOURS = {
   openingTime: "10:00",
   closingTime: "20:00",
 } as const;
-
-/**
- * Dynamic calculation of whether the Golfutar store is open today at request time in Asia/Kathmandu.
- */
-export function isStoreOpenToday(date: Date = new Date()): boolean {
-  try {
-    const formatter = new Intl.DateTimeFormat("en-US", {
-      timeZone: "Asia/Kathmandu",
-      weekday: "short",
-      hour: "numeric",
-      hour12: false,
-    });
-    const parts = formatter.formatToParts(date);
-    let weekday = "";
-    let hour = 0;
-    
-    for (const part of parts) {
-      if (part.type === "weekday") weekday = part.value;
-      if (part.type === "hour") hour = parseInt(part.value, 10);
-    }
-    
-    // Saturday: contact required / closed for regular retail walk-ins
-    if (weekday === "Sat") return false;
-    
-    // Sun - Fri: 10:00 AM (10) - 8:00 PM (20)
-    return hour >= 10 && hour < 20;
-  } catch {
-    return false;
-  }
-}
 
 // Delivery Promises & Rules for Nepal
 export const DELIVERY_PROMISES = {

@@ -135,22 +135,22 @@ export function AuthenticityGuaranteeBox({
           <span>Need help verifying your batch code or importer seal?</span>
         </div>
 
-        <a
-          href={whatsappUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={handleWhatsAppVerifyClick}
-          className="w-full sm:w-auto"
+        <Button
+          asChild
+          variant="whatsapp"
+          size="lg"
+          className="h-12 w-full gap-2 text-xs font-bold sm:w-auto"
         >
-          <Button
-            variant="whatsapp"
-            size="lg"
-            className="h-12 w-full gap-2 text-xs font-bold sm:w-auto"
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={handleWhatsAppVerifyClick}
           >
             <MessageSquare className="h-4 w-4" />
-            Verify via WhatsApp
-          </Button>
-        </a>
+            <span>Verify via WhatsApp</span>
+          </a>
+        </Button>
       </div>
     </div>
   );

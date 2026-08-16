@@ -30,6 +30,7 @@ Before starting any task, agents must know which context file to consult. If any
 | **6** | [`coding-standards.md`](coding-standards.md) | Mobile-first CSS, Tailwind v4 tokens, CVA variants, touch targets (≥44px/48px), zero `any`, Next.js 16 async params, a11y, Core Web Vitals. | Writing or refactoring any code, component, action, or CSS. | **Highest** on code quality, styling rules, and TypeScript patterns. |
 | **7** | [`project-tech-stacks.md`](project-tech-stacks.md) | Approved runtime packages, exact versions, allowed dependencies, environment variable declarations. | Modifying `package.json`, installing libraries, or configuring environment variables. | **Highest** on package versions and dependency restrictions. |
 | **8** | [`feature-roadmap.md`](feature-roadmap.md) | 8-Phase sequential milestone blueprint broken into 31 atomic sub-phases (0.1–7.4) with file targets and verification gates. | Planning next implementation turn and checking off sub-phases. | **Highest** on implementation sequencing and verification criteria. |
+| **9** | [`graphify-out/graph.json`](../graphify-out/graph.json) & [`graphify-out/GRAPH_REPORT.md`](../graphify-out/GRAPH_REPORT.md) | Codebase knowledge graph & AST dependency network. 2,000+ nodes connecting all code symbols, schemas, and specs. | Pre-flight check on every turn before adding new types, helpers, components, or actions. | **Authoritative map** of actual code-level call graphs, imports, and relationships. |
 
 ---
 
@@ -133,6 +134,8 @@ Every AI agent turn must follow this exact execution cycle:
 ┌─────────────────────────────────────────────────────────────┐
 │ 1. PRE-FLIGHT CHECK                                         │
 │    • Read progress-tracker.md & feature-roadmap.md          │
+│    • Inspect graphify-out/ (or run /graphify query)         │
+│    • Verify existing callers, helpers & schemas to reuse    │
 │    • Identify active sub-phase & mark [IN PROGRESS]         │
 │    • Announce sub-phase ID & target files to user           │
 └──────────────────────────────┬──────────────────────────────┘
@@ -155,6 +158,7 @@ Every AI agent turn must follow this exact execution cycle:
                                ▼
 ┌─────────────────────────────────────────────────────────────┐
 │ 4. POST-FLIGHT HAND-OFF                                     │
+│    • Run `graphify --update` to synchronize knowledge graph │
 │    • Mark [x] in progress-tracker.md & feature-roadmap.md   │
 │    • Update Session Notes with key decisions                │
 │    • Promote next sub-phase to [NEXT UP]                    │

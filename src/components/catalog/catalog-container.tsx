@@ -10,6 +10,7 @@ import { ActiveFilters } from './active-filters';
 import { CategoryChips } from './category-chips';
 import { SortSelect } from './sort-select';
 import { ProductGrid } from '@/components/product/product-grid';
+import { trackCategoryView } from '@/lib/analytics';
 
 export interface CatalogContainerProps {
   initialProducts: Product[];
@@ -53,6 +54,34 @@ export function CatalogContainer({
   const filteredProducts = React.useMemo(() => {
     return filterAndSortProducts(initialProducts, filterOptions, categories, brands);
   }, [initialProducts, filterOptions, categories, brands]);
+
+  // Resolve active category slug(s) from search params or route pathname
+  const activeCategorySlugs = React.useMemo(() => {
+    const fromQuery = searchParams.get('category');
+    if (fromQuery) {
+      return fromQuery.split(',').filter(Boolean);
+    }
+    if (pathname.startsWith('/categories/')) {
+      const segment = pathname.replace('/categories/', '').split('/')[0];
+      return segment ? [segment] : [];
+    }
+    return [];
+  }, [searchParams, pathname]);
+
+  // Dispatch category view telemetry when active categories change
+  React.useEffect(() => {
+    if (activeCategorySlugs.length > 0) {
+      activeCategorySlugs.forEach((slug) => {
+        const matched = categories.find((c) => c.slug === slug);
+        if (matched) {
+          trackCategoryView({
+            categoryId: matched.id,
+            categoryName: matched.name,
+          });
+        }
+      });
+    }
+  }, [activeCategorySlugs, categories]);
 
   const handleResetFilters = React.useCallback(() => {
     router.push(pathname, { scroll: false });
@@ -100,14 +129,14 @@ export function CatalogContainer({
         </aside>
 
         {/* Main Product Display Grid */}
-        <main className="flex-1 min-w-0 w-full">
+        <section aria-label="Supplement Catalog Products" className="flex-1 min-w-0 w-full">
           <ProductGrid
             products={filteredProducts}
             brandsMap={brandsMap}
             onResetFilters={handleResetFilters}
             className="grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-3 gap-3 sm:gap-5"
           />
-        </main>
+        </section>
       </div>
     </div>
   );

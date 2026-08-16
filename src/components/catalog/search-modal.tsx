@@ -23,6 +23,7 @@ import {
 import { formatNprPrice, calculateDiscountPercentage } from "@/lib/utils";
 import { DEFAULT_PRODUCT_PLACEHOLDER } from "@/lib/constants";
 import { Badge } from "@/components/ui/badge";
+import { trackSearchQuery } from "@/lib/analytics";
 
 const POPULAR_CATEGORIES = [
   { name: "Proteins", slug: "proteins" },
@@ -64,36 +65,24 @@ export function SearchModal({
   const [results, setResults] = React.useState<SearchResult[]>([]);
   const [isLoading, setIsLoading] = React.useState(false);
   const [recentSearches, setRecentSearches] = React.useState<string[]>([]);
+  const [, startTransition] = React.useTransition();
 
   const inputRef = React.useRef<HTMLInputElement>(null);
-  const focusTimerRef = React.useRef<NodeJS.Timeout | null>(null);
 
   const handleOpenChange = React.useCallback(
     (open: boolean) => {
-      if (focusTimerRef.current) {
-        clearTimeout(focusTimerRef.current);
-        focusTimerRef.current = null;
-      }
-
       if (open) {
         setRecentSearches(getRecentSearches());
-        focusTimerRef.current = setTimeout(() => inputRef.current?.focus(), 100);
       } else {
         setQuery("");
-        setResults([]);
+        startTransition(() => {
+          setResults([]);
+        });
       }
       setOpen(open);
     },
-    [setOpen]
+    [setOpen, startTransition]
   );
-
-  React.useEffect(() => {
-    return () => {
-      if (focusTimerRef.current) {
-        clearTimeout(focusTimerRef.current);
-      }
-    };
-  }, []);
 
   // Global Cmd+K / Ctrl+K keyboard shortcut listener
   React.useEffect(() => {
@@ -115,7 +104,9 @@ export function SearchModal({
     if (!trimmed) {
       const emptyTimer = setTimeout(() => {
         if (!cancelled) {
-          setResults([]);
+          startTransition(() => {
+            setResults([]);
+          });
           setIsLoading(false);
         }
       }, 0);
@@ -130,11 +121,19 @@ export function SearchModal({
       try {
         const res = await searchProducts(trimmed, 8);
         if (cancelled) return;
-        setResults(res);
+        startTransition(() => {
+          setResults(res);
+        });
+        trackSearchQuery({
+          query: trimmed,
+          resultsCount: res.length,
+        });
       } catch (err) {
         if (cancelled) return;
         console.error("Search modal query error:", err);
-        setResults([]);
+        startTransition(() => {
+          setResults([]);
+        });
       } finally {
         if (!cancelled) {
           setIsLoading(false);
@@ -146,7 +145,7 @@ export function SearchModal({
       cancelled = true;
       clearTimeout(timer);
     };
-  }, [query]);
+  }, [query, startTransition]);
 
   const handleSelectRecentSearch = (term: string) => {
     setQuery(term);
@@ -170,6 +169,10 @@ export function SearchModal({
     const trimmed = query.trim();
     if (trimmed) {
       addRecentSearch(trimmed);
+      trackSearchQuery({
+        query: trimmed,
+        resultsCount: results.length,
+      });
       handleOpenChange(false);
       router.push(`/products?search=${encodeURIComponent(trimmed)}`);
     }
@@ -185,7 +188,13 @@ export function SearchModal({
   return (
     <Dialog open={isOpen} onOpenChange={handleOpenChange}>
       {children && <DialogTrigger asChild>{children}</DialogTrigger>}
-      <DialogContent className="max-w-2xl p-0 gap-0 overflow-hidden sm:max-w-2xl bg-card border-border shadow-2xl">
+      <DialogContent
+        onOpenAutoFocus={(e) => {
+          e.preventDefault();
+          inputRef.current?.focus();
+        }}
+        className="max-w-2xl p-0 gap-0 overflow-hidden sm:max-w-2xl bg-card border-border shadow-2xl"
+      >
           <DialogHeader className="sr-only">
             <DialogTitle>Search Supplement Catalog</DialogTitle>
             <DialogDescription>
@@ -203,6 +212,9 @@ export function SearchModal({
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               onKeyDown={handleKeyDown}
+              role="searchbox"
+              aria-autocomplete="list"
+              aria-controls="search-results-list"
               placeholder="Search Optimum, Creatine, Whey, Gold Standard..."
               aria-label="Search supplement catalog"
               className="h-10 w-full bg-transparent text-base sm:text-sm text-foreground placeholder:text-muted-foreground focus:outline-none"
@@ -240,7 +252,8 @@ export function SearchModal({
                       <button
                         type="button"
                         onClick={handleClearHistory}
-                        className="flex items-center gap-1 text-xs text-muted-foreground hover:text-destructive transition-colors focus-visible:outline-none"
+                        className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center gap-1 px-2 text-xs text-muted-foreground hover:text-destructive transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring rounded-md"
+                        aria-label="Clear search history"
                       >
                         <Trash2 className="h-3 w-3" />
                         <span>Clear</span>
@@ -301,7 +314,7 @@ export function SearchModal({
                 <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground px-1 mb-1">
                   Matching Products ({results.length})
                 </div>
-                <div className="space-y-1.5">
+                <div className="space-y-1.5" id="search-results-list" role="listbox">
                   {results.map((res) => {
                     const product = res.product;
                     const defaultVariant =
